@@ -1,0 +1,70 @@
+graph {
+    bgcolor: transparent;
+    color: transparent;
+    splines: false;
+    splines: "true";
+}
+
+node {
+    color    : "#586E75";
+    fontcolor: "#ffffff";
+    fillcolor: "#586E75";
+    fontname : "Inter,Arial";
+    style    : "rounded,filled";
+    shape    : "rectangle";
+}
+
+node.leaf {
+    fontcolor: "#586E75";
+    color    : "#586E75";
+    fillcolor: "#ffffff";
+}
+
+node.disabled {
+    color    : "#D0DCE3";
+    fontcolor: "#ffffff";
+    fillcolor: "#D0DCE3";
+}
+
+node.leaf.disabled {
+    color    : "#D0DCE3";
+    fontcolor: "#D0DCE3";
+    fillcolor: "#ffffff"
+}
+
+
+edge {
+    color    : "#586E75";
+    fontcolor: "#586E75";
+    fontname : "Inter,Arial";
+    fontsize : 11;
+}
+
+edge.disabled {
+    fillcolor: "#D0DCE3";
+    color    : "#D0DCE3";
+    fontcolor: "#D0DCE3";
+}
+
+node.leaf.rm {
+    fontcolor: "#923A41";
+    color: "#923A41";
+    fillcolor: "#fdb8c0";
+}
+
+node.add {
+    fontcolor: "#24a808";
+    color: "#24a808";
+    fillcolor: "#acf2bd";
+}
+
+node.leaf.add {
+    fontcolor: "#24a808";
+    color: "#24a808";
+    fillcolor: "#acf2bd";
+}
+
+edge.add {
+    fontcolor: "#24a808";
+    color: "#24a808";
+}

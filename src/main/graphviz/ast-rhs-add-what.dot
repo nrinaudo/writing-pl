@@ -1,0 +1,12 @@
+digraph {
+    rankdir=TB
+    Add[label="Add" class="disabled"]
+    One[label="Num(1)" class="leaf,disabled"]
+    Two[label="???" class="leaf,add"]
+    TwoBis[label="Num(2)" class="leaf" style="invis"]
+    Three[label="Num(3)" class="leaf" style="invis"]
+    Add -> One[class="disabled"]
+    Add -> Two[class="disabled"]
+    Two -> TwoBis[style="invis"]
+    Two -> Three[style="invis"]
+}
