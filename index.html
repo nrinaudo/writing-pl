@@ -7437,12 +7437,24 @@ interpret(expr, Env.empty)
 class: center, middle
 
 # Repeating actions
+
 ---
 
 ## Sum numbers in a range
 
 ```ocaml
 let sum = lower -> upper ->
+    if lower > upper then 0
+    else lower + (sum (lower + 1) upper)
+  in sum 1 10
+```
+
+---
+
+## Sum numbers in a range
+
+```ocaml
+let sum = `lower` -> `upper` ->
     if lower > upper then 0
     else lower + (sum (lower + 1) upper)
   in sum 1 10
