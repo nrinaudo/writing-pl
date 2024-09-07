@@ -16,6 +16,7 @@ class: center, middle
 ---
 
 class: center, middle
+name: substitution
 
 # The substitution model
 
@@ -1198,6 +1199,7 @@ Count = 7
 ---
 
 class: center, middle
+name: ast
 
 # Representing source code
 
@@ -2012,6 +2014,7 @@ interpret(expr)
 ---
 
 class: center, middle
+name: conditionals
 
 # Taking decisions
 
@@ -3763,6 +3766,7 @@ interpret(expr)
 ---
 
 class: center, middle
+name: bindings
 
 # Naming things
 
@@ -4295,7 +4299,7 @@ let x = 1 in
 
 .diff-add[
 ```scala
-*Ε |- value ⇓ n1                         Ε`[name <- n1]` |- body ⇓ n2
+*Ε |- value ⇓ n1                       `(name, n1) ::` Ε |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Ε |- Let name value body ⇓ ???
 ```
@@ -4312,7 +4316,7 @@ let `x = 1` in
 
 .diff-rm[
 ```scala
-Ε |- value ⇓ n1                         Ε[name <- n1] |- body ⇓ n2
+Ε |- value ⇓ n1                       (name, n1) :: Ε |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 *Ε |- Let name value body ⇓ `???`
 ```
@@ -4330,11 +4334,12 @@ let x = 1 in
 
 .diff-add[
 ```scala
-Ε |- value ⇓ n1                         Ε[name <- n1] |- body ⇓ n2
+Ε |- value ⇓ n1                       (name, n1) :: Ε |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 *Ε |- Let name value body ⇓ `n2`
 ```
 ]
+
 
 ```ocaml
 let x = 1 in
@@ -4426,7 +4431,7 @@ enum Expr:
 
 
 ```scala
-Ε |- value ⇓ n1                         Ε[name <- n1] |- body ⇓ n2
+Ε |- value ⇓ n1                       (name, n1) :: Ε |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Ε |- Let name value body ⇓ n2
 ```
@@ -4449,7 +4454,7 @@ enum Expr:
 ]
 
 ```scala
-Ε |- value ⇓ n1                         Ε[name <- n1] |- body ⇓ n2
+Ε |- value ⇓ n1                       (name, n1) :: Ε |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Ε |- Let name value body ⇓ n2
 ```
@@ -4472,7 +4477,7 @@ enum Expr:
 
 
 ```scala
-Ε |- value ⇓ n1                         Ε[name <- n1] |- body ⇓ n2
+Ε |- value ⇓ n1                       (name, n1) :: Ε |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Ε |- Let `name` value body ⇓ n2
 ```
@@ -4495,7 +4500,7 @@ enum Expr:
 
 
 ```scala
-Ε |- value ⇓ n1                         Ε[name <- n1] |- body ⇓ n2
+Ε |- value ⇓ n1                       (name, n1) :: Ε |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Ε |- Let name `value` body ⇓ n2
 ```
@@ -4518,7 +4523,7 @@ enum Expr:
 
 
 ```scala
-Ε |- value ⇓ n1                         Ε[name <- n1] |- body ⇓ n2
+Ε |- value ⇓ n1                       (name, n1) :: Ε |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Ε |- Let name value `body` ⇓ n2
 ```
@@ -4632,9 +4637,31 @@ enum Expr:
 
 ## Environment
 
+```scala
+case class Env():
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+```
+
+---
+
+## Environment
+
 .diff-add[
 ```scala
-*case class Env`(map: Map[String, Value])`:
+*case class Env(`env: List[???]`):
+&#x200B;
+&#x200B;
+&#x200B;
 &#x200B;
 &#x200B;
 &#x200B;
@@ -4652,69 +4679,40 @@ enum Expr:
 
 .diff-add[
 ```scala
-case class Env(map: Map[String, Value]):
-* `def lookup(name: String) =`
-*   `map.getOrElse(name, sys.error(s"Unbound variable: $name"))`
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
-
----
-
-## Environment
-
-.diff-add[
-```scala
-case class Env(map: Map[String, Value]):
-  def lookup(name: String) =
-    map.getOrElse(name, sys.error(s"Unbound variable: $name"))
-&#x200B;
-* `def bind(name: String, value: Value) =`
-*   `Env(map + (name -> value))`
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
-
----
-
-## Environment
-
-```scala
-case class Env(map: Map[String, Value]):
-  def lookup(name: String) =
-    map.getOrElse(name, sys.error(s"Unbound variable: $name"))
-&#x200B;
-  def bind(name: String, value: Value) =
-    `Env(map + (name -> value))`
-&#x200B;
-&#x200B;
-&#x200B;
-```
-
----
-
-## Environment
-
-.diff-add[
-```scala
-case class Env(map: Map[String, Value]):
-  def lookup(name: String) =
-    map.getOrElse(name, sys.error(s"Unbound variable: $name"))
-&#x200B;
-  def bind(name: String, value: Value) =
-    Env(map + (name -> value))
+case class Env(env: List[???]):
 &#x200B;
 *&#x200B;`object Env:`
-*  `val empty: Env = Env(Map.empty)`
+*  `case class Binding(name: String, value: Value)`
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
 ```
 ]
+
+---
+
+## Environment
+
+```scala
+case class Env(env: List[Env.Binding]):
+  def lookup(name: String): Value =
+    env.find(_.name == name)
+        .map(_.value)
+        .getOrElse(sys.error(s"Unbound variable: $name"))
+
+  def bind(name: String, value: Value) =
+    Env(Env.Binding(name, value) :: env)
+
+object Env:
+  case class Binding(name: String, value: Value)
+
+  val empty: Env = Env(List.empty)
+```
 
 ---
 
@@ -5116,7 +5114,7 @@ def let(name: String, value: Expr, body: Expr, env: Env) = ???
 ```
 
 ```scala
-Ε |- value ⇓ n1                         Ε[name <- n1] |- body ⇓ n2
+Ε |- value ⇓ n1                       (name, n1) :: Ε |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Ε |- Let name value body ⇓ n2
 ```
@@ -5138,7 +5136,7 @@ def let(name: String, value: Expr, body: Expr, env: Env) = ???
 ]
 
 ```scala
-Ε |- value ⇓ n1                         Ε[name <- n1] |- body ⇓ n2
+Ε |- value ⇓ n1                       (name, n1) :: Ε |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Ε |- Let name value body ⇓ n2
 ```
@@ -5160,7 +5158,7 @@ def let(name: String, value: Expr, body: Expr, env: Env) =
 ]
 
 ```scala
-&#x200B;`Ε |- value ⇓ n1`                         Ε[name <- n1] |- body ⇓ n2
+&#x200B;`Ε |- value ⇓ n1`                       (name, n1) :: Ε |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Ε |- Let name value body ⇓ n2
 ```
@@ -5182,7 +5180,7 @@ def let(name: String, value: Expr, body: Expr, env: Env) =
 ]
 
 ```scala
-Ε |- value ⇓ n1                         `Ε[name <- n1] |- body ⇓ n2`
+Ε |- value ⇓ n1                       `(name, n1) :: Ε |- body ⇓ n2`
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Ε |- Let name value body ⇓ n2
 ```
@@ -5202,7 +5200,7 @@ def let(name: String, value: Expr, body: Expr, env: Env) =
 ```
 
 ```scala
-Ε |- value ⇓ n1                         `Ε[name <- n1]` |- body ⇓ n2
+Ε |- value ⇓ n1                       `(name, n1) :: Ε` |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Ε |- Let name value body ⇓ n2
 ```
@@ -5225,7 +5223,7 @@ def let(name: String, value: Expr, body: Expr, env: Env) =
 ]
 
 ```scala
-Ε |- value ⇓ n1                         Ε[name <- n1] |- body ⇓ n2
+Ε |- value ⇓ n1                       (name, n1) :: Ε |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 *Ε |- Let name value body ⇓ `n2`
 ```
@@ -5245,7 +5243,7 @@ def interpret(expr: Expr, env: Env): Value = expr match
 ```
 
 ```scala
-Ε |- value ⇓ n1                         Ε[name <- n1] |- body ⇓ n2
+Ε |- value ⇓ n1                       (name, n1) :: Ε |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Ε |- Let name value body ⇓ n2
 ```
@@ -5266,7 +5264,7 @@ def interpret(expr: Expr, env: Env): Value = expr match
 ```
 
 ```scala
-Ε |- value ⇓ n1                         Ε[name <- n1] |- body ⇓ n2
+Ε |- value ⇓ n1                       (name, n1) :: Ε |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Ε |- Let name value body ⇓ n2
 ```
@@ -5388,6 +5386,7 @@ interpret(expr, Env.empty)
 ---
 
 class: center, middle
+name: functions
 
 # Reusing Code
 
@@ -6712,7 +6711,7 @@ let f = x -> x + 2 in
 .diff-add[
 ```scala
 Ε |- fun ⇓ Value.Fun param body Ε′                    Ε |- arg ⇓ n1
-*Ε′`[param <- n1]` |- body ⇓ ???
+*&#x200B;`(param, n1) ::` Ε′ |- body ⇓ ???
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Ε |- Apply fun arg ⇓ ???
 ```
@@ -6730,7 +6729,7 @@ let f = x -> x + 2 in
 .diff-rm[
 ```scala
 Ε |- fun ⇓ Value.Fun param body Ε′                    Ε |- arg ⇓ n1
-*Ε′[param <- n1] |- body ⇓ `???`
+*(param, n1) :: Ε′ |- body ⇓ `???`
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Ε |- Apply fun arg ⇓ ???
 ```
@@ -6748,7 +6747,7 @@ let f = x -> x + 2 in
 .diff-add[
 ```scala
 Ε |- fun ⇓ Value.Fun param body Ε′                    Ε |- arg ⇓ n1
-*Ε′[param <- n1] |- body ⇓ `n2`
+*(param, n1) :: Ε′ |- body ⇓ `n2`
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Ε |- Apply fun arg ⇓ ???
 ```
@@ -6766,7 +6765,7 @@ let f = x -> x + 2 in
 .diff-rm[
 ```scala
 Ε |- fun ⇓ Value.Fun param body Ε′                    Ε |- arg ⇓ n1
-Ε′[param <- n1] |- body ⇓ n2
+(param, n1) :: Ε′ |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 *Ε |- Apply fun arg ⇓ `???`
 ```
@@ -6784,7 +6783,7 @@ let f = x -> x + 2 in
 .diff-add[
 ```scala
 Ε |- fun ⇓ Value.Fun param body Ε′                    Ε |- arg ⇓ n1
-Ε′[param <- n1] |- body ⇓ n2
+(param, n1) :: Ε′ |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 *Ε |- Apply fun arg ⇓ `n2`
 ```
@@ -6911,7 +6910,7 @@ enum Expr:
 
 ```scala
 Ε |- fun ⇓ Value.Fun param body Ε′                    Ε |- arg ⇓ n1
-Ε′[param <- n1] |- body ⇓ n2
+(param, n1) :: Ε′ |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Ε |- Apply fun arg ⇓ n2
 ```
@@ -6937,7 +6936,7 @@ enum Expr:
 
 ```scala
 Ε |- fun ⇓ Value.Fun param body Ε′                    Ε |- arg ⇓ n1
-Ε′[param <- n1] |- body ⇓ n2
+(param, n1) :: Ε′ |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Ε |- `Apply` function arg ⇓ n2
 ```
@@ -6962,7 +6961,7 @@ enum Expr:
 
 ```scala
 Ε |- fun ⇓ Value.Fun param body Ε′                    Ε |- arg ⇓ n1
-Ε′[param <- n1] |- body ⇓ n2
+(param, n1) :: Ε′ |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Ε |- Apply `fun` arg ⇓ n2
 ```
@@ -6987,7 +6986,7 @@ enum Expr:
 
 ```scala
 Ε |- fun ⇓ Value.Fun param body Ε′                    Ε |- arg ⇓ n1
-Ε′[param <- n1] |- body ⇓ n2
+(param, n1) :: Ε′ |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Ε |- Apply fun `arg` ⇓ n2
 ```
@@ -7111,7 +7110,7 @@ def interpret(expr: Expr, env: Env): Value = expr match
 
 ```scala
 Ε |- fun ⇓ Value.Fun param body Ε′    Ε |- arg ⇓ n1
-Ε′[param <- n1] |- body ⇓ n2
+(param, n1) :: Ε′ |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Ε |- Apply fun arg ⇓ n2
 ```
@@ -7136,7 +7135,7 @@ def interpret(expr: Expr, env: Env): Value = expr match
 
 ```scala
 Ε |- fun ⇓ Value.Fun param body Ε′    Ε |- arg ⇓ n1
-Ε′[param <- n1] |- body ⇓ n2
+(param, n1) :: Ε′ |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Ε |- Apply fun arg ⇓ n2
 ```
@@ -7159,7 +7158,7 @@ def apply(fun: Expr, arg: Expr, env: Env) = ???
 
 ```scala
 Ε |- fun ⇓ Value.Fun param body Ε′    Ε |- arg ⇓ n1
-Ε′[param <- n1] |- body ⇓ n2
+(param, n1) :: Ε′ |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Ε |- Apply fun arg ⇓ n2
 ```
@@ -7184,7 +7183,7 @@ def apply(fun: Expr, arg: Expr, env: Env) = ???
 
 ```scala
 Ε |- fun ⇓ Value.Fun param body Ε′    Ε |- arg ⇓ n1
-Ε′[param <- n1] |- body ⇓ n2
+(param, n1) :: Ε′ |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Ε |- Apply fun arg ⇓ n2
 ```
@@ -7209,7 +7208,7 @@ def apply(fun: Expr, arg: Expr, env: Env) = ???
 
 ```scala
 &#x200B;`Ε |- fun ⇓ Value.Fun param body Ε′`    Ε |- arg ⇓ n1
-Ε′[param <- n1] |- body ⇓ n2
+(param, n1) :: Ε′ |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Ε |- Apply fun arg ⇓ n2
 ```
@@ -7234,7 +7233,7 @@ def apply(fun: Expr, arg: Expr, env: Env) = ???
 
 ```scala
 Ε |- fun ⇓ Value.Fun param body Ε′    `Ε |- arg ⇓ n1`
-Ε′[param <- n1] |- body ⇓ n2
+(param, n1) :: Ε′ |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Ε |- Apply fun arg ⇓ n2
 ```
@@ -7259,7 +7258,7 @@ def apply(fun: Expr, arg: Expr, env: Env) = ???
 
 ```scala
 Ε |- fun ⇓ Value.Fun param body Ε′    Ε |- arg ⇓ n1
-&#x200B;`Ε′[param <- n1] |- body ⇓ n2`
+&#x200B;`(param, n1) :: Ε′ |- body ⇓ n2`
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Ε |- Apply fun arg ⇓ n2
 ```
@@ -7284,7 +7283,7 @@ def apply(fun: Expr, arg: Expr, env: Env) = ???
 
 ```scala
 Ε |- fun ⇓ Value.Fun param body Ε′    Ε |- arg ⇓ n1
-Ε′[param <- n1] |- body ⇓ n2
+(param, n1) :: Ε′ |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Ε |- Apply fun arg ⇓ `n2`
 ```
@@ -7309,7 +7308,7 @@ def apply(fun: Expr, arg: Expr, env: Env) = ???
 
 ```scala
 Ε |- fun ⇓ Value.Fun param body Ε′    Ε |- arg ⇓ n1
-Ε′[param <- n1] |- body ⇓ n2
+(param, n1) :: Ε′ |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Ε |- Apply fun arg ⇓ n2
 ```
@@ -7435,12 +7434,13 @@ interpret(expr, Env.empty)
 ---
 
 class: center, middle
+name: recursion
 
 # Repeating actions
 
 ---
 
-## Sum numbers in a range
+## Sum
 
 ```ocaml
 let sum = lower -> upper ->
@@ -7451,7 +7451,7 @@ let sum = lower -> upper ->
 
 ---
 
-## Sum numbers in a range
+## Sum
 
 ```ocaml
 let sum = `lower` -> `upper` ->
@@ -7462,7 +7462,40 @@ let sum = `lower` -> `upper` ->
 
 ---
 
-## Sum numbers in a range
+## Sum
+
+```ocaml
+let sum = lower -> upper ->
+    `if lower > upper then 0`
+    else lower + (sum (lower + 1) upper)
+  in sum 1 10
+```
+
+---
+
+## Sum
+
+```ocaml
+let sum = lower -> upper ->
+    if lower > upper then 0
+    else `lower` + (sum (lower + 1) upper)
+  in sum 1 10
+```
+
+---
+
+## Sum
+
+```ocaml
+let sum = lower -> upper ->
+    if lower > upper then 0
+    else lower + `(sum (lower + 1) upper)`
+  in sum 1 10
+```
+
+---
+
+## Sum (for loop)
 
 ```ocaml
 fun sumFor lower upper =
@@ -7470,6 +7503,54 @@ fun sumFor lower upper =
   for i = lower to upper do
     acc = acc + i
   acc
+```
+
+---
+
+## Sum (for loop)
+
+```ocaml
+fun sumFor lower upper =
+  `var acc = 0`
+  for i = lower to upper do
+    acc = acc + i
+  acc
+```
+
+---
+
+## Sum (for loop)
+
+```ocaml
+fun sumFor lower upper =
+  var acc = 0
+  `for i = lower to upper do`
+    acc = acc + i
+  acc
+```
+
+---
+
+## Sum (for loop)
+
+```ocaml
+fun sumFor lower upper =
+  var acc = 0
+  for i = lower to upper do
+    `acc = acc + i`
+  acc
+```
+
+---
+
+## Sum (for loop)
+
+```ocaml
+fun sumFor lower upper =
+  var acc = 0
+  for i = lower to upper do
+    acc = acc + i
+  `acc`
 ```
 
 ---
@@ -7988,12 +8069,127 @@ interpret(expr, Env.empty)
 
 ---
 
-## Substitution: recursive bindings
+## Testing recursion
+
+```ocaml
+let `sum` = lower -> upper ->
+    if lower > upper then 0
+    else lower + (sum (lower + 1) upper)
+  in sum 1 10
+```
+
+```scala
+val expr = Let(
+  ...
+)
+```
+
+```scala
+interpret(expr, Env.empty)
+// ⛔ Unbound variable: sum
+```
+
+---
+
+## Testing recursion
+
+```ocaml
+let sum = `lower -> upper ->`
+    `if lower > upper then 0`
+    `else lower + (sum (lower + 1) upper)`
+  in sum 1 10
+```
+
+```scala
+val expr = Let(
+  ...
+)
+```
+
+```scala
+interpret(expr, Env.empty)
+// ⛔ Unbound variable: sum
+```
+
+---
+
+## Testing recursion
+
+```ocaml
+let sum = lower -> upper ->
+    if lower > upper then 0
+    else lower + (`sum` (lower + 1) upper)
+  in sum 1 10
+```
+
+```scala
+val expr = Let(
+  ...
+)
+```
+
+```scala
+interpret(expr, Env.empty)
+// ⛔ Unbound variable: sum
+```
+
+---
+
+## Formal semantics: recursion
+
+```scala
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+```
 
 ```ocaml
 let rec sum = lower -> upper ->
     if lower > upper then 0
     else lower + (sum (lower + 1) upper)
+  in sum 1 10
+```
+
+
+
+---
+
+## Formal semantics: recursion
+
+```scala
+Ε′ = (name, null) :: Ε; Ε′ |- value ⇓ n1
+update(Ε′, name, n1); Ε′ |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Ε |- LetRec name value body ⇓ n2
+```
+
+```ocaml
+let rec sum = lower -> upper ->
+    if lower > upper then 0
+    else lower + (sum (lower + 1) upper)
+  in sum 1 10
+```
+
+---
+
+## Substitution: recursive bindings
+
+```ocaml
+let rec `sum` = lower -> upper ->
+    if lower > upper then 0
+    else lower + (sum (lower + 1) upper)
+  in sum 1 10
+```
+
+---
+
+## Substitution: recursive bindings
+
+```ocaml
+let rec sum = lower -> upper ->
+    if lower > upper then 0
+    else lower + (`sum` (lower + 1) upper)
   in sum 1 10
 ```
 
@@ -8037,68 +8233,26 @@ enum Expr:
 
 ---
 
-## Updated AST: recursive bindings
-
-```scala
-Ε′ = Ε[name <- null]; Ε′ |- value ⇓ n1
-update(Ε′, name, n1); Ε′ |- body ⇓ n2
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- LetRec name value body ⇓ n2
-```
-
----
-
 ## Interpretation: recursive bindings
 
 ```scala
-def let(name: String, value: Expr, body: Expr, env: Env) =
-  val actualValue = interpret(value, env)
-  val newEnv      = env.bind(name, actualValue)
-
-  interpret(body, newEnv)
-```
-
----
-
-## Interpretation: recursive bindings
-
-```scala
-def letRec(name: String, value: Expr, body: Expr, env: Env) =
-  val actualValue = interpret(value, env)
-  val newEnv      = env.bind(name, actualValue)
-
-  interpret(body, newEnv)
-```
-
----
-
-## Interpretation: recursive bindings
-
-```scala
-def letRec(name: String, value: Expr, body: Expr, env: Env) =
-  interpret(value, env) match
-    case function: Value.Fun =>
-      val newEnv = env.bind(name, actualValue)
-      interpret(body, newEnv)
-```
-
----
-
-## Interpretation: recursive bindings
-
-```scala
-case class Env(map: mutable.Map[String, Value]):
-  def lookup(name: String) =
-    map.getOrElse(name, sys.error(s"Unbound variable: $name"))
+case class Env(env: List[Env.Binding]):
+  def lookup(name: String): Value =
+    env.find(_.name == name)
+        .map(_.value)
+        .getOrElse(sys.error(s"Unbound variable: $name"))
 
   def bind(name: String, value: Value) =
-    Env(map ++ mutable.Map(name -> value))
+    Env(Env.Binding(name, value) :: env)
 
   def set(name: String, value: Value) =
-    map += (name -> value)
+    env.find(_.name == name)
+       .foreach(_.value = value)
 
 object Env:
-  val empty: Env = Env(mutable.Map.empty)
+  case class Binding(name: String, var value: Value)
+
+  val empty: Env = Env(List.empty)
 
 ```
 
@@ -8109,14 +8263,19 @@ object Env:
 ```scala
 def letRec(name: String, value: Expr, body: Expr, env: Env) =
   val newEnv = env.bind(name, null)
+  val n1     = interpret(value, newEnv)
 
-  interpret(value, newEnv) match
-    case function: Value.Fun =>
-      newEnv.set(name, function)
-      interpret(body, newEnv)
-
-    case _ => typeError("letRec")
+  newEnv.set(name, n1)
+  interpret(body, newEnv)
 ```
+
+```scala
+Ε′ = (name, null) :: Ε; Ε′ |- value ⇓ n1
+update(Ε′, name, n1); Ε′ |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Ε |- LetRec name value body ⇓ n2
+```
+
 
 ---
 
@@ -8179,6 +8338,7 @@ interpret(expr, Env.empty)
 ---
 
 class: center, middle
+name: typechecking
 
 # Identifying invalid programs
 ---
@@ -8200,8 +8360,8 @@ interpret(nonsense, Env.empty)
 // java.lang.RuntimeException: Type error in add
 //   at scala.sys.package$.error(package.scala:27)
 //   at <console>.typeError(<console>:7)
-//   at <console>.add(<console>:37)
-//   at <console>.interpret(<console>:78)
+//   at <console>.add(<console>:42)
+//   at <console>.interpret(<console>:80)
 //   ... 36 elided
 ```
 
@@ -8852,6 +9012,15 @@ val expr: TypedExpr[Type.Bool -> Type.Num] = Fun(
 
 ---
 
+## TOC
+
+* [The Substitution Model](#substitution)
+* [Representing source code](#ast)
+* [Taking decisions](#conditionals)
+* [Naming things](#bindings)
+* [Reusing Code](#functions)
+* [Repeating actions](#recursion)
+* [Identifying invalid programs](#typechecking)
 
 
 [@NicolasRinaudo@functional.cafe]:https://functional.cafe/@NicolasRinaudo
