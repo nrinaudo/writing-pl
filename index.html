@@ -1561,6 +1561,8 @@ lhs ⇓ n1                                                  rhs ⇓ n2
 def interpret(expr: Expr): Int = ???
 &#x200B;
 &#x200B;
+&#x200B;
+&#x200B;
 ```
 
 ---
@@ -1570,6 +1572,8 @@ def interpret(expr: Expr): Int = ???
 .diff-rm[
 ```scala
 *def interpret(expr: Expr): Int = `???`
+&#x200B;
+&#x200B;
 &#x200B;
 &#x200B;
 ```
@@ -1584,6 +1588,8 @@ def interpret(expr: Expr): Int = ???
 *def interpret(expr: Expr): Int = `expr match`
 &#x200B;
 &#x200B;
+&#x200B;
+&#x200B;
 ```
 ]
 
@@ -1595,10 +1601,12 @@ def interpret(expr: Expr): Int = ???
 def interpret(expr: Expr): Int = expr match
 &#x200B;
 &#x200B;
+&#x200B;
+&#x200B;
 ```
 
 ```scala
-Num value ⇓ value
+&#x200B;`Num value` ⇓ value
 &#x200B;
 &#x200B;
 ```
@@ -1609,6 +1617,8 @@ Num value ⇓ value
 
 ```scala
 def interpret(expr: Expr): Int = expr match
+&#x200B;
+&#x200B;
 &#x200B;
 &#x200B;
 ```
@@ -1629,7 +1639,9 @@ Num value ⇓ value
 .diff-add[
 ```scala
 def interpret(expr: Expr): Int = expr match
-* `case Num(value)    =>`
+* `case Num()         =>`
+&#x200B;
+&#x200B;
 &#x200B;
 ```
 ]
@@ -1637,7 +1649,27 @@ def interpret(expr: Expr): Int = expr match
 ```scala
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-&#x200B;`Num value` ⇓ value
+&#x200B;`Num` value ⇓ value
+```
+
+---
+
+## Interpretation: number literals
+
+.diff-add[
+```scala
+def interpret(expr: Expr): Int = expr match
+* case Num(`value`)    =>
+&#x200B;
+&#x200B;
+&#x200B;
+```
+]
+
+```scala
+&#x200B;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Num `value` ⇓ value
 ```
 
 ---
@@ -1648,6 +1680,8 @@ def interpret(expr: Expr): Int = expr match
 ```scala
 def interpret(expr: Expr): Int = expr match
 * case Num(value)    => `value`
+&#x200B;
+&#x200B;
 &#x200B;
 ```
 ]
@@ -1666,25 +1700,9 @@ Num value ⇓ `value`
 def interpret(expr: Expr): Int = expr match
   case Num(value)    => value
 &#x200B;
+&#x200B;
+&#x200B;
 ```
-
-```scala
-lhs ⇓ n1                                                  rhs ⇓ n2
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Add lhs rhs ⇓ n1 + n2
-```
-
----
-
-## Interpretation: addition
-
-.diff-add[
-```scala
-def interpret(expr: Expr): Int = expr match
-  case Num(value)    => value
-* `case Add(lhs, rhs) =>`
-```
-]
 
 ```scala
 lhs ⇓ n1                                                  rhs ⇓ n2
@@ -1700,32 +1718,16 @@ lhs ⇓ n1                                                  rhs ⇓ n2
 ```scala
 def interpret(expr: Expr): Int = expr match
   case Num(value)    => value
-* case Add(lhs, rhs) => `interpret(lhs)`
-```
-]
-
-```scala
-&#x200B;`lhs ⇓ n1`                                                  rhs ⇓ n2
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Add lhs rhs ⇓ `n1` + n2
-```
-
----
-
-## Interpretation: addition
-
-.diff-add[
-```scala
-def interpret(expr: Expr): Int = expr match
-  case Num(value)    => value
-* case Add(lhs, rhs) => interpret(lhs) `+`
+* `case Add()         =>`
+&#x200B;
+&#x200B;
 ```
 ]
 
 ```scala
 lhs ⇓ n1                                                  rhs ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Add lhs rhs ⇓ n1 `+` n2
+&#x200B;`Add` lhs rhs ⇓ n1 + n2
 ```
 
 ---
@@ -1736,14 +1738,134 @@ Add lhs rhs ⇓ n1 `+` n2
 ```scala
 def interpret(expr: Expr): Int = expr match
   case Num(value)    => value
-* case Add(lhs, rhs) => interpret(lhs) + `interpret(rhs)`
+* case Add(`lhs`)      =>
+&#x200B;
+&#x200B;
+```
+]
+
+```scala
+lhs ⇓ n1                                                  rhs ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Add `lhs` rhs ⇓ n1 + n2
+```
+
+---
+
+## Interpretation: addition
+
+.diff-add[
+```scala
+def interpret(expr: Expr): Int = expr match
+  case Num(value)    => value
+* case Add(lhs`, rhs`) =>
+&#x200B;
+&#x200B;
+```
+]
+
+```scala
+lhs ⇓ n1                                                  rhs ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Add lhs `rhs` ⇓ n1 + n2
+```
+
+---
+
+## Interpretation: addition
+
+.diff-add[
+```scala
+def interpret(expr: Expr): Int = expr match
+  case Num(value)    => value
+* case Add(lhs, rhs) => `add(rhs, rhs)`
+&#x200B;
+&#x200B;
+```
+]
+
+```scala
+lhs ⇓ n1                                                  rhs ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Add lhs rhs ⇓ n1 + n2
+```
+
+---
+
+## Interpretation: addition
+
+```scala
+def add(lhs: Num, rhs: Num) =
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+```
+
+```scala
+lhs ⇓ n1                                                  rhs ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Add lhs rhs ⇓ n1 + n2
+```
+
+---
+
+## Interpretation: addition
+
+.diff-add[
+```scala
+def add(lhs: Num, rhs: Num) =
+* `val n1 = interpret(lhs)`
+&#x200B;
+&#x200B;
+&#x200B;
+```
+]
+
+```scala
+&#x200B;`lhs ⇓ n1`                                                  rhs ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Add lhs rhs ⇓ n1 + n2
+```
+
+---
+
+## Interpretation: addition
+
+.diff-add[
+```scala
+def add(lhs: Num, rhs: Num) =
+  val n1 = interpret(lhs)
+* `val n2 = interpret(rhs)`
+&#x200B;
+&#x200B;
 ```
 ]
 
 ```scala
 lhs ⇓ n1                                                  `rhs ⇓ n2`
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Add lhs rhs ⇓ n1 + `n2`
+Add lhs rhs ⇓ n1 + n2
+```
+
+---
+
+## Interpretation: addition
+
+.diff-add[
+```scala
+def add(lhs: Num, rhs: Num) =
+  val n1 = interpret(lhs)
+  val n2 = interpret(rhs)
+&#x200B;
+* `n1 + n2`
+```
+]
+
+```scala
+lhs ⇓ n1                                                  rhs ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Add lhs rhs ⇓ `n1 + n2`
 ```
 
 ---
@@ -1817,6 +1939,25 @@ val expr = Add(Num(1), `Num(2)`)
 ```scala
 val expr = Add(Num(1), Num(2))
 
+```
+
+```scala
+interpret(expr)
+// val res0: Int = 4
+```
+
+---
+
+## Abstract Syntax (Tree)
+
+```ocaml
+1 + 2
+&#x200B;
+&#x200B;
+```
+
+```scala
+val expr = Add(Num(1), Num(2))
 ```
 
 ```scala
@@ -1934,6 +2075,8 @@ enum Expr:
 ## Nested expressions
 
 
+CONSIDER adding a diagram to show the change
+
 .diff-add[
 ```scala
 enum Expr:
@@ -1946,10 +2089,13 @@ enum Expr:
 
 ## Nested expressions
 
+
 ```scala
-def interpret(expr: Expr): Int = expr match
-  case Num(value)    => value
-  case Add(lhs, rhs) => interpret(lhs) + interpret(rhs)
+def add(lhs: Num, rhs: Num) =
+  val n1 = interpret(lhs)
+  val n2 = interpret(rhs)
+
+  n1 + n2
 ```
 
 ```scala
@@ -1962,14 +2108,18 @@ Add lhs rhs ⇓ n1 + n2
 
 ## Nested expressions
 
+.diff-rm[
 ```scala
-def interpret(expr: Expr): Int = expr match
-  case Num(value)    => value
-  case Add(lhs, rhs) => `interpret(lhs)` + interpret(rhs)
+*def add(lhs: `Num`, rhs: `Num`) =
+  val n1 = interpret(lhs)
+  val n2 = interpret(rhs)
+
+  n1 + n2
 ```
+]
 
 ```scala
-&#x200B;`lhs ⇓ n1`                                                  rhs ⇓ n2
+lhs ⇓ n1                                                  rhs ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Add lhs rhs ⇓ n1 + n2
 ```
@@ -1977,6 +2127,61 @@ Add lhs rhs ⇓ n1 + n2
 ---
 
 ## Nested expressions
+
+.diff-add[
+```scala
+*def add(lhs: `Expr`, rhs: `Expr`) =
+  val n1 = interpret(lhs)
+  val n2 = interpret(rhs)
+
+  n1 + n2
+```
+]
+
+```scala
+lhs ⇓ n1                                                  rhs ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Add lhs rhs ⇓ n1 + n2
+```
+
+---
+
+## Nested expressions
+
+```scala
+def add(lhs: Expr, rhs: Expr) =
+  `val n1 = interpret(lhs)`
+  val n2 = interpret(rhs)
+
+  n1 + n2
+```
+
+```scala
+&#x200B;`lhs ⇓ n1`                                                  rhs ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Add lhs rhs ⇓ n1 + n2
+```
+---
+
+## Nested expressions
+
+```scala
+def add(lhs: Expr, rhs: Expr) =
+  val n1 = interpret(lhs)
+  `val n2 = interpret(rhs)`
+
+  n1 + n2
+```
+
+```scala
+lhs ⇓ n1                                                  `rhs ⇓ n2`
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Add lhs rhs ⇓ n1 + n2
+```
+
+---
+
+## Checking our work
 
 ```ocaml
 1 + (2 + 3)
@@ -2634,7 +2839,7 @@ Cond pred thenBranch `elseBranch` ⇓ n
 ```scala
 def interpret(expr: Expr): Int = expr match
   case Num(value)       => value
-  case Add(lhs, rhs)    => interpret(lhs) + interpret(rhs)
+  case Add(lhs, rhs)    => add(lhs, rhs)
 &#x200B;
 &#x200B;
 &#x200B;
@@ -2660,8 +2865,8 @@ Cond pred thenBranch elseBranch ⇓ n
 ```scala
 def interpret(expr: Expr): Int = expr match
   case Num(value)       => value
-  case Add(lhs, rhs)    => interpret(lhs) + interpret(rhs)
-* `case Cond(pred, t, e) =>`
+  case Add(lhs, rhs)    => add(lhs, rhs)
+* `case Cond()           =>`
 &#x200B;
 &#x200B;
 ```
@@ -2670,13 +2875,13 @@ def interpret(expr: Expr): Int = expr match
 ```scala
 pred ⇓ true                                         thenBranch ⇓ n
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-&#x200B;`Cond pred thenBranch elseBranch` ⇓ n
+&#x200B;`Cond` pred thenBranch elseBranch ⇓ n
 ```
 
 ```scala
 pred ⇓ false                                        elseBranch ⇓ n
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-&#x200B;`Cond pred thenBranch elseBranch` ⇓ n
+&#x200B;`Cond` pred thenBranch elseBranch ⇓ n
 ```
 
 ---
@@ -2687,9 +2892,169 @@ pred ⇓ false                                        elseBranch ⇓ n
 ```scala
 def interpret(expr: Expr): Int = expr match
   case Num(value)       => value
-  case Add(lhs, rhs)    => interpret(lhs) + interpret(rhs)
-  case Cond(pred, t, e) =>
-*   `if interpret(pred) then`
+  case Add(lhs, rhs)    => add(lhs, rhs)
+* case Cond(`pred`)       =>
+&#x200B;
+&#x200B;
+```
+]
+
+```scala
+pred ⇓ true                                         thenBranch ⇓ n
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;Cond `pred` thenBranch elseBranch ⇓ n
+```
+
+```scala
+pred ⇓ false                                        elseBranch ⇓ n
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;Cond `pred` thenBranch elseBranch ⇓ n
+```
+
+---
+
+## Interpretation: conditionals
+
+.diff-add[
+```scala
+def interpret(expr: Expr): Int = expr match
+  case Num(value)       => value
+  case Add(lhs, rhs)    => add(lhs, rhs)
+* case Cond(pred`, t`)    =>
+&#x200B;
+&#x200B;
+```
+]
+
+```scala
+pred ⇓ true                                         thenBranch ⇓ n
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;Cond pred `thenBranch` elseBranch ⇓ n
+```
+
+```scala
+pred ⇓ false                                        elseBranch ⇓ n
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;Cond pred `thenBranch` elseBranch ⇓ n
+```
+
+---
+
+## Interpretation: conditionals
+
+.diff-add[
+```scala
+def interpret(expr: Expr): Int = expr match
+  case Num(value)       => value
+  case Add(lhs, rhs)    => add(lhs, rhs)
+* case Cond(pred, t`, e`) =>
+&#x200B;
+&#x200B;
+```
+]
+
+```scala
+pred ⇓ true                                         thenBranch ⇓ n
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;Cond pred thenBranch `elseBranch` ⇓ n
+```
+
+```scala
+pred ⇓ false                                        elseBranch ⇓ n
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;Cond pred thenBranch `elseBranch` ⇓ n
+```
+
+---
+
+## Interpretation: conditionals
+
+.diff-add[
+```scala
+def interpret(expr: Expr): Int = expr match
+  case Num(value)       => value
+  case Add(lhs, rhs)    => add(lhs, rhs)
+* case Cond(pred, t, e) => `cond(pred, t, e)`
+&#x200B;
+&#x200B;
+```
+]
+
+```scala
+pred ⇓ true                                         thenBranch ⇓ n
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Cond pred thenBranch elseBranch ⇓ n
+```
+
+```scala
+pred ⇓ false                                        elseBranch ⇓ n
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Cond pred thenBranch elseBranch ⇓ n
+```
+
+---
+
+## Interpretation: conditionals
+
+```scala
+def cond(pred: Expr, t: Expr, e: Expr) = ???
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+```
+
+```scala
+pred ⇓ true                                         thenBranch ⇓ n
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Cond pred thenBranch elseBranch ⇓ n
+```
+
+```scala
+pred ⇓ false                                        elseBranch ⇓ n
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Cond pred thenBranch elseBranch ⇓ n
+```
+
+---
+
+## Interpretation: conditionals
+
+.diff-rm[
+```scala
+*def cond(pred: Expr, t: Expr, e: Expr) = `???`
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+```
+]
+
+```scala
+pred ⇓ true                                         thenBranch ⇓ n
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Cond pred thenBranch elseBranch ⇓ n
+```
+
+```scala
+pred ⇓ false                                        elseBranch ⇓ n
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Cond pred thenBranch elseBranch ⇓ n
+```
+
+---
+
+## Interpretation: conditionals
+
+.diff-add[
+```scala
+def cond(pred: Expr, t: Expr, e: Expr) =
+* `if interpret(pred) then`
+&#x200B;
+&#x200B;
+&#x200B;
 &#x200B;
 ```
 ]
@@ -2712,11 +3077,11 @@ Cond pred thenBranch elseBranch ⇓ n
 
 .diff-add[
 ```scala
-def interpret(expr: Expr): Int = expr match
-  case Num(value)       => value
-  case Add(lhs, rhs)    => interpret(lhs) + interpret(rhs)
-  case Cond(pred, t, e) =>
-*   if interpret(pred) then` interpret(t)`
+def cond(pred: Expr, t: Expr, e: Expr) =
+* if interpret(pred) then` interpret(t)`
+&#x200B;
+&#x200B;
+&#x200B;
 &#x200B;
 ```
 ]
@@ -2739,12 +3104,12 @@ Cond pred thenBranch elseBranch ⇓ n
 
 .diff-add[
 ```scala
-def interpret(expr: Expr): Int = expr match
-  case Num(value)       => value
-  case Add(lhs, rhs)    => interpret(lhs) + interpret(rhs)
-  case Cond(pred, t, e) =>
-    if interpret(pred) then interpret(t)
-*   `else                    interpret(e)`
+def cond(pred: Expr, t: Expr, e: Expr) =
+  if interpret(pred) then interpret(t)
+* `else                    interpret(e)`
+&#x200B;
+&#x200B;
+&#x200B;
 ```
 ]
 
@@ -2765,37 +3130,12 @@ Cond pred thenBranch elseBranch `⇓ n`
 ## Interpretation: conditionals
 
 ```scala
-def interpret(expr: Expr): Int = expr match
-  case Num(value)       => value
-  case Add(lhs, rhs)    => interpret(lhs) + interpret(rhs)
-  case Cond(pred, t, e) =>
-    if `interpret(pred)` then interpret(t)
-    else                    interpret(e)
-```
-
-```scala
-pred ⇓ true                                         thenBranch ⇓ n
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Cond pred thenBranch elseBranch ⇓ n
-```
-
-```scala
-pred ⇓ false                                        elseBranch ⇓ n
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Cond pred thenBranch elseBranch ⇓ n
-```
-
----
-
-## Interpretation: conditionals
-
-```scala
-def interpret(expr: Expr): `Int` = expr match
-  case Num(value)       => value
-  case Add(lhs, rhs)    => interpret(lhs) + interpret(rhs)
-  case Cond(pred, t, e) =>
-    if interpret(pred) then interpret(t)
-    else                    interpret(e)
+def cond(pred: Expr, t: Expr, e: Expr) =
+  if `interpret(pred)` then interpret(t)
+  else                    interpret(e)
+&#x200B;
+&#x200B;
+&#x200B;
 ```
 
 ```scala
@@ -2816,14 +3156,91 @@ Cond pred thenBranch elseBranch ⇓ n
 
 .diff-add[
 ```scala
-def interpret(expr: Expr): Int = expr match
-  case Num(value)       => value
-  case Add(lhs, rhs)    => interpret(lhs) + interpret(rhs)
-  case Cond(pred, t, e) =>
-*   if interpret(pred)` != 0` then interpret(t)
-*   else              `     `      interpret(e)
+def cond(pred: Expr, t: Expr, e: Expr) =
+* if interpret(pred) `!= 0` then interpret(t)
+* else               `    `      interpret(e)
+&#x200B;
+&#x200B;
+&#x200B;
 ```
 ]
+
+```scala
+pred ⇓ true                                         thenBranch ⇓ n
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Cond pred thenBranch elseBranch ⇓ n
+```
+
+```scala
+pred ⇓ false                                        elseBranch ⇓ n
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Cond pred thenBranch elseBranch ⇓ n
+```
+
+---
+
+## Actual truth
+
+.diff-rm[
+```scala
+def cond(pred: Expr, t: Expr, e: Expr) =
+* if interpret(pred) `!= 0` then interpret(t)
+* else               `    `      interpret(e)
+&#x200B;
+&#x200B;
+&#x200B;
+```
+]
+
+```scala
+pred ⇓ true                                         thenBranch ⇓ n
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Cond pred thenBranch elseBranch ⇓ n
+```
+
+```scala
+pred ⇓ false                                        elseBranch ⇓ n
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Cond pred thenBranch elseBranch ⇓ n
+```
+
+---
+
+## Actual truth
+
+```scala
+def cond(pred: Expr, t: Expr, e: Expr) =
+  if interpret(pred) then interpret(t)
+  else                    interpret(e)
+&#x200B;
+&#x200B;
+&#x200B;
+```
+
+```scala
+pred ⇓ true                                         thenBranch ⇓ n
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Cond pred thenBranch elseBranch ⇓ n
+```
+
+```scala
+pred ⇓ false                                        elseBranch ⇓ n
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Cond pred thenBranch elseBranch ⇓ n
+```
+
+---
+
+## Actual truth
+
+```scala
+def interpret(expr: Expr): `Int` = expr match
+  case Num(value)       => value
+  case Add(lhs, rhs)    => add(lhs, rhs)
+  case Cond(pred, t, e) => cond(pred, t, e)
+&#x200B;
+&#x200B;
+```
 
 ```scala
 pred ⇓ true                                         thenBranch ⇓ n
@@ -2889,10 +3306,10 @@ enum Value:
 ```scala
 *def interpret(expr: Expr): `Int` = expr match
   case Num(value)       => value
-  case Add(lhs, rhs)    => interpret(lhs) + interpret(rhs)
-  case Cond(pred, t, e) =>
-    if interpret(pred) != 0 then interpret(t)
-    else                         interpret(e)
+  case Add(lhs, rhs)    => add(lhs, rhs)
+  case Cond(pred, t, e) => cond(pred, t, e)
+&#x200B;
+&#x200B;
 ```
 ]
 
@@ -2904,43 +3321,12 @@ enum Value:
 ```scala
 *def interpret(expr: Expr): `Value` = expr match
   case Num(value)       => value
-  case Add(lhs, rhs)    => interpret(lhs) + interpret(rhs)
-  case Cond(pred, t, e) =>
-    if interpret(pred) != 0 then interpret(t)
-    else                         interpret(e)
-```
-]
-
----
-
-## Actual truth
-
-.diff-rm[
-```scala
-def interpret(expr: Expr): Value = expr match
-  case Num(value)       => value
-* case Add(lhs, rhs)    => `interpret(lhs) + interpret(rhs)`
-  case Cond(pred, t, e) =>
-*   `if interpret(pred) != 0 then interpret(t)`
-*   `else                         interpret(e)`
-```
-]
-
----
-
-## Actual truth
-
-.diff-add[
-```scala
-def interpret(expr: Expr): Value = expr match
-  case Num(value)       => value
-* case Add(lhs, rhs)    => `add(lhs, rhs)`
-* case Cond(pred, t, e) => `cond(pred, t, e)`
+  case Add(lhs, rhs)    => add(lhs, rhs)
+  case Cond(pred, t, e) => cond(pred, t, e)
 &#x200B;
 &#x200B;
 ```
 ]
-
 
 ---
 
@@ -2948,7 +3334,7 @@ def interpret(expr: Expr): Value = expr match
 
 ```scala
 def interpret(expr: Expr): Value = expr match
-  case Num(value)       => value
+  case `Num(value)`       => value
   case Add(lhs, rhs)    => add(lhs, rhs)
   case Cond(pred, t, e) => cond(pred, t, e)
 &#x200B;
@@ -2958,7 +3344,7 @@ def interpret(expr: Expr): Value = expr match
 ```scala
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Num value ⇓ value
+&#x200B;`Num value` ⇓ value
 ```
 
 ---
@@ -2989,30 +3375,31 @@ def interpret(expr: Expr): Value = expr match
 ## Multiple values: addition
 
 ```scala
-def add(lhs: Expr, rhs: Expr) = ???
+def add(lhs: Expr, rhs: Expr) =
+  val n1 = interpret(lhs)
+  val n2 = interpret(rhs)
 &#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
+  n1 + n2
 &#x200B;
 ```
 
 ```scala
 lhs ⇓ n1                                                  rhs ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Add lhs rhs ⇓ n1 + n2
+&#x200B;`Add lhs rhs` ⇓ n1 + n2
 ```
+
 
 ---
 
 ## Multiple values: addition
 
 ```scala
-def add(lhs: Expr, rhs: Expr) = ???
+def add(lhs: Expr, rhs: Expr) =
+  val n1 = interpret(lhs)
+  val n2 = interpret(rhs)
 &#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
+  n1 + n2
 &#x200B;
 ```
 
@@ -3028,13 +3415,32 @@ def add(lhs: Expr, rhs: Expr) = ???
 
 ## Multiple values: addition
 
+```scala
+def add(lhs: Expr, rhs: Expr) =
+  val n1 = interpret(lhs)
+  val n2 = interpret(rhs)
+&#x200B;
+  n1 + n2
+&#x200B;
+```
+
+```scala
+lhs ⇓ `Value.Num` n1                              rhs ⇓ `Value.Num` n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Add lhs rhs ⇓ Value.Num n1 + n2
+```
+
+---
+
+## Multiple values: addition
+
 .diff-rm[
 ```scala
-*def add(lhs: Expr, rhs: Expr) = `???`
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
+def add(lhs: Expr, rhs: Expr) =
+* `val n1 = interpret(lhs)`
+* `val n2 = interpret(rhs)`
+*&#x200B;
+* `n1 + n2`
 &#x200B;
 ```
 ]
@@ -3151,9 +3557,9 @@ Add lhs rhs ⇓ Value.Num n1 + n2
 ## Multiple values: conditionals
 
 ```scala
-def cond(pred: Expr, t: Expr, e: Expr) = ???
-&#x200B;
-&#x200B;
+def cond(pred: Expr, t: Expr, e: Expr) =
+  if interpret(pred) then interpret(t)
+  else                    interpret(e)
 &#x200B;
 &#x200B;
 &#x200B;
@@ -3162,13 +3568,13 @@ def cond(pred: Expr, t: Expr, e: Expr) = ???
 ```scala
 pred ⇓ true                                         thenBranch ⇓ n
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Cond pred thenBranch elseBranch ⇓ n
+&#x200B;`Cond pred thenBranch elseBranch` ⇓ n
 ```
 
 ```scala
 pred ⇓ false                                        elseBranch ⇓ n
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Cond pred thenBranch elseBranch ⇓ n
+&#x200B;`Cond pred thenBranch elseBranch` ⇓ n
 ```
 
 ---
@@ -3176,9 +3582,9 @@ Cond pred thenBranch elseBranch ⇓ n
 ## Multiple values: conditionals
 
 ```scala
-def cond(pred: Expr, t: Expr, e: Expr) = ???
-&#x200B;
-&#x200B;
+def cond(pred: Expr, t: Expr, e: Expr) =
+  if interpret(pred) then interpret(t)
+  else                    interpret(e)
 &#x200B;
 &#x200B;
 &#x200B;
@@ -3206,9 +3612,9 @@ Cond pred thenBranch elseBranch ⇓ n
 
 .diff-rm[
 ```scala
-*def cond(pred: Expr, t: Expr, e: Expr) = `???`
-&#x200B;
-&#x200B;
+def cond(pred: Expr, t: Expr, e: Expr) =
+* `if interpret(pred) then interpret(t)`
+* `else                    interpret(e)`
 &#x200B;
 &#x200B;
 &#x200B;
@@ -3774,7 +4180,10 @@ name: bindings
 
 ## Substitution
 
+I'm not a huge fan of moving `x=1` to the env, and then highlighting the body TODO
+
 ```ocaml
+&#x200B;
 &#x200B;
 ```
 
@@ -3792,6 +4201,7 @@ x
 
 ```ocaml
 &#x200B;
+&#x200B;
 ```
 
 <hr/>
@@ -3808,6 +4218,7 @@ let x = 1
 ## Substitution
 
 ```ocaml
+&#x200B;
 &#x200B;
 ```
 
@@ -3825,6 +4236,7 @@ let x = 1 in
 
 ```ocaml
 &#x200B;
+&#x200B;
 ```
 
 <hr/>
@@ -3834,24 +4246,6 @@ let `x = 1` in
   x + 2
 &#x200B;
 ```
-
----
-
-## Substitution
-
-```ocaml
-&#x200B;
-```
-
-<hr/>
-
-.diff-rm[
-```ocaml
-*&#x200B;`let x = 1 in`
-*&#x200B;`  `x + 2
-&#x200B;
-```
-]
 
 ---
 
@@ -3860,30 +4254,15 @@ let `x = 1` in
 .diff-add[
 ```ocaml
 *&#x200B;`x = 1`
+&#x200B;
 ```
 ]
 
 <hr/>
 
 ```ocaml
-x + 2
-&#x200B;
-&#x200B;
-```
-
----
-
-## Substitution
-
-```ocaml
-&#x200B;`x` = 1
-```
-
-<hr/>
-
-```ocaml
-&#x200B;`x` + 2
-&#x200B;
+let `x = 1` in
+  x + 2
 &#x200B;
 ```
 
@@ -3893,15 +4272,33 @@ x + 2
 
 ```ocaml
 x = 1
+&#x200B;
 ```
 
+<hr/>
+
+```ocaml
+let x = 1 in
+  `x + 2`
+&#x200B;
+```
+
+
+---
+
+## Substitution
+
+```ocaml
+&#x200B;`x = 1`
+&#x200B;
+```
 
 <hr/>
 
 .diff-rm[
 ```ocaml
-*&#x200B;`x` + 2
-&#x200B;
+let x = 1 in
+* `x` + 2
 &#x200B;
 ```
 ]
@@ -3912,14 +4309,52 @@ x = 1
 
 ```ocaml
 x = 1
+&#x200B;
 ```
-
 
 <hr/>
 
 .diff-add[
 ```ocaml
-*&#x200B;`1` + 2
+let x = 1 in
+* `1` + 2
+&#x200B;
+```
+]
+
+---
+
+## Substitution
+
+```ocaml
+x = 1
+&#x200B;
+```
+
+<hr/>
+
+.diff-rm[
+```ocaml
+*&#x200B;`let x = 1 in`
+* `1 + 2`
+&#x200B;
+```
+]
+
+---
+
+## Substitution
+
+```ocaml
+x = 1
+&#x200B;
+```
+
+<hr/>
+
+.diff-add[
+```ocaml
+*&#x200B;`3`
 &#x200B;
 &#x200B;
 ```
@@ -3930,6 +4365,7 @@ x = 1
 ## Shadowing
 
 ```ocaml
+&#x200B;
 &#x200B;
 ```
 
@@ -3948,6 +4384,7 @@ let x = 1 in
 
 ```ocaml
 &#x200B;
+&#x200B;
 ```
 
 <hr/>
@@ -3964,6 +4401,7 @@ let `x = 1` in
 ## Shadowing
 
 ```ocaml
+&#x200B;
 &#x200B;
 ```
 
@@ -3982,6 +4420,7 @@ let x = 1 in
 
 ```ocaml
 &#x200B;
+&#x200B;
 ```
 
 <hr/>
@@ -3999,6 +4438,7 @@ let x = 1 in
 
 ```ocaml
 &#x200B;
+&#x200B;
 ```
 
 <hr/>
@@ -4015,6 +4455,7 @@ let x = 1 in
 ## Shadowing
 
 ```ocaml
+&#x200B;
 &#x200B;
 ```
 
@@ -4034,6 +4475,7 @@ let x = 1 in
 
 ```ocaml
 &#x200B;
+&#x200B;
 ```
 
 <hr/>
@@ -4052,6 +4494,7 @@ let x = 1 in
 
 ```ocaml
 &#x200B;
+&#x200B;
 ```
 
 <hr/>
@@ -4066,9 +4509,30 @@ let `x = 1` in
 
 ## Shadowing
 
+.diff-add[
 ```ocaml
+&#x200B;`x = 1`
 &#x200B;
 ```
+]
+
+<hr/>
+
+```ocaml
+let x = 1 in
+  `(let x = 2 in x) + x`
+&#x200B;
+```
+
+---
+
+## Shadowing
+
+```ocaml
+x = 1
+&#x200B;
+```
+
 
 <hr/>
 
@@ -4083,8 +4547,48 @@ let x = 1 in
 ## Shadowing
 
 ```ocaml
+x = 1
 &#x200B;
 ```
+
+
+<hr/>
+
+```ocaml
+let x = 1 in
+  (let x = 2 in `x`) + x
+&#x200B;
+```
+
+---
+
+## Shadowing
+
+.diff-rm[
+```ocaml
+*x = `1`
+&#x200B;
+```
+]
+
+<hr/>
+
+```ocaml
+let x = 1 in
+  (let x = 2 in `x`) + x
+&#x200B;
+```
+
+---
+
+## Shadowing
+
+.diff-add[
+```ocaml
+*x = `2`
+&#x200B;
+```
+]
 
 <hr/>
 
@@ -4099,16 +4603,394 @@ let x = 1 in
 ## Shadowing
 
 ```ocaml
+&#x200B;`x = 2`
 &#x200B;
 ```
 
 <hr/>
 
+.diff-rm[
 ```ocaml
 let x = 1 in
-  (let x = 2 in x) + `x`
+* (let x = 2 in `x`) + x
 &#x200B;
 ```
+]
+
+---
+
+## Shadowing
+
+```ocaml
+&#x200B;`x = 2`
+&#x200B;
+```
+
+<hr/>
+
+.diff-add[
+```ocaml
+let x = 1 in
+* (let x = 2 in `2`) + x
+&#x200B;
+```
+]
+
+---
+
+## Shadowing
+
+```ocaml
+x = 2
+&#x200B;
+```
+
+<hr/>
+
+.diff-rm[
+```ocaml
+let x = 1 in
+* `(let x = 2 in 2)` + x
+&#x200B;
+```
+]
+
+---
+
+## Shadowing
+
+```ocaml
+x = 2
+&#x200B;
+```
+
+<hr/>
+
+.diff-add[
+```ocaml
+let x = 1 in
+* `2` + x
+&#x200B;
+```
+]
+
+---
+
+## Shadowing
+
+```ocaml
+&#x200B;`x = 2`
+&#x200B;
+```
+
+<hr/>
+
+.diff-rm[
+```ocaml
+let x = 1 in
+* 2 + `x`
+&#x200B;
+```
+]
+
+---
+
+## Shadowing
+
+```ocaml
+x = 2
+&#x200B;
+```
+
+<hr/>
+
+.diff-add[
+```ocaml
+let x = 1 in
+* 2 + `2`
+&#x200B;
+```
+]
+
+
+---
+
+## Shadowing
+
+```ocaml
+x = 2
+&#x200B;
+```
+
+<hr/>
+
+.diff-rm[
+```ocaml
+*&#x200B;`let x = 1 in`
+* `2 + 2`
+&#x200B;
+```
+]
+
+---
+
+## Shadowing
+
+```ocaml
+x = 2
+&#x200B;
+```
+
+<hr/>
+
+.diff-add[
+```ocaml
+*&#x200B;`4`
+&#x200B;
+&#x200B;
+```
+]
+
+
+---
+
+## Shadowing
+
+```ocaml
+x = 1
+&#x200B;
+```
+
+
+<hr/>
+
+```ocaml
+let x = 1 in
+  (let x = 2 in `x`) + x
+&#x200B;
+```
+
+---
+
+## Shadowing
+
+.diff-add[
+```ocaml
+x = 1
+&#x200B;`x = 2`
+```
+]
+
+
+<hr/>
+
+```ocaml
+let x = 1 in
+  (let x = 2 in `x`) + x
+&#x200B;
+```
+
+---
+
+## Shadowing
+
+```ocaml
+x = 1
+&#x200B;`x = 2`
+```
+
+
+<hr/>
+
+.diff-rm[
+```ocaml
+let x = 1 in
+* (let x = 2 in `x`) + x
+&#x200B;
+```
+]
+
+---
+
+## Shadowing
+
+```ocaml
+x = 1
+&#x200B;`x = 2`
+```
+
+
+<hr/>
+
+.diff-add[
+```ocaml
+let x = 1 in
+* (let x = 2 in `2`) + x
+&#x200B;
+```
+]
+
+
+
+---
+
+## Shadowing
+
+```ocaml
+x = 1
+x = 2
+```
+
+
+<hr/>
+
+.diff-rm[
+```ocaml
+let x = 1 in
+* `(let x = 2 in 2)` + x
+&#x200B;
+```
+]
+
+---
+
+## Shadowing
+
+```ocaml
+x = 1
+x = 2
+```
+
+
+<hr/>
+
+.diff-add[
+```ocaml
+let x = 1 in
+* `2` + x
+&#x200B;
+```
+]
+
+---
+
+## Shadowing
+
+.diff-rm[
+```ocaml
+x = 1
+*&#x200B;`x = 2`
+```
+]
+
+
+<hr/>
+
+```ocaml
+let x = 1 in
+  2 + x
+&#x200B;
+```
+
+---
+
+## Shadowing
+
+```ocaml
+x = 1
+&#x200B;
+```
+
+
+<hr/>
+
+```ocaml
+let x = 1 in
+  2 + x
+&#x200B;
+```
+
+---
+
+## Shadowing
+
+```ocaml
+&#x200B;`x = 1`
+&#x200B;
+```
+
+
+<hr/>
+
+.diff-rm[
+```ocaml
+let x = 1 in
+* 2 + `x`
+&#x200B;
+```
+]
+
+---
+
+## Shadowing
+
+```ocaml
+&#x200B;`x = 1`
+&#x200B;
+```
+
+
+<hr/>
+
+.diff-add[
+```ocaml
+let x = 1 in
+  2 + `1`
+&#x200B;
+```
+]
+
+---
+
+## Shadowing
+
+.diff-rm[
+```ocaml
+*&#x200B;`x = 1`
+&#x200B;
+```
+]
+
+
+<hr/>
+
+.diff-rm[
+```ocaml
+*&#x200B;`let x = 1 in`
+* `2 + 1`
+&#x200B;
+```
+]
+
+---
+
+## Shadowing
+
+```ocaml
+&#x200B;
+&#x200B;
+```
+
+
+<hr/>
+
+.diff-add[
+```ocaml
+*&#x200B;`3`
+&#x200B;
+&#x200B;
+```
+]
 
 ---
 
@@ -4233,9 +5115,9 @@ let x = 1 in
 
 .diff-add[
 ```scala
-*&#x200B;`Ε |-` value ⇓ n1
+*&#x200B;`E |-` value ⇓ n1
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*&#x200B;`Ε |-` Let name value body ⇓ ???
+*&#x200B;`E |-` Let name value body ⇓ ???
 ```
 ]
 
@@ -4249,9 +5131,9 @@ let x = 1 in
 ## Formal Semantics: bindings
 
 ```scala
-&#x200B;`Ε |- value ⇓ n1`
+&#x200B;`E |- value ⇓ n1`
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Let name value body ⇓ ???
+E |- Let name value body ⇓ ???
 ```
 
 ```ocaml
@@ -4265,9 +5147,9 @@ let x = 1 in
 
 .diff-add[
 ```scala
-*Ε |- value ⇓ n1                                     `Ε |- body ⇓ n2`
+*E |- value ⇓ n1                                     `E |- body ⇓ n2`
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Let name value body ⇓ ???
+E |- Let name value body ⇓ ???
 ```
 ]
 
@@ -4282,9 +5164,9 @@ let x = 1 in
 ## Formal Semantics: bindings
 
 ```scala
-Ε |- value ⇓ n1                                     `Ε` |- body ⇓ n2
+E |- value ⇓ n1                                     `E` |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Let name value body ⇓ ???
+E |- Let name value body ⇓ ???
 ```
 
 ```ocaml
@@ -4299,9 +5181,9 @@ let x = 1 in
 
 .diff-add[
 ```scala
-*Ε |- value ⇓ n1                       `(name, n1) ::` Ε |- body ⇓ n2
+*E |- value ⇓ n1                       `(name, n1) ::` E |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Let name value body ⇓ ???
+E |- Let name value body ⇓ ???
 ```
 ]
 
@@ -4316,9 +5198,9 @@ let `x = 1` in
 
 .diff-rm[
 ```scala
-Ε |- value ⇓ n1                       (name, n1) :: Ε |- body ⇓ n2
+E |- value ⇓ n1                       (name, n1) :: E |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Ε |- Let name value body ⇓ `???`
+*E |- Let name value body ⇓ `???`
 ```
 ]
 
@@ -4334,9 +5216,9 @@ let x = 1 in
 
 .diff-add[
 ```scala
-Ε |- value ⇓ n1                       (name, n1) :: Ε |- body ⇓ n2
+E |- value ⇓ n1                       (name, n1) :: E |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Ε |- Let name value body ⇓ `n2`
+*E |- Let name value body ⇓ `n2`
 ```
 ]
 
@@ -4353,7 +5235,7 @@ let x = 1 in
 ```scala
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Var ⇓ ???
+E |- Var ⇓ ???
 ```
 
 ```ocaml
@@ -4369,7 +5251,7 @@ let x = 1 in
 ```scala
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Ε |- Var `name` ⇓ ???
+*E |- Var `name` ⇓ ???
 ```
 ]
 
@@ -4387,7 +5269,7 @@ let x = 1 in
 ```scala
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*&#x200B;Ε |- Var name ⇓ `???`
+*&#x200B;E |- Var name ⇓ `???`
 ```
 ]
 
@@ -4404,7 +5286,7 @@ let x = 1 in
 ```scala
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*&#x200B;Ε |- Var name ⇓ `Ε(name)`
+*&#x200B;E |- Var name ⇓ `E(name)`
 ```
 ]
 
@@ -4431,9 +5313,9 @@ enum Expr:
 
 
 ```scala
-Ε |- value ⇓ n1                       (name, n1) :: Ε |- body ⇓ n2
+E |- value ⇓ n1                       (name, n1) :: E |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Let name value body ⇓ n2
+E |- `Let name value body` ⇓ n2
 ```
 
 
@@ -4454,9 +5336,9 @@ enum Expr:
 ]
 
 ```scala
-Ε |- value ⇓ n1                       (name, n1) :: Ε |- body ⇓ n2
+E |- value ⇓ n1                       (name, n1) :: E |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Let name value body ⇓ n2
+E |- `Let` name value body ⇓ n2
 ```
 
 ---
@@ -4477,9 +5359,9 @@ enum Expr:
 
 
 ```scala
-Ε |- value ⇓ n1                       (name, n1) :: Ε |- body ⇓ n2
+E |- value ⇓ n1                       (name, n1) :: E |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Let `name` value body ⇓ n2
+E |- Let `name` value body ⇓ n2
 ```
 
 ---
@@ -4500,9 +5382,9 @@ enum Expr:
 
 
 ```scala
-Ε |- value ⇓ n1                       (name, n1) :: Ε |- body ⇓ n2
+E |- value ⇓ n1                       (name, n1) :: E |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Let name `value` body ⇓ n2
+E |- Let name `value` body ⇓ n2
 ```
 
 ---
@@ -4523,9 +5405,9 @@ enum Expr:
 
 
 ```scala
-Ε |- value ⇓ n1                       (name, n1) :: Ε |- body ⇓ n2
+E |- value ⇓ n1                       (name, n1) :: E |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Let name value `body` ⇓ n2
+E |- Let name value `body` ⇓ n2
 ```
 
 ---
@@ -4545,7 +5427,7 @@ enum Expr:
 ```scala
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Var name ⇓ Ε(name)
+E |- `Var name` ⇓ E(name)
 ```
 
 
@@ -4568,7 +5450,7 @@ enum Expr:
 ```scala
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- `Var` name ⇓ Ε(name)
+E |- `Var` name ⇓ E(name)
 ```
 
 ---
@@ -4590,7 +5472,7 @@ enum Expr:
 ```scala
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Var `name` ⇓ Ε(name)
+E |- Var `name` ⇓ E(name)
 ```
 
 ---
@@ -4610,7 +5492,7 @@ enum Expr:
 ```scala
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Var name ⇓ Ε(name)
+E |- Var name ⇓ E(name)
 ```
 
 ---
@@ -4630,7 +5512,7 @@ enum Expr:
 ```scala
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-&#x200B;`Ε` |- Var name ⇓ Ε(name)
+&#x200B;`E` |- Var name ⇓ E(name)
 ```
 
 ---
@@ -4639,6 +5521,7 @@ enum Expr:
 
 ```scala
 case class Env():
+&#x200B;
 &#x200B;
 &#x200B;
 &#x200B;
@@ -4670,6 +5553,29 @@ case class Env():
 &#x200B;
 &#x200B;
 &#x200B;
+&#x200B;
+```
+]
+
+---
+
+## Environment
+
+.diff-rm[
+```scala
+*case class Env(env: List[`???`]):
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
 ```
 ]
 
@@ -4679,10 +5585,11 @@ case class Env():
 
 .diff-add[
 ```scala
-case class Env(env: List[???]):
+*case class Env(env: List[`Env.Binding`]):
 &#x200B;
 *&#x200B;`object Env:`
-*  `case class Binding(name: String, value: Value)`
+* `case class Binding()`
+&#x200B;
 &#x200B;
 &#x200B;
 &#x200B;
@@ -4698,21 +5605,201 @@ case class Env(env: List[???]):
 
 ## Environment
 
+.diff-add[
+```scala
+case class Env(env: List[Env.Binding]):
+&#x200B;
+object Env:
+* case class Binding(`name: String`)
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+```
+]
+
+
+---
+
+## Environment
+
+.diff-add[
+```scala
+case class Env(env: List[Env.Binding]):
+&#x200B;
+object Env:
+* case class Binding(name: String`, value: Value`)
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+```
+]
+
+---
+
+## Environment
+
+.diff-add[
+```scala
+case class Env(env: List[Env.Binding]):
+* `def lookup(name: String): Value =`
+&#x200B;
+object Env:
+  case class Binding(name: String, value: Value)
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+```
+]
+
+---
+
+## Environment
+
+.diff-add[
+```scala
+case class Env(env: List[Env.Binding]):
+  def lookup(name: String): Value =
+*   `env.find(_.name == name)`
+&#x200B;
+object Env:
+  case class Binding(name: String, value: Value)
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+```
+]
+
+---
+
+## Environment
+
+.diff-add[
 ```scala
 case class Env(env: List[Env.Binding]):
   def lookup(name: String): Value =
     env.find(_.name == name)
-        .map(_.value)
-        .getOrElse(sys.error(s"Unbound variable: $name"))
-
-  def bind(name: String, value: Value) =
-    Env(Env.Binding(name, value) :: env)
-
+*      `.map(_.value)`
+&#x200B;
 object Env:
   case class Binding(name: String, value: Value)
-
-  val empty: Env = Env(List.empty)
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
 ```
+]
+
+---
+
+## Environment
+
+.diff-add[
+```scala
+case class Env(env: List[Env.Binding]):
+  def lookup(name: String): Value =
+    env.find(_.name == name)
+       .map(_.value)
+*      `.getOrElse(sys.error(s"Unbound variable: $name"))`
+&#x200B;
+object Env:
+  case class Binding(name: String, value: Value)
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+```
+]
+
+---
+
+## Environment
+
+.diff-add[
+```scala
+case class Env(env: List[Env.Binding]):
+  def lookup(name: String): Value =
+    env.find(_.name == name)
+       .map(_.value)
+       .getOrElse(sys.error(s"Unbound variable: $name"))
+*&#x200B;
+* `def bind(name: String, value: Value) =`
+&#x200B;
+object Env:
+  case class Binding(name: String, value: Value)
+&#x200B;
+&#x200B;
+&#x200B;
+```
+]
+
+---
+
+## Environment
+
+.diff-add[
+```scala
+case class Env(env: List[Env.Binding]):
+  def lookup(name: String): Value =
+    env.find(_.name == name)
+       .map(_.value)
+       .getOrElse(sys.error(s"Unbound variable: $name"))
+&#x200B;
+  def bind(name: String, value: Value) =
+*   `Env(Env.Binding(name, value) :: env)`
+&#x200B;
+object Env:
+  case class Binding(name: String, value: Value)
+&#x200B;
+&#x200B;
+```
+]
+
+
+---
+
+## Environment
+
+.diff-add[
+```scala
+case class Env(env: List[Env.Binding]):
+  def lookup(name: String): Value =
+    env.find(_.name == name)
+       .map(_.value)
+       .getOrElse(sys.error(s"Unbound variable: $name"))
+&#x200B;
+  def bind(name: String, value: Value) =
+    Env(Env.Binding(name, value) :: env)
+&#x200B;
+object Env:
+  case class Binding(name: String, value: Value)
+*&#x200B;
+* `val empty: Env = Env(List.empty)`
+```
+]
 
 ---
 
@@ -4727,6 +5814,14 @@ def interpret(expr: Expr): Value = expr match
 &#x200B;
 &#x200B;
 ```
+
+
+```scala
+&#x200B;
+&#x200B;
+&#x200B;
+```
+
 
 
 ---
@@ -4744,6 +5839,12 @@ def interpret(expr: Expr): Value = expr match
 &#x200B;
 ```
 ]
+
+```scala
+&#x200B;
+&#x200B;
+&#x200B;
+```
 
 ---
 
@@ -4774,7 +5875,7 @@ def interpret(expr: Expr, env: Env): Value = expr match
 
 ```scala
 def interpret(expr: Expr, env: Env): Value = expr match
-  `case Num(value)       => Value.Num(value)`
+  case Num(value)       => Value.Num(value)
   case Bool(value)      => Value.Bool(value)
   case Add(lhs, rhs)    => add(lhs, rhs, env)
   case Cond(pred, t, e) => cond(pred, t, e, env)
@@ -4785,7 +5886,7 @@ def interpret(expr: Expr, env: Env): Value = expr match
 ```scala
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Num value ⇓ Value.Num value
+&#x200B;`Num value` ⇓ Value.Num value
 ```
 
 ---
@@ -4806,7 +5907,7 @@ def interpret(expr: Expr, `env: Env`): Value = expr match
 ```scala
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*&#x200B;`Ε |-` Num value ⇓ Value.Num value
+*&#x200B;`E |-` Num value ⇓ Value.Num value
 ```
 ]
 
@@ -4817,7 +5918,7 @@ def interpret(expr: Expr, `env: Env`): Value = expr match
 ```scala
 def interpret(expr: Expr, env: Env): Value = expr match
   case Num(value)       => Value.Num(value)
-  `case Bool(value)      => Value.Bool(value)`
+  case Bool(value)      => Value.Bool(value)
   case Add(lhs, rhs)    => add(lhs, rhs, env)
   case Cond(pred, t, e) => cond(pred, t, e, env)
 &#x200B;
@@ -4827,7 +5928,7 @@ def interpret(expr: Expr, env: Env): Value = expr match
 ```scala
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Bool value ⇓ Value.Bool value
+&#x200B;`Bool value` ⇓ Value.Bool value
 ```
 
 ---
@@ -4848,7 +5949,7 @@ def interpret(expr: Expr, `env: Env`): Value = expr match
 ```scala
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*&#x200B;`Ε |-` Bool value ⇓ Value.Bool value
+*&#x200B;`E |-` Bool value ⇓ Value.Bool value
 ```
 ]
 
@@ -4870,7 +5971,7 @@ def add(lhs: Expr, rhs: Expr) =
 ```scala
 lhs ⇓ Value.Num n1                              rhs ⇓ Value.Num n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Add lhs rhs ⇓ Value.Num (n1 + n2)
+&#x200B;`Add lhs rhs` ⇓ Value.Num (n1 + n2)
 ```
 
 ---
@@ -4891,7 +5992,7 @@ def add(lhs: Expr, rhs: Expr) =
 
 .diff-add[
 ```scala
-*&#x200B;`Ε |-` lhs ⇓ Value.Num n1                         rhs ⇓ Value.Num n2
+*&#x200B;`E |-` lhs ⇓ Value.Num n1                         rhs ⇓ Value.Num n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Add lhs rhs ⇓ Value.Num (n1 + n2)
 ```
@@ -4915,7 +6016,7 @@ def add(lhs: Expr, rhs: Expr) =
 
 .diff-add[
 ```scala
-*Ε |- lhs ⇓ Value.Num n1                    `Ε |-` rhs ⇓ Value.Num n2
+*E |- lhs ⇓ Value.Num n1                    `E |-` rhs ⇓ Value.Num n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Add lhs rhs ⇓ Value.Num (n1 + n2)
 ```
@@ -4939,9 +6040,9 @@ Add lhs rhs ⇓ Value.Num (n1 + n2)
 
 .diff-add[
 ```scala
-Ε |- lhs ⇓ Value.Num n1                    Ε |- rhs ⇓ Value.Num n2
+E |- lhs ⇓ Value.Num n1                    E |- rhs ⇓ Value.Num n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*&#x200B;`Ε |-` Add lhs rhs ⇓ Value.Num (n1 + n2)
+*&#x200B;`E |-` Add lhs rhs ⇓ Value.Num (n1 + n2)
 ```
 ]
 
@@ -4962,13 +6063,13 @@ def cond(pred: Expr, t: Expr, e: Expr) =
 ```scala
 pred ⇓ Value.Bool true                              thenBranch ⇓ n
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Cond pred thenBranch elseBranch ⇓ n
+&#x200B;`Cond pred thenBranch elseBranch` ⇓ n
 ```
 
 ```scala
 pred ⇓ Value.Bool false                             elseBranch ⇓ n
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Cond pred thenBranch elseBranch ⇓ n
+&#x200B;`Cond pred thenBranch elseBranch` ⇓ n
 ```
 
 ---
@@ -4989,7 +6090,7 @@ def cond(pred: Expr, t: Expr, e: Expr) =
 
 .diff-add[
 ```scala
-*&#x200B;`Ε |-` pred ⇓ Value.Bool true                         thenBranch ⇓ n
+*&#x200B;`E |-` pred ⇓ Value.Bool true                         thenBranch ⇓ n
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Cond pred thenBranch elseBranch ⇓ n
 ```
@@ -4997,7 +6098,7 @@ Cond pred thenBranch elseBranch ⇓ n
 
 .diff-add[
 ```scala
-*&#x200B;`Ε |-` pred ⇓ Value.Bool false                        elseBranch ⇓ n
+*&#x200B;`E |-` pred ⇓ Value.Bool false                        elseBranch ⇓ n
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Cond pred thenBranch elseBranch ⇓ n
 ```
@@ -5021,7 +6122,7 @@ def cond(pred: Expr, t: Expr, e: Expr) =
 
 .diff-add[
 ```scala
-*Ε |- pred ⇓ Value.Bool true                    `Ε |-` thenBranch ⇓ n
+*E |- pred ⇓ Value.Bool true                    `E |-` thenBranch ⇓ n
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Cond pred thenBranch elseBranch ⇓ n
 ```
@@ -5029,7 +6130,7 @@ Cond pred thenBranch elseBranch ⇓ n
 
 .diff-add[
 ```scala
-Ε |- pred ⇓ Value.Bool false                        elseBranch ⇓ n
+E |- pred ⇓ Value.Bool false                        elseBranch ⇓ n
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Cond pred thenBranch elseBranch ⇓ n
 ```
@@ -5053,7 +6154,7 @@ def cond(pred: Expr, t: Expr, e: Expr) =
 
 .diff-add[
 ```scala
-Ε |- pred ⇓ Value.Bool true                    Ε |- thenBranch ⇓ n
+E |- pred ⇓ Value.Bool true                    E |- thenBranch ⇓ n
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Cond pred thenBranch elseBranch ⇓ n
 ```
@@ -5061,7 +6162,7 @@ Cond pred thenBranch elseBranch ⇓ n
 
 .diff-add[
 ```scala
-*Ε |- pred ⇓ Value.Bool false                   `Ε |-` elseBranch ⇓ n
+*E |- pred ⇓ Value.Bool false                   `E |-` elseBranch ⇓ n
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Cond pred thenBranch elseBranch ⇓ n
 ```
@@ -5085,19 +6186,171 @@ Cond pred thenBranch elseBranch ⇓ n
 
 .diff-add[
 ```scala
-Ε |- pred ⇓ Value.Bool true                    Ε |- thenBranch ⇓ n
+E |- pred ⇓ Value.Bool true                    E |- thenBranch ⇓ n
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*&#x200B;`Ε |-` Cond pred thenBranch elseBranch ⇓ n
+*&#x200B;`E |-` Cond pred thenBranch elseBranch ⇓ n
 ```
 ]
 
 .diff-add[
 ```scala
-Ε |- pred ⇓ Value.Bool false                   Ε |- elseBranch ⇓ n
+E |- pred ⇓ Value.Bool false                   E |- elseBranch ⇓ n
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*&#x200B;`Ε |-` Cond pred thenBranch elseBranch ⇓ n
+*&#x200B;`E |-` Cond pred thenBranch elseBranch ⇓ n
 ```
 ]
+
+---
+
+## Interpretation: bindings
+
+```scala
+def interpret(expr: Expr, env: Env): Value = expr match
+  case Num(value)             => Value.Num(value)
+  case Bool(value)            => Value.Bool(value)
+  case Add(lhs, rhs)          => add(lhs, rhs, env)
+  case Cond(pred, t, e)       => cond(pred, t, e, env)
+&#x200B;
+&#x200B;
+```
+
+```scala
+E |- value ⇓ n1                       (name, n1) :: E |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- `Let name value body` ⇓ n2
+```
+
+---
+
+## Interpretation: bindings
+
+.diff-add[
+```scala
+def interpret(expr: Expr, env: Env): Value = expr match
+  case Num(value)             => Value.Num(value)
+  case Bool(value)            => Value.Bool(value)
+  case Add(lhs, rhs)          => add(lhs, rhs, env)
+  case Cond(pred, t, e)       => cond(pred, t, e, env)
+* `case Let()                  =>`
+&#x200B;
+```
+]
+
+```scala
+E |- value ⇓ n1                       (name, n1) :: E |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- `Let` name value body ⇓ n2
+```
+
+---
+
+## Interpretation: bindings
+
+.diff-add[
+```scala
+def interpret(expr: Expr, env: Env): Value = expr match
+  case Num(value)             => Value.Num(value)
+  case Bool(value)            => Value.Bool(value)
+  case Add(lhs, rhs)          => add(lhs, rhs, env)
+  case Cond(pred, t, e)       => cond(pred, t, e, env)
+* case Let(`name`)              =>
+&#x200B;
+```
+]
+
+```scala
+E |- value ⇓ n1                       (name, n1) :: E |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- Let `name` value body ⇓ n2
+```
+
+---
+
+## Interpretation: bindings
+
+.diff-add[
+```scala
+def interpret(expr: Expr, env: Env): Value = expr match
+  case Num(value)             => Value.Num(value)
+  case Bool(value)            => Value.Bool(value)
+  case Add(lhs, rhs)          => add(lhs, rhs, env)
+  case Cond(pred, t, e)       => cond(pred, t, e, env)
+* case Let(name`, value`)       =>
+&#x200B;
+```
+]
+
+```scala
+E |- value ⇓ n1                       (name, n1) :: E |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- Let name `value` body ⇓ n2
+```
+
+---
+
+## Interpretation: bindings
+
+.diff-add[
+```scala
+def interpret(expr: Expr, env: Env): Value = expr match
+  case Num(value)             => Value.Num(value)
+  case Bool(value)            => Value.Bool(value)
+  case Add(lhs, rhs)          => add(lhs, rhs, env)
+  case Cond(pred, t, e)       => cond(pred, t, e, env)
+* case Let(name, value`, body`) =>
+&#x200B;
+```
+]
+
+```scala
+E |- value ⇓ n1                       (name, n1) :: E |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- Let name value `body` ⇓ n2
+```
+
+---
+
+## Interpretation: bindings
+
+.diff-add[
+```scala
+def interpret(expr: Expr, env: Env): Value = expr match
+  case Num(value)             => Value.Num(value)
+  case Bool(value)            => Value.Bool(value)
+  case Add(lhs, rhs)          => add(lhs, rhs, env)
+  case Cond(pred, t, e)       => cond(pred, t, e, env)
+* case Let(name, value, body) => `let(name, value, body)`
+&#x200B;
+```
+]
+
+```scala
+E |- value ⇓ n1                       (name, n1) :: E |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- Let name value body ⇓ n2
+```
+
+---
+
+## Interpretation: bindings
+
+.diff-add[
+```scala
+def interpret(expr: Expr, env: Env): Value = expr match
+  case Num(value)             => Value.Num(value)
+  case Bool(value)            => Value.Bool(value)
+  case Add(lhs, rhs)          => add(lhs, rhs, env)
+  case Cond(pred, t, e)       => cond(pred, t, e, env)
+* case Let(name, value, body) => let(name, value, body`, env`)
+&#x200B;
+```
+]
+
+```scala
+E |- value ⇓ n1                       (name, n1) :: E |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;`E` |- Let name value body ⇓ n2
+```
 
 ---
 
@@ -5114,9 +6367,9 @@ def let(name: String, value: Expr, body: Expr, env: Env) = ???
 ```
 
 ```scala
-Ε |- value ⇓ n1                       (name, n1) :: Ε |- body ⇓ n2
+E |- value ⇓ n1                       (name, n1) :: E |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Let name value body ⇓ n2
+&#x200B;E |- Let name value body ⇓ n2
 ```
 
 ---
@@ -5136,9 +6389,9 @@ def let(name: String, value: Expr, body: Expr, env: Env) = ???
 ]
 
 ```scala
-Ε |- value ⇓ n1                       (name, n1) :: Ε |- body ⇓ n2
+E |- value ⇓ n1                       (name, n1) :: E |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Let name value body ⇓ n2
+E |- Let name value body ⇓ n2
 ```
 
 ---
@@ -5158,9 +6411,9 @@ def let(name: String, value: Expr, body: Expr, env: Env) =
 ]
 
 ```scala
-&#x200B;`Ε |- value ⇓ n1`                       (name, n1) :: Ε |- body ⇓ n2
+&#x200B;`E |- value ⇓ n1`                       (name, n1) :: E |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Let name value body ⇓ n2
+E |- Let name value body ⇓ n2
 ```
 
 ---
@@ -5171,7 +6424,7 @@ def let(name: String, value: Expr, body: Expr, env: Env) =
 ```scala
 def let(name: String, value: Expr, body: Expr, env: Env) =
   val n1 = interpret(value, env)
-* `val n2 = interpret(body, env.bind(name, n1))`
+* `val n2 = interpret(body, env)`
 &#x200B;
 &#x200B;
 &#x200B;
@@ -5180,29 +6433,31 @@ def let(name: String, value: Expr, body: Expr, env: Env) =
 ]
 
 ```scala
-Ε |- value ⇓ n1                       `(name, n1) :: Ε |- body ⇓ n2`
+E |- value ⇓ n1                       (name, n1) :: `E |- body ⇓ n2`
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Let name value body ⇓ n2
+E |- Let name value body ⇓ n2
 ```
 
 ---
 
 ## Interpretation: bindings
 
+.diff-add[
 ```scala
 def let(name: String, value: Expr, body: Expr, env: Env) =
   val n1 = interpret(value, env)
-  val n2 = interpret(body, `env.bind(name, n1)`)
+* val n2 = interpret(body, env`.bind(name, n1)`)
 &#x200B;
 &#x200B;
 &#x200B;
 &#x200B;
 ```
+]
 
 ```scala
-Ε |- value ⇓ n1                       `(name, n1) :: Ε` |- body ⇓ n2
+E |- value ⇓ n1                       `(name, n1) :: E` |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Let name value body ⇓ n2
+E |- Let name value body ⇓ n2
 ```
 
 
@@ -5223,52 +6478,10 @@ def let(name: String, value: Expr, body: Expr, env: Env) =
 ]
 
 ```scala
-Ε |- value ⇓ n1                       (name, n1) :: Ε |- body ⇓ n2
+E |- value ⇓ n1                       (name, n1) :: E |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Ε |- Let name value body ⇓ `n2`
+E |- Let name value body ⇓ `n2`
 ```
-
----
-
-## Interpretation: bindings
-
-```scala
-def interpret(expr: Expr, env: Env): Value = expr match
-  case Num(value)             => Value.Num(value)
-  case Bool(value)            => Value.Bool(value)
-  case Add(lhs, rhs)          => add(lhs, rhs, env)
-  case Cond(pred, t, e)       => cond(pred, t, e, env)
-&#x200B;
-&#x200B;
-```
-
-```scala
-Ε |- value ⇓ n1                       (name, n1) :: Ε |- body ⇓ n2
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Let name value body ⇓ n2
-```
-
----
-
-## Interpretation: bindings
-
-.diff-add[
-```scala
-def interpret(expr: Expr, env: Env): Value = expr match
-  case Num(value)             => Value.Num(value)
-  case Bool(value)            => Value.Bool(value)
-  case Add(lhs, rhs)          => add(lhs, rhs, env)
-  case Cond(pred, t, e)       => cond(pred, t, e, env)
-* `case Let(name, value, body) => let(name, value, body, env)`
-&#x200B;
-```
-
-```scala
-Ε |- value ⇓ n1                       (name, n1) :: Ε |- body ⇓ n2
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Let name value body ⇓ n2
-```
-]
 
 ---
 
@@ -5287,7 +6500,7 @@ def interpret(expr: Expr, env: Env): Value = expr match
 ```scala
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Var name ⇓ Ε(name)
+E |- `Var name` ⇓ E(name)
 ```
 
 
@@ -5303,14 +6516,36 @@ def interpret(expr: Expr, env: Env): Value = expr match
   case Add(lhs, rhs)          => add(lhs, rhs, env)
   case Cond(pred, t, e)       => cond(pred, t, e, env)
   case Let(name, value, body) => let(name, value, body, env)
-* `case Var(name)              =>`
+* `case Var()                  =>`
 ```
 ]
 
 ```scala
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- `Var name` ⇓ Ε(name)
+E |- `Var` name ⇓ E(name)
+```
+
+---
+
+## Interpretation: variables
+
+.diff-add[
+```scala
+def interpret(expr: Expr, env: Env): Value = expr match
+  case Num(value)             => Value.Num(value)
+  case Bool(value)            => Value.Bool(value)
+  case Add(lhs, rhs)          => add(lhs, rhs, env)
+  case Cond(pred, t, e)       => cond(pred, t, e, env)
+  case Let(name, value, body) => let(name, value, body, env)
+* case Var(`name`)              =>
+```
+]
+
+```scala
+&#x200B;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- Var `name` ⇓ E(name)
 ```
 
 ---
@@ -5332,7 +6567,7 @@ def interpret(expr: Expr, env: Env): Value = expr match
 ```scala
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Var name ⇓ `Ε(name)`
+E |- Var name ⇓ `E(name)`
 ```
 
 ---
@@ -5905,6 +7140,8 @@ let y = 1 in
 
 ## Static scoping
 
+Fix the substitution, which is not quite right any longer TODO
+
 ```ocaml
 &#x200B;
 &#x200B;
@@ -6230,6 +7467,8 @@ x = 3
 
 ## Static scoping
 
+Show proper stack, and highlight the part of the stack we want to work with.
+
 ```ocaml
 y = 2
 f = x -> x + y
@@ -6355,8 +7594,80 @@ enum Value:
 &#x200B;
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Fun ⇓ ???
+E |- Fun ⇓ ???
 ```
+
+```ocaml
+let f = x -> x + 2 in
+  f 1
+```
+
+---
+
+## Formal Semantics: functions
+
+.diff-add[
+```scala
+&#x200B;
+&#x200B;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*E |- Fun `param` ⇓ ???
+```
+]
+
+```ocaml
+let f = `x` -> x + 2 in
+  f 1
+```
+
+---
+
+## Formal Semantics: functions
+
+.diff-add[
+```scala
+&#x200B;
+&#x200B;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*E |- Fun param `body` ⇓ ???
+```
+]
+
+```ocaml
+let f = x -> `x + 2` in
+  f 1
+```
+
+---
+
+## Formal Semantics: functions
+
+.diff-rm[
+```scala
+&#x200B;
+&#x200B;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*E |- Fun param body ⇓ `???`
+```
+]
+
+```ocaml
+let f = x -> x + 2 in
+  f 1
+```
+
+---
+
+## Formal Semantics: functions
+
+.diff-add[
+```scala
+&#x200B;
+&#x200B;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*E |- Fun param body ⇓ `Value.Fun`
+```
+]
 
 ```ocaml
 let f = `x -> x + 2` in
@@ -6372,7 +7683,7 @@ let f = `x -> x + 2` in
 &#x200B;
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Ε |- Fun `param` ⇓ ???
+*E |- Fun param body ⇓ Value.Fun `param`
 ```
 ]
 
@@ -6390,43 +7701,7 @@ let f = `x` -> x + 2 in
 &#x200B;
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Ε |- Fun param `body` ⇓ ???
-```
-]
-
-```ocaml
-let f = x -> `x + 2` in
-  f 1
-```
-
----
-
-## Formal Semantics: functions
-
-.diff-rm[
-```scala
-&#x200B;
-&#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Ε |- Fun param body ⇓ `???`
-```
-]
-
-```ocaml
-let f = x -> x + 2 in
-  f 1
-```
-
----
-
-## Formal Semantics: functions
-
-.diff-add[
-```scala
-&#x200B;
-&#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Ε |- Fun param body ⇓ `Value.Fun`
+*E |- Fun param body ⇓ Value.Fun param `body`
 ```
 ]
 
@@ -6444,43 +7719,7 @@ let f = x -> `x + 2` in
 &#x200B;
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Ε |- Fun param body ⇓ Value.Fun `param`
-```
-]
-
-```ocaml
-let f = x -> x + 2 in
-  f 1
-```
-
----
-
-## Formal Semantics: functions
-
-.diff-add[
-```scala
-&#x200B;
-&#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Ε |- Fun param body ⇓ Value.Fun param `body`
-```
-]
-
-```ocaml
-let f = x -> x + 2 in
-  f 1
-```
-
----
-
-## Formal Semantics: functions
-
-.diff-add[
-```scala
-&#x200B;
-&#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Ε |- Fun param body ⇓ Value.Fun param body `E`
+*E |- Fun param body ⇓ Value.Fun param body `E`
 ```
 ]
 
@@ -6497,12 +7736,12 @@ let f = x -> x + 2 in
 &#x200B;
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Apply ⇓ ???
+E |- Apply ⇓ ???
 ```
 
 ```ocaml
 let f = x -> x + 2 in
-  `f 1`
+  f 1
 ```
 
 ---
@@ -6514,7 +7753,7 @@ let f = x -> x + 2 in
 &#x200B;
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Apply `fun` ⇓ ???
+E |- Apply `fun` ⇓ ???
 ```
 ]
 
@@ -6532,7 +7771,7 @@ let f = x -> x + 2 in
 &#x200B;
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Apply fun `arg` ⇓ ???
+E |- Apply fun `arg` ⇓ ???
 ```
 ]
 
@@ -6547,10 +7786,10 @@ let f = x -> x + 2 in
 
 .diff-add[
 ```scala
-*&#x200B;`Ε |- fun ⇓ ???`
+*&#x200B;`E |- fun ⇓ ???`
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Apply fun arg ⇓ ???
+E |- Apply fun arg ⇓ ???
 ```
 ]
 
@@ -6565,10 +7804,10 @@ let f = x -> x + 2 in
 
 .diff-rm[
 ```scala
-*Ε |- fun ⇓ `???`
+*E |- fun ⇓ `???`
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Apply fun arg ⇓ ???
+E |- Apply fun arg ⇓ ???
 ```
 ]
 
@@ -6583,10 +7822,10 @@ let f = x -> x + 2 in
 
 .diff-add[
 ```scala
-*Ε |- fun ⇓ `Value.Fun param body Ε′`
+*E |- fun ⇓ `Value.Fun param body E2`
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Apply fun arg ⇓ ???
+E |- Apply fun arg ⇓ ???
 ```
 ]
 
@@ -6601,10 +7840,10 @@ let f = x -> x + 2 in
 
 .diff-add[
 ```scala
-*Ε |- fun ⇓ Value.Fun param body Ε′                    `Ε |- arg ⇓ n1`
+*E |- fun ⇓ Value.Fun param body E2                   `E |- arg ⇓ n1`
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Apply fun arg ⇓ ???
+E |- Apply fun arg ⇓ ???
 ```
 ]
 
@@ -6619,10 +7858,10 @@ let f = x -> x + 2 in
 
 .diff-add[
 ```scala
-Ε |- fun ⇓ Value.Fun param body Ε′                    Ε |- arg ⇓ n1
+E |- fun ⇓ Value.Fun param body E2                   E |- arg ⇓ n1
 *&#x200B;`??? |- body ⇓ ???`
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Apply fun arg ⇓ ???
+E |- Apply fun arg ⇓ ???
 ```
 ]
 
@@ -6638,10 +7877,10 @@ let f = x -> `x + 2` in
 
 .diff-rm[
 ```scala
-Ε |- fun ⇓ Value.Fun param body Ε′                    Ε |- arg ⇓ n1
+E |- fun ⇓ Value.Fun param body E2                   E |- arg ⇓ n1
 *&#x200B;`???` |- body ⇓ ???
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Apply fun arg ⇓ ???
+E |- Apply fun arg ⇓ ???
 ```
 ]
 
@@ -6657,10 +7896,10 @@ let f = x -> x + 2 in
 
 .diff-add[
 ```scala
-Ε |- fun ⇓ Value.Fun param body Ε′                    Ε |- arg ⇓ n1
-*&#x200B;`Ε′` |- body ⇓ ???
+E |- fun ⇓ Value.Fun param body E2                   E |- arg ⇓ n1
+*&#x200B;`E2` |- body ⇓ ???
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Apply fun arg ⇓ ???
+E |- Apply fun arg ⇓ ???
 ```
 ]
 
@@ -6675,10 +7914,10 @@ let f = x -> x + 2 in
 ## Formal Semantics: application
 
 ```scala
-Ε |- fun ⇓ Value.Fun param body Ε′                    Ε |- arg ⇓ n1
-Ε′ |- body ⇓ ???
+E |- fun ⇓ Value.Fun param body E2                   E |- arg ⇓ n1
+E2 |- body ⇓ ???
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Apply fun arg ⇓ ???
+E |- Apply fun arg ⇓ ???
 ```
 
 
@@ -6692,10 +7931,10 @@ let f = `x` -> x + 2 in
 ## Formal Semantics: application
 
 ```scala
-Ε |- fun ⇓ Value.Fun param body Ε′                    Ε |- arg ⇓ n1
-Ε′ |- body ⇓ ???
+E |- fun ⇓ Value.Fun param body E2                   E |- arg ⇓ n1
+E2 |- body ⇓ ???
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Apply fun arg ⇓ ???
+E |- Apply fun arg ⇓ ???
 ```
 
 
@@ -6710,10 +7949,10 @@ let f = x -> x + 2 in
 
 .diff-add[
 ```scala
-Ε |- fun ⇓ Value.Fun param body Ε′                    Ε |- arg ⇓ n1
-*&#x200B;`(param, n1) ::` Ε′ |- body ⇓ ???
+E |- fun ⇓ Value.Fun param body E2                   E |- arg ⇓ n1
+*&#x200B;`(param, n1) ::` E2 |- body ⇓ ???
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Apply fun arg ⇓ ???
+E |- Apply fun arg ⇓ ???
 ```
 ]
 
@@ -6728,10 +7967,10 @@ let f = x -> x + 2 in
 
 .diff-rm[
 ```scala
-Ε |- fun ⇓ Value.Fun param body Ε′                    Ε |- arg ⇓ n1
-*(param, n1) :: Ε′ |- body ⇓ `???`
+E |- fun ⇓ Value.Fun param body E2                   E |- arg ⇓ n1
+*(param, n1) :: E2 |- body ⇓ `???`
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Apply fun arg ⇓ ???
+E |- Apply fun arg ⇓ ???
 ```
 ]
 
@@ -6746,10 +7985,10 @@ let f = x -> x + 2 in
 
 .diff-add[
 ```scala
-Ε |- fun ⇓ Value.Fun param body Ε′                    Ε |- arg ⇓ n1
-*(param, n1) :: Ε′ |- body ⇓ `n2`
+E |- fun ⇓ Value.Fun param body E2                   E |- arg ⇓ n1
+*(param, n1) :: E2 |- body ⇓ `n2`
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Apply fun arg ⇓ ???
+E |- Apply fun arg ⇓ ???
 ```
 ]
 
@@ -6764,10 +8003,10 @@ let f = x -> x + 2 in
 
 .diff-rm[
 ```scala
-Ε |- fun ⇓ Value.Fun param body Ε′                    Ε |- arg ⇓ n1
-(param, n1) :: Ε′ |- body ⇓ n2
+E |- fun ⇓ Value.Fun param body E2                   E |- arg ⇓ n1
+(param, n1) :: E2 |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Ε |- Apply fun arg ⇓ `???`
+*E |- Apply fun arg ⇓ `???`
 ```
 ]
 
@@ -6782,10 +8021,10 @@ let f = x -> x + 2 in
 
 .diff-add[
 ```scala
-Ε |- fun ⇓ Value.Fun param body Ε′                    Ε |- arg ⇓ n1
-(param, n1) :: Ε′ |- body ⇓ n2
+E |- fun ⇓ Value.Fun param body E2                   E |- arg ⇓ n1
+(param, n1) :: E2 |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Ε |- Apply fun arg ⇓ `n2`
+*E |- Apply fun arg ⇓ `n2`
 ```
 ]
 
@@ -6814,7 +8053,7 @@ enum Expr:
 &#x200B;
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Fun param body ⇓ Value.Fun param body E
+E |- `Fun param body` ⇓ Value.Fun param body E
 ```
 
 ---
@@ -6839,7 +8078,7 @@ enum Expr:
 &#x200B;
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- `Fun` param body ⇓ Value.Fun param body E
+E |- `Fun` param body ⇓ Value.Fun param body E
 ```
 
 ---
@@ -6864,7 +8103,7 @@ enum Expr:
 &#x200B;
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Fun `param` body ⇓ Value.Fun param body E
+E |- Fun `param` body ⇓ Value.Fun param body E
 ```
 
 ---
@@ -6889,7 +8128,7 @@ enum Expr:
 &#x200B;
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Fun param `body` ⇓ Value.Fun param body E
+E |- Fun param `body` ⇓ Value.Fun param body E
 ```
 
 ---
@@ -6909,10 +8148,10 @@ enum Expr:
 ```
 
 ```scala
-Ε |- fun ⇓ Value.Fun param body Ε′                    Ε |- arg ⇓ n1
-(param, n1) :: Ε′ |- body ⇓ n2
+E |- fun ⇓ Value.Fun param body E2                   E |- arg ⇓ n1
+(param, n1) :: E2 |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Apply fun arg ⇓ n2
+E |- `Apply fun arg` ⇓ n2
 ```
 
 
@@ -6935,10 +8174,10 @@ enum Expr:
 ]
 
 ```scala
-Ε |- fun ⇓ Value.Fun param body Ε′                    Ε |- arg ⇓ n1
-(param, n1) :: Ε′ |- body ⇓ n2
+E |- fun ⇓ Value.Fun param body E2                   E |- arg ⇓ n1
+(param, n1) :: E2 |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- `Apply` function arg ⇓ n2
+E |- `Apply` fun arg ⇓ n2
 ```
 
 ---
@@ -6955,15 +8194,15 @@ enum Expr:
   case Let(name: String, value: Expr, body: Expr)
   case Var(name: String)
   case Fun(param: String, body: Expr)
-* case Apply(`function: Expr`)
+* case Apply(`fun: Expr`)
 ```
 ]
 
 ```scala
-Ε |- fun ⇓ Value.Fun param body Ε′                    Ε |- arg ⇓ n1
-(param, n1) :: Ε′ |- body ⇓ n2
+E |- fun ⇓ Value.Fun param body E2                   E |- arg ⇓ n1
+(param, n1) :: E2 |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Apply `fun` arg ⇓ n2
+E |- Apply `fun` arg ⇓ n2
 ```
 
 ---
@@ -6985,10 +8224,10 @@ enum Expr:
 ]
 
 ```scala
-Ε |- fun ⇓ Value.Fun param body Ε′                    Ε |- arg ⇓ n1
-(param, n1) :: Ε′ |- body ⇓ n2
+E |- fun ⇓ Value.Fun param body E2                   E |- arg ⇓ n1
+(param, n1) :: E2 |- body ⇓ n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Apply fun `arg` ⇓ n2
+E |- Apply fun `arg` ⇓ n2
 ```
 
 ---
@@ -7012,8 +8251,59 @@ def interpret(expr: Expr, env: Env): Value = expr match
 &#x200B;
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Fun param body ⇓ Value.Fun param body Ε
+E |- `Fun param body` ⇓ Value.Fun param body E
 ```
+
+---
+
+## Interpretation: functions
+
+.diff-add[
+```scala
+def interpret(expr: Expr, env: Env): Value = expr match
+  case Num(value)             => Value.Num(value)
+  case Bool(value)            => Value.Bool(value)
+  case Add(lhs, rhs)          => add(lhs, rhs, env)
+  case Cond(pred, t, e)       => cond(pred, t, e, env)
+  case Let(name, value, body) => let(name, value, body, env)
+  case Var(name)              => env.lookup(name)
+* `case Fun()                  => ???`
+&#x200B;
+```
+]
+
+```scala
+&#x200B;
+&#x200B;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- `Fun` param body ⇓ Value.Fun param body E
+```
+
+---
+
+## Interpretation: functions
+
+.diff-add[
+```scala
+def interpret(expr: Expr, env: Env): Value = expr match
+  case Num(value)             => Value.Num(value)
+  case Bool(value)            => Value.Bool(value)
+  case Add(lhs, rhs)          => add(lhs, rhs, env)
+  case Cond(pred, t, e)       => cond(pred, t, e, env)
+  case Let(name, value, body) => let(name, value, body, env)
+  case Var(name)              => env.lookup(name)
+* case Fun(`param`)             => ???
+&#x200B;
+```
+]
+
+```scala
+&#x200B;
+&#x200B;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- Fun `param` body ⇓ Value.Fun param body E
+```
+
 
 
 ---
@@ -7029,7 +8319,7 @@ def interpret(expr: Expr, env: Env): Value = expr match
   case Cond(pred, t, e)       => cond(pred, t, e, env)
   case Let(name, value, body) => let(name, value, body, env)
   case Var(name)              => env.lookup(name)
-* `case Fun(param, body)  => ???`
+* case Fun(param`, body`)       => ???
 &#x200B;
 ```
 ]
@@ -7038,7 +8328,7 @@ def interpret(expr: Expr, env: Env): Value = expr match
 &#x200B;
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- `Fun param body` ⇓ Value.Fun param body Ε
+E |- Fun param `body` ⇓ Value.Fun param body E
 ```
 
 ---
@@ -7054,7 +8344,7 @@ def interpret(expr: Expr, env: Env): Value = expr match
   case Cond(pred, t, e)       => cond(pred, t, e, env)
   case Let(name, value, body) => let(name, value, body, env)
   case Var(name)              => env.lookup(name)
-* case Fun(param, body)  => `???`
+* case Fun(param, body)       => `???`
 &#x200B;
 ```
 ]
@@ -7063,7 +8353,7 @@ def interpret(expr: Expr, env: Env): Value = expr match
 &#x200B;
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Fun param body ⇓ Value.Fun param body Ε
+E |- Fun param body ⇓ Value.Fun param body E
 ```
 
 ---
@@ -7088,7 +8378,7 @@ def interpret(expr: Expr, env: Env): Value = expr match
 &#x200B;
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Fun param body ⇓ `Value.Fun param body Ε`
+E |- Fun param body ⇓ `Value.Fun param body E`
 ```
 
 ---
@@ -7109,10 +8399,10 @@ def interpret(expr: Expr, env: Env): Value = expr match
 
 
 ```scala
-Ε |- fun ⇓ Value.Fun param body Ε′    Ε |- arg ⇓ n1
-(param, n1) :: Ε′ |- body ⇓ n2
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Apply fun arg ⇓ n2
+E |- fun ⇓ Value.Fun param body E2                   E |- arg ⇓ n1
+(param, n1) :: E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- `Apply fun arg` ⇓ n2
 ```
 
 ---
@@ -7129,15 +8419,91 @@ def interpret(expr: Expr, env: Env): Value = expr match
   case Let(name, value, body) => let(name, value, body, env)
   case Var(name)              => env.lookup(name)
   case Fun(param, body)       => Value.Fun(param, body, env)
-* `case Apply(fun, arg)   => apply(fun, arg, env)`
+* `case Apply()                => `
 ```
 ]
 
 ```scala
-Ε |- fun ⇓ Value.Fun param body Ε′    Ε |- arg ⇓ n1
-(param, n1) :: Ε′ |- body ⇓ n2
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Apply fun arg ⇓ n2
+E |- fun ⇓ Value.Fun param body E2                   E |- arg ⇓ n1
+(param, n1) :: E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- `Apply` fun arg ⇓ n2
+```
+
+---
+
+## Interpretation: application
+
+.diff-add[
+```scala
+def interpret(expr: Expr, env: Env): Value = expr match
+  case Num(value)             => Value.Num(value)
+  case Bool(value)            => Value.Bool(value)
+  case Add(lhs, rhs)          => add(lhs, rhs, env)
+  case Cond(pred, t, e)       => cond(pred, t, e, env)
+  case Let(name, value, body) => let(name, value, body, env)
+  case Var(name)              => env.lookup(name)
+  case Fun(param, body)       => Value.Fun(param, body, env)
+* case Apply(`fun`)             =>
+```
+]
+
+```scala
+E |- fun ⇓ Value.Fun param body E2                   E |- arg ⇓ n1
+(param, n1) :: E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- Apply `fun` arg ⇓ n2
+```
+
+
+---
+
+## Interpretation: application
+
+.diff-add[
+```scala
+def interpret(expr: Expr, env: Env): Value = expr match
+  case Num(value)             => Value.Num(value)
+  case Bool(value)            => Value.Bool(value)
+  case Add(lhs, rhs)          => add(lhs, rhs, env)
+  case Cond(pred, t, e)       => cond(pred, t, e, env)
+  case Let(name, value, body) => let(name, value, body, env)
+  case Var(name)              => env.lookup(name)
+  case Fun(param, body)       => Value.Fun(param, body, env)
+* case Apply(fun`, arg`)        =>
+```
+]
+
+```scala
+E |- fun ⇓ Value.Fun param body E2                   E |- arg ⇓ n1
+(param, n1) :: E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- Apply fun `arg` ⇓ n2
+```
+
+---
+
+## Interpretation: application
+
+.diff-add[
+```scala
+def interpret(expr: Expr, env: Env): Value = expr match
+  case Num(value)             => Value.Num(value)
+  case Bool(value)            => Value.Bool(value)
+  case Add(lhs, rhs)          => add(lhs, rhs, env)
+  case Cond(pred, t, e)       => cond(pred, t, e, env)
+  case Let(name, value, body) => let(name, value, body, env)
+  case Var(name)              => env.lookup(name)
+  case Fun(param, body)       => Value.Fun(param, body, env)
+* case Apply(fun, arg)        => `apply(fun, arg, env)`
+```
+]
+
+```scala
+E |- fun ⇓ Value.Fun param body E2                   E |- arg ⇓ n1
+(param, n1) :: E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- Apply fun arg ⇓ n2
 ```
 
 ---
@@ -7157,10 +8523,10 @@ def apply(fun: Expr, arg: Expr, env: Env) = ???
 ```
 
 ```scala
-Ε |- fun ⇓ Value.Fun param body Ε′    Ε |- arg ⇓ n1
-(param, n1) :: Ε′ |- body ⇓ n2
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Apply fun arg ⇓ n2
+E |- fun ⇓ Value.Fun param body E2                   E |- arg ⇓ n1
+(param, n1) :: E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- Apply fun arg ⇓ n2
 ```
 
 ---
@@ -7182,10 +8548,10 @@ def apply(fun: Expr, arg: Expr, env: Env) = ???
 ]
 
 ```scala
-Ε |- fun ⇓ Value.Fun param body Ε′    Ε |- arg ⇓ n1
-(param, n1) :: Ε′ |- body ⇓ n2
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Apply fun arg ⇓ n2
+E |- fun ⇓ Value.Fun param body E2                   E |- arg ⇓ n1
+(param, n1) :: E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- Apply fun arg ⇓ n2
 ```
 
 ---
@@ -7207,10 +8573,10 @@ def apply(fun: Expr, arg: Expr, env: Env) = ???
 ]
 
 ```scala
-&#x200B;`Ε |- fun ⇓ Value.Fun param body Ε′`    Ε |- arg ⇓ n1
-(param, n1) :: Ε′ |- body ⇓ n2
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Apply fun arg ⇓ n2
+&#x200B;`E |- fun ⇓ Value.Fun param body E2`                   E |- arg ⇓ n1
+(param, n1) :: E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- Apply fun arg ⇓ n2
 ```
 
 ---
@@ -7232,10 +8598,10 @@ def apply(fun: Expr, arg: Expr, env: Env) = ???
 ]
 
 ```scala
-Ε |- fun ⇓ Value.Fun param body Ε′    `Ε |- arg ⇓ n1`
-(param, n1) :: Ε′ |- body ⇓ n2
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Apply fun arg ⇓ n2
+E |- fun ⇓ Value.Fun param body E2                   `E |- arg ⇓ n1`
+(param, n1) :: E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- Apply fun arg ⇓ n2
 ```
 
 ---
@@ -7257,10 +8623,10 @@ def apply(fun: Expr, arg: Expr, env: Env) = ???
 ]
 
 ```scala
-Ε |- fun ⇓ Value.Fun param body Ε′    Ε |- arg ⇓ n1
-&#x200B;`(param, n1) :: Ε′ |- body ⇓ n2`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Apply fun arg ⇓ n2
+E |- fun ⇓ Value.Fun param body E2                   E |- arg ⇓ n1
+&#x200B;`(param, n1) :: E2 |- body ⇓ n2`
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- Apply fun arg ⇓ n2
 ```
 
 ---
@@ -7282,10 +8648,10 @@ def apply(fun: Expr, arg: Expr, env: Env) = ???
 ]
 
 ```scala
-Ε |- fun ⇓ Value.Fun param body Ε′    Ε |- arg ⇓ n1
-(param, n1) :: Ε′ |- body ⇓ n2
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Apply fun arg ⇓ `n2`
+E |- fun ⇓ Value.Fun param body E2                   E |- arg ⇓ n1
+(param, n1) :: E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- Apply fun arg ⇓ `n2`
 ```
 
 ---
@@ -7307,10 +8673,10 @@ def apply(fun: Expr, arg: Expr, env: Env) = ???
 ]
 
 ```scala
-Ε |- fun ⇓ Value.Fun param body Ε′    Ε |- arg ⇓ n1
-(param, n1) :: Ε′ |- body ⇓ n2
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Apply fun arg ⇓ n2
+E |- fun ⇓ Value.Fun param body E2                   E |- arg ⇓ n1
+(param, n1) :: E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- Apply fun arg ⇓ n2
 ```
 
 ---
@@ -7582,7 +8948,7 @@ let sum = lower -> upper ->
 ```scala
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Gt ⇓ ???
+E |- Gt ⇓ ???
 ```
 
 ```ocaml
@@ -7598,7 +8964,7 @@ if 1 > 2 then false
 ```scala
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Ε |- Gt `lhs` ⇓ ???
+*E |- Gt `lhs` ⇓ ???
 ```
 ]
 
@@ -7615,7 +8981,7 @@ if `1` > 2 then false
 ```scala
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Ε |- Gt lhs `rhs` ⇓ ???
+*E |- Gt lhs `rhs` ⇓ ???
 ```
 ]
 
@@ -7630,9 +8996,9 @@ if 1 > `2` then false
 
 .diff-add[
 ```scala
-*&#x200B;`Ε |- lhs ⇓ Value.Num n1`
+*&#x200B;`E |- lhs ⇓ Value.Num n1`
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Gt lhs rhs ⇓ ???
+E |- Gt lhs rhs ⇓ ???
 ```
 ]
 
@@ -7648,9 +9014,9 @@ if `1` > 2 then false
 
 .diff-add[
 ```scala
-*Ε |- lhs ⇓ Value.Num n1                    `Ε |- rhs ⇓ Value.Num n2`
+*E |- lhs ⇓ Value.Num n1                    `E |- rhs ⇓ Value.Num n2`
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Gt lhs rhs ⇓ ???
+E |- Gt lhs rhs ⇓ ???
 ```
 ]
 
@@ -7666,9 +9032,9 @@ if 1 > `2` then false
 
 .diff-rm[
 ```scala
-Ε |- lhs ⇓ Value.Num n1                    Ε |- rhs ⇓ Value.Num n2
+E |- lhs ⇓ Value.Num n1                    E |- rhs ⇓ Value.Num n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Ε |- Gt lhs rhs ⇓ `???`
+*E |- Gt lhs rhs ⇓ `???`
 ```
 ]
 
@@ -7685,9 +9051,9 @@ if `1 > 2` then false
 
 .diff-add[
 ```scala
-Ε |- lhs ⇓ Value.Num n1                    Ε |- rhs ⇓ Value.Num n2
+E |- lhs ⇓ Value.Num n1                    E |- rhs ⇓ Value.Num n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Ε |- Gt lhs rhs ⇓ `Value.Bool (n1 > n2)`
+*E |- Gt lhs rhs ⇓ `Value.Bool (n1 > n2)`
 ```
 ]
 
@@ -7714,9 +9080,9 @@ enum Expr:
 ```
 
 ```scala
-Ε |- lhs ⇓ Value.Num n1                    Ε |- rhs ⇓ Value.Num n2
+E |- lhs ⇓ Value.Num n1                    E |- rhs ⇓ Value.Num n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Gt lhs rhs ⇓ Value.Bool (n1 > n2)
+E |- `Gt lhs rhs` ⇓ Value.Bool (n1 > n2)
 ```
 
 ---
@@ -7739,9 +9105,9 @@ enum Expr:
 ]
 
 ```scala
-Ε |- lhs ⇓ Value.Num n1                    Ε |- rhs ⇓ Value.Num n2
+E |- lhs ⇓ Value.Num n1                    E |- rhs ⇓ Value.Num n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- `Gt` lhs rhs ⇓ Value.Bool (n1 > n2)
+E |- `Gt` lhs rhs ⇓ Value.Bool (n1 > n2)
 ```
 
 ---
@@ -7764,9 +9130,9 @@ enum Expr:
 ]
 
 ```scala
-Ε |- lhs ⇓ Value.Num n1                    Ε |- rhs ⇓ Value.Num n2
+E |- lhs ⇓ Value.Num n1                    E |- rhs ⇓ Value.Num n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Gt `lhs` rhs ⇓ Value.Bool (n1 > n2)
+E |- Gt `lhs` rhs ⇓ Value.Bool (n1 > n2)
 ```
 
 ---
@@ -7789,9 +9155,9 @@ enum Expr:
 ]
 
 ```scala
-Ε |- lhs ⇓ Value.Num n1                    Ε |- rhs ⇓ Value.Num n2
+E |- lhs ⇓ Value.Num n1                    E |- rhs ⇓ Value.Num n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Gt lhs `rhs` ⇓ Value.Bool (n1 > n2)
+E |- Gt lhs `rhs` ⇓ Value.Bool (n1 > n2)
 ```
 
 ---
@@ -7812,9 +9178,61 @@ def interpret(expr: Expr, env: Env): Value = expr match
 ```
 
 ```scala
-Ε |- lhs ⇓ Value.Num n1                    Ε |- rhs ⇓ Value.Num n2
+E |- lhs ⇓ Value.Num n1                    E |- rhs ⇓ Value.Num n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Gt lhs rhs ⇓ Value.Bool (n1 > n2)
+E |- `Gt lhs rhs` ⇓ Value.Bool (n1 > n2)
+```
+
+---
+
+## Interpretation: comparison
+
+.diff-add[
+```scala
+def interpret(expr: Expr, env: Env): Value = expr match
+  case Num(value)             => Value.Num(value)
+  case Bool(value)            => Value.Bool(value)
+  case Add(lhs, rhs)          => add(lhs, rhs, env)
+* `case Gt()                   =>`
+  case Cond(pred, t, e)       => cond(pred, t, e, env)
+  case Let(name, value, body) => let(name, value, body, env)
+  case Var(name)              => env.lookup(name)
+  case Fun(param, body)       => Value.Fun(param, body, env)
+  case Apply(fun, arg)        => apply(fun, arg, env)
+```
+]
+
+
+```scala
+E |- lhs ⇓ Value.Num n1                    E |- rhs ⇓ Value.Num n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- `Gt` lhs rhs ⇓ Value.Bool (n1 > n2)
+```
+
+---
+
+## Interpretation: comparison
+
+.diff-add[
+```scala
+def interpret(expr: Expr, env: Env): Value = expr match
+  case Num(value)             => Value.Num(value)
+  case Bool(value)            => Value.Bool(value)
+  case Add(lhs, rhs)          => add(lhs, rhs, env)
+* case Gt(`lhs`)                =>
+  case Cond(pred, t, e)       => cond(pred, t, e, env)
+  case Let(name, value, body) => let(name, value, body, env)
+  case Var(name)              => env.lookup(name)
+  case Fun(param, body)       => Value.Fun(param, body, env)
+  case Apply(fun, arg)        => apply(fun, arg, env)
+```
+]
+
+
+```scala
+E |- lhs ⇓ Value.Num n1                    E |- rhs ⇓ Value.Num n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- Gt `lhs` rhs ⇓ Value.Bool (n1 > n2)
 ```
 
 
@@ -7828,7 +9246,7 @@ def interpret(expr: Expr, env: Env): Value = expr match
   case Num(value)             => Value.Num(value)
   case Bool(value)            => Value.Bool(value)
   case Add(lhs, rhs)          => add(lhs, rhs, env)
-* `case Gt(lhs, rhs)           =>`
+* case Gt(lhs`, rhs`)           =>
   case Cond(pred, t, e)       => cond(pred, t, e, env)
   case Let(name, value, body) => let(name, value, body, env)
   case Var(name)              => env.lookup(name)
@@ -7839,9 +9257,9 @@ def interpret(expr: Expr, env: Env): Value = expr match
 
 
 ```scala
-Ε |- lhs ⇓ Value.Num n1                    Ε |- rhs ⇓ Value.Num n2
+E |- lhs ⇓ Value.Num n1                    E |- rhs ⇓ Value.Num n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- `Gt lhs rhs` ⇓ Value.Bool (n1 > n2)
+E |- Gt lhs `rhs` ⇓ Value.Bool (n1 > n2)
 ```
 
 ---
@@ -7865,9 +9283,9 @@ def interpret(expr: Expr, env: Env): Value = expr match
 
 
 ```scala
-Ε |- lhs ⇓ Value.Num n1                    Ε |- rhs ⇓ Value.Num n2
+E |- lhs ⇓ Value.Num n1                    E |- rhs ⇓ Value.Num n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Gt lhs rhs ⇓ Value.Bool (n1 > n2)
+E |- Gt lhs rhs ⇓ Value.Bool (n1 > n2)
 ```
 
 ---
@@ -7888,9 +9306,9 @@ def gt(lhs: Expr, rhs: Expr, env: Env) = ???
 ```
 
 ```scala
-Ε |- lhs ⇓ Value.Num n1                    Ε |- rhs ⇓ Value.Num n2
+E |- lhs ⇓ Value.Num n1                    E |- rhs ⇓ Value.Num n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Gt lhs rhs ⇓ Value.Bool (n1 > n2)
+E |- Gt lhs rhs ⇓ Value.Bool (n1 > n2)
 ```
 
 ---
@@ -7913,9 +9331,9 @@ def gt(lhs: Expr, rhs: Expr, env: Env) = ???
 ]
 
 ```scala
-Ε |- lhs ⇓ Value.Num n1                    Ε |- rhs ⇓ Value.Num n2
+E |- lhs ⇓ Value.Num n1                    E |- rhs ⇓ Value.Num n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Gt lhs rhs ⇓ Value.Bool (n1 > n2)
+E |- Gt lhs rhs ⇓ Value.Bool (n1 > n2)
 ```
 
 ---
@@ -7938,9 +9356,9 @@ def gt(lhs: Expr, rhs: Expr, env: Env) =
 ]
 
 ```scala
-&#x200B;`Ε |- lhs ⇓ Value.Num n1`                    `Ε |- rhs ⇓ Value.Num n2`
+&#x200B;`E |- lhs ⇓ Value.Num n1`                    `E |- rhs ⇓ Value.Num n2`
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Gt lhs rhs ⇓ Value.Bool (n1 > n2)
+E |- Gt lhs rhs ⇓ Value.Bool (n1 > n2)
 ```
 
 ---
@@ -7961,9 +9379,9 @@ def gt(lhs: Expr, rhs: Expr, env: Env) =
 ```
 
 ```scala
-&#x200B;`Ε |- lhs ⇓ Value.Num n1`                    Ε |- rhs ⇓ Value.Num n2
+&#x200B;`E |- lhs ⇓ Value.Num n1`                    E |- rhs ⇓ Value.Num n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Gt lhs rhs ⇓ Value.Bool (n1 > n2)
+E |- Gt lhs rhs ⇓ Value.Bool (n1 > n2)
 ```
 
 ---
@@ -7984,9 +9402,9 @@ def gt(lhs: Expr, rhs: Expr, env: Env) =
 ```
 
 ```scala
-Ε |- lhs ⇓ Value.Num n1                    `Ε |- rhs ⇓ Value.Num n2`
+E |- lhs ⇓ Value.Num n1                    `E |- rhs ⇓ Value.Num n2`
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Gt lhs rhs ⇓ Value.Bool (n1 > n2)
+E |- Gt lhs rhs ⇓ Value.Bool (n1 > n2)
 ```
 
 
@@ -8010,9 +9428,9 @@ def gt(lhs: Expr, rhs: Expr, env: Env) =
 ]
 
 ```scala
-Ε |- lhs ⇓ Value.Num n1                    Ε |- rhs ⇓ Value.Num n2
+E |- lhs ⇓ Value.Num n1                    E |- rhs ⇓ Value.Num n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Gt lhs rhs ⇓ `Value.Bool (n1 > n2)`
+E |- Gt lhs rhs ⇓ `Value.Bool (n1 > n2)`
 ```
 
 ---
@@ -8036,9 +9454,9 @@ def gt(lhs: Expr, rhs: Expr, env: Env) =
 ]
 
 ```scala
-Ε |- lhs ⇓ Value.Num n1                    Ε |- rhs ⇓ Value.Num n2
+E |- lhs ⇓ Value.Num n1                    E |- rhs ⇓ Value.Num n2
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- Gt lhs rhs ⇓ `Value.Bool (n1 > n2)`
+E |- Gt lhs rhs ⇓ Value.Bool (n1 > n2)
 ```
 
 ---
@@ -8059,6 +9477,25 @@ val expr = Let(
   ...
 )
 ```
+
+---
+
+## Testing recursion
+
+```ocaml
+let sum = lower -> upper ->
+    if lower > upper then 0
+    else lower + (sum (lower + 1) upper)
+  in sum 1 10
+```
+
+
+```scala
+val expr = Let(
+  `...`
+)
+```
+
 
 --
 
@@ -8145,12 +9582,11 @@ interpret(expr, Env.empty)
 ```
 
 ```ocaml
-let rec sum = lower -> upper ->
+let sum = lower -> upper ->
     if lower > upper then 0
     else lower + (sum (lower + 1) upper)
   in sum 1 10
 ```
-
 
 
 ---
@@ -8158,14 +9594,71 @@ let rec sum = lower -> upper ->
 ## Formal semantics: recursion
 
 ```scala
-Ε′ = (name, null) :: Ε; Ε′ |- value ⇓ n1
-update(Ε′, name, n1); Ε′ |- body ⇓ n2
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- LetRec name value body ⇓ n2
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+```
+
+.diff-add[
+```ocaml
+*let `rec` sum = lower -> upper ->
+    if lower > upper then 0
+    else lower + (sum (lower + 1) upper)
+  in sum 1 10
+```
+]
+
+---
+
+## Formal semantics: recursion
+
+```scala
+enum Value:
+  case Num(value: Int)
+  case Bool(value: Boolean)
+  case Fun(param: String, `body: Expr, env: Env`)
+```
+
+```ocaml
+let rec sum = `lower -> upper ->`
+    `if lower > upper then 0`
+    `else lower + (sum (lower + 1) upper)`
+  in sum 1 10
+```
+
+---
+
+## Formal semantics: recursion
+
+```scala
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
 ```
 
 ```ocaml
 let rec sum = lower -> upper ->
+    if lower > upper then 0
+    else lower + (sum (lower + 1) upper)
+  in `sum 1 10`
+```
+
+
+---
+
+## Formal semantics: recursion
+
+```scala
+&#x200B;
+&#x200B;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- `LetRec` ⇓ ???
+```
+
+```ocaml
+&#x200B;`let rec` sum = lower -> upper ->
     if lower > upper then 0
     else lower + (sum (lower + 1) upper)
   in sum 1 10
@@ -8173,7 +9666,16 @@ let rec sum = lower -> upper ->
 
 ---
 
-## Substitution: recursive bindings
+## Formal semantics: recursion
+
+.diff-add[
+```scala
+&#x200B;
+&#x200B;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*E |- LetRec `name` ⇓ ???
+```
+]
 
 ```ocaml
 let rec `sum` = lower -> upper ->
@@ -8184,12 +9686,241 @@ let rec `sum` = lower -> upper ->
 
 ---
 
-## Substitution: recursive bindings
+## Formal semantics: recursion
+
+.diff-add[
+```scala
+&#x200B;
+&#x200B;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*E |- LetRec name `value` ⇓ ???
+```
+]
+
+```ocaml
+let rec sum = `lower -> upper ->`
+    `if lower > upper then 0`
+    `else lower + (sum (lower + 1) upper)`
+  in sum 1 10
+```
+
+---
+
+## Formal semantics: recursion
+
+.diff-add[
+```scala
+&#x200B;
+&#x200B;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*E |- LetRec name value `body` ⇓ ???
+```
+]
 
 ```ocaml
 let rec sum = lower -> upper ->
     if lower > upper then 0
-    else lower + (`sum` (lower + 1) upper)
+    else lower + (sum (lower + 1) upper)
+  in `sum 1 10`
+```
+
+---
+
+## Formal semantics: recursion
+
+.diff-add[
+```scala
+*&#x200B;`E |- value ⇓ n1`
+&#x200B;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- LetRec name value body ⇓ ???
+```
+]
+
+```ocaml
+let rec sum = `lower -> upper ->`
+    `if lower > upper then 0`
+    `else lower + (sum (lower + 1) upper)`
+  in sum 1 10
+```
+
+---
+
+## Formal semantics: recursion
+
+```scala
+&#x200B;`E` |- value ⇓ n1
+&#x200B;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- LetRec name value body ⇓ ???
+```
+
+```ocaml
+let rec sum = `lower -> upper ->`
+    `if lower > upper then 0`
+    `else lower + (sum (lower + 1) upper)`
+  in sum 1 10
+```
+
+---
+
+## Formal semantics: recursion
+
+.diff-add[
+```scala
+*&#x200B;`E2 = (name, ∅) :: E;` E |- value ⇓ n1
+&#x200B;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- LetRec name value body ⇓ ???
+```
+]
+
+```ocaml
+let rec sum = `lower -> upper ->`
+    `if lower > upper then 0`
+    `else lower + (sum (lower + 1) upper)`
+  in sum 1 10
+```
+
+---
+
+## Formal semantics: recursion
+
+.diff-rm[
+```scala
+*E2 = (name, ∅) :: E; `E` |- value ⇓ n1
+&#x200B;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- LetRec name value body ⇓ ???
+```
+]
+
+```ocaml
+let rec sum = `lower -> upper ->`
+    `if lower > upper then 0`
+    `else lower + (sum (lower + 1) upper)`
+  in sum 1 10
+```
+
+---
+
+## Formal semantics: recursion
+
+.diff-add[
+```scala
+*E2 = (name, ∅) :: E; `E2` |- value ⇓ n1
+&#x200B;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- LetRec name value body ⇓ ???
+```
+]
+
+```ocaml
+let rec sum = `lower -> upper ->`
+    `if lower > upper then 0`
+    `else lower + (sum (lower + 1) upper)`
+  in sum 1 10
+```
+
+---
+
+## Formal semantics: recursion
+
+.diff-add[
+```scala
+E2 = (name, ∅) :: E; E2 |- value ⇓ n1
+*&#x200B;`E2 |- body ⇓ n2`
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- LetRec name value body ⇓ ???
+```
+]
+
+```ocaml
+let rec sum = lower -> upper ->
+    if lower > upper then 0
+    else lower + (sum (lower + 1) upper)
+  in `sum 1 10`
+```
+
+---
+
+## Formal semantics: recursion
+
+```scala
+E2 = (name, ∅) :: E; E2 |- value ⇓ n1
+&#x200B;`E2` |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- LetRec name value body ⇓ ???
+```
+
+
+```ocaml
+let rec sum = lower -> upper ->
+    if lower > upper then 0
+    else lower + (sum (lower + 1) upper)
+  in `sum 1 10`
+```
+
+---
+
+## Formal semantics: recursion
+
+.diff-add[
+```scala
+E2 = (name, ∅) :: E; E2 |- value ⇓ n1
+*&#x200B;`set(E2, name, n1);` E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- LetRec name value body ⇓ ???
+```
+]
+
+
+```ocaml
+let rec sum = lower -> upper ->
+    if lower > upper then 0
+    else lower + (sum (lower + 1) upper)
+  in `sum 1 10`
+```
+
+---
+
+## Formal semantics: recursion
+
+.diff-rm[
+```scala
+E2 = (name, ∅) :: E; E2 |- value ⇓ n1
+set(E2, name, n1); E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*E |- LetRec name value body ⇓ `???`
+```
+]
+
+
+```ocaml
+let rec sum = lower -> upper ->
+    if lower > upper then 0
+    else lower + (sum (lower + 1) upper)
+  in sum 1 10
+```
+
+---
+
+## Formal semantics: recursion
+
+.diff-add[
+```scala
+E2 = (name, ∅) :: E; E2 |- value ⇓ n1
+set(E2, name, n1); E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*E |- LetRec name value body ⇓ `n2`
+```
+]
+
+
+```ocaml
+let rec sum = lower -> upper ->
+    if lower > upper then 0
+    else lower + (sum (lower + 1) upper)
   in sum 1 10
 ```
 
@@ -8211,6 +9942,13 @@ enum Expr:
 &#x200B;
 ```
 
+```scala
+E2 = (name, ∅) :: E; E2 |- value ⇓ n1
+set(E2, name, n1); E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- `LetRec name value body` ⇓ n2
+```
+
 ---
 
 ## Updated AST: recursive bindings
@@ -8224,10 +9962,200 @@ enum Expr:
   case Gt(lhs: Expr, rhs: Expr)
   case Cond(pred: Expr, thenBranch: Expr, elseBranch: Expr)
   case Let(name: String, value: Expr, body: Expr)
-* `case LetRec(name: String, value: Expr, body: Expr)`
+* `case LetRec()`
   case Var(name: String)
   case Fun(param: String, body: Expr)
   case Apply(fun: Expr, arg: Expr)
+```
+]
+
+```scala
+E2 = (name, ∅) :: E; E2 |- value ⇓ n1
+set(E2, name, n1); E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- `LetRec` name value body ⇓ n2
+```
+
+---
+
+## Updated AST: recursive bindings
+
+.diff-add[
+```scala
+enum Expr:
+  case Num(value: Int)
+  case Bool(value: Boolean)
+  case Add(lhs: Expr, rhs: Expr)
+  case Gt(lhs: Expr, rhs: Expr)
+  case Cond(pred: Expr, thenBranch: Expr, elseBranch: Expr)
+  case Let(name: String, value: Expr, body: Expr)
+* case LetRec(`name: String`)
+  case Var(name: String)
+  case Fun(param: String, body: Expr)
+  case Apply(fun: Expr, arg: Expr)
+```
+]
+
+```scala
+E2 = (name, ∅) :: E; E2 |- value ⇓ n1
+set(E2, name, n1); E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- LetRec `name` value body ⇓ n2
+```
+
+---
+
+## Updated AST: recursive bindings
+
+.diff-add[
+```scala
+enum Expr:
+  case Num(value: Int)
+  case Bool(value: Boolean)
+  case Add(lhs: Expr, rhs: Expr)
+  case Gt(lhs: Expr, rhs: Expr)
+  case Cond(pred: Expr, thenBranch: Expr, elseBranch: Expr)
+  case Let(name: String, value: Expr, body: Expr)
+* case LetRec(name: String`, value: Expr`)
+  case Var(name: String)
+  case Fun(param: String, body: Expr)
+  case Apply(fun: Expr, arg: Expr)
+```
+]
+
+```scala
+E2 = (name, ∅) :: E; E2 |- value ⇓ n1
+set(E2, name, n1); E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- LetRec name `value` body ⇓ n2
+```
+
+---
+
+## Updated AST: recursive bindings
+
+.diff-add[
+```scala
+enum Expr:
+  case Num(value: Int)
+  case Bool(value: Boolean)
+  case Add(lhs: Expr, rhs: Expr)
+  case Gt(lhs: Expr, rhs: Expr)
+  case Cond(pred: Expr, thenBranch: Expr, elseBranch: Expr)
+  case Let(name: String, value: Expr, body: Expr)
+* case LetRec(name: String, value: Expr`, body: Expr`)
+  case Var(name: String)
+  case Fun(param: String, body: Expr)
+  case Apply(fun: Expr, arg: Expr)
+```
+]
+
+```scala
+E2 = (name, ∅) :: E; E2 |- value ⇓ n1
+set(E2, name, n1); E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- LetRec name value `body` ⇓ n2
+```
+
+---
+
+## Interpretation: recursive bindings
+
+```scala
+case class Env(env: List[Env.Binding]):
+  def lookup(name: String): Value =
+    env.find(_.name == name)
+       .map(_.value)
+       .getOrElse(sys.error(s"Unbound variable: $name"))
+&#x200B;
+  def bind(name: String, value: Value) =
+    Env(Env.Binding(name, value) :: env)
+&#x200B;
+object Env:
+  case class Binding(name: String, value: Value)
+&#x200B;
+  val empty: Env = Env(List.empty)
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+```
+
+---
+
+## Interpretation: recursive bindings
+
+.diff-add[
+```scala
+case class Env(env: List[Env.Binding]):
+  def lookup(name: String): Value =
+    env.find(_.name == name)
+       .map(_.value)
+       .getOrElse(sys.error(s"Unbound variable: $name"))
+&#x200B;
+  def bind(name: String, value: Value) =
+    Env(Env.Binding(name, value) :: env)
+*&#x200B;
+* `def set(name: String, value: Value) =`
+&#x200B;
+object Env:
+  case class Binding(name: String, value: Value)
+&#x200B;
+  val empty: Env = Env(List.empty)
+&#x200B;
+&#x200B;
+```
+]
+
+---
+
+## Interpretation: recursive bindings
+
+.diff-add[
+```scala
+case class Env(env: List[Env.Binding]):
+  def lookup(name: String): Value =
+    env.find(_.name == name)
+       .map(_.value)
+       .getOrElse(sys.error(s"Unbound variable: $name"))
+&#x200B;
+  def bind(name: String, value: Value) =
+    Env(Env.Binding(name, value) :: env)
+&#x200B;
+  def set(name: String, value: Value) =
+*   `env.find(_.name == name)`
+&#x200B;
+object Env:
+  case class Binding(name: String, value: Value)
+&#x200B;
+  val empty: Env = Env(List.empty)
+&#x200B;
+```
+]
+
+---
+
+## Interpretation: recursive bindings
+
+.diff-add[
+```scala
+case class Env(env: List[Env.Binding]):
+  def lookup(name: String): Value =
+    env.find(_.name == name)
+       .map(_.value)
+       .getOrElse(sys.error(s"Unbound variable: $name"))
+&#x200B;
+  def bind(name: String, value: Value) =
+    Env(Env.Binding(name, value) :: env)
+&#x200B;
+  def set(name: String, value: Value) =
+    env.find(_.name == name)
+*      `.foreach(_.value = value)`
+&#x200B;
+object Env:
+  case class Binding(name: String, value: Value)
+&#x200B;
+  val empty: Env = Env(List.empty)
 ```
 ]
 
@@ -8239,43 +10167,47 @@ enum Expr:
 case class Env(env: List[Env.Binding]):
   def lookup(name: String): Value =
     env.find(_.name == name)
-        .map(_.value)
-        .getOrElse(sys.error(s"Unbound variable: $name"))
-
+       .map(_.value)
+       .getOrElse(sys.error(s"Unbound variable: $name"))
+&#x200B;
   def bind(name: String, value: Value) =
     Env(Env.Binding(name, value) :: env)
-
+&#x200B;
   def set(name: String, value: Value) =
     env.find(_.name == name)
-       .foreach(_.value = value)
-
+       .foreach(`_.value = value`)
+&#x200B;
 object Env:
-  case class Binding(name: String, var value: Value)
-
+  case class Binding(name: String, `value: Value`)
+&#x200B;
   val empty: Env = Env(List.empty)
-
 ```
 
 ---
 
 ## Interpretation: recursive bindings
 
+.diff-add[
 ```scala
-def letRec(name: String, value: Expr, body: Expr, env: Env) =
-  val newEnv = env.bind(name, null)
-  val n1     = interpret(value, newEnv)
-
-  newEnv.set(name, n1)
-  interpret(body, newEnv)
+case class Env(env: List[Env.Binding]):
+  def lookup(name: String): Value =
+    env.find(_.name == name)
+       .map(_.value)
+       .getOrElse(sys.error(s"Unbound variable: $name"))
+&#x200B;
+  def bind(name: String, value: Value) =
+    Env(Env.Binding(name, value) :: env)
+&#x200B;
+  def set(name: String, value: Value) =
+    env.find(_.name == name)
+       .foreach(_.value = value)
+&#x200B;
+object Env:
+* case class Binding(name: String, `var` value: Value)
+&#x200B;
+  val empty: Env = Env(List.empty)
 ```
-
-```scala
-Ε′ = (name, null) :: Ε; Ε′ |- value ⇓ n1
-update(Ε′, name, n1); Ε′ |- body ⇓ n2
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Ε |- LetRec name value body ⇓ n2
-```
-
+]
 
 ---
 
@@ -8289,11 +10221,315 @@ def interpret(expr: Expr, env: Env): Value = expr match
   case Gt(lhs, rhs)              => gt(lhs, rhs, env)
   case Cond(pred, t, e)          => cond(pred, t, e, env)
   case Let(name, value, body)    => let(name, value, body, env)
-  case LetRec(name, value, body) => letRec(name, value, body, env)
+  case Var(name)                 => env.lookup(name)
+  case Fun(param, body)          => Value.Fun(param, body, env)
+  case Apply(fun, arg)           => apply(fun, arg, env)
+&#x200B;
+```
+
+```scala
+E2 = (name, ∅) :: E; E2 |- value ⇓ n1
+set(E2, name, n1);   E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- `LetRec name value body` ⇓ n2
+```
+
+---
+
+## Interpretation: recursive bindings
+
+.diff-add[
+```scala
+def interpret(expr: Expr, env: Env): Value = expr match
+  case Num(value)                => Value.Num(value)
+  case Bool(value)               => Value.Bool(value)
+  case Add(lhs, rhs)             => add(lhs, rhs, env)
+  case Gt(lhs, rhs)              => gt(lhs, rhs, env)
+  case Cond(pred, t, e)          => cond(pred, t, e, env)
+  case Let(name, value, body)    => let(name, value, body, env)
+* `case LetRec()                  => `
   case Var(name)                 => env.lookup(name)
   case Fun(param, body)          => Value.Fun(param, body, env)
   case Apply(fun, arg)           => apply(fun, arg, env)
 ```
+]
+
+```scala
+E2 = (name, ∅) :: E; E2 |- value ⇓ n1
+set(E2, name, n1);   E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- `LetRec` name value body ⇓ n2
+```
+
+---
+
+## Interpretation: recursive bindings
+
+.diff-add[
+```scala
+def interpret(expr: Expr, env: Env): Value = expr match
+  case Num(value)                => Value.Num(value)
+  case Bool(value)               => Value.Bool(value)
+  case Add(lhs, rhs)             => add(lhs, rhs, env)
+  case Gt(lhs, rhs)              => gt(lhs, rhs, env)
+  case Cond(pred, t, e)          => cond(pred, t, e, env)
+  case Let(name, value, body)    => let(name, value, body, env)
+* case LetRec(`name`)              =>
+  case Var(name)                 => env.lookup(name)
+  case Fun(param, body)          => Value.Fun(param, body, env)
+  case Apply(fun, arg)           => apply(fun, arg, env)
+```
+]
+
+```scala
+E2 = (name, ∅) :: E; E2 |- value ⇓ n1
+set(E2, name, n1);   E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- LetRec `name` value body ⇓ n2
+```
+
+---
+
+## Interpretation: recursive bindings
+
+.diff-add[
+```scala
+def interpret(expr: Expr, env: Env): Value = expr match
+  case Num(value)                => Value.Num(value)
+  case Bool(value)               => Value.Bool(value)
+  case Add(lhs, rhs)             => add(lhs, rhs, env)
+  case Gt(lhs, rhs)              => gt(lhs, rhs, env)
+  case Cond(pred, t, e)          => cond(pred, t, e, env)
+  case Let(name, value, body)    => let(name, value, body, env)
+* case LetRec(name`, value`)       =>
+  case Var(name)                 => env.lookup(name)
+  case Fun(param, body)          => Value.Fun(param, body, env)
+  case Apply(fun, arg)           => apply(fun, arg, env)
+```
+]
+
+```scala
+E2 = (name, ∅) :: E; E2 |- value ⇓ n1
+set(E2, name, n1);   E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- LetRec name `value` body ⇓ n2
+```
+
+---
+
+## Interpretation: recursive bindings
+
+.diff-add[
+```scala
+def interpret(expr: Expr, env: Env): Value = expr match
+  case Num(value)                => Value.Num(value)
+  case Bool(value)               => Value.Bool(value)
+  case Add(lhs, rhs)             => add(lhs, rhs, env)
+  case Gt(lhs, rhs)              => gt(lhs, rhs, env)
+  case Cond(pred, t, e)          => cond(pred, t, e, env)
+  case Let(name, value, body)    => let(name, value, body, env)
+* case LetRec(name, value`, body`) =>
+  case Var(name)                 => env.lookup(name)
+  case Fun(param, body)          => Value.Fun(param, body, env)
+  case Apply(fun, arg)           => apply(fun, arg, env)
+```
+]
+
+```scala
+E2 = (name, ∅) :: E; E2 |- value ⇓ n1
+set(E2, name, n1);   E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- LetRec name value `body` ⇓ n2
+```
+
+
+---
+
+## Interpretation: recursive bindings
+
+.diff-add[
+```scala
+def interpret(expr: Expr, env: Env): Value = expr match
+  case Num(value)                => Value.Num(value)
+  case Bool(value)               => Value.Bool(value)
+  case Add(lhs, rhs)             => add(lhs, rhs, env)
+  case Gt(lhs, rhs)              => gt(lhs, rhs, env)
+  case Cond(pred, t, e)          => cond(pred, t, e, env)
+  case Let(name, value, body)    => let(name, value, body, env)
+* case LetRec(name, value, body) => `letRec(name, value, body, env)`
+  case Var(name)                 => env.lookup(name)
+  case Fun(param, body)          => Value.Fun(param, body, env)
+  case Apply(fun, arg)           => apply(fun, arg, env)
+```
+]
+
+```scala
+E2 = (name, ∅) :: E; E2 |- value ⇓ n1
+set(E2, name, n1);   E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- LetRec name value body ⇓ n2
+```
+
+---
+
+## Interpretation: recursive bindings
+
+```scala
+def letRec(name: String, value: Expr, body: Expr, env: Env) = ???
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+```
+
+```scala
+E2 = (name, ∅) :: E; E2 |- value ⇓ n1
+set(E2, name, n1);   E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- LetRec name value body ⇓ n2
+```
+
+---
+
+## Interpretation: recursive bindings
+
+.diff-rm[
+```scala
+*def letRec(name: String, value: Expr, body: Expr, env: Env) = `???`
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+```
+]
+
+```scala
+E2 = (name, ∅) :: E; E2 |- value ⇓ n1
+set(E2, name, n1);   E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- LetRec name value body ⇓ n2
+```
+
+---
+
+## Interpretation: recursive bindings
+
+.diff-add[
+```scala
+&#x200B;def letRec(name: String, value: Expr, body: Expr, env: Env) =
+* `val newEnv = env.bind(name, null)`
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+```
+]
+
+```scala
+&#x200B;`E2 = (name, ∅) :: E`; E2 |- value ⇓ n1
+set(E2, name, n1);   E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- LetRec name value body ⇓ n2
+```
+
+---
+
+## Interpretation: recursive bindings
+
+.diff-add[
+```scala
+&#x200B;def letRec(name: String, value: Expr, body: Expr, env: Env) =
+  val newEnv = env.bind(name, null)
+* `val n1     = interpret(value, newEnv)`
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+```
+]
+
+```scala
+E2 = (name, ∅) :: E; `E2 |- value ⇓ n1`
+set(E2, name, n1);   E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- LetRec name value body ⇓ n2
+```
+
+---
+
+## Interpretation: recursive bindings
+
+.diff-add[
+```scala
+&#x200B;def letRec(name: String, value: Expr, body: Expr, env: Env) =
+  val newEnv = env.bind(name, null)
+  val n1     = interpret(value, newEnv)
+*&#x200B;
+* `newEnv.set(name, n1)`
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+```
+]
+
+```scala
+E2 = (name, ∅) :: E; E2 |- value ⇓ n1
+&#x200B;`set(E2, name, n1)`;   E2 |- body ⇓ n2
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- LetRec name value body ⇓ n2
+```
+
+---
+
+## Interpretation: recursive bindings
+
+.diff-add[
+```scala
+&#x200B;def letRec(name: String, value: Expr, body: Expr, env: Env) =
+  val newEnv = env.bind(name, null)
+  val n1     = interpret(value, newEnv)
+*&#x200B;
+  newEnv.set(name, n1)
+* `interpret(body, newEnv)`
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+```
+]
+
+```scala
+E2 = (name, ∅) :: E; E2 |- value ⇓ n1
+set(E2, name, n1);   `E2 |- body ⇓ n2`
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+E |- LetRec name value body ⇓ `n2`
+```
+
 
 ---
 
@@ -8313,6 +10549,24 @@ val expr = LetRec
   ...
 )
 ```
+
+---
+
+## Checking our work
+
+```ocaml
+let rec sum = lower -> upper ->
+    if lower > upper then 0
+    else lower + (sum (lower + 1) upper)
+  in sum 1 10
+```
+
+```scala
+val expr = LetRec
+  `...`
+)
+```
+
 
 --
 
@@ -8878,7 +11132,7 @@ name: conclusion
 
 ---
 
-## If you only remember 1 slide...
+## [[If you only remember 1 slide...](#conclusion)
 
 --
 
@@ -9012,7 +11266,7 @@ val expr: TypedExpr[Type.Bool -> Type.Num] = Fun(
 
 ---
 
-## TOC
+## [TOC](#conclusion)
 
 * [The Substitution Model](#substitution)
 * [Representing source code](#ast)
@@ -9038,6 +11292,3 @@ val expr: TypedExpr[Type.Bool -> Type.Num] = Fun(
     </script>
   </body>
 </html>
-
-
-4165387427862093

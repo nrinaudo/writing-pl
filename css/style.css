@@ -41,6 +41,14 @@ h1, h2, h3, .section {
     line-height: 100%;
 }
 
+h2 {
+    visibility: hidden;
+}
+
+h2 a {
+    visibility: visible;
+}
+
 .super {
     vertical-align: super;
     font-size:      .5em;
