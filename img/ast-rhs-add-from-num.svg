@@ -27,10 +27,10 @@
 <polygon fill="#d0dce3" stroke="#d0dce3" points="48.13,-115.22 40.29,-108.1 41.98,-118.56 48.13,-115.22"/>
 </g>
 <!-- Two -->
-<g id="node3" class="node leaf,add">
+<g id="node3" class="node leaf,rm">
 <title>Two</title>
-<path fill="#acf2bd" stroke="#24a808" d="M122,-108C122,-108 92,-108 92,-108 86,-108 80,-102 80,-96 80,-96 80,-84 80,-84 80,-78 86,-72 92,-72 92,-72 122,-72 122,-72 128,-72 134,-78 134,-84 134,-84 134,-96 134,-96 134,-102 128,-108 122,-108"/>
-<text text-anchor="middle" x="107" y="-86.3" font-family="Inter,Arial" font-size="14.00" fill="#24a808">???</text>
+<path fill="#fdb8c0" stroke="#923a41" d="M122,-108C122,-108 92,-108 92,-108 86,-108 80,-102 80,-96 80,-96 80,-84 80,-84 80,-78 86,-72 92,-72 92,-72 122,-72 122,-72 128,-72 134,-78 134,-84 134,-84 134,-96 134,-96 134,-102 128,-108 122,-108"/>
+<text text-anchor="middle" x="107" y="-86.3" font-family="Inter,Arial" font-size="14.00" fill="#923a41">???</text>
 </g>
 <!-- Add&#45;&gt;Two -->
 <g id="edge2" class="edge disabled">

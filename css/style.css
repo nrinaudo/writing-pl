@@ -28,8 +28,16 @@ a .remark-inline-code {
     word-wrap:     break-word;       /* Internet Explorer 5.5+ */
 }
 
+.remark-slide-content.center {
+    padding-top: 0px;
+}
+
+.remark-slide-content {
+    padding-top: 70px;
+}
+
 .remark-slide-content, .remark-slide-container {
-    background: #ecf0f4;
+    background:  #ecf0f4;
 }
 
 .remark-slide-scaler {
@@ -39,14 +47,6 @@ a .remark-inline-code {
 h1, h2, h3, .section {
     color:       #111111;
     line-height: 100%;
-}
-
-h2 {
-    visibility: hidden;
-}
-
-h2 a {
-    visibility: visible;
 }
 
 .super {
