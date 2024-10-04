@@ -8884,6 +8884,7 @@ let sum = lower -> upper ->
     if lower > upper then 0
     else lower + (sum (lower + 1) upper)
   in sum 1 10
+&#x200B;
 ```
 
 ---
@@ -8893,6 +8894,7 @@ let sum = `lower` -> `upper` ->
     if lower > upper then 0
     else lower + (sum (lower + 1) upper)
   in sum 1 10
+&#x200B;
 ```
 
 ---
@@ -8902,6 +8904,7 @@ let sum = lower -> upper ->
     `if lower > upper then 0`
     else lower + (sum (lower + 1) upper)
   in sum 1 10
+&#x200B;
 ```
 
 ---
@@ -8911,6 +8914,7 @@ let sum = lower -> upper ->
     if lower > upper then 0
     else `lower` + (sum (lower + 1) upper)
   in sum 1 10
+&#x200B;
 ```
 
 ---
@@ -8920,6 +8924,7 @@ let sum = lower -> upper ->
     if lower > upper then 0
     else lower + `(sum (lower + 1) upper)`
   in sum 1 10
+&#x200B;
 ```
 
 ---
