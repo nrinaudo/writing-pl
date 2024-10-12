@@ -11390,8 +11390,8 @@ pred : Type.Bool      onT : X       onF : X
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Let : ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+           Let : ???
 ```
 
 ```ocaml
@@ -11404,8 +11404,8 @@ let x = 1 in
 .diff-add[
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Let `name` : ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*          Let `name` : ???
 ```
 ]
 
@@ -11419,8 +11419,8 @@ let `x` = 1 in
 .diff-add[
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Let name `value` : ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*          Let name `value` : ???
 ```
 ]
 
@@ -11434,8 +11434,8 @@ let x = `1` in
 .diff-add[
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Let name value `body` : ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*          Let name value `body` : ???
 ```
 ]
 
@@ -11449,8 +11449,8 @@ let x = 1 in
 .diff-add[
 ```scala
 *&#x200B;`value : X`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Let name value body : ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+           Let name value body : ???
 ```
 ]
 
@@ -11459,13 +11459,14 @@ let x = `1` in
   x + 2
 ```
 
+
 ---
 
 .diff-add[
 ```scala
-*value : X                                                  `body : Y`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Let name value body : ???
+*value : X                            `body : Y`
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+           Let name value body : ???
 ```
 ]
 
@@ -11474,13 +11475,14 @@ let x = 1 in
   `x + 2`
 ```
 
+
 ---
 
 .diff-add[
 ```scala
-*&#x200B;`Γ |-` value : X                                        `Γ |-` body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*&#x200B;`Γ |-` Let name value body : ???
+*&#x200B;`Γ |-` value : X                  `Γ |-` body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*     `Γ |-` Let name value body : ???
 ```
 ]
 
@@ -11492,9 +11494,9 @@ let x = 1 in
 ---
 
 ```scala
-&#x200B;`Γ |- value : X`                                        Γ |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Let name value body : ???
+&#x200B;`Γ |- value : X`                  Γ |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- Let name value body : ???
 ```
 
 ```ocaml
@@ -11505,9 +11507,9 @@ let x = 1 in
 ---
 
 ```scala
-Γ |- value : X                                        `Γ` |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Let name value body : ???
+Γ |- value : X                  `Γ |- body : Y`
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- Let name value body : ???
 ```
 
 ```ocaml
@@ -11519,9 +11521,9 @@ let x = 1 in
 
 .diff-rm[
 ```scala
-*Γ |- value : X                                        `Γ` |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Let name value body : ???
+*Γ |- value : X                  `Γ` |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- Let name value body : ???
 ```
 ]
 
@@ -11534,9 +11536,9 @@ let `x = 1` in
 
 .diff-add[
 ```scala
-*Γ |- value : X                             `Γ[name <- X]` |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Let name value body : ???
+*Γ |- value : X       `Γ[name <- X]` |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- Let name value body : ???
 ```
 ]
 
@@ -11549,9 +11551,9 @@ let `x = 1` in
 
 .diff-rm[
 ```scala
-Γ |- value : X                             Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Γ |- Let name value body : `???`
+Γ |- value : X       Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*     Γ |- Let name value body : `???`
 ```
 ]
 
@@ -11565,9 +11567,9 @@ let x = 1 in
 
 .diff-add[
 ```scala
-Γ |- value : X                             Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Γ |- Let name value body : `Y`
+Γ |- value : X       Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*     Γ |- Let name value body : `Y`
 ```
 ]
 
@@ -11579,9 +11581,9 @@ let x = 1 in
 ---
 
 ```scala
-Γ |- value : X                             Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-&#x200B;`Γ` |- Let name value body : Y
+Γ |- value : X       Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      `Γ` |- Let name value body : Y
 ```
 
 
@@ -11589,6 +11591,71 @@ let x = 1 in
 let x = 1 in
   x + 2
 ```
+
+---
+
+```scala
+&#x200B;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Γ |- `Var` : ???
+```
+
+
+```ocaml
+let x = 1 in
+  `x` + 2
+```
+
+---
+
+.diff-add[
+```scala
+&#x200B;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*Γ |- Var `name` : ???
+```
+]
+
+
+```ocaml
+let x = 1 in
+  `x` + 2
+```
+
+---
+
+.diff-rm[
+```scala
+&#x200B;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*Γ |- Var name : `???`
+```
+]
+
+
+```ocaml
+let x = 1 in
+  x + 2
+```
+
+---
+
+.diff-add[
+```scala
+&#x200B;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*Γ |- Var name : `Γ(name)`
+```
+]
+
+
+
+
+```ocaml
+let x = 1 in
+  x + 2
+```
+
 
 ---
 
@@ -11985,9 +12052,9 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 ]
 
 ```scala
-Γ |- value : X                            Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- `Let name value body` : Y
+Γ |- value : X       Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- `Let name value body` : Y
 ```
 
 ---
@@ -12006,9 +12073,9 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 ]
 
 ```scala
-Γ |- value : X                            Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Let name value body : Y
+Γ |- value : X       Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- Let name value body : Y
 ```
 
 ---
@@ -12027,9 +12094,9 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 ]
 
 ```scala
-Γ |- value : X                            Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Let name value body : Y
+Γ |- value : X       Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- Let name value body : Y
 ```
 
 ---
@@ -12046,9 +12113,9 @@ def checkLet(name: String, value: Expr, body: Expr, e: TypeEnv) =
 ```
 
 ```scala
-Γ |- value : X                            Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Let name value body : Y
+Γ |- value : X       Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- Let name value body : Y
 ```
 
 ---
@@ -12067,9 +12134,9 @@ def checkLet(name: String, value: Expr, body: Expr, e: TypeEnv) =
 ]
 
 ```scala
-&#x200B;`Γ |- value : X`                            Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Let name value body : Y
+&#x200B;`Γ |- value : X`       Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- Let name value body : Y
 ```
 
 ---
@@ -12088,9 +12155,9 @@ def checkLet(name: String, value: Expr, body: Expr, e: TypeEnv) =
 ]
 
 ```scala
-&#x200B;`Γ |- value : X`                            Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Let name value body : Y
+&#x200B;`Γ |- value : X`       Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- Let name value body : Y
 ```
 
 ---
@@ -12109,9 +12176,9 @@ def checkLet(name: String, value: Expr, body: Expr, e: TypeEnv) =
 ]
 
 ```scala
-Γ |- value : X                            `Γ[name <- X] |- body : Y`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Let name value body : Y
+Γ |- value : X       `Γ[name <- X] |- body : Y`
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- Let name value body : Y
 ```
 
 ---
@@ -12130,9 +12197,9 @@ def checkLet(name: String, value: Expr, body: Expr, e: TypeEnv) =
 ]
 
 ```scala
-Γ |- value : X                            `Γ[name <- X]` |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Let name value body : Y
+Γ |- value : X       `Γ[name <- X]` |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- Let name value body : Y
 ```
 
 ---
@@ -12151,9 +12218,9 @@ def checkLet(name: String, value: Expr, body: Expr, e: TypeEnv) =
 ]
 
 ```scala
-Γ |- value : X                            `Γ[name <- X]` |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Let name value body : Y
+Γ |- value : X       `Γ[name <- X]` |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- Let name value body : Y
 ```
 
 ---
@@ -12172,9 +12239,9 @@ def checkLet(name: String, value: Expr, body: Expr, e: TypeEnv) =
 ]
 
 ```scala
-Γ |- value : X                            Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Let name value body : `Y`
+Γ |- value : X       Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- Let name value body : `Y`
 ```
 
 ---
@@ -12193,7 +12260,7 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Γ |- `Var name` : Γ(name)
 ```
 
@@ -12215,7 +12282,7 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Γ |- `Var name` : Γ(name)
 ```
 
@@ -12237,7 +12304,7 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Γ |- Var name : `Γ(name)`
 ```
 
@@ -12259,7 +12326,7 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Γ |- Var name : `Γ(name)`
 ```
 
@@ -12267,7 +12334,7 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Γ |- `Fun` : ???
 ```
 
@@ -12281,7 +12348,7 @@ let f = `x -> x + 1` in
 .diff-add[
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 *Γ |- Fun `param` : ???
 ```
 ]
@@ -12296,7 +12363,7 @@ let f = `x` -> x + 1 in
 .diff-add[
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 *Γ |- Fun param `body` : ???
 ```
 ]
@@ -12310,8 +12377,8 @@ let f = x -> `x + 1` in
 
 .diff-add[
 ```scala
-*&#x200B;`Γ |- body : ???`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*    `Γ |- body : ???`
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Γ |- Fun param body : ???
 ```
 ]
@@ -12324,8 +12391,8 @@ let f = x -> `x + 1` in
 ---
 
 ```scala
-&#x200B;`Γ` |- body : ???
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+     `Γ` |- body : ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Γ |- Fun param body : ???
 ```
 
@@ -12339,8 +12406,8 @@ let f = x -> x + 1 in
 
 .diff-add[
 ```scala
-*&#x200B;`Γ[name <- X]` |- body : ???
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*    `Γ[name <- X]` |- body : ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Γ |- Fun param body : ???
 ```
 ]
@@ -12354,8 +12421,8 @@ let f = x -> x + 1 in
 
 .diff-rm[
 ```scala
-*&#x200B;Γ[name <- X] |- body : `???`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*    Γ[name <- X] |- body : `???`
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Γ |- Fun param body : ???
 ```
 ]
@@ -12369,8 +12436,8 @@ let f = x -> x + 1 in
 
 .diff-add[
 ```scala
-*&#x200B;Γ[name <- X] |- body : `Y`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*    Γ[name <- X] |- body : `Y`
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Γ |- Fun param body : ???
 ```
 ]
@@ -12384,8 +12451,8 @@ let f = x -> x + 1 in
 
 .diff-rm[
 ```scala
-Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+     Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 *Γ |- Fun param body : `???`
 ```
 ]
@@ -12399,8 +12466,8 @@ let f = x -> x + 1 in
 
 .diff-add[
 ```scala
-Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+     Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 *Γ |- Fun param body : `X -> Y`
 ```
 ]
@@ -12413,8 +12480,8 @@ let f = x -> x + 1 in
 ---
 
 ```scala
-Γ[name <- `X`] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+     Γ[name <- `X`] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Γ |- Fun param body : X -> Y
 ```
 
@@ -12427,8 +12494,8 @@ let f = x -> x + 1 in
 
 .diff-rm[
 ```scala
-Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+     Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 *Γ |- Fun `param` body : X -> Y
 ```
 ]
@@ -12442,8 +12509,8 @@ let f = x -> x + 1 in
 
 .diff-add[
 ```scala
-Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+     Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 *Γ |- Fun `(param : X)` body : X -> Y
 ```
 ]
@@ -12457,8 +12524,8 @@ let f = x -> x + 1 in
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- `Apply` : ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+     Γ |- `Apply` : ???
 ```
 
 ```ocaml
@@ -12471,8 +12538,8 @@ let f = x + 1 in
 .diff-add[
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Γ |- Apply `fun` : ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*    Γ |- Apply `fun` : ???
 ```
 ]
 
@@ -12486,8 +12553,8 @@ let f = x + 1 in
 .diff-add[
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Γ |- Apply fun `arg` : ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*    Γ |- Apply fun `arg` : ???
 ```
 ]
 
@@ -12501,8 +12568,8 @@ let f = x + 1 in
 .diff-add[
 ```scala
 *&#x200B;`Γ |- fun : ???`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Apply fun arg : ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+     Γ |- Apply fun arg : ???
 ```
 ]
 
@@ -12516,8 +12583,8 @@ let f = x + 1 in
 .diff-rm[
 ```scala
 *&#x200B;Γ |- fun : `???`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Apply fun arg : ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+     Γ |- Apply fun arg : ???
 ```
 ]
 
@@ -12531,8 +12598,8 @@ let f = x + 1 in
 .diff-add[
 ```scala
 *&#x200B;Γ |- fun : `X -> Y`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Apply fun arg : ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+     Γ |- Apply fun arg : ???
 ```
 ]
 
@@ -12545,9 +12612,9 @@ let f = x + 1 in
 
 .diff-add[
 ```scala
-*Γ |- fun : X -> Y                                     `Γ |- arg : X`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Apply fun arg : ???
+*Γ |- fun : X -> Y     `Γ |- arg : X`
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+     Γ |- Apply fun arg : ???
 ```
 ]
 
@@ -12560,9 +12627,9 @@ let f = x + 1 in
 
 .diff-rm[
 ```scala
-Γ |- fun : X -> Y                                     Γ |- arg : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Γ |- Apply fun arg : `???`
+Γ |- fun : X -> Y     Γ |- arg : X
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*    Γ |- Apply fun arg : `???`
 ```
 ]
 
@@ -12575,9 +12642,9 @@ let f = x + 1 in
 
 .diff-add[
 ```scala
-Γ |- fun : X -> Y                                     Γ |- arg : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Γ |- Apply fun arg : `Y`
+Γ |- fun : X -> Y     Γ |- arg : X
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*    Γ |- Apply fun arg : `Y`
 ```
 ]
 
@@ -12603,8 +12670,8 @@ enum Expr:
 ```
 
 ```scala
-Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+     Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Γ |- Fun (param : `X`) body : X -> Y
 ```
 
@@ -12627,8 +12694,8 @@ enum Expr:
 ]
 
 ```scala
-Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+     Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Γ |- Fun (param : `X`) body : X -> Y
 ```
 
@@ -12649,8 +12716,8 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 ```
 
 ```scala
-Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+     Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Γ |- `Fun (param : X) body` : X -> Y
 ```
 
@@ -12675,8 +12742,8 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 ]
 
 ```scala
-Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+     Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Γ |- `Fun (param : X) body` : X -> Y
 ```
 
@@ -12699,8 +12766,8 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 ]
 
 ```scala
-Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+     Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Γ |- Fun (param : X) body : X -> Y
 ```
 
@@ -12723,8 +12790,8 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 ]
 
 ```scala
-Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+     Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Γ |- Fun (param : X) body : X -> Y
 ```
 
@@ -12745,8 +12812,8 @@ def checkFun(name: String, x: Type, body: Expr, e: TypeEnv) = ???
 ```
 
 ```scala
-Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+     Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Γ |- Fun (param : X) body : X -> Y
 ```
 
@@ -12769,8 +12836,8 @@ def checkFun(name: String, x: Type, body: Expr, e: TypeEnv) = ???
 ]
 
 ```scala
-Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+     Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Γ |- Fun (param : X) body : X -> Y
 ```
 
@@ -12780,7 +12847,7 @@ def checkFun(name: String, x: Type, body: Expr, e: TypeEnv) = ???
 ```scala
 def checkFun(name: String, x: Type, body: Expr, e: TypeEnv) =
 * `typeCheck(body, ???).map: y =>`
-
+&#x200B;
 &#x200B;
 &#x200B;
 &#x200B;
@@ -12793,8 +12860,8 @@ def checkFun(name: String, x: Type, body: Expr, e: TypeEnv) =
 ]
 
 ```scala
-Γ[name <- X] |- `body : Y`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+     Γ[name <- X] |- `body : Y`
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Γ |- Fun (param : X) body : X -> Y
 ```
 
@@ -12817,8 +12884,8 @@ def checkFun(name: String, x: Type, body: Expr, e: TypeEnv) =
 ]
 
 ```scala
-&#x200B;`Γ[name <- X]` |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+     `Γ[name <- X]` |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Γ |- Fun (param : X) body : X -> Y
 ```
 
@@ -12841,8 +12908,8 @@ def checkFun(name: String, x: Type, body: Expr, e: TypeEnv) =
 ]
 
 ```scala
-&#x200B;`Γ[name <- X]` |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+     `Γ[name <- X]` |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Γ |- Fun (param : X) body : X -> Y
 ```
 
@@ -12865,8 +12932,8 @@ def checkFun(name: String, x: Type, body: Expr, e: TypeEnv) =
 ]
 
 ```scala
-Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+     Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Γ |- Fun (param : X) body : `X -> Y`
 ```
 
@@ -12887,9 +12954,9 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 ```
 
 ```scala
-Γ |- fun : X -> Y                                     Γ |- arg : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- `Apply fun arg` : Y
+Γ |- fun : X -> Y     Γ |- arg : X
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+    Γ |- `Apply fun arg` : Y
 ```
 
 ---
@@ -12911,9 +12978,9 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 ]
 
 ```scala
-Γ |- fun : X -> Y                                     Γ |- arg : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- `Apply fun arg` : Y
+Γ |- fun : X -> Y     Γ |- arg : X
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+    Γ |- `Apply fun arg` : Y
 ```
 
 
@@ -12936,9 +13003,9 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 ]
 
 ```scala
-Γ |- fun : X -> Y                                     Γ |- arg : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Apply fun arg : Y
+Γ |- fun : X -> Y     Γ |- arg : X
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+    Γ |- Apply fun arg : Y
 ```
 
 ---
@@ -12960,9 +13027,9 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 ]
 
 ```scala
-Γ |- fun : X -> Y                                     Γ |- arg : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Apply fun arg : Y
+Γ |- fun : X -> Y     Γ |- arg : X
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+    Γ |- Apply fun arg : Y
 ```
 
 ---
@@ -12983,9 +13050,9 @@ def checkApply(fun: Expr, arg: Expr, e: TypeEnv) = ???
 
 
 ```scala
-Γ |- fun : X -> Y                                     Γ |- arg : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Apply fun arg : Y
+Γ |- fun : X -> Y     Γ |- arg : X
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+    Γ |- Apply fun arg : Y
 ```
 
 ---
@@ -13007,9 +13074,9 @@ def checkApply(fun: Expr, arg: Expr, e: TypeEnv) = ???
 ]
 
 ```scala
-&#x200B;`Γ |- fun` : X -> Y                                     Γ |- arg : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Apply fun arg : Y
+&#x200B;`Γ |- fun` : X -> Y     Γ |- arg : X
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+    Γ |- Apply fun arg : Y
 ```
 
 ---
@@ -13031,9 +13098,9 @@ def checkApply(fun: Expr, arg: Expr, e: TypeEnv) =
 ]
 
 ```scala
-&#x200B;`Γ |- fun` : X -> Y                                     Γ |- arg : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Apply fun arg : Y
+&#x200B;`Γ |- fun` : X -> Y     Γ |- arg : X
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+    Γ |- Apply fun arg : Y
 ```
 
 ---
@@ -13055,9 +13122,9 @@ def checkApply(fun: Expr, arg: Expr, e: TypeEnv) =
 ]
 
 ```scala
-Γ |- fun : `X -> Y`                                     Γ |- arg : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Apply fun arg : Y
+Γ |- fun : `X -> Y`     Γ |- arg : X
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+    Γ |- Apply fun arg : Y
 ```
 
 ---
@@ -13079,9 +13146,9 @@ def checkApply(fun: Expr, arg: Expr, e: TypeEnv) =
 ]
 
 ```scala
-Γ |- fun : X -> Y                                     `Γ |- arg : X`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Apply fun arg : Y
+Γ |- fun : X -> Y     `Γ |- arg : X`
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+    Γ |- Apply fun arg : Y
 ```
 
 ---
@@ -13103,9 +13170,9 @@ def checkApply(fun: Expr, arg: Expr, e: TypeEnv) =
 ]
 
 ```scala
-Γ |- fun : X -> Y                                     `Γ |- arg : X`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Apply fun arg : Y
+Γ |- fun : X -> Y     `Γ |- arg : X`
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+    Γ |- Apply fun arg : Y
 ```
 
 ---
@@ -13127,9 +13194,9 @@ def checkApply(fun: Expr, arg: Expr, e: TypeEnv) =
 ]
 
 ```scala
-Γ |- fun : X -> Y                                     Γ |- arg : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Apply fun arg : `Y`
+Γ |- fun : X -> Y     Γ |- arg : X
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+    Γ |- Apply fun arg : `Y`
 ```
 
 
@@ -13147,14 +13214,15 @@ def checkApply(fun: Expr, arg: Expr, e: TypeEnv) =
 &#x200B;
 &#x200B;
 &#x200B;
+&#x200B;
 ```
 ]
 
 
 ```scala
-Γ |- fun : X -> Y                                     Γ |- arg : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Apply fun arg : Y
+Γ |- fun : X -> Y     Γ |- arg : X
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+    Γ |- Apply fun arg : Y
 ```
 
 ---
@@ -13169,16 +13237,17 @@ def checkApply(fun: Expr, arg: Expr, e: TypeEnv) =
 &#x200B;`let rec` sum = lower -> upper ->
     if lower > upper then 0
     else lower + (sum (lower + 1) upper)
-  in sum 1 10
+  in sum 1 101
 ```
 
 ---
 
+
 .diff-add[
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Γ |- LetRec `name` : ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*     Γ |- LetRec `name` : ???
 ```
 ]
 
@@ -13194,8 +13263,8 @@ let rec `sum` = lower -> upper ->
 .diff-add[
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Γ |- LetRec name `value` : ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*     Γ |- LetRec name `value` : ???
 ```
 ]
 
@@ -13211,8 +13280,8 @@ let rec sum = `lower -> upper ->`
 .diff-add[
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Γ |- LetRec name value `body` : ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*     Γ |- LetRec name value `body` : ???
 ```
 ]
 
@@ -13228,8 +13297,8 @@ let rec sum = lower -> upper ->
 .diff-add[
 ```scala
 *&#x200B;`??? |- value : X`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- LetRec name value body : ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- LetRec name value body : ???
 ```
 ]
 
@@ -13245,8 +13314,8 @@ let rec sum = `lower -> upper ->`
 .diff-rm[
 ```scala
 *&#x200B;`???` |- value : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- LetRec name value body : ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- LetRec name value body : ???
 ```
 ]
 
@@ -13262,8 +13331,8 @@ let rec sum = `lower -> upper ->`
 .diff-add[
 ```scala
 *&#x200B;`Γ[name <- X]` |- value : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- LetRec name value body : ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- LetRec name value body : ???
 ```
 ]
 
@@ -13278,9 +13347,9 @@ let rec sum = `lower -> upper ->`
 
 .diff-add[
 ```scala
-*Γ[name <- X] |- value : X                           `??? |- body : Y`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- LetRec name value body : ???
+*Γ[name <- X] |- value : X               `??? |- body : Y`
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- LetRec name value body : ???
 ```
 ]
 
@@ -13295,9 +13364,9 @@ let rec sum = lower -> upper ->
 
 .diff-rm[
 ```scala
-*Γ[name <- X] |- value : X                           `???` |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- LetRec name value body : ???
+*Γ[name <- X] |- value : X               `???` |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- LetRec name value body : ???
 ```
 ]
 
@@ -13312,9 +13381,9 @@ let rec sum = lower -> upper ->
 
 .diff-add[
 ```scala
-*Γ[name <- X] |- value : X                  `Γ[name <- X]` |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- LetRec name value body : ???
+*Γ[name <- X] |- value : X      `Γ[name <- X]` |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- LetRec name value body : ???
 ```
 ]
 
@@ -13329,9 +13398,9 @@ let rec sum = lower -> upper ->
 
 .diff-rm[
 ```scala
-Γ[name <- X] |- value : X                  Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Γ |- LetRec name value body : `???`
+Γ[name <- X] |- value : X      Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*     Γ |- LetRec name value body : `???`
 ```
 ]
 
@@ -13346,9 +13415,9 @@ let rec sum = lower -> upper ->
 
 .diff-add[
 ```scala
-Γ[name <- X] |- value : X                  Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Γ |- LetRec name value body : `Y`
+Γ[name <- X] |- value : X      Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*     Γ |- LetRec name value body : `Y`
 ```
 ]
 
@@ -13362,9 +13431,9 @@ let rec sum = lower -> upper ->
 ---
 
 ```scala
-Γ[name <- `X`] |- value : X                  Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- LetRec name value body : Y
+Γ[name <- `X`] |- value : X      Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- LetRec name value body : Y
 ```
 
 ```scala
@@ -13378,9 +13447,9 @@ let rec sum = lower -> upper ->
 
 .diff-rm[
 ```scala
-Γ[name <- X] |- value : X                  Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Γ |- LetRec name `value` body : Y
+Γ[name <- X] |- value : X      Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*     Γ |- LetRec name `value` body : Y
 ```
 ]
 
@@ -13395,9 +13464,9 @@ let rec sum = lower -> upper ->
 
 .diff-add[
 ```scala
-Γ[name <- X] |- value : X                  Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Γ |- LetRec name `(value : X)` body : Y
+Γ[name <- X] |- value : X      Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*     Γ |- LetRec name `(value : X)` body : Y
 ```
 ]
 
@@ -13427,9 +13496,9 @@ enum Expr:
 ```
 
 ```scala
-Γ[name <- X] |- value : X                  Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- LetRec name (value : `X`) body : Y
+Γ[name <- X] |- value : X      Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- LetRec name (value : `X`) body : Y
 ```
 
 
@@ -13454,9 +13523,9 @@ enum Expr:
 ]
 
 ```scala
-Γ[name <- X] |- value : X                  Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- LetRec name (value : `X`) body : Y
+Γ[name <- X] |- value : X      Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- LetRec name (value : `X`) body : Y
 ```
 
 ---
@@ -13478,9 +13547,9 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 ```
 
 ```scala
-Γ[name <- X] |- value : X                  Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- LetRec name (value : X) body : Y
+Γ[name <- X] |- value : X      Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- LetRec name (value : X) body : Y
 ```
 
 ---
@@ -13504,9 +13573,9 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 ]
 
 ```scala
-Γ[name <- X] |- value : X                  Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- `LetRec name (value : X) body` : Y
+Γ[name <- X] |- value : X      Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- `LetRec name (value : X) body` : Y
 ```
 
 ---
@@ -13530,9 +13599,9 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 ]
 
 ```scala
-Γ[name <- X] |- value : X                  Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- LetRec name (value : X) body : Y
+Γ[name <- X] |- value : X      Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- LetRec name (value : X) body : Y
 ```
 
 ---
@@ -13551,14 +13620,14 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
     case Apply(fun, arg)         => checkApply(fun, arg, e)
     case Fun(param, pType, body) => checkFun(param, pType, body, e)
     case LetRec(name, value, x, body) =>
-*    `checkLetRec(name, value, x, body, e)`
+*     `checkLetRec(name, value, x, body, e)`
 ```
 ]
 
 ```scala
-Γ[name <- X] |- value : X                  Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- LetRec name (value : X) body : Y
+Γ[name <- X] |- value : X      Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- LetRec name (value : X) body : Y
 ```
 
 ---
@@ -13576,12 +13645,13 @@ def checkLetRec(name: String, value: Expr, x: Type,
 &#x200B;
 &#x200B;
 &#x200B;
+&#x200B;
 ```
 
 ```scala
-Γ[name <- X] |- value : X                  Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- LetRec name (value : X) body : Y
+Γ[name <- X] |- value : X      Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- LetRec name (value : X) body : Y
 ```
 
 ---
@@ -13600,13 +13670,14 @@ def checkLetRec(name: String, value: Expr, x: Type,
 &#x200B;
 &#x200B;
 &#x200B;
+&#x200B;
 ```
 ]
 
 ```scala
-&#x200B;`Γ[name <- X]` |- value : X                  Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- LetRec name (value : X) body : Y
+&#x200B;`Γ[name <- X]` |- value : X      Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- LetRec name (value : X) body : Y
 ```
 
 ---
@@ -13625,13 +13696,14 @@ def checkLetRec(name: String, value: Expr, x: Type,
 &#x200B;
 &#x200B;
 &#x200B;
+&#x200B;
 ```
 ]
 
 ```scala
-Γ[name <- X] |- `value : X`                  Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- LetRec name (value : X) body : Y
+Γ[name <- X] |- `value : X`      Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- LetRec name (value : X) body : Y
 ```
 
 ---
@@ -13650,13 +13722,14 @@ def checkLetRec(name: String, value: Expr, x: Type,
 &#x200B;
 &#x200B;
 &#x200B;
+&#x200B;
 ```
 ]
 
 ```scala
-Γ[name <- X] |- value : X                  `Γ[name <- X] |- body : Y`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- LetRec name (value : X) body : Y
+Γ[name <- X] |- value : X      `Γ[name <- X] |- body : Y`
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- LetRec name (value : X) body : Y
 ```
 
 ---
@@ -13675,13 +13748,14 @@ def checkLetRec(name: String, value: Expr, x: Type,
 &#x200B;
 &#x200B;
 &#x200B;
+&#x200B;
 ```
 ]
 
 ```scala
-Γ[name <- X] |- value : X                  Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- LetRec name (value : X) body : `Y`
+Γ[name <- X] |- value : X      Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- LetRec name (value : X) body : `Y`
 ```
 
 
