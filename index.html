@@ -449,8 +449,8 @@ Add lhs rhs ⇓ v₁ + v₂
 ---
 
 ```scala
-def add(lhs: Num, rhs: Num) =
-  ???
+def add(lhs: Num, rhs: Num) = ???
+&#x200B;
 &#x200B;
 &#x200B;
 &#x200B;
@@ -466,8 +466,8 @@ Add lhs rhs ⇓ v₁ + v₂
 
 .diff-rm[
 ```scala
-def add(lhs: Num, rhs: Num) =
-* `???`
+*def add(lhs: Num, rhs: Num) = `???`
+&#x200B;
 &#x200B;
 &#x200B;
 &#x200B;
@@ -1424,8 +1424,8 @@ pred ⇓ false       onF ⇓ v
 ---
 
 ```scala
-def cond(pred: Expr, onT: Expr, onF: Expr) =
-  ???
+def cond(pred: Expr, onT: Expr, onF: Expr) = ???
+&#x200B;
 &#x200B;
 &#x200B;
 &#x200B;
@@ -1446,8 +1446,8 @@ pred ⇓ false       onF ⇓ v
 
 .diff-rm[
 ```scala
-def cond(pred: Expr, onT: Expr, onF: Expr) =
-* `???`
+*def cond(pred: Expr, onT: Expr, onF: Expr) = `???`
+&#x200B;
 &#x200B;
 &#x200B;
 &#x200B;
@@ -3741,7 +3741,7 @@ let x = 1 in
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;
 e |- `Var` ⇓ ???
 ```
 
@@ -3755,7 +3755,7 @@ let x = 1 in
 .diff-add[
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;
 *e |- Var `name` ⇓ ???
 ```
 ]
@@ -3770,7 +3770,7 @@ let x = 1 in
 .diff-rm[
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;
 *&#x200B;e |- Var name ⇓ `???`
 ```
 ]
@@ -3785,7 +3785,7 @@ let x = 1 in
 .diff-add[
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;
 *&#x200B;e |- Var name ⇓ `lookup(e, name)`
 ```
 ]
@@ -3909,7 +3909,7 @@ enum Expr:
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;
 e |- `Var name` ⇓ lookup(e, name)
 ```
 
@@ -3949,7 +3949,7 @@ enum Expr:
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;
 e |- Var `name` ⇓ lookup(e, name)
 ```
 
@@ -3967,7 +3967,7 @@ enum Expr:
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;
 e |- Var name ⇓ lookup(e, name)
 ```
 
@@ -3985,7 +3985,7 @@ enum Expr:
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;
 &#x200B;`e` |- Var name ⇓ lookup(e, name)
 ```
 
@@ -4165,7 +4165,7 @@ object Env:
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;
 e |- Var name ⇓ `lookup(e, name)`
 ```
 
@@ -4191,7 +4191,7 @@ object Env:
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;
 e |- Var name ⇓ `lookup(e, name)`
 ```
 
@@ -4217,7 +4217,7 @@ object Env:
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;
 e |- Var name ⇓ `lookup(e, name)`
 ```
 
@@ -4243,7 +4243,7 @@ object Env:
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;
 e |- Var name ⇓ `lookup(e, name)`
 ```
 
@@ -4269,7 +4269,7 @@ object Env:
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;
 e |- Var name ⇓ `lookup(e, name)`
 ```
 
@@ -4560,8 +4560,8 @@ e |- value ⇓ v₁      bind(e, name, v₁) |- body ⇓ v₂
 ---
 
 ```scala
-def let(name: String, value: Expr, body: Expr, e: Env) =
-  ???
+def let(name: String, value: Expr, body: Expr, e: Env) = ???
+&#x200B;
 &#x200B;
 &#x200B;
 &#x200B;
@@ -4585,8 +4585,8 @@ e |- value ⇓ v₁      bind(e, name, v₁) |- body ⇓ v₂
 
 .diff-rm[
 ```scala
-def let(name: String, value: Expr, body: Expr, e: Env) =
-* `???`
+*def let(name: String, value: Expr, body: Expr, e: Env) = `???`
+&#x200B;
 &#x200B;
 &#x200B;
 &#x200B;
@@ -4757,7 +4757,7 @@ def interpret(expr: Expr, e: Env): Value = expr match
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;
 e |- `Var name` ⇓ lookup(e, name)
 ```
 
@@ -4783,7 +4783,7 @@ def interpret(expr: Expr, e: Env): Value = expr match
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;
 e |- `Var name` ⇓ lookup(e, name)
 ```
 
@@ -4809,7 +4809,7 @@ def interpret(expr: Expr, e: Env): Value = expr match
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;
 e |- Var name ⇓ `lookup(e, name)`
 ```
 
@@ -4835,7 +4835,7 @@ def interpret(expr: Expr, e: Env): Value = expr match
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;
 e |- Var name ⇓ `lookup(e, name)`
 ```
 
@@ -6640,8 +6640,8 @@ bind(eʹ, param, v₁) |- body ⇓ v₂
 ---
 
 ```scala
-def apply(fun: Expr, arg: Expr, e: Env) =
-  ???
+def apply(fun: Expr, arg: Expr, e: Env) = ???
+&#x200B;
 &#x200B;
 &#x200B;
 &#x200B;
@@ -6662,8 +6662,8 @@ bind(eʹ, param, v₁) |- body ⇓ v₂
 
 .diff-rm[
 ```scala
-def apply(fun: Expr, arg: Expr, e: Env) =
-* `???`
+*def apply(fun: Expr, arg: Expr, e: Env) = `???`
+&#x200B;
 &#x200B;
 &#x200B;
 &#x200B;
@@ -7158,11 +7158,12 @@ name: recursion
 ---
 
 ```ocaml
-fun `sumFor lower upper` =
-  var acc = 0
-  for i = lower to upper do
-    acc = acc + i
-  acc
+let `sumFor = lower -> upper` ->
+    var acc = 0
+    for i = lower to upper do
+      acc = acc + i
+    acc
+  in sumFor 1 10
 &#x200B;
 &#x200B;
 ```
@@ -7170,11 +7171,12 @@ fun `sumFor lower upper` =
 ---
 
 ```ocaml
-fun sumFor lower upper =
-  `var acc = 0`
-  for i = lower to upper do
-    acc = acc + i
-  acc
+let sumFor = lower -> upper ->
+    `var acc = 0`
+    for i = lower to upper do
+      acc = acc + i
+    acc
+  in sumFor 1 10
 &#x200B;
 &#x200B;
 ```
@@ -7182,11 +7184,12 @@ fun sumFor lower upper =
 ---
 
 ```ocaml
-fun sumFor lower upper =
-  var acc = 0
-  `for i = lower to upper do`
-    acc = acc + i
-  acc
+let sumFor = lower -> upper ->
+    var acc = 0
+    `for i = lower to upper do`
+      acc = acc + i
+    acc
+  in sumFor 1 10
 &#x200B;
 &#x200B;
 ```
@@ -7194,11 +7197,12 @@ fun sumFor lower upper =
 ---
 
 ```ocaml
-fun sumFor lower upper =
-  var acc = 0
-  for i = lower to upper do
-    `acc = acc + i`
-  acc
+let sumFor = lower -> upper ->
+    var acc = 0
+    for i = lower to upper do
+      `acc = acc + i`
+    acc
+  in sumFor 1 10
 &#x200B;
 &#x200B;
 ```
@@ -7206,11 +7210,12 @@ fun sumFor lower upper =
 ---
 
 ```ocaml
-fun sumFor lower upper =
-  var acc = 0
-  for i = lower to upper do
-    acc = acc + i
-  `acc`
+let sumFor = lower -> upper ->
+    var acc = 0
+    for i = lower to upper do
+      acc = acc + i
+    `acc`
+  in sumFor 1 10
 &#x200B;
 &#x200B;
 ```
@@ -7219,11 +7224,12 @@ fun sumFor lower upper =
 
 .diff-rm[
 ```ocaml
-*fun `sumFor` lower upper =
-  var acc = 0
-  for i = lower to upper do
-    acc = acc + i
-  acc
+*let `sumFor` = lower -> upper ->
+    var acc = 0
+    for i = lower to upper do
+      acc = acc + i
+    acc
+* in `sumFor` 1 10
 &#x200B;
 &#x200B;
 ```
@@ -7233,11 +7239,12 @@ fun sumFor lower upper =
 
 .diff-add[
 ```ocaml
-*fun `sumWhile` lower upper =
-  var acc = 0
-  for i = lower to upper do
-    acc = acc + i
-  acc
+*let `sumWhile` = lower -> upper ->
+    var acc = 0
+    for i = lower to upper do
+      acc = acc + i
+    acc
+* in `sumWhile` 1 10
 &#x200B;
 &#x200B;
 ```
@@ -7246,11 +7253,12 @@ fun sumFor lower upper =
 ---
 
 ```ocaml
-fun sumWhile lower upper =
-  var acc = 0
-  for `i = lower to upper` do
-    acc = acc + i
-  acc
+let sumWhile = lower -> upper ->
+    var acc = 0
+    for `i = lower to upper` do
+      acc = acc + i
+    acc
+  in sumWhile 1 10
 &#x200B;
 &#x200B;
 ```
@@ -7259,12 +7267,13 @@ fun sumWhile lower upper =
 
 .diff-add[
 ```ocaml
-fun sumWhile lower upper =
-  var acc = 0
-* `var i   = lower`
-  for i = lower to upper do
-    acc = acc + i
-  acc
+let sumWhile = lower -> upper ->
+    var acc = 0
+*   `var i   = lower`
+    for i = lower to upper do
+      acc = acc + i
+    acc
+  in sumWhile 1 10
 &#x200B;
 ```
 ]
@@ -7273,41 +7282,14 @@ fun sumWhile lower upper =
 
 .diff-add[
 ```ocaml
-fun sumWhile lower upper =
-  var acc = 0
-  var i   = lower
-  for i = lower to upper do
-    acc = acc + i
-*   `i   = i + 1`
-  acc
-```
-]
-
----
-
-.diff-rm[
-```ocaml
-fun sumWhile lower upper =
-  var acc = 0
-  var i   = lower
-* `for i = lower to upper do`
-    acc = acc + i
-    i   = i + 1
-  acc
-```
-]
-
----
-
-.diff-add[
-```ocaml
-fun sumWhile lower upper =
-  var acc = 0
-  var i   = lower
-* `while i < upper do`
-    acc = acc + i
-    i   = i + 1
-  acc
+let sumWhile = lower -> upper ->
+    var acc = 0
+    var i   = lower
+    for i = lower to upper do
+      acc = acc + i
+*     `i   = i + 1`
+    acc
+  in sumWhile 1 10
 ```
 ]
 
@@ -7315,13 +7297,14 @@ fun sumWhile lower upper =
 
 .diff-rm[
 ```ocaml
-*fun `sumWhile` lower upper =
-  var acc = 0
-  var i   = lower
-  while i < upper do
-    acc = acc + i
-    i   = i + 1
-  acc
+let sumWhile = lower -> upper ->
+    var acc = 0
+    var i   = lower
+*   `for i = lower to upper do`
+      acc = acc + i
+      i   = i + 1
+    acc
+  in sumWhile 1 10
 ```
 ]
 
@@ -7329,53 +7312,87 @@ fun sumWhile lower upper =
 
 .diff-add[
 ```ocaml
-*fun `sumRec` lower upper =
-  var acc = 0
-  var i   = lower
-  while i < upper do
-    acc = acc + i
-    i   = i + 1
-  acc
+let sumWhile = lower -> upper ->
+    var acc = 0
+    var i   = lower
+*   `while i < upper do`
+      acc = acc + i
+      i   = i + 1
+    acc
+  in sumWhile 1 10
 ```
 ]
-
----
-
-```ocaml
-fun sumRec lower upper =
-  var `acc` = 0
-  var `i`   = lower
-  while i < upper do
-    acc = acc + i
-    i   = i + 1
-  acc
-```
 
 ---
 
 .diff-rm[
 ```ocaml
-fun sumRec lower upper =
-* `var acc = 0`
-* `var i   = lower`
-  while i < upper do
-    acc = acc + i
-    i   = i + 1
-  acc
-```
-]
-
----
-
-.diff-add[
-```ocaml
-fun sumRec lower upper =
-* `let go = acc -> i ->`
+*let `sumWhile` = lower -> upper ->
+    var acc = 0
+    var i   = lower
     while i < upper do
       acc = acc + i
       i   = i + 1
     acc
-* `in go 0 lower`
+* in `sumWhile` 1 10
+```
+]
+
+---
+
+.diff-add[
+```ocaml
+*let `sumRec` = lower -> upper ->
+    var acc = 0
+    var i   = lower
+    while i < upper do
+      acc = acc + i
+      i   = i + 1
+    acc
+* in `sumRec` 1 10
+```
+]
+
+---
+
+```ocaml
+let sumRec = lower -> upper ->
+    var `acc` = 0
+    var `i`   = lower
+    while i < upper do
+      acc = acc + i
+      i   = i + 1
+    acc
+  in sumRec 1 10
+```
+
+---
+
+.diff-rm[
+```ocaml
+let sumRec = lower -> upper ->
+*   `var acc = 0`
+*   `var i   = lower`
+    while i < upper do
+      acc = acc + i
+      i   = i + 1
+    acc
+  in sumRec 1 10
+```
+]
+
+---
+
+.diff-add[
+```ocaml
+let sumRec = lower -> upper ->
+*   `let go = acc -> i ->`
+      while i < upper do
+        acc = acc + i
+        i   = i + 1
+      acc
+*   `in go 0 lower`
+  in sumRec 1 10
 ```
 ]
 
@@ -7383,13 +7400,14 @@ fun sumRec lower upper =
 
 .diff-rm[
 ```ocaml
-fun sumRec lower upper =
-  let go = acc -> i ->
-*   `while i < upper do`
-*     `acc = acc + i`
-*     `i   = i + 1`
-    acc
-  in go 0 lower
+let sumRec = lower -> upper ->
+    let go = acc -> i ->
+*     `while i < upper do`
+*       `acc = acc + i`
+*       `i   = i + 1`
+      acc
+    in go 0 lower
+  in sumRec 1 10
 ```
 ]
 
@@ -7397,11 +7415,12 @@ fun sumRec lower upper =
 
 .diff-add[
 ```ocaml
-fun sumRec lower upper =
-  let go = acc -> i ->
-*   `if i < upper then go (acc + i) (i + 1)`
-    acc
-  in go 0 lower
+let sumRec = lower -> upper ->
+    let go = acc -> i ->
+*     `if i < upper then go (acc + i) (i + 1)`
+      acc
+    in go 0 lower
+  in sumRec 1 10
 &#x200B;
 &#x200B;
 ```
@@ -7411,11 +7430,12 @@ fun sumRec lower upper =
 
 .diff-rm[
 ```ocaml
-fun sumRec lower upper =
-  let go = acc -> i ->
-    if i < upper then go (acc + i) (i + 1)
-*   `acc`
-  in go 0 lower
+let sumRec = lower -> upper ->
+    let go = acc -> i ->
+      if i < upper then go (acc + i) (i + 1)
+*     `acc`
+    in go 0 lower
+  in sumRec 1 10
 &#x200B;
 &#x200B;
 ```
@@ -7425,11 +7445,27 @@ fun sumRec lower upper =
 
 .diff-add[
 ```ocaml
-fun sumRec lower upper =
-  let go = acc -> i ->
-    if i < upper then go (acc + i) (i + 1)
-*   `else acc`
+let sumRec = lower -> upper ->
+    let go = acc -> i ->
+      if i < upper then go (acc + i) (i + 1)
+*     `else acc`
+    in go 0 lower
+  in sumRec 1 10
 &#x200B;
+&#x200B;
+```
+]
+
+---
+
+.diff-rm[
+```ocaml
+*let `sumRec` = lower -> upper ->
+    let go = acc -> i ->
+      if i < upper then go (acc + i) (i + 1)
+      else acc
+    in go 0 lower
+* in `sumRec` 1 10
 &#x200B;
 &#x200B;
 ```
@@ -7439,11 +7475,12 @@ fun sumRec lower upper =
 
 .diff-add[
 ```ocaml
-fun sumRec lower upper =
-  let go = acc -> i ->
-    if i < upper then go (acc + i) (i + 1)
-    else acc
-* `in go 0 lower`
+*let `sum` = lower -> upper ->
+    let go = acc -> i ->
+      if i < upper then go (acc + i) (i + 1)
+      else acc
+    in go 0 lower
+* in `sum` 1 10
 &#x200B;
 &#x200B;
 ```
@@ -7451,23 +7488,34 @@ fun sumRec lower upper =
 
 ---
 
+.diff-rm[
 ```ocaml
 let sum = lower -> upper ->
-    if lower > upper then 0
-    else lower + (sum (lower + 1) upper)
+*   `let go = acc -> i ->`
+*     `if i < upper then go (acc + i) (i + 1)`
+*     `else acc`
+*   `in go 0 lower`
   in sum 1 10
 &#x200B;
+&#x200B;
 ```
+]
 
 ---
 
+.diff-add[
 ```ocaml
-let sum = `lower` -> `upper` ->
-    if lower > upper then 0
-    else lower + (sum (lower + 1) upper)
+let sum = lower -> upper ->
+*   `if lower > upper then 0`
+*   `else lower + (sum (lower + 1) upper)`
   in sum 1 10
 &#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
 ```
+]
+
 
 ---
 
@@ -7476,6 +7524,9 @@ let sum = lower -> upper ->
     `if lower > upper then 0`
     else lower + (sum (lower + 1) upper)
   in sum 1 10
+&#x200B;
+&#x200B;
+&#x200B;
 &#x200B;
 ```
 
@@ -7487,6 +7538,9 @@ let sum = lower -> upper ->
     else `lower` + (sum (lower + 1) upper)
   in sum 1 10
 &#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
 ```
 
 ---
@@ -7497,15 +7551,8 @@ let sum = lower -> upper ->
     else lower + `(sum (lower + 1) upper)`
   in sum 1 10
 &#x200B;
-```
-
----
-
-```ocaml
-let sum = lower -> upper ->
-    if lower > upper then 0
-    else lower + (sum (lower + 1) upper)
-  in sum 1 10
+&#x200B;
+&#x200B;
 &#x200B;
 ```
 
@@ -7516,6 +7563,9 @@ let sum = lower -> upper ->
     if lower `>` upper then 0
     else lower + (sum (lower + 1) upper)
   in sum 1 10
+&#x200B;
+&#x200B;
+&#x200B;
 &#x200B;
 ```
 
@@ -9424,6 +9474,26 @@ typeCheck(expr)
 ---
 
 ```scala
+def typeCheck(expr: Expr): Boolean =
+  expr match
+    case Num(value)    => true
+    case Bool(value)   => true
+    case Add(lhs, rhs) => `typeCheck(lhs) && typeCheck(rhs)`
+```
+
+---
+
+```scala
+def typeCheck(expr: Expr): `Boolean` =
+  expr match
+    case Num(value)    => true
+    case Bool(value)   => true
+    case Add(lhs, rhs) => typeCheck(lhs) && typeCheck(rhs)
+```
+
+---
+
+```scala
 enum Type:
 &#x200B;
 &#x200B;
@@ -9901,41 +9971,13 @@ def typeCheck(expr: Expr): Either[String, Type] =
 ---
 
 ```scala
-      Add : ???
+      Add lhs rhs : ???
 &#x200B;
 &#x200B;
 ```
 
 ```ocaml
 1 + 2
-```
-
----
-
-.diff-add[
-```scala
-      Add `lhs` : ???
-&#x200B;
-&#x200B;
-```
-]
-
-```ocaml
-&#x200B;`1` + 2
-```
-
----
-
-.diff-add[
-```scala
-      Add lhs `rhs` : ???
-&#x200B;
-&#x200B;
-```
-]
-
-```ocaml
-1 + `2`
 ```
 
 ---
@@ -10251,8 +10293,8 @@ lhs : Type.Num       rhs : Type.Num
 
 .diff-add[
 ```scala
-*def checkAdd(lhs: Expr, rhs: Expr) = `for`
-* `_ <- expect(lhs, Type.Num)`
+def checkAdd(lhs: Expr, rhs: Expr) =
+* `for _ <- expect(lhs, Type.Num)`
 &#x200B;
 &#x200B;
 &#x200B;
@@ -10270,9 +10312,9 @@ lhs : Type.Num       rhs : Type.Num
 
 .diff-add[
 ```scala
-def checkAdd(lhs: Expr, rhs: Expr) = for
-  _ <- expect(lhs, Type.Num)
-* `_ <- expect(rhs, Type.Num)`
+def checkAdd(lhs: Expr, rhs: Expr) =
+  for _ <- expect(lhs, Type.Num)
+*     `_ <- expect(rhs, Type.Num)`
 &#x200B;
 &#x200B;
 &#x200B;
@@ -10289,10 +10331,10 @@ lhs : Type.Num       `rhs : Type.Num`
 
 .diff-add[
 ```scala
-def checkAdd(lhs: Expr, rhs: Expr) = for
-  _ <- expect(lhs, Type.Num)
-  _ <- expect(rhs, Type.Num)
-*&#x200B;`yield Type.Num`
+def checkAdd(lhs: Expr, rhs: Expr) =
+  for _ <- expect(lhs, Type.Num)
+      _ <- expect(rhs, Type.Num)
+* `yield Type.Num`
 &#x200B;
 &#x200B;
 ```
@@ -10306,42 +10348,16 @@ lhs : Type.Num       rhs : Type.Num
 
 ---
 
+.diff-add[
 ```scala
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-     Gt : ???
+     Gt lhs rhs : ???
 ```
+]
 
 ```ocaml
 1 > 2
-```
-
----
-
-.diff-add[
-```scala
-&#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*    Gt `lhs` : ???
-```
-]
-
-```ocaml
-&#x200B;`1` > 2
-```
-
----
-
-.diff-add[
-```scala
-&#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*    Gt lhs `rhs` : ???
-```
-]
-
-```ocaml
-1 > `2`
 ```
 
 ---
@@ -10514,8 +10530,8 @@ lhs : Type.Num      rhs : Type.Num
 
 .diff-add[
 ```scala
-*def checkGt(lhs: Expr, rhs: Expr) = `for`
-* `_ <- expect(lhs, Type.Num)`
+*def checkGt(lhs: Expr, rhs: Expr) =
+* `for _ <- expect(lhs, Type.Num)`
 &#x200B;
 &#x200B;
 &#x200B;
@@ -10533,9 +10549,9 @@ lhs : Type.Num      rhs : Type.Num
 
 .diff-add[
 ```scala
-def checkGt(lhs: Expr, rhs: Expr) = for
-  _ <- expect(lhs, Type.Num)
-* `_ <- expect(rhs, Type.Num)`
+def checkGt(lhs: Expr, rhs: Expr) =
+  for _ <- expect(lhs, Type.Num)
+*     `_ <- expect(rhs, Type.Num)`
 &#x200B;
 &#x200B;
 &#x200B;
@@ -10552,10 +10568,10 @@ lhs : Type.Num      `rhs : Type.Num`
 
 .diff-add[
 ```scala
-def checkGt(lhs: Expr, rhs: Expr) = for
-  _ <- expect(lhs, Type.Num)
-  _ <- expect(rhs, Type.Num)
-*&#x200B;`yield Type.Bool`
+def checkGt(lhs: Expr, rhs: Expr) =
+  for _ <- expect(lhs, Type.Num)
+      _ <- expect(rhs, Type.Num)
+* `yield Type.Bool`
 &#x200B;
 &#x200B;
 ```
@@ -10572,57 +10588,13 @@ lhs : Type.Num      rhs : Type.Num
 ```scala
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-         Cond : ???
+         Cond pred onT onF : ???
 ```
+
 
 ```ocaml
 if true then 1
         else 2
-```
-
----
-
-.diff-add[
-```scala
-&#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-         Cond `pred` : ???
-```
-]
-
-```ocaml
-if `true` then 1
-        else 2
-```
-
----
-
-.diff-add[
-```scala
-&#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-         Cond pred `onT` : ???
-```
-]
-
-```ocaml
-if true then `1`
-        else 2
-```
-
----
-
-.diff-add[
-```scala
-&#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-         Cond pred onT `onF` : ???
-```
-]
-
-```ocaml
-if true then 1
-        else `2`
 ```
 
 ---
@@ -10850,8 +10822,8 @@ pred : Type.Bool      onT : X       onF : X
 
 .diff-add[
 ```scala
-*def checkCond(pred: Expr, onT: Expr, onF: Expr) = `for`
-* `_ <- expect(pred, Type.Bool)`
+def checkCond(pred: Expr, onT: Expr, onF: Expr) =
+* `for _ <- expect(pred, Type.Bool)`
 &#x200B;
 &#x200B;
 &#x200B;
@@ -10870,9 +10842,9 @@ pred : Type.Bool      onT : X       onF : X
 
 .diff-add[
 ```scala
-def checkCond(pred: Expr, onT: Expr, onF: Expr) = for
-  _ <- expect(pred, Type.Bool)
-* `x <- typeCheck(onT)`
+def checkCond(pred: Expr, onT: Expr, onF: Expr) =
+  for _ <- expect(pred, Type.Bool)
+*     `x <- typeCheck(onT)`
 &#x200B;
 &#x200B;
 &#x200B;
@@ -10890,10 +10862,10 @@ pred : Type.Bool      `onT : X`       onF : X
 
 .diff-add[
 ```scala
-def checkCond(pred: Expr, onT: Expr, onF: Expr) = for
-  _ <- expect(pred, Type.Bool)
-  x <- typeCheck(onT)
-* `_ <- expect(onF, x)`
+def checkCond(pred: Expr, onT: Expr, onF: Expr) =
+  for _ <- expect(pred, Type.Bool)
+      x <- typeCheck(onT)
+*     `_ <- expect(onF, x)`
 &#x200B;
 &#x200B;
 &#x200B;
@@ -10910,11 +10882,11 @@ pred : Type.Bool      onT : X       `onF : X`
 
 .diff-add[
 ```scala
-def checkCond(pred: Expr, onT: Expr, onF: Expr) = for
-  _ <- expect(pred, Type.Bool)
-  x <- typeCheck(onT)
-  _ <- expect(onF, x)
-*&#x200B;`yield x`
+def checkCond(pred: Expr, onT: Expr, onF: Expr) =
+  for _ <- expect(pred, Type.Bool)
+      x <- typeCheck(onT)
+      _ <- expect(onF, x)
+* `yield x`
 &#x200B;
 &#x200B;
 ```
@@ -10931,57 +10903,13 @@ pred : Type.Bool      onT : X       onF : X
 ```scala
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-           Let : ???
+           Let name value body : ???
 ```
+
 
 ```ocaml
 let x = 1 in
   x + 2
-```
-
----
-
-.diff-add[
-```scala
-&#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*          Let `name` : ???
-```
-]
-
-```ocaml
-let `x` = 1 in
-  x + 2
-```
-
----
-
-.diff-add[
-```scala
-&#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*          Let name `value` : ???
-```
-]
-
-```ocaml
-let x = `1` in
-  x + 2
-```
-
----
-
-.diff-add[
-```scala
-&#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*          Let name value `body` : ???
-```
-]
-
-```ocaml
-let x = 1 in
-  `x + 2`
 ```
 
 ---
@@ -11033,19 +10961,6 @@ let x = 1 in
 
 ```scala
 &#x200B;`Γ |- value : X`                  Γ |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-      Γ |- Let name value body : ???
-```
-
-```ocaml
-let x = 1 in
-  x + 2
-```
-
----
-
-```scala
-Γ |- value : X                  `Γ |- body : Y`
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Γ |- Let name value body : ???
 ```
@@ -11118,10 +11033,11 @@ let x = 1 in
 ---
 
 ```scala
-Γ |- value : X       Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-      `Γ` |- Let name value body : Y
+&#x200B;
+&#x200B;
+Γ |- Var name : ???
 ```
+
 
 ```ocaml
 let x = 1 in
@@ -11130,38 +11046,10 @@ let x = 1 in
 
 ---
 
-```scala
-&#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- `Var` : ???
-```
-
-```ocaml
-let x = 1 in
-  `x` + 2
-```
-
----
-
-.diff-add[
-```scala
-&#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*Γ |- Var `name` : ???
-```
-]
-
-```ocaml
-let x = 1 in
-  `x` + 2
-```
-
----
-
 .diff-rm[
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;
 *Γ |- Var name : `???`
 ```
 ]
@@ -11176,12 +11064,23 @@ let x = 1 in
 .diff-add[
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;
 *Γ |- Var name : `Γ(name)`
 ```
 ]
 
+```ocaml
+let x = 1 in
+  x + 2
+```
 
+---
+
+```scala
+&#x200B;
+&#x200B;
+&#x200B;`Γ` |- Var name : Γ(name)
+```
 
 ```ocaml
 let x = 1 in
@@ -11674,8 +11573,8 @@ def checkLet(name: String, value: Expr, body: Expr, e: TypeEnv) =
 .diff-add[
 ```scala
 def checkLet(name: String, value: Expr, body: Expr, e: TypeEnv) =
-* `for`
-*   `x <- typeCheck(value, e)`
+* `for x <- typeCheck(value, e)`
+&#x200B;
 &#x200B;
 &#x200B;
 &#x200B;
@@ -11695,9 +11594,9 @@ def checkLet(name: String, value: Expr, body: Expr, e: TypeEnv) =
 .diff-add[
 ```scala
 def checkLet(name: String, value: Expr, body: Expr, e: TypeEnv) =
-  for
-    x <- typeCheck(value, e)
-*   `y <- typeCheck(body, ???)`
+  for x <- typeCheck(value, e)
+*     `y <- typeCheck(body, ???)`
+&#x200B;
 &#x200B;
 &#x200B;
 &#x200B;
@@ -11716,9 +11615,8 @@ def checkLet(name: String, value: Expr, body: Expr, e: TypeEnv) =
 .diff-rm[
 ```scala
 def checkLet(name: String, value: Expr, body: Expr, e: TypeEnv) =
-  for
-    x <- typeCheck(value, e)
-*   y <- typeCheck(body, `???`)
+  for x <- typeCheck(value, e)
+*     y <- typeCheck(body, `???`)
 &#x200B;
 &#x200B;
 &#x200B;
@@ -11737,9 +11635,8 @@ def checkLet(name: String, value: Expr, body: Expr, e: TypeEnv) =
 .diff-add[
 ```scala
 def checkLet(name: String, value: Expr, body: Expr, e: TypeEnv) =
-  for
-    x <- typeCheck(value, e)
-*   y <- typeCheck(body, `e.bind(name, x)`)
+  for x <- typeCheck(value, e)
+*     y <- typeCheck(body, `e.bind(name, x)`)
 &#x200B;
 &#x200B;
 &#x200B;
@@ -11758,9 +11655,8 @@ def checkLet(name: String, value: Expr, body: Expr, e: TypeEnv) =
 .diff-add[
 ```scala
 def checkLet(name: String, value: Expr, body: Expr, e: TypeEnv) =
-  for
-    x <- typeCheck(value, e)
-    y <- typeCheck(body, e.bind(name, x))
+  for x <- typeCheck(value, e)
+      y <- typeCheck(body, e.bind(name, x))
 * `yield y`
 &#x200B;
 &#x200B;
@@ -11790,7 +11686,7 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;
 Γ |- `Var name` : Γ(name)
 ```
 
@@ -11812,7 +11708,7 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;
 Γ |- `Var name` : Γ(name)
 ```
 
@@ -11834,7 +11730,7 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;
 Γ |- Var name : `Γ(name)`
 ```
 
@@ -11856,7 +11752,7 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;
 Γ |- Var name : `Γ(name)`
 ```
 
@@ -12373,7 +12269,7 @@ def checkFun(name: String, x: Type, body: Expr, e: TypeEnv) = ???
 .diff-add[
 ```scala
 def checkFun(name: String, x: Type, body: Expr, e: TypeEnv) =
-* `typeCheck(body, ???).map: y =>`
+* `for y <- typeCheck(body, ???)`
 &#x200B;
 &#x200B;
 &#x200B;
@@ -12397,7 +12293,7 @@ def checkFun(name: String, x: Type, body: Expr, e: TypeEnv) =
 .diff-rm[
 ```scala
 def checkFun(name: String, x: Type, body: Expr, e: TypeEnv) =
-* typeCheck(body, `???`).map: y =>
+* for y <- typeCheck(body, `???`)
 &#x200B;
 &#x200B;
 &#x200B;
@@ -12421,7 +12317,7 @@ def checkFun(name: String, x: Type, body: Expr, e: TypeEnv) =
 .diff-add[
 ```scala
 def checkFun(name: String, x: Type, body: Expr, e: TypeEnv) =
-* typeCheck(body, `e.bind(name, x)`).map: y =>
+* for y <- typeCheck(body, `e.bind(name, x)`)
 &#x200B;
 &#x200B;
 &#x200B;
@@ -12445,8 +12341,8 @@ def checkFun(name: String, x: Type, body: Expr, e: TypeEnv) =
 .diff-add[
 ```scala
 def checkFun(name: String, x: Type, body: Expr, e: TypeEnv) =
-  typeCheck(body, e.bind(name, x)).map: y =>
-*   `x -> y`
+  for y <- typeCheck(body, e.bind(name, x))
+* `yield x -> y`
 &#x200B;
 &#x200B;
 &#x200B;
@@ -12752,66 +12648,15 @@ def checkApply(fun: Expr, arg: Expr, e: TypeEnv) =
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- `LetRec` : ???
-```
-
-```scala
-&#x200B;`let rec` sum = lower -> upper ->
-    if lower > upper then 0
-    else lower + (sum (lower + 1) upper)
-  in sum 1 101
-```
-
----
-
-.diff-add[
-```scala
-&#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*     Γ |- LetRec `name` : ???
+      Γ |- LetRec name value body : ???
 ```
-]
-
-```scala
-let rec `sum` = lower -> upper ->
-    if lower > upper then 0
-    else lower + (sum (lower + 1) upper)
-  in sum 1 10
-```
-
----
-
-.diff-add[
-```scala
-&#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*     Γ |- LetRec name `value` : ???
-```
-]
-
-```scala
-let rec sum = `lower -> upper ->`
-    `if lower > upper then 0`
-    `else lower + (sum (lower + 1) upper)`
-  in sum 1 10
-```
-
----
-
-.diff-add[
-```scala
-&#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*     Γ |- LetRec name value `body` : ???
-```
-]
 
 ```scala
 let rec sum = lower -> upper ->
     if lower > upper then 0
     else lower + (sum (lower + 1) upper)
-  in `sum 1 10`
+  in sum 1 10
 ```
 
 ---
@@ -13209,8 +13054,8 @@ def checkLetRec(name: String, value: Expr, x: Type,
                 body: Expr, e: TypeEnv) =
   val eʹ = e.bind(name, x)
 &#x200B;
-* `for`
-*   `_ <- expect(value, x, eʹ)`
+* `for _ <- expect(value, x, eʹ)`
+&#x200B;
 &#x200B;
 &#x200B;
 &#x200B;
@@ -13235,9 +13080,9 @@ def checkLetRec(name: String, value: Expr, x: Type,
                 body: Expr, e: TypeEnv) =
   val eʹ = e.bind(name, x)
 &#x200B;
-  for
-    _ <- expect(value, x, eʹ)
-*   `y <- typeCheck(body, eʹ)`
+  for _ <- expect(value, x, eʹ)
+*     `y <- typeCheck(body, eʹ)`
+&#x200B;
 &#x200B;
 &#x200B;
 &#x200B;
@@ -13261,10 +13106,10 @@ def checkLetRec(name: String, value: Expr, x: Type,
                 body: Expr, e: TypeEnv) =
   val eʹ = e.bind(name, x)
 &#x200B;
-  for
-    _ <- expect(value, x, eʹ)
-    y <- typeCheck(body, eʹ)
+  for _ <- expect(value, x, eʹ)
+      y <- typeCheck(body, eʹ)
 * `yield y`
+&#x200B;
 &#x200B;
 &#x200B;
 &#x200B;
