@@ -15,29 +15,9 @@
 <text text-anchor="middle" x="71" y="-158.3" font-family="Inter,Arial" font-size="14.00" fill="#ffffff">Add</text>
 </g>
 <!-- One -->
-<g id="node2" class="node leaf,disabled">
-<title>One</title>
-<path fill="#ffffff" stroke="#d0dce3" d="M50,-108C50,-108 12,-108 12,-108 6,-108 0,-102 0,-96 0,-96 0,-84 0,-84 0,-78 6,-72 12,-72 12,-72 50,-72 50,-72 56,-72 62,-78 62,-84 62,-84 62,-96 62,-96 62,-102 56,-108 50,-108"/>
-<text text-anchor="middle" x="31" y="-86.3" font-family="Inter,Arial" font-size="14.00" fill="#d0dce3">Num(1)</text>
-</g>
 <!-- Add&#45;&gt;One -->
-<g id="edge1" class="edge disabled">
-<title>Add&#45;&gt;One</title>
-<path fill="none" stroke="#d0dce3" d="M61.11,-143.7C56.51,-135.64 50.94,-125.89 45.85,-116.98"/>
-<polygon fill="#d0dce3" stroke="#d0dce3" points="48.77,-115.05 40.77,-108.1 42.7,-118.52 48.77,-115.05"/>
-</g>
 <!-- Two -->
-<g id="node3" class="node leaf,disabled">
-<title>Two</title>
-<path fill="#ffffff" stroke="#d0dce3" d="M130,-108C130,-108 92,-108 92,-108 86,-108 80,-102 80,-96 80,-96 80,-84 80,-84 80,-78 86,-72 92,-72 92,-72 130,-72 130,-72 136,-72 142,-78 142,-84 142,-84 142,-96 142,-96 142,-102 136,-108 130,-108"/>
-<text text-anchor="middle" x="111" y="-86.3" font-family="Inter,Arial" font-size="14.00" fill="#d0dce3">Num(2)</text>
-</g>
 <!-- Add&#45;&gt;Two -->
-<g id="edge2" class="edge disabled">
-<title>Add&#45;&gt;Two</title>
-<path fill="none" stroke="#d0dce3" d="M80.89,-143.7C85.49,-135.64 91.06,-125.89 96.15,-116.98"/>
-<polygon fill="#d0dce3" stroke="#d0dce3" points="99.3,-118.52 101.23,-108.1 93.23,-115.05 99.3,-118.52"/>
-</g>
 <!-- TwoBis -->
 <!-- Two&#45;&gt;TwoBis -->
 <!-- Three -->
