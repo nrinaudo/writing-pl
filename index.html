@@ -7414,8 +7414,8 @@ fun sumRec lower upper =
 fun sumRec lower upper =
   let go = acc -> i ->
     if i < upper then go (acc + i) (i + 1)
-* `acc`
-&#x200B;
+*   `acc`
+  in go 0 lower
 &#x200B;
 &#x200B;
 ```
