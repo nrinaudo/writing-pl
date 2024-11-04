@@ -18,7 +18,7 @@ class: center, middle
 class: center, middle
 name: ast
 
-# Representing source code
+# Representing code
 
 ---
 
@@ -3006,6 +3006,148 @@ x = 1
 &#x200B;
 ```
 ]
+
+---
+
+```ocaml
+&#x200B;
+&#x200B;
+```
+
+<hr/>
+
+```ocaml
+let x = 1 + 2 in
+  if true then 1
+  else         x
+```
+
+---
+
+```ocaml
+&#x200B;
+&#x200B;
+```
+
+<hr/>
+
+```ocaml
+let `x = 1 + 2` in
+  if true then 1
+  else         x
+```
+
+---
+
+```ocaml
+&#x200B;
+&#x200B;
+```
+
+<hr/>
+
+```ocaml
+let x = 1 + 2 in
+  if `true` then 1
+  else         x
+```
+
+---
+
+```ocaml
+&#x200B;
+&#x200B;
+```
+
+<hr/>
+
+```ocaml
+let x = 1 + 2 in
+  if true then `1`
+  else         x
+```
+
+---
+
+```ocaml
+&#x200B;
+&#x200B;
+```
+
+<hr/>
+
+```ocaml
+let x = 1 + 2 in
+  if true then 1
+  else         `x`
+```
+
+---
+
+```ocaml
+&#x200B;
+&#x200B;
+```
+
+<hr/>
+
+.diff-rm[
+```ocaml
+*let x = `1 + 2` in
+  if true then 1
+  else         x
+```
+]
+
+---
+
+```ocaml
+&#x200B;
+&#x200B;
+```
+
+<hr/>
+
+.diff-add[
+```ocaml
+*let x = `3` in
+  if true then 1
+  else         x
+```
+]
+
+---
+
+```ocaml
+&#x200B;
+&#x200B;
+```
+
+
+<hr/>
+
+```ocaml
+let `x = 3` in
+  if true then 1
+  else         x
+```
+
+---
+
+.diff-add[
+```ocaml
+*&#x200B;`x = 3`
+&#x200B;
+```
+]
+
+<hr/>
+
+```ocaml
+let `x = 3` in
+  if true then 1
+  else         x
+```
 
 ---
 
@@ -8231,12 +8373,14 @@ interpret(expr, Env.empty)
 &#x200B;
 ```
 
+.diff-rm[
 ```ocaml
-let sum = lower -> upper ->
+&#x200B;`let` sum = lower -> upper ->
     if lower > upper then 0
     else lower + (sum (lower + 1) upper)
   in sum 1 10
 ```
+]
 
 ---
 
@@ -8249,7 +8393,7 @@ let sum = lower -> upper ->
 
 .diff-add[
 ```ocaml
-*let `rec` sum = lower -> upper ->
+*&#x200B;`let rec` sum = lower -> upper ->
     if lower > upper then 0
     else lower + (sum (lower + 1) upper)
   in sum 1 10
