@@ -307,7 +307,17 @@ lhs ⇓ v₁      rhs ⇓ v₂
 ---
 
 ```scala
-def interpret(expr: Expr): Int = ???
+def interpret(expr: Expr): ??? =
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+```
+
+---
+
+```scala
+def interpret(`expr: Expr`): ??? =
 &#x200B;
 &#x200B;
 &#x200B;
@@ -318,7 +328,19 @@ def interpret(expr: Expr): Int = ???
 
 .diff-rm[
 ```scala
-*def interpret(expr: Expr): Int = `???`
+*def interpret(expr: Expr): `???` =
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+```
+]
+
+---
+
+.diff-add[
+```scala
+*def interpret(expr: Expr): `Int` =
 &#x200B;
 &#x200B;
 &#x200B;
@@ -343,7 +365,7 @@ def interpret(expr: Expr): Int = ???
 .diff-add[
 ```scala
 def interpret(expr: Expr): Int = expr match
-* `case Num(value)    => ???`
+* `case Num(value)    =>`
 &#x200B;
 &#x200B;
 &#x200B;
@@ -354,24 +376,6 @@ def interpret(expr: Expr): Int = expr match
 &#x200B;
 &#x200B;
 &#x200B;`Num value` ⇓ value
-```
-
----
-
-.diff-rm[
-```scala
-def interpret(expr: Expr): Int = expr match
-* case Num(value)    => `???`
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
-
-```scala
-&#x200B;
-&#x200B;
-Num value ⇓ `value`
 ```
 
 ---
@@ -398,7 +402,7 @@ Num value ⇓ `value`
 ```scala
 def interpret(expr: Expr): Int = expr match
   case Num(value)    => value
-* `case Add(lhs, rhs) => ???`
+* `case Add(lhs, rhs) =>`
 &#x200B;
 &#x200B;
 ```
@@ -408,24 +412,6 @@ def interpret(expr: Expr): Int = expr match
 lhs ⇓ v₁      rhs ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 &#x200B;`Add lhs rhs` ⇓ v₁ + v₂
-```
-
----
-
-.diff-rm[
-```scala
-def interpret(expr: Expr): Int = expr match
-  case Num(value)    => value
-* case Add(lhs, rhs) => `???`
-&#x200B;
-&#x200B;
-```
-]
-
-```scala
-lhs ⇓ v₁      rhs ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Add lhs rhs ⇓ v₁ + v₂
 ```
 
 ---
@@ -441,38 +427,20 @@ def interpret(expr: Expr): Int = expr match
 ]
 
 ```scala
-lhs ⇓ v₁      rhs ⇓ v₂
+&#x200B;`lhs ⇓ v₁`      `rhs ⇓ v₂`
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Add lhs rhs ⇓ v₁ + v₂
+Add lhs rhs ⇓ `v₁ + v₂`
 ```
 
 ---
 
 ```scala
-def add(lhs: Num, rhs: Num) = ???
+def add(lhs: Num, rhs: Num) =
 &#x200B;
 &#x200B;
 &#x200B;
 &#x200B;
 ```
-
-```scala
-lhs ⇓ v₁      rhs ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Add lhs rhs ⇓ v₁ + v₂
-```
-
----
-
-.diff-rm[
-```scala
-*def add(lhs: Num, rhs: Num) = `???`
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
 
 ```scala
 lhs ⇓ v₁      rhs ⇓ v₂
@@ -541,7 +509,7 @@ Add lhs rhs ⇓ `v₁ + v₂`
 ```
 
 ```scala
-val expr = ???
+val expr = Add(Num(1), Num(2))
 ```
 
 ```scala
@@ -554,27 +522,10 @@ interpret(expr)
 1 `+` 2
 ```
 
-.diff-rm[
 ```scala
-*val expr = `???`
-```
-]
-
-```scala
-interpret(expr)
+val expr = `Add`(Num(1), Num(2))
 ```
 
----
-
-```ocaml
-1 `+` 2
-```
-
-.diff-add[
-```scala
-*val expr = `Add(???, ???)`
-```
-]
 
 ```scala
 interpret(expr)
@@ -586,27 +537,9 @@ interpret(expr)
 &#x200B;`1` + 2
 ```
 
-.diff-rm[
 ```scala
-*val expr = Add(`???`, ???)
+val expr = Add(`Num(1)`, Num(2))
 ```
-]
-
-```scala
-interpret(expr)
-```
-
----
-
-```ocaml
-&#x200B;`1` + 2
-```
-
-.diff-add[
-```scala
-*val expr = Add(`Num(1)`, ???)
-```
-]
 
 ```scala
 interpret(expr)
@@ -618,27 +551,9 @@ interpret(expr)
 1 + `2`
 ```
 
-.diff-rm[
 ```scala
-*val expr = Add(Num(1), `???`)
+val expr = Add(Num(1), `Num(2)`)
 ```
-]
-
-```scala
-interpret(expr)
-```
-
----
-
-```ocaml
-1 + `2`
-```
-
-.diff-add[
-```scala
-*val expr = Add(Num(1), `Num(2)`)
-```
-]
 
 ```scala
 interpret(expr)
@@ -1396,7 +1311,7 @@ pred ⇓ false       onF ⇓ v
 def interpret(expr: Expr): Int = expr match
   case Num(value)           => value
   case Add(lhs, rhs)        => add(lhs, rhs)
-* `case Cond(pred, onT, onF) => ???`
+* `case Cond(pred, onT, onF) => cond(pred, onT, onF)`
 &#x200B;
 &#x200B;
 ```
@@ -1414,83 +1329,14 @@ pred ⇓ false       onF ⇓ v
 
 ---
 
-.diff-rm[
 ```scala
-def interpret(expr: Expr): Int = expr match
-  case Num(value)           => value
-  case Add(lhs, rhs)        => add(lhs, rhs)
-* case Cond(pred, onT, onF) => `???`
-&#x200B;
-&#x200B;
-```
-]
-
-```scala
-pred ⇓ true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-  Cond pred onT onF ⇓ v
-&#x200B;
-pred ⇓ false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-  Cond pred onT onF ⇓ v
-```
-
----
-
-.diff-add[
-```scala
-def interpret(expr: Expr): Int = expr match
-  case Num(value)           => value
-  case Add(lhs, rhs)        => add(lhs, rhs)
-* case Cond(pred, onT, onF) => `cond(pred, onT, onF)`
-&#x200B;
-&#x200B;
-```
-]
-
-```scala
-pred ⇓ true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-  Cond pred onT onF ⇓ v
-&#x200B;
-pred ⇓ false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-  Cond pred onT onF ⇓ v
-```
-
----
-
-```scala
-def cond(pred: Expr, onT: Expr, onF: Expr) = ???
+def cond(pred: Expr, onT: Expr, onF: Expr) =
 &#x200B;
 &#x200B;
 &#x200B;
 &#x200B;
 &#x200B;
 ```
-
-```scala
-pred ⇓ true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-  Cond pred onT onF ⇓ v
-&#x200B;
-pred ⇓ false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-  Cond pred onT onF ⇓ v
-```
-
----
-
-.diff-rm[
-```scala
-*def cond(pred: Expr, onT: Expr, onF: Expr) = `???`
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
 
 ```scala
 pred ⇓ true        onT ⇓ v
@@ -1974,7 +1820,7 @@ lhs ⇓ Value.Num v₁      rhs ⇓ Value.Num v₂
 ```scala
 def add(lhs: Expr, rhs: Expr) =
 * `(interpret(lhs), interpret(rhs)) match`
-*   `case (Value.Num(v1), Value.Num(v2)) => ???`
+*   `case (Value.Num(v1), Value.Num(v2)) =>`
 &#x200B;
 &#x200B;
 &#x200B;
@@ -1996,7 +1842,7 @@ def add(lhs: Expr, rhs: Expr) =
 ```scala
 def add(lhs: Expr, rhs: Expr) =
   (`interpret(lhs)`, interpret(rhs)) match
-    case (`Value.Num(v1)`, Value.Num(v2)) => ???
+    case (`Value.Num(v1)`, Value.Num(v2)) =>
 &#x200B;
 &#x200B;
 &#x200B;
@@ -2017,7 +1863,7 @@ def add(lhs: Expr, rhs: Expr) =
 ```scala
 def add(lhs: Expr, rhs: Expr) =
   (interpret(lhs), `interpret(rhs)`) match
-    case (Value.Num(v1), `Value.Num(v2)`) => ???
+    case (Value.Num(v1), `Value.Num(v2)`) =>
 &#x200B;
 &#x200B;
 &#x200B;
@@ -2027,29 +1873,6 @@ def add(lhs: Expr, rhs: Expr) =
 lhs ⇓ Value.Num v₁      `rhs ⇓ Value.Num v₂`
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
     Add lhs rhs ⇓ Value.Num (v₁ + v₂)
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-
----
-
-.diff-rm[
-```scala
-def add(lhs: Expr, rhs: Expr) =
-  (interpret(lhs), interpret(rhs)) match
-*   case (Value.Num(v1), Value.Num(v2)) => `???`
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
-
-```scala
-lhs ⇓ Value.Num v₁      rhs ⇓ Value.Num v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-    Add lhs rhs ⇓ `Value.Num (v₁ + v₂)`
 &#x200B;
 &#x200B;
 &#x200B;
@@ -2086,7 +1909,31 @@ lhs ⇓ Value.Num v₁      rhs ⇓ Value.Num v₂
 def add(lhs: Expr, rhs: Expr) =
   (interpret(lhs), interpret(rhs)) match
     case (Value.Num(v1), Value.Num(v2)) => Value.Num(v1 + v2)
-*   `case _                              => typeError("add")`
+*   `case _                              =>`
+&#x200B;
+&#x200B;
+```
+]
+
+```scala
+lhs ⇓ Value.Num v₁      rhs ⇓ Value.Num v₂
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+    Add lhs rhs ⇓ Value.Num (v₁ + v₂)
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+```
+
+
+---
+
+.diff-add[
+```scala
+def add(lhs: Expr, rhs: Expr) =
+  (interpret(lhs), interpret(rhs)) match
+    case (Value.Num(v1), Value.Num(v2)) => Value.Num(v1 + v2)
+*   case _                              => `typeError("add")`
 &#x200B;
 &#x200B;
 ```
@@ -2239,7 +2086,7 @@ def cond(pred: Expr, onT: Expr, onF: Expr) =
 ```scala
 def cond(pred: Expr, onT: Expr, onF: Expr) =
   interpret(pred) match
-*   `case Value.Bool(true)  => ???`
+*   `case Value.Bool(true)  =>`
 &#x200B;
 &#x200B;
 &#x200B;
@@ -2250,29 +2097,6 @@ def cond(pred: Expr, onT: Expr, onF: Expr) =
 pred ⇓ `Value.Bool true`        onT ⇓ v
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
        Cond pred onT onF ⇓ v
-&#x200B;
-pred ⇓ Value.Bool false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-       Cond pred onT onF ⇓ v
-```
-
----
-
-.diff-rm[
-```scala
-def cond(pred: Expr, onT: Expr, onF: Expr) =
-  interpret(pred) match
-*   case Value.Bool(true)  => `???`
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
-
-```scala
-pred ⇓ Value.Bool true        `onT ⇓ v`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-       Cond pred onT onF ⇓ `v`
 &#x200B;
 pred ⇓ Value.Bool false       onF ⇓ v
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
@@ -2308,7 +2132,7 @@ pred ⇓ Value.Bool false       onF ⇓ v
 def cond(pred: Expr, onT: Expr, onF: Expr) =
   interpret(pred) match
     case Value.Bool(true)  => interpret(onT)
-*   `case Value.Bool(false) => ???`
+*   `case Value.Bool(false) =>`
 &#x200B;
 &#x200B;
 ```
@@ -2322,29 +2146,6 @@ pred ⇓ Value.Bool true        onT ⇓ v
 pred ⇓ `Value.Bool false`       onF ⇓ v
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
        Cond pred onT onF ⇓ v
-```
-
----
-
-.diff-rm[
-```scala
-def cond(pred: Expr, onT: Expr, onF: Expr) =
-  interpret(pred) match
-    case Value.Bool(true)  => interpret(onT)
-*   case Value.Bool(false) => `???`
-&#x200B;
-&#x200B;
-```
-]
-
-```scala
-pred ⇓ Value.Bool true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-       Cond pred onT onF ⇓ v
-&#x200B;
-pred ⇓ Value.Bool false       `onF ⇓ v`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-       Cond pred onT onF ⇓ `v`
 ```
 
 ---
@@ -2378,7 +2179,30 @@ def cond(pred: Expr, onT: Expr, onF: Expr) =
   interpret(pred) match
     case Value.Bool(true)  => interpret(onT)
     case Value.Bool(false) => interpret(onF)
-*   `case _                 => typeError("cond")`
+*   `case _                 =>`
+&#x200B;
+```
+]
+
+```scala
+pred ⇓ Value.Bool true        onT ⇓ v
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+       Cond pred onT onF ⇓ v
+&#x200B;
+pred ⇓ Value.Bool false       onF ⇓ v
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+       Cond pred onT onF ⇓ v
+```
+
+---
+
+.diff-add[
+```scala
+def cond(pred: Expr, onT: Expr, onF: Expr) =
+  interpret(pred) match
+    case Value.Bool(true)  => interpret(onT)
+    case Value.Bool(false) => interpret(onF)
+*   case _                 => `typeError("cond")`
 &#x200B;
 ```
 ]
@@ -2579,7 +2403,7 @@ Bool value ⇓ Value.Bool value
 ```scala
 def interpret(expr: Expr): Value = expr match
   case Num(value)           => Value.Num(value)
-* `case Bool(value)          => ???`
+* `case Bool(value)          =>`
   case Add(lhs, rhs)        => add(lhs, rhs)
   case Cond(pred, onT, onF) => cond(pred, onT, onF)
 &#x200B;
@@ -2590,25 +2414,6 @@ def interpret(expr: Expr): Value = expr match
 &#x200B;
 &#x200B;
 &#x200B;`Bool value` ⇓ Value.Bool value
-```
-
----
-
-.diff-rm[
-```scala
-def interpret(expr: Expr): Value = expr match
-  case Num(value)           => Value.Num(value)
-* case Bool(value)          => `???`
-  case Add(lhs, rhs)        => add(lhs, rhs)
-  case Cond(pred, onT, onF) => cond(pred, onT, onF)
-&#x200B;
-```
-]
-
-```scala
-&#x200B;
-&#x200B;
-Bool value ⇓ `Value.Bool value`
 ```
 
 ---
@@ -2638,11 +2443,11 @@ if true then 1
 ```
 
 ```scala
-val expr = ???
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
+val expr = Cond(
+  pred = Bool(true),
+  onT  = Num(1),
+  onF  = Num(2)
+)
 ```
 
 ```scala
@@ -2656,36 +2461,13 @@ interpret(expr)
         else 2
 ```
 
-.diff-rm[
 ```scala
-*val expr = `???`
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
+val expr = `Cond`(
+  pred = Bool(true),
+  onT  = Num(1),
+  onF  = Num(2)
+)
 ```
-]
-
-```scala
-interpret(expr)
-```
-
----
-
-```ocaml
-&#x200B;`if` true then 1
-        else 2
-```
-
-.diff-add[
-```scala
-*val expr = `Cond(`
-*&#x200B;`)`
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
 
 ```scala
 interpret(expr)
@@ -2698,16 +2480,13 @@ if `true` then 1
         else 2
 ```
 
-.diff-add[
 ```scala
 val expr = Cond(
-* `pred = Bool(true)`
+  pred = `Bool(true)`,
+  onT  = Num(1),
+  onF  = Num(2)
 )
-&#x200B;
-&#x200B;
 ```
-]
-
 ```scala
 interpret(expr)
 ```
@@ -2719,15 +2498,13 @@ if true `then 1`
         else 2
 ```
 
-.diff-add[
 ```scala
 val expr = Cond(
-* pred = Bool(true)`,`
-* `onT  = Num(1)`
+  pred = Bool(true),
+  onT  = `Num(1)`,
+  onF  = Num(2)
 )
-&#x200B;
 ```
-]
 
 ```scala
 interpret(expr)
@@ -2740,15 +2517,13 @@ if true then 1
         `else 2`
 ```
 
-.diff-add[
 ```scala
 val expr = Cond(
   pred = Bool(true),
-  onT  = Num(1)`,`
-* `onF  = Num(2)`
+  onT  = Num(1),
+  onF  = `Num(2)`
 )
 ```
-]
 
 ```scala
 interpret(expr)
@@ -3478,40 +3253,6 @@ let x = 1 in
 ---
 
 ```ocaml
-x = 2
-&#x200B;
-```
-
-<hr/>
-
-.diff-rm[
-```ocaml
-*&#x200B;`let x = 1 in`
-* `4`
-&#x200B;
-```
-]
-
----
-
-```ocaml
-x = 2
-&#x200B;
-```
-
-<hr/>
-
-.diff-add[
-```ocaml
-*&#x200B;`4`
-&#x200B;
-&#x200B;
-```
-]
-
----
-
-```ocaml
 x = 1
 &#x200B;
 ```
@@ -3680,42 +3421,6 @@ let x = 1 in
 
 ---
 
-.diff-rm[
-```ocaml
-*&#x200B;`x = 1`
-&#x200B;
-```
-]
-
-<hr/>
-
-.diff-rm[
-```ocaml
-*&#x200B;`let x = 1 in`
-* `3`
-&#x200B;
-```
-]
-
----
-
-```ocaml
-&#x200B;
-&#x200B;
-```
-
-<hr/>
-
-.diff-add[
-```ocaml
-*&#x200B;`3`
-&#x200B;
-&#x200B;
-```
-]
-
----
-
 ```scala
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
@@ -3875,7 +3580,7 @@ let x = 1 in
 
 .diff-add[
 ```scala
-*e |- value ⇓ v₁      `bind(e, name, v₁)` |- body ⇓ v₂
+*e |- value ⇓ v₁          `e[name <- v₁]` |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
           e |- Let name value body ⇓ ???
 ```
@@ -3890,7 +3595,7 @@ let `x = 1` in
 
 .diff-rm[
 ```scala
-e |- value ⇓ v₁      bind(e, name, v₁) |- body ⇓ v₂
+e |- value ⇓ v₁          e[name <- v₁] |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 *         e |- Let name value body ⇓ `???`
 ```
@@ -3905,11 +3610,37 @@ let x = 1 in
 
 .diff-add[
 ```scala
-e |- value ⇓ v₁      bind(e, name, v₁) |- body ⇓ v₂
+e |- value ⇓ v₁          e[name <- v₁] |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 *         e |- Let name value body ⇓ `v₂`
 ```
 ]
+
+```ocaml
+let x = 1 in
+  x + 2
+```
+
+---
+
+```scala
+&#x200B;`e |- value ⇓ v₁`          e[name <- v₁] |- body ⇓ v₂
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+          e |- Let name value body ⇓ v₂
+```
+
+```ocaml
+let x = 1 in
+  x + 2
+```
+
+---
+
+```scala
+e |- value ⇓ v₁          `e[name <- v₁]` |- body ⇓ v₂
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+          e |- Let name value body ⇓ v₂
+```
 
 ```ocaml
 let x = 1 in
@@ -3965,7 +3696,7 @@ let x = 1 in
 ```scala
 &#x200B;
 &#x200B;
-*&#x200B;e |- Ref name ⇓ `lookup(e, name)`
+*&#x200B;e |- Ref name ⇓ `e(name)`
 ```
 ]
 
@@ -3989,7 +3720,7 @@ enum Expr:
 ]
 
 ```scala
-e |- value ⇓ v₁      bind(e, name, v₁) |- body ⇓ v₂
+e |- value ⇓ v₁          e[name <- v₁] |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
          e |- `Let name value body` ⇓ v₂
 ```
@@ -4009,7 +3740,7 @@ enum Expr:
 ]
 
 ```scala
-e |- value ⇓ v₁      bind(e, name, v₁) |- body ⇓ v₂
+e |- value ⇓ v₁          e[name <- v₁] |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
          e |- `Let` name value body ⇓ v₂
 ```
@@ -4029,7 +3760,7 @@ enum Expr:
 ]
 
 ```scala
-e |- value ⇓ v₁      bind(e, name, v₁) |- body ⇓ v₂
+e |- value ⇓ v₁          e[name <- v₁] |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
          e |- Let `name` value body ⇓ v₂
 ```
@@ -4049,7 +3780,7 @@ enum Expr:
 ]
 
 ```scala
-e |- value ⇓ v₁      bind(e, name, v₁) |- body ⇓ v₂
+e |- value ⇓ v₁          e[name <- v₁] |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
          e |- Let name `value` body ⇓ v₂
 ```
@@ -4069,7 +3800,7 @@ enum Expr:
 ]
 
 ```scala
-e |- value ⇓ v₁      bind(e, name, v₁) |- body ⇓ v₂
+e |- value ⇓ v₁          e[name <- v₁] |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
          e |- Let name value `body` ⇓ v₂
 ```
@@ -4089,7 +3820,7 @@ enum Expr:
 ```scala
 &#x200B;
 &#x200B;
-e |- `Ref name` ⇓ lookup(e, name)
+e |- `Ref name` ⇓ e(name)
 ```
 
 ---
@@ -4109,7 +3840,7 @@ enum Expr:
 ```scala
 &#x200B;
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-e |- `Ref` name ⇓ lookup(e, name)
+e |- `Ref` name ⇓ e(name)
 ```
 
 ---
@@ -4129,7 +3860,7 @@ enum Expr:
 ```scala
 &#x200B;
 &#x200B;
-e |- Ref `name` ⇓ lookup(e, name)
+e |- Ref `name` ⇓ e(name)
 ```
 
 ---
@@ -4147,7 +3878,7 @@ enum Expr:
 ```scala
 &#x200B;
 &#x200B;
-e |- Ref name ⇓ lookup(e, name)
+e |- Ref name ⇓ e(name)
 ```
 
 ---
@@ -4165,7 +3896,7 @@ enum Expr:
 ```scala
 &#x200B;
 &#x200B;
-&#x200B;`e` |- Ref name ⇓ lookup(e, name)
+&#x200B;`e` |- Ref name ⇓ e(name)
 ```
 
 ---
@@ -4196,33 +3927,7 @@ case class Env():
 
 .diff-add[
 ```scala
-*case class Env(`env: List[???]`):
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
-
-```scala
-&#x200B;
-&#x200B;
-&#x200B;
-```
-
----
-
-.diff-rm[
-```scala
-*case class Env(env: List[`???`]):
+*case class Env(`env: List[Env.Binding]`):
 &#x200B;
 &#x200B;
 &#x200B;
@@ -4248,7 +3953,7 @@ case class Env():
 
 .diff-add[
 ```scala
-*case class Env(env: List[`Env.Binding`]):
+case class Env(env: List[Env.Binding]):
 &#x200B;
 *&#x200B;`object Env:`
 * `case class Binding()`
@@ -4327,7 +4032,7 @@ object Env:
 .diff-add[
 ```scala
 case class Env(env: List[Env.Binding]):
-* `def lookup(name: String) = ???`
+* `def lookup(name: String) =`
 &#x200B;
 object Env:
   case class Binding(name: String, value: Value)
@@ -4345,33 +4050,7 @@ object Env:
 ```scala
 &#x200B;
 &#x200B;
-e |- Ref name ⇓ `lookup(e, name)`
-```
-
----
-
-.diff-rm[
-```scala
-case class Env(env: List[Env.Binding]):
-* def lookup(name: String) = `???`
-&#x200B;
-object Env:
-  case class Binding(name: String, value: Value)
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
-
-```scala
-&#x200B;
-&#x200B;
-e |- Ref name ⇓ `lookup(e, name)`
+e |- Ref name ⇓ `e(name)`
 ```
 
 ---
@@ -4397,7 +4076,7 @@ object Env:
 ```scala
 &#x200B;
 &#x200B;
-e |- Ref name ⇓ `lookup(e, name)`
+e |- Ref name ⇓ `e(name)`
 ```
 
 ---
@@ -4423,7 +4102,7 @@ object Env:
 ```scala
 &#x200B;
 &#x200B;
-e |- Ref name ⇓ `lookup(e, name)`
+e |- Ref name ⇓ `e(name)`
 ```
 
 ---
@@ -4449,7 +4128,7 @@ object Env:
 ```scala
 &#x200B;
 &#x200B;
-e |- Ref name ⇓ `lookup(e, name)`
+e |- Ref name ⇓ `e(name)`
 ```
 
 ---
@@ -4462,7 +4141,7 @@ case class Env(env: List[Env.Binding]):
        .map(_.value)
        .getOrElse(sys.error(s"Unbound variable: $name"))
 *&#x200B;
-* `def bind(name: String, value: Value) = ???`
+* `def bind(name: String, value: Value) =`
 &#x200B;
 object Env:
   case class Binding(name: String, value: Value)
@@ -4473,33 +4152,7 @@ object Env:
 ]
 
 ```scala
-e |- value ⇓ v₁      `bind(e, name, v₁)` |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-         e |- Let name value body ⇓ v₂
-```
-
----
-
-.diff-rm[
-```scala
-case class Env(env: List[Env.Binding]):
-  def lookup(name: String) =
-    env.find(_.name == name)
-       .map(_.value)
-       .getOrElse(sys.error(s"Unbound variable: $name"))
-&#x200B;
-* def bind(name: String, value: Value) = `???`
-&#x200B;
-object Env:
-  case class Binding(name: String, value: Value)
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
-
-```scala
-e |- value ⇓ v₁      `bind(e, name, v₁)` |- body ⇓ v₂
+e |- value ⇓ v₁          `e[name <- v₁]` |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
          e |- Let name value body ⇓ v₂
 ```
@@ -4525,7 +4178,7 @@ object Env:
 ]
 
 ```scala
-e |- value ⇓ v₁      `bind(e, name, v₁)` |- body ⇓ v₂
+e |- value ⇓ v₁          `e[name <- v₁]` |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
          e |- Let name value body ⇓ v₂
 ```
@@ -4551,7 +4204,7 @@ object Env:
 ]
 
 ```scala
-e |- value ⇓ v₁      `bind(e, name, v₁)` |- body ⇓ v₂
+e |- value ⇓ v₁          `e[name <- v₁]` |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
          e |- Let name value body ⇓ v₂
 ```
@@ -4577,7 +4230,7 @@ object Env:
 ]
 
 ```scala
-e |- value ⇓ v₁      `bind(e, name, v₁)` |- body ⇓ v₂
+e |- value ⇓ v₁          `e[name <- v₁]` |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
          e |- Let name value body ⇓ v₂
 ```
@@ -4667,7 +4320,7 @@ def interpret(expr: Expr, e: Env): Value = expr match
   case Bool(value)            => Value.Bool(value)
   case Add(lhs, rhs)          => add(lhs, rhs, e)
   case Cond(pred, onT, onF)   => cond(pred, onT, onF, e)
-* `case Let(name, value, body) => ???`
+* `case Let(name, value, body) => let(name, value, body, e)`
 &#x200B;
 &#x200B;
 &#x200B;
@@ -4679,59 +4332,7 @@ def interpret(expr: Expr, e: Env): Value = expr match
 ]
 
 ```scala
-e |- value ⇓ v₁      bind(e, name, v₁) |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-         e |- `Let name value body` ⇓ v₂
-```
-
----
-
-.diff-rm[
-```scala
-def interpret(expr: Expr, e: Env): Value = expr match
-  case Num(value)             => Value.Num(value)
-  case Bool(value)            => Value.Bool(value)
-  case Add(lhs, rhs)          => add(lhs, rhs, e)
-  case Cond(pred, onT, onF)   => cond(pred, onT, onF, e)
-* case Let(name, value, body) => `???`
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
-
-```scala
-e |- value ⇓ v₁      bind(e, name, v₁) |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-         e |- Let name value body ⇓ v₂
-```
-
----
-
-.diff-add[
-```scala
-def interpret(expr: Expr, e: Env): Value = expr match
-  case Num(value)             => Value.Num(value)
-  case Bool(value)            => Value.Bool(value)
-  case Add(lhs, rhs)          => add(lhs, rhs, e)
-  case Cond(pred, onT, onF)   => cond(pred, onT, onF, e)
-* case Let(name, value, body) => `let(name, value, body, e)`
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
-
-```scala
-e |- value ⇓ v₁      bind(e, name, v₁) |- body ⇓ v₂
+e |- value ⇓ v₁          e[name <- v₁] |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
          e |- Let name value body ⇓ v₂
 ```
@@ -4739,7 +4340,7 @@ e |- value ⇓ v₁      bind(e, name, v₁) |- body ⇓ v₂
 ---
 
 ```scala
-def let(name: String, value: Expr, body: Expr, e: Env) = ???
+def let(name: String, value: Expr, body: Expr, e: Env) =
 &#x200B;
 &#x200B;
 &#x200B;
@@ -4755,33 +4356,7 @@ def let(name: String, value: Expr, body: Expr, e: Env) = ???
 ```
 
 ```scala
-e |- value ⇓ v₁      bind(e, name, v₁) |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-         e |- Let name value body ⇓ v₂
-```
-
----
-
-.diff-rm[
-```scala
-*def let(name: String, value: Expr, body: Expr, e: Env) = `???`
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
-
-```scala
-e |- value ⇓ v₁      bind(e, name, v₁) |- body ⇓ v₂
+e |- value ⇓ v₁          e[name <- v₁] |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
          e |- Let name value body ⇓ v₂
 ```
@@ -4807,7 +4382,7 @@ def let(name: String, value: Expr, body: Expr, e: Env) =
 ]
 
 ```scala
-&#x200B;`e |- value ⇓ v₁`      bind(e, name, v₁) |- body ⇓ v₂
+&#x200B;`e |- value ⇓ v₁`          e[name <- v₁] |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
          e |- Let name value body ⇓ v₂
 ```
@@ -4833,7 +4408,7 @@ def let(name: String, value: Expr, body: Expr, e: Env) =
 ]
 
 ```scala
-e |- value ⇓ v₁      bind(e, name, v₁) |- `body ⇓ v₂`
+e |- value ⇓ v₁          e[name <- v₁] |- `body ⇓ v₂`
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
          e |- Let name value body ⇓ v₂
 ```
@@ -4859,7 +4434,7 @@ def let(name: String, value: Expr, body: Expr, e: Env) =
 ]
 
 ```scala
-e |- value ⇓ v₁      `bind(e, name, v₁)` |- body ⇓ v₂
+e |- value ⇓ v₁          `e[name <- v₁]` |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
          e |- Let name value body ⇓ v₂
 ```
@@ -4885,7 +4460,7 @@ def let(name: String, value: Expr, body: Expr, e: Env) =
 ]
 
 ```scala
-e |- value ⇓ v₁      `bind(e, name, v₁)` |- body ⇓ v₂
+e |- value ⇓ v₁          `e[name <- v₁]` |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
          e |- Let name value body ⇓ v₂
 ```
@@ -4911,7 +4486,7 @@ def let(name: String, value: Expr, body: Expr, e: Env) =
 ]
 
 ```scala
-e |- value ⇓ v₁      bind(e, name, v₁) |- body ⇓ v₂
+e |- value ⇓ v₁          e[name <- v₁] |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
          e |- Let name value body ⇓ `v₂`
 ```
@@ -4937,7 +4512,7 @@ def interpret(expr: Expr, e: Env): Value = expr match
 ```scala
 &#x200B;
 &#x200B;
-e |- `Ref name` ⇓ lookup(e, name)
+e |- `Ref name` ⇓ e(name)
 ```
 
 ---
@@ -4950,7 +4525,7 @@ def interpret(expr: Expr, e: Env): Value = expr match
   case Add(lhs, rhs)          => add(lhs, rhs, e)
   case Cond(pred, onT, onF)   => cond(pred, onT, onF, e)
   case Let(name, value, body) => let(name, value, body, e)
-* `case Ref(name)              => ???`
+* `case Ref(name)              =>`
 &#x200B;
 &#x200B;
 &#x200B;
@@ -4963,35 +4538,8 @@ def interpret(expr: Expr, e: Env): Value = expr match
 ```scala
 &#x200B;
 &#x200B;
-e |- `Ref name` ⇓ lookup(e, name)
+e |- `Ref name` ⇓ e(name)
 ```
-
----
-
-.diff-rm[
-```scala
-def interpret(expr: Expr, e: Env): Value = expr match
-  case Num(value)             => Value.Num(value)
-  case Bool(value)            => Value.Bool(value)
-  case Add(lhs, rhs)          => add(lhs, rhs, e)
-  case Cond(pred, onT, onF)   => cond(pred, onT, onF, e)
-  case Let(name, value, body) => let(name, value, body, e)
-* case Ref(name)              => `???`
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
-
-```scala
-&#x200B;
-&#x200B;
-e |- Ref name ⇓ `lookup(e, name)`
-```
-
 ---
 
 .diff-add[
@@ -5015,7 +4563,7 @@ def interpret(expr: Expr, e: Env): Value = expr match
 ```scala
 &#x200B;
 &#x200B;
-e |- Ref name ⇓ `lookup(e, name)`
+e |- Ref name ⇓ `e(name)`
 ```
 
 ---
@@ -5026,67 +4574,11 @@ let x = 1 in
 ```
 
 ```scala
-val expr = ???
-&#x200B;
-&#x200B;
-```
-
-```scala
-interpret(expr, Env.empty)
-```
-
----
-
-```ocaml
-&#x200B;`let` x = 1 in
-  (let x = 2 in x) + x
-```
-
-.diff-rm[
-```scala
-*val expr = `???`
-&#x200B;
-&#x200B;
-```
-]
-
-```scala
-interpret(expr, Env.empty)
-```
-
----
-
-```ocaml
-&#x200B;`let` x = 1 in
-  (let x = 2 in x) + x
-```
-
-.diff-add[
-```scala
-*val expr = `Let(`
-*&#x200B;`)`
-&#x200B;
-```
-]
-
-```scala
-interpret(expr, Env.empty)
-```
-
----
-
-```ocaml
-let `x = 1 in`
-  `(let x = 2 in x) + x`
-```
-
-.diff-add[
-```scala
 val expr = Let(
-* `[...]`
+  // ...
 )
 ```
-]
+
 
 ```scala
 interpret(expr, Env.empty)
@@ -5101,7 +4593,7 @@ let x = 1 in
 
 ```scala
 val expr = Let(
-  [...]
+  // ...
 )
 ```
 
@@ -5856,138 +5348,6 @@ let y = 1 in
 
 ---
 
-.diff-rm[
-```ocaml
-y = 1
-f = x -> x + y
-*&#x200B;`y = 2`
-&#x200B;
-```
-]
-
-<hr/>
-
-.diff-rm[
-```ocaml
-let y = 1 in
-  let f = x -> x + y in
-*   `let y = 2 in`
-*     `5`
-```
-]
-
----
-
-.diff-rm[
-```ocaml
-y = 1
-f = x -> x + y
-&#x200B;
-&#x200B;
-```
-]
-
-<hr/>
-
-.diff-add[
-```ocaml
-let y = 1 in
-  let f = x -> x + y in
-*   `5`
-&#x200B;
-```
-]
-
----
-
-.diff-rm[
-```ocaml
-y = 1
-*&#x200B;`f = x -> x + y`
-&#x200B;
-&#x200B;
-```
-]
-
-<hr/>
-
-.diff-rm[
-```ocaml
-let y = 1 in
-* `let f = x -> x + y in`
-*   `5`
-&#x200B;
-```
-]
-
----
-
-.diff-rm[
-```ocaml
-y = 1
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
-
-<hr/>
-
-.diff-add[
-```ocaml
-let y = 1 in
-* `5`
-&#x200B;
-&#x200B;
-```
-]
-
----
-
-.diff-rm[
-```ocaml
-*&#x200B;`y = 1`
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
-
-<hr/>
-
-.diff-rm[
-```ocaml
-*&#x200B;`let y = 1 in`
-* `5`
-&#x200B;
-&#x200B;
-```
-]
-
----
-
-.diff-rm[
-```ocaml
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
-
-<hr/>
-
-.diff-add[
-```ocaml
-*&#x200B;`5`
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
-
----
-
 ```ocaml
 y = 1
 f = x -> x + y
@@ -6413,7 +5773,7 @@ let f = x -> x + 2 in
 .diff-add[
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
-*&#x200B;`bind(eʹ, param, v₁)` |- body ⇓ v₂
+*&#x200B;`eʹ[param <- v₁]` |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
              e |- Apply fun arg ⇓ ???
 ```
@@ -6429,7 +5789,7 @@ let f = x -> x + 2 in
 .diff-rm[
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
-bind(eʹ, param, v₁) |- body ⇓ v₂
+eʹ[param <- v₁] |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 *            e |- Apply fun arg ⇓ `???`
 ```
@@ -6445,7 +5805,7 @@ let f = x -> x + 2 in
 .diff-add[
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
-bind(eʹ, param, v₁) |- body ⇓ v₂
+eʹ[param <- v₁] |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 *            e |- Apply fun arg ⇓ `v₂`
 ```
@@ -6473,8 +5833,8 @@ enum Expr:
 ```scala
 &#x200B;
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-e |- `Fun param body` ⇓ Value.Fun param body E
+&#x200B;
+e |- `Fun param body` ⇓ Value.Fun param body e
 ```
 
 ---
@@ -6496,8 +5856,8 @@ enum Expr:
 ```scala
 &#x200B;
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-e |- `Fun` param body ⇓ Value.Fun param body E
+&#x200B;
+e |- `Fun` param body ⇓ Value.Fun param body e
 ```
 
 ---
@@ -6520,7 +5880,7 @@ enum Expr:
 &#x200B;
 &#x200B;
 &#x200B;
-e |- Fun `param` body ⇓ Value.Fun param body E
+e |- Fun `param` body ⇓ Value.Fun param body e
 ```
 
 ---
@@ -6543,7 +5903,7 @@ enum Expr:
 &#x200B;
 &#x200B;
 &#x200B;
-e |- Fun param `body` ⇓ Value.Fun param body E
+e |- Fun param `body` ⇓ Value.Fun param body e
 ```
 
 ---
@@ -6562,7 +5922,7 @@ enum Expr:
 
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
-bind(eʹ, param, v₁) |- body ⇓ v₂
+eʹ[param <- v₁] |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
              e |- `Apply fun arg` ⇓ v₂
 ```
@@ -6585,7 +5945,7 @@ enum Expr:
 
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
-bind(eʹ, param, v₁) |- body ⇓ v₂
+eʹ[param <- v₁] |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
              e |- `Apply` fun arg ⇓ v₂
 ```
@@ -6608,7 +5968,7 @@ enum Expr:
 
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
-bind(eʹ, param, v₁) |- body ⇓ v₂
+eʹ[param <- v₁] |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
              e |- Apply `fun` arg ⇓ v₂
 ```
@@ -6631,7 +5991,7 @@ enum Expr:
 
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
-bind(eʹ, param, v₁) |- body ⇓ v₂
+eʹ[param <- v₁] |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
              e |- Apply fun `arg` ⇓ v₂
 ```
@@ -6654,7 +6014,7 @@ def interpret(expr: Expr, e: Env): Value = expr match
 &#x200B;
 &#x200B;
 &#x200B;
-e |- `Fun param body` ⇓ Value.Fun param body E
+e |- `Fun param body` ⇓ Value.Fun param body e
 ```
 
 ---
@@ -6668,7 +6028,7 @@ def interpret(expr: Expr, e: Env): Value = expr match
   case Cond(pred, onT, onF)   => cond(pred, onT, onF, e)
   case Let(name, value, body) => let(name, value, body, e)
   case Ref(name)              => e.lookup(name)
-* `case Fun(param, body)       => ???`
+* `case Fun(param, body)       => Value.Fun(param, body, e)`
 &#x200B;
 ```
 ]
@@ -6677,12 +6037,11 @@ def interpret(expr: Expr, e: Env): Value = expr match
 &#x200B;
 &#x200B;
 &#x200B;
-e |- `Fun param body` ⇓ Value.Fun param body E
+e |- Fun param body ⇓ `Value.Fun param body e`
 ```
 
 ---
 
-.diff-rm[
 ```scala
 def interpret(expr: Expr, e: Env): Value = expr match
   case Num(value)             => Value.Num(value)
@@ -6691,33 +6050,9 @@ def interpret(expr: Expr, e: Env): Value = expr match
   case Cond(pred, onT, onF)   => cond(pred, onT, onF, e)
   case Let(name, value, body) => let(name, value, body, e)
   case Ref(name)              => e.lookup(name)
-* case Fun(param, body)       => `???`
+  case Fun(param, body)       => Value.Fun(param, body, `e`)
 &#x200B;
 ```
-]
-
-```scala
-&#x200B;
-&#x200B;
-&#x200B;
-e |- Fun param body ⇓ Value.Fun param body E
-```
-
----
-
-.diff-add[
-```scala
-def interpret(expr: Expr, e: Env): Value = expr match
-  case Num(value)             => Value.Num(value)
-  case Bool(value)            => Value.Bool(value)
-  case Add(lhs, rhs)          => add(lhs, rhs, e)
-  case Cond(pred, onT, onF)   => cond(pred, onT, onF, e)
-  case Let(name, value, body) => let(name, value, body, e)
-  case Ref(name)              => e.lookup(name)
-* case Fun(param, body)       => `Value.Fun(param, body, e)`
-&#x200B;
-```
-]
 
 ```scala
 &#x200B;
@@ -6742,7 +6077,7 @@ def interpret(expr: Expr, e: Env): Value = expr match
 
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
-bind(eʹ, param, v₁) |- body ⇓ v₂
+eʹ[param <- v₁] |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
              e |- `Apply fun arg` ⇓ v₂
 ```
@@ -6759,59 +6094,13 @@ def interpret(expr: Expr, e: Env): Value = expr match
   case Let(name, value, body) => let(name, value, body, e)
   case Ref(name)              => e.lookup(name)
   case Fun(param, body)       => Value.Fun(param, body, e)
-* `case Apply(fun, arg)        => ???`
+* `case Apply(fun, arg)        => apply(fun, arg, e)`
 ```
 ]
 
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
-bind(eʹ, param, v₁) |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-             e |- `Apply fun arg` ⇓ v₂
-```
-
----
-
-.diff-rm[
-```scala
-def interpret(expr: Expr, e: Env): Value = expr match
-  case Num(value)             => Value.Num(value)
-  case Bool(value)            => Value.Bool(value)
-  case Add(lhs, rhs)          => add(lhs, rhs, e)
-  case Cond(pred, onT, onF)   => cond(pred, onT, onF, e)
-  case Let(name, value, body) => let(name, value, body, e)
-  case Ref(name)              => e.lookup(name)
-  case Fun(param, body)       => Value.Fun(param, body, e)
-* case Apply(fun, arg)        => `???`
-```
-]
-
-```scala
-e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
-bind(eʹ, param, v₁) |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-             e |- Apply fun arg ⇓ v₂
-```
-
----
-
-.diff-add[
-```scala
-def interpret(expr: Expr, e: Env): Value = expr match
-  case Num(value)             => Value.Num(value)
-  case Bool(value)            => Value.Bool(value)
-  case Add(lhs, rhs)          => add(lhs, rhs, e)
-  case Cond(pred, onT, onF)   => cond(pred, onT, onF, e)
-  case Let(name, value, body) => let(name, value, body, e)
-  case Ref(name)              => e.lookup(name)
-  case Fun(param, body)       => Value.Fun(param, body, e)
-* case Apply(fun, arg)        => `apply(fun, arg, e)`
-```
-]
-
-```scala
-e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
-bind(eʹ, param, v₁) |- body ⇓ v₂
+eʹ[param <- v₁] |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
              e |- Apply fun arg ⇓ v₂
 ```
@@ -6819,7 +6108,7 @@ bind(eʹ, param, v₁) |- body ⇓ v₂
 ---
 
 ```scala
-def apply(fun: Expr, arg: Expr, e: Env) = ???
+def apply(fun: Expr, arg: Expr, e: Env) =
 &#x200B;
 &#x200B;
 &#x200B;
@@ -6832,30 +6121,7 @@ def apply(fun: Expr, arg: Expr, e: Env) = ???
 
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
-bind(eʹ, param, v₁) |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-             e |- Apply fun arg ⇓ v₂
-```
-
----
-
-.diff-rm[
-```scala
-*def apply(fun: Expr, arg: Expr, e: Env) = `???`
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
-
-```scala
-e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
-bind(eʹ, param, v₁) |- body ⇓ v₂
+eʹ[param <- v₁] |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
              e |- Apply fun arg ⇓ v₂
 ```
@@ -6866,7 +6132,7 @@ bind(eʹ, param, v₁) |- body ⇓ v₂
 ```scala
 def apply(fun: Expr, arg: Expr, e: Env) =
 * `interpret(fun, e) match`
-*   `case Value.Fun(param, body, eʹ) => ???`
+*   `case Value.Fun(param, body, eʹ) =>`
 &#x200B;
 &#x200B;
 &#x200B;
@@ -6878,30 +6144,7 @@ def apply(fun: Expr, arg: Expr, e: Env) =
 
 ```scala
 &#x200B;`e |- fun ⇓ Value.Fun param body eʹ`      e |- arg ⇓ v₁
-bind(eʹ, param, v₁) |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-             e |- Apply fun arg ⇓ v₂
-```
-
----
-
-.diff-rm[
-```scala
-def apply(fun: Expr, arg: Expr, e: Env) =
-  interpret(fun, e) match
-*   case Value.Fun(param, body, eʹ) => `???`
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
-
-```scala
-e |- fun ⇓ Value.Fun param body eʹ      `e |- arg ⇓ v₁`
-bind(eʹ, param, v₁) |- body ⇓ v₂
+eʹ[param <- v₁] |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
              e |- Apply fun arg ⇓ v₂
 ```
@@ -6924,7 +6167,7 @@ def apply(fun: Expr, arg: Expr, e: Env) =
 
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      `e |- arg ⇓ v₁`
-bind(eʹ, param, v₁) |- body ⇓ v₂
+eʹ[param <- v₁] |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
              e |- Apply fun arg ⇓ v₂
 ```
@@ -6947,7 +6190,7 @@ def apply(fun: Expr, arg: Expr, e: Env) =
 
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
-bind(eʹ, param, v₁) |- `body ⇓ v₂`
+eʹ[param <- v₁] |- `body ⇓ v₂`
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
              e |- Apply fun arg ⇓ v₂
 ```
@@ -6970,7 +6213,7 @@ def apply(fun: Expr, arg: Expr, e: Env) =
 
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
-&#x200B;`bind(eʹ, param, v₁)` |- body ⇓ v₂
+&#x200B;`eʹ[param <- v₁]` |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
              e |- Apply fun arg ⇓ v₂
 ```
@@ -6993,7 +6236,7 @@ def apply(fun: Expr, arg: Expr, e: Env) =
 
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
-&#x200B;`bind(eʹ, param, v₁)` |- body ⇓ v₂
+&#x200B;`eʹ[param <- v₁]` |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
              e |- Apply fun arg ⇓ v₂
 ```
@@ -7016,7 +6259,7 @@ def apply(fun: Expr, arg: Expr, e: Env) =
 
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
-bind(eʹ, param, v₁) |- body ⇓ v₂
+eʹ[param <- v₁] |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
              e |- Apply fun arg ⇓ `v₂`
 ```
@@ -7039,7 +6282,7 @@ def apply(fun: Expr, arg: Expr, e: Env) =
 
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
-bind(eʹ, param, v₁) |- body ⇓ v₂
+eʹ[param <- v₁] |- body ⇓ v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
              e |- Apply fun arg ⇓ v₂
 ```
@@ -7054,73 +6297,10 @@ let y = 1 in
 ```
 
 ```scala
-val expr = ???
-&#x200B;
-&#x200B;
-```
-
-```scala
-interpret(expr, Env.empty)
-```
-
----
-
-```ocaml
-&#x200B;`let` y = 1 in
-  let f = x -> x + y in
-    let y = 2 in
-      f 3
-```
-
-.diff-rm[
-```scala
-*val expr = `???`
-&#x200B;
-&#x200B;
-```
-]
-
-```scala
-interpret(expr, Env.empty)
-```
-
----
-
-```ocaml
-&#x200B;`let` y = 1 in
-  let f = x -> x + y in
-    let y = 2 in
-      f 3
-```
-
-.diff-add[
-```scala
-*val expr = `Let(`
-*&#x200B;`)`
-&#x200B;
-```
-]
-
-```scala
-interpret(expr, Env.empty)
-```
-
----
-
-```ocaml
-let `y = 1 in`
-  `let f = x -> x + y in`
-    `let y = 2 in`
-      `f 3`
-```
-
-.diff-add[
-```scala
 val expr = Let(
-* `[...]`
+  // ...
 )
 ```
-]
 
 ```scala
 interpret(expr, Env.empty)
@@ -7137,7 +6317,7 @@ let y = 1 in
 
 ```scala
 val expr = Let(
-  [...]
+  // ...
 )
 ```
 
@@ -7190,7 +6370,7 @@ interpret(expr, Env.empty)
 
 .diff-add[
 ```ocaml
-*let add = `x -> ???` in
+*let add = `lhs -> ???` in
   add 1 2
 &#x200B;
 &#x200B;
@@ -7211,7 +6391,7 @@ interpret(expr, Env.empty)
 
 .diff-rm[
 ```ocaml
-*let add = x -> `???` in
+*let add = lhs -> `???` in
   add 1 2
 &#x200B;
 &#x200B;
@@ -7232,7 +6412,49 @@ interpret(expr, Env.empty)
 
 .diff-add[
 ```ocaml
-*let add = x -> `y -> x + y` in
+*let add = lhs -> `rhs -> ???` in
+  add 1 2
+&#x200B;
+&#x200B;
+```
+]
+
+```scala
+val expr = ???
+&#x200B;
+&#x200B;
+```
+
+```scala
+interpret(expr, Env.empty)
+```
+
+---
+
+.diff-rm[
+```ocaml
+*let add = lhs -> rhs -> `???` in
+  add 1 2
+&#x200B;
+&#x200B;
+```
+]
+
+```scala
+val expr = ???
+&#x200B;
+&#x200B;
+```
+
+```scala
+interpret(expr, Env.empty)
+```
+
+---
+
+.diff-add[
+```ocaml
+*let add = lhs -> rhs -> `lhs + rhs` in
   add 1 2
 &#x200B;
 &#x200B;
@@ -7252,7 +6474,7 @@ interpret(expr, Env.empty)
 ---
 
 ```ocaml
-let add = x -> y -> x + y in
+let add = lhs -> rhs -> lhs + rhs in
   add 1 2
 &#x200B;
 &#x200B;
@@ -7273,7 +6495,7 @@ interpret(expr, Env.empty)
 ---
 
 ```ocaml
-let add = x -> y -> x + y in
+let add = lhs -> rhs -> lhs + rhs in
   add 1 2
 &#x200B;
 &#x200B;
@@ -7282,7 +6504,7 @@ let add = x -> y -> x + y in
 .diff-add[
 ```scala
 *val expr = `Let(`
-* `[...]`
+* `// ...`
 *&#x200B;`)`
 ```
 ]
@@ -7294,7 +6516,7 @@ interpret(expr, Env.empty)
 ---
 
 ```ocaml
-let add = x -> y -> x + y in
+let add = lhs -> rhs -> lhs + rhs in
   add 1 2
 &#x200B;
 &#x200B;
@@ -7302,7 +6524,7 @@ let add = x -> y -> x + y in
 
 ```scala
 val expr = Let(
-  [...]
+  // ...
 )
 ```
 
@@ -7973,8 +7195,9 @@ def interpret(expr: Expr, e: Env): Value = expr match
 ```scala
 e |- lhs ⇓ Value.Num v₁      e |- rhs ⇓ Value.Num v₂
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-        e |- `Gt lhs rhs` ⇓ Value.Bool (v₁ > v₂)
+        e |- Gt lhs rhs ⇓ Value.Bool (v₁ > v₂)
 ```
+
 
 ---
 
@@ -7984,7 +7207,7 @@ def interpret(expr: Expr, e: Env): Value = expr match
   case Num(value)             => Value.Num(value)
   case Bool(value)            => Value.Bool(value)
   case Add(lhs, rhs)          => add(lhs, rhs, e)
-* `case Gt(lhs, rhs)           => ???`
+* `case Gt(lhs, rhs)           => gt(lhs, rhs, e)`
   case Cond(pred, onT, onF)   => cond(pred, onT, onF, e)
   case Let(name, value, body) => let(name, value, body, e)
   case Ref(name)              => e.lookup(name)
@@ -8001,54 +7224,8 @@ e |- lhs ⇓ Value.Num v₁      e |- rhs ⇓ Value.Num v₂
 
 ---
 
-.diff-rm[
 ```scala
-def interpret(expr: Expr, e: Env): Value = expr match
-  case Num(value)             => Value.Num(value)
-  case Bool(value)            => Value.Bool(value)
-  case Add(lhs, rhs)          => add(lhs, rhs, e)
-* case Gt(lhs, rhs)           => `???`
-  case Cond(pred, onT, onF)   => cond(pred, onT, onF, e)
-  case Let(name, value, body) => let(name, value, body, e)
-  case Ref(name)              => e.lookup(name)
-  case Fun(param, body)       => Value.Fun(param, body, e)
-  case Apply(fun, arg)        => apply(fun, arg, e)
-```
-]
-
-```scala
-e |- lhs ⇓ Value.Num v₁      e |- rhs ⇓ Value.Num v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-        e |- Gt lhs rhs ⇓ Value.Bool (v₁ > v₂)
-```
-
----
-
-.diff-add[
-```scala
-def interpret(expr: Expr, e: Env): Value = expr match
-  case Num(value)             => Value.Num(value)
-  case Bool(value)            => Value.Bool(value)
-  case Add(lhs, rhs)          => add(lhs, rhs, e)
-* case Gt(lhs, rhs)           => `gt(lhs, rhs, e)`
-  case Cond(pred, onT, onF)   => cond(pred, onT, onF, e)
-  case Let(name, value, body) => let(name, value, body, e)
-  case Ref(name)              => e.lookup(name)
-  case Fun(param, body)       => Value.Fun(param, body, e)
-  case Apply(fun, arg)        => apply(fun, arg, e)
-```
-]
-
-```scala
-e |- lhs ⇓ Value.Num v₁      e |- rhs ⇓ Value.Num v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-        e |- Gt lhs rhs ⇓ Value.Bool (v₁ > v₂)
-```
-
----
-
-```scala
-def gt(lhs: Expr, rhs: Expr, e: Env) = ???
+def gt(lhs: Expr, rhs: Expr, e: Env) =
 &#x200B;
 &#x200B;
 &#x200B;
@@ -8059,29 +7236,6 @@ def gt(lhs: Expr, rhs: Expr, e: Env) = ???
 &#x200B;
 &#x200B;
 ```
-
-```scala
-e |- lhs ⇓ Value.Num v₁      e |- rhs ⇓ Value.Num v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-        e |- Gt lhs rhs ⇓ Value.Bool (v₁ > v₂)
-```
-
----
-
-.diff-rm[
-```scala
-*def gt(lhs: Expr, rhs: Expr, e: Env) = `???`
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
 
 ```scala
 e |- lhs ⇓ Value.Num v₁      e |- rhs ⇓ Value.Num v₂
@@ -8095,7 +7249,7 @@ e |- lhs ⇓ Value.Num v₁      e |- rhs ⇓ Value.Num v₂
 ```scala
 def gt(lhs: Expr, rhs: Expr, e: Env) =
 * `(interpret(lhs, e), interpret(rhs, e)) match`
-*   `case (Value.Num(v1), Value.Num(v2)) => ???`
+*   `case (Value.Num(v1), Value.Num(v2)) =>`
 &#x200B;
 &#x200B;
 &#x200B;
@@ -8117,7 +7271,7 @@ def gt(lhs: Expr, rhs: Expr, e: Env) =
 ```scala
 def gt(lhs: Expr, rhs: Expr, e: Env) =
   (`interpret(lhs, e)`, interpret(rhs, e)) match
-    case (`Value.Num(v1)`, Value.Num(v2)) => ???
+    case (`Value.Num(v1)`, Value.Num(v2)) =>
 &#x200B;
 &#x200B;
 &#x200B;
@@ -8138,7 +7292,7 @@ def gt(lhs: Expr, rhs: Expr, e: Env) =
 ```scala
 def gt(lhs: Expr, rhs: Expr, e: Env) =
   (interpret(lhs, e), `interpret(rhs, e)`) match
-    case (Value.Num(v1), `Value.Num(v2)`) => ???
+    case (Value.Num(v1), `Value.Num(v2)`) =>
 &#x200B;
 &#x200B;
 &#x200B;
@@ -8152,29 +7306,6 @@ def gt(lhs: Expr, rhs: Expr, e: Env) =
 e |- lhs ⇓ Value.Num v₁      `e |- rhs ⇓ Value.Num v₂`
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
         e |- Gt lhs rhs ⇓ Value.Bool (v₁ > v₂)
-```
-
----
-
-.diff-rm[
-```scala
-def gt(lhs: Expr, rhs: Expr, e: Env) =
-  (interpret(lhs, e), interpret(rhs, e)) match
-*   case (Value.Num(v1), Value.Num(v2)) => `???`
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
-
-```scala
-e |- lhs ⇓ Value.Num v₁      e |- rhs ⇓ Value.Num v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-        e |- Gt lhs rhs ⇓ `Value.Bool (v₁ > v₂)`
 ```
 
 ---
@@ -8207,7 +7338,30 @@ e |- lhs ⇓ Value.Num v₁      e |- rhs ⇓ Value.Num v₂
 def gt(lhs: Expr, rhs: Expr, e: Env) =
   (interpret(lhs, e), interpret(rhs, e)) match
     case (Value.Num(v1), Value.Num(v2)) => Value.Bool(v1 > v2)
-*   `case _                              => typeError("gt")`
+*   `case _                              =>`
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+```
+]
+
+```scala
+e |- lhs ⇓ Value.Num v₁      e |- rhs ⇓ Value.Num v₂
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+        e |- Gt lhs rhs ⇓ Value.Bool (v₁ > v₂)
+```
+
+---
+
+.diff-add[
+```scala
+def gt(lhs: Expr, rhs: Expr, e: Env) =
+  (interpret(lhs, e), interpret(rhs, e)) match
+    case (Value.Num(v1), Value.Num(v2)) => Value.Bool(v1 > v2)
+*   case _                              => `typeError("gt")`
 &#x200B;
 &#x200B;
 &#x200B;
@@ -8233,52 +7387,10 @@ let sum = lower -> upper ->
 ```
 
 ```scala
-val expr = ???
-&#x200B;
-&#x200B;
+val expr = Let(
+  // ...
+)
 ```
-
-```scala
-interpret(expr, Env.empty)
-```
-
----
-
-```ocaml
-let sum = lower -> upper ->
-    if lower > upper then 0
-    else lower + (sum (lower + 1) upper)
-  in sum 1 10
-```
-
-.diff-rm[
-```scala
-*val expr = `???`
-&#x200B;
-&#x200B;
-```
-]
-
-```scala
-interpret(expr, Env.empty)
-```
-
----
-
-```ocaml
-let sum = lower -> upper ->
-    if lower > upper then 0
-    else lower + (sum (lower + 1) upper)
-  in sum 1 10
-```
-
-.diff-add[
-```scala
-*val expr = `Let(`
-* `[...]`
-*&#x200B;`)`
-```
-]
 
 ```scala
 interpret(expr, Env.empty)
@@ -8295,7 +7407,7 @@ let sum = lower -> upper ->
 
 ```scala
 val expr = Let(
-  [...]
+  // ...
 )
 ```
 
@@ -8315,7 +7427,7 @@ let `sum` = lower -> upper ->
 
 ```scala
 val expr = Let(
-  [...]
+  // ...
 )
 ```
 
@@ -8335,7 +7447,7 @@ let sum = `lower -> upper ->`
 
 ```scala
 val expr = Let(
-  [...]
+  // ...
 )
 ```
 
@@ -8355,7 +7467,7 @@ let sum = lower -> upper ->
 
 ```scala
 val expr = Let(
-  [...]
+  // ...
 )
 ```
 
@@ -8437,8 +7549,8 @@ let rec sum = lower -> upper ->
 ```scala
 &#x200B;
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-   e |- `LetRec` ⇓ ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+ e |- `LetRec` ⇓ ???
 ```
 
 ```ocaml
@@ -8454,8 +7566,8 @@ let rec sum = lower -> upper ->
 ```scala
 &#x200B;
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*  e |- LetRec `name` ⇓ ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*&#x200B; e |- LetRec `name` ⇓ ???
 ```
 ]
 
@@ -8472,8 +7584,8 @@ let rec `sum` = lower -> upper ->
 ```scala
 &#x200B;
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*  e |- LetRec name `value` ⇓ ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*&#x200B; e |- LetRec name `value` ⇓ ???
 ```
 ]
 
@@ -8490,8 +7602,8 @@ let rec sum = `lower -> upper ->`
 ```scala
 &#x200B;
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*  e |- LetRec name value `body` ⇓ ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*&#x200B; e |- LetRec name value `body` ⇓ ???
 ```
 ]
 
@@ -8508,8 +7620,8 @@ let rec sum = lower -> upper ->
 ```scala
 *&#x200B;`e |- value ⇓ v₁`
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-   e |- LetRec name value body ⇓ ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+ e |- LetRec name value body ⇓ ???
 ```
 ]
 
@@ -8525,8 +7637,8 @@ let rec sum = `lower -> upper ->`
 ```scala
 &#x200B;`e` |- value ⇓ v₁
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-   e |- LetRec name value body ⇓ ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+ e |- LetRec name value body ⇓ ???
 ```
 
 ```ocaml
@@ -8540,10 +7652,10 @@ let rec sum = `lower -> upper ->`
 
 .diff-add[
 ```scala
-*&#x200B;`eʹ = bind(e, name, ∅);` e |- value ⇓ v₁
+*&#x200B;`eʹ = e[name <- ???];` e |- value ⇓ v₁
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-   e |- LetRec name value body ⇓ ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+ e |- LetRec name value body ⇓ ???
 ```
 ]
 
@@ -8558,10 +7670,47 @@ let rec sum = `lower -> upper ->`
 
 .diff-rm[
 ```scala
-*eʹ = bind(e, name, ∅); `e` |- value ⇓ v₁
+*eʹ = e[name <- `???`]; e |- value ⇓ v₁
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-   e |- LetRec name value body ⇓ ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+ e |- LetRec name value body ⇓ ???
+```
+]
+
+```ocaml
+let rec sum = `lower -> upper ->`
+    `if lower > upper then 0`
+    `else lower + (sum (lower + 1) upper)`
+  in sum 1 10
+```
+
+
+---
+
+.diff-add[
+```scala
+*eʹ = e[name <- `∅`]; e |- value ⇓ v₁
+&#x200B;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+ e |- LetRec name value body ⇓ ???
+```
+]
+
+```ocaml
+let rec sum = `lower -> upper ->`
+    `if lower > upper then 0`
+    `else lower + (sum (lower + 1) upper)`
+  in sum 1 10
+```
+
+---
+
+.diff-rm[
+```scala
+*eʹ = e[name <- ∅]; `e` |- value ⇓ v₁
+&#x200B;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+ e |- LetRec name value body ⇓ ???
 ```
 ]
 
@@ -8576,10 +7725,10 @@ let rec sum = `lower -> upper ->`
 
 .diff-add[
 ```scala
-*eʹ = bind(e, name, ∅); `eʹ` |- value ⇓ v₁
+*eʹ = e[name <- ∅]; `eʹ` |- value ⇓ v₁
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-   e |- LetRec name value body ⇓ ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+ e |- LetRec name value body ⇓ ???
 ```
 ]
 
@@ -8594,10 +7743,10 @@ let rec sum = `lower -> upper ->`
 
 .diff-add[
 ```scala
-eʹ = bind(e, name, ∅); eʹ |- value ⇓ v₁
+eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
 * `eʹ |- body ⇓ v₂`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-   e |- LetRec name value body ⇓ ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+ e |- LetRec name value body ⇓ ???
 ```
 ]
 
@@ -8611,10 +7760,10 @@ let rec sum = lower -> upper ->
 ---
 
 ```scala
-eʹ = bind(e, name, ∅); eʹ |- value ⇓ v₁
+eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
   `eʹ` |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-   e |- LetRec name value body ⇓ ???
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+ e |- LetRec name value body ⇓ ???
 ```
 
 ```ocaml
@@ -8628,10 +7777,10 @@ let rec sum = lower -> upper ->
 
 .diff-add[
 ```scala
-eʹ = bind(e, name, ∅); eʹ |- value ⇓ v₁
-* `update(eʹ, name, v₁);` eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-   e |- LetRec name value body ⇓ ???
+eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
+* `eʹ[name := v₁];` eʹ |- body ⇓ v₂
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+ e |- LetRec name value body ⇓ ???
 ```
 ]
 
@@ -8646,10 +7795,10 @@ let rec sum = lower -> upper ->
 
 .diff-rm[
 ```scala
-eʹ = bind(e, name, ∅); eʹ |- value ⇓ v₁
-  update(eʹ, name, v₁); eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*  e |- LetRec name value body ⇓ `???`
+eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
+  eʹ[name := v₁]; eʹ |- body ⇓ v₂
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*&#x200B; e |- LetRec name value body ⇓ `???`
 ```
 ]
 
@@ -8664,10 +7813,10 @@ let rec sum = lower -> upper ->
 
 .diff-add[
 ```scala
-eʹ = bind(e, name, ∅); eʹ |- value ⇓ v₁
-  update(eʹ, name, v₁); eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-*  e |- LetRec name value body ⇓ `v₂`
+eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
+  eʹ[name := v₁]; eʹ |- body ⇓ v₂
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+*&#x200B; e |- LetRec name value body ⇓ `v₂`
 ```
 ]
 
@@ -8695,10 +7844,10 @@ enum Expr:
 ```
 
 ```scala
-eʹ = bind(e, name, ∅); eʹ |- value ⇓ v₁
- update(eʹ, name, v₁); eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-   e |- `LetRec name value body` ⇓ v₂
+eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
+  eʹ[name := v₁]; eʹ |- body ⇓ v₂
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+ e |- `LetRec name value body` ⇓ v₂
 ```
 
 ---
@@ -8720,10 +7869,10 @@ enum Expr:
 ]
 
 ```scala
-eʹ = bind(e, name, ∅); eʹ |- value ⇓ v₁
- update(eʹ, name, v₁); eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-   e |- `LetRec` name value body ⇓ v₂
+eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
+  eʹ[name := v₁]; eʹ |- body ⇓ v₂
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+ e |- `LetRec` name value body ⇓ v₂
 ```
 
 ---
@@ -8745,10 +7894,10 @@ enum Expr:
 ]
 
 ```scala
-eʹ = bind(e, name, ∅); eʹ |- value ⇓ v₁
- update(eʹ, name, v₁); eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-   e |- LetRec `name` value body ⇓ v₂
+eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
+  eʹ[name := v₁]; eʹ |- body ⇓ v₂
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+ e |- LetRec `name` value body ⇓ v₂
 ```
 
 ---
@@ -8770,10 +7919,10 @@ enum Expr:
 ]
 
 ```scala
-eʹ = bind(e, name, ∅); eʹ |- value ⇓ v₁
- update(eʹ, name, v₁); eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-   e |- LetRec name `value` body ⇓ v₂
+eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
+  eʹ[name := v₁]; eʹ |- body ⇓ v₂
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+ e |- LetRec name `value` body ⇓ v₂
 ```
 
 ---
@@ -8795,10 +7944,10 @@ enum Expr:
 ]
 
 ```scala
-eʹ = bind(e, name, ∅); eʹ |- value ⇓ v₁
- update(eʹ, name, v₁); eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-   e |- LetRec name value `body` ⇓ v₂
+eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
+  eʹ[name := v₁]; eʹ |- body ⇓ v₂
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+ e |- LetRec name value `body` ⇓ v₂
 ```
 
 ---
@@ -8818,10 +7967,10 @@ enum Expr:
 ```
 
 ```scala
-eʹ = bind(e, name, ∅); eʹ |- value ⇓ v₁
- `update(eʹ, name, v₁)`; eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-   e |- LetRec name value body ⇓ v₂
+eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
+  `eʹ[name := v₁]`; eʹ |- body ⇓ v₂
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+ e |- LetRec name value body ⇓ v₂
 ```
 
 ---
@@ -8859,7 +8008,7 @@ case class Env(env: List[Env.Binding]):
   def bind(name: String, value: Value) =
     Env(Env.Binding(name, value) :: env)
 *&#x200B;
-* `def update(name: String, value: Value) = ???`
+* `def update(name: String, value: Value) =`
 &#x200B;
 object Env:
   case class Binding(name: String, value: Value)
@@ -8870,29 +8019,6 @@ object Env:
 ```
 ]
 
----
-
-.diff-rm[
-```scala
-case class Env(env: List[Env.Binding]):
-  def lookup(name: String) =
-    env.find(_.name == name)
-       .map(_.value)
-       .getOrElse(sys.error(s"Unbound variable: $name"))
-&#x200B;
-  def bind(name: String, value: Value) =
-    Env(Env.Binding(name, value) :: env)
-&#x200B;
-* def update(name: String, value: Value) = `???`
-&#x200B;
-object Env:
-  case class Binding(name: String, value: Value)
-&#x200B;
-  val empty = Env(List.empty)
-&#x200B;
-&#x200B;
-```
-]
 
 ---
 
@@ -9007,10 +8133,10 @@ def interpret(expr: Expr, e: Env): Value = expr match
 ```
 
 ```scala
-eʹ = bind(e, name, ∅); eʹ |- value ⇓ v₁
- update(eʹ, name, v₁); eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-   e |- `LetRec name value body` ⇓ v₂
+eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
+  eʹ[name := v₁]; eʹ |- body ⇓ v₂
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+ e |- `LetRec name value body` ⇓ v₂
 ```
 
 ---
@@ -9024,7 +8150,7 @@ def interpret(expr: Expr, e: Env): Value = expr match
   case Gt(lhs, rhs)              => gt(lhs, rhs, e)
   case Cond(pred, onT, onF)      => cond(pred, onT, onF, e)
   case Let(name, value, body)    => let(name, value, body, e)
-* `case LetRec(name, value, body) => ???`
+* `case LetRec(name, value, body) => letRec(name, value, body, e)`
   case Ref(name)                 => e.lookup(name)
   case Fun(param, body)          => Value.Fun(param, body, e)
   case Apply(fun, arg)           => apply(fun, arg, e)
@@ -9032,66 +8158,16 @@ def interpret(expr: Expr, e: Env): Value = expr match
 ]
 
 ```scala
-eʹ = bind(e, name, ∅); eʹ |- value ⇓ v₁
- update(eʹ, name, v₁); eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-   e |- `LetRec name value body` ⇓ v₂
-```
-
----
-
-.diff-rm[
-```scala
-def interpret(expr: Expr, e: Env): Value = expr match
-  case Num(value)                => Value.Num(value)
-  case Bool(value)               => Value.Bool(value)
-  case Add(lhs, rhs)             => add(lhs, rhs, e)
-  case Gt(lhs, rhs)              => gt(lhs, rhs, e)
-  case Cond(pred, onT, onF)      => cond(pred, onT, onF, e)
-  case Let(name, value, body)    => let(name, value, body, e)
-* case LetRec(name, value, body) => `???`
-  case Ref(name)                 => e.lookup(name)
-  case Fun(param, body)          => Value.Fun(param, body, e)
-  case Apply(fun, arg)           => apply(fun, arg, e)
-```
-]
-
-```scala
-eʹ = bind(e, name, ∅); eʹ |- value ⇓ v₁
- update(eʹ, name, v₁); eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-   e |- LetRec name value body ⇓ v₂
-```
-
----
-
-.diff-add[
-```scala
-def interpret(expr: Expr, e: Env): Value = expr match
-  case Num(value)                => Value.Num(value)
-  case Bool(value)               => Value.Bool(value)
-  case Add(lhs, rhs)             => add(lhs, rhs, e)
-  case Gt(lhs, rhs)              => gt(lhs, rhs, e)
-  case Cond(pred, onT, onF)      => cond(pred, onT, onF, e)
-  case Let(name, value, body)    => let(name, value, body, e)
-* case LetRec(name, value, body) => `letRec(name, value, body, e)`
-  case Ref(name)                 => e.lookup(name)
-  case Fun(param, body)          => Value.Fun(param, body, e)
-  case Apply(fun, arg)           => apply(fun, arg, e)
-```
-]
-
-```scala
-eʹ = bind(e, name, ∅); eʹ |- value ⇓ v₁
- update(eʹ, name, v₁); eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-   e |- LetRec name value body ⇓ v₂
+eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
+  eʹ[name := v₁]; eʹ |- body ⇓ v₂
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+ e |- `LetRec name value body` ⇓ v₂
 ```
 
 ---
 
 ```scala
-def letRec(name: String, value: Expr, body: Expr, e: Env) = ???
+def letRec(name: String, value: Expr, body: Expr, e: Env) =
 &#x200B;
 &#x200B;
 &#x200B;
@@ -9105,35 +8181,10 @@ def letRec(name: String, value: Expr, body: Expr, e: Env) = ???
 ```
 
 ```scala
-eʹ = bind(e, name, ∅); eʹ |- value ⇓ v₁
- update(eʹ, name, v₁); eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-   e |- LetRec name value body ⇓ v₂
-```
-
----
-
-.diff-rm[
-```scala
-*def letRec(name: String, value: Expr, body: Expr, e: Env) = `???`
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
-
-```scala
-eʹ = bind(e, name, ∅); eʹ |- value ⇓ v₁
- update(eʹ, name, v₁); eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-   e |- LetRec name value body ⇓ v₂
+eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
+  eʹ[name := v₁]; eʹ |- body ⇓ v₂
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+ e |- LetRec name value body ⇓ v₂
 ```
 
 ---
@@ -9155,10 +8206,10 @@ eʹ = bind(e, name, ∅); eʹ |- value ⇓ v₁
 ]
 
 ```scala
-&#x200B;`eʹ = bind(e, name, ∅)`; eʹ |- value ⇓ v₁
- update(eʹ, name, v₁); eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-   e |- LetRec name value body ⇓ v₂
+&#x200B;`eʹ = e[name <- ∅]`; eʹ |- value ⇓ v₁
+  eʹ[name := v₁]; eʹ |- body ⇓ v₂
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+ e |- LetRec name value body ⇓ v₂
 ```
 
 ---
@@ -9180,10 +8231,10 @@ eʹ = bind(e, name, ∅); eʹ |- value ⇓ v₁
 ]
 
 ```scala
-eʹ = bind(e, name, ∅); `eʹ |- value ⇓ v₁`
- update(eʹ, name, v₁); eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-   e |- LetRec name value body ⇓ v₂
+eʹ = e[name <- ∅]; `eʹ |- value ⇓ v₁`
+  eʹ[name := v₁]; eʹ |- body ⇓ v₂
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+ e |- LetRec name value body ⇓ v₂
 ```
 
 ---
@@ -9205,10 +8256,10 @@ eʹ = bind(e, name, ∅); `eʹ |- value ⇓ v₁`
 ]
 
 ```scala
-eʹ = bind(e, name, ∅); eʹ |- value ⇓ v₁
- `update(eʹ, name, v₁)`; eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-   e |- LetRec name value body ⇓ v₂
+eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
+  `eʹ[name := v₁]`; eʹ |- body ⇓ v₂
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+ e |- LetRec name value body ⇓ v₂
 ```
 
 ---
@@ -9230,10 +8281,10 @@ eʹ = bind(e, name, ∅); eʹ |- value ⇓ v₁
 ]
 
 ```scala
-eʹ = bind(e, name, ∅); eʹ |- value ⇓ v₁
- update(eʹ, name, v₁); `eʹ |- body ⇓ v₂`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-   e |- LetRec name value body ⇓ v₂
+eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
+  eʹ[name := v₁]; `eʹ |- body ⇓ v₂`
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+ e |- LetRec name value body ⇓ v₂
 ```
 
 ---
@@ -9255,10 +8306,10 @@ eʹ = bind(e, name, ∅); eʹ |- value ⇓ v₁
 ]
 
 ```scala
-eʹ = bind(e, name, ∅); eʹ |- value ⇓ v₁
- update(eʹ, name, v₁); eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-   e |- LetRec name value body ⇓ `v₂`
+eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
+  eʹ[name := v₁]; eʹ |- body ⇓ v₂
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+ e |- LetRec name value body ⇓ `v₂`
 ```
 
 ---
@@ -9272,7 +8323,7 @@ let sum = lower -> upper ->
 
 ```scala
 val expr = Let(
-  [...]
+  // ...
 )
 ```
 
@@ -9294,7 +8345,7 @@ interpret(expr, Env.empty)
 .diff-rm[
 ```scala
 *val expr = `Let`(
-  [...]
+  // ...
 )
 ```
 ]
@@ -9317,7 +8368,7 @@ interpret(expr, Env.empty)
 .diff-add[
 ```scala
 *val expr = `LetRec`(
-  [...]
+  // ...
 )
 ```
 ]
@@ -9338,7 +8389,7 @@ let rec sum = lower -> upper ->
 
 ```scala
 val expr = LetRec(
-  [...]
+  // ...
 )
 ```
 
@@ -9460,20 +8511,20 @@ interpret(expr, Env.empty)
 ---
 
 ```scala
-def typeCheck(expr: Expr): ??? = ???
+def typeCheck(expr: Expr): ??? =
 ```
 
 ---
 
 ```scala
-def typeCheck(`expr: Expr`): ??? = ???
+def typeCheck(`expr: Expr`): ??? =
 ```
 
 ---
 
 .diff-rm[
 ```scala
-*def typeCheck(expr: Expr): `???` = ???
+*def typeCheck(expr: Expr): `???` =
 ```
 ]
 
@@ -9481,15 +8532,7 @@ def typeCheck(`expr: Expr`): ??? = ???
 
 .diff-add[
 ```scala
-*def typeCheck(expr: Expr): `Boolean` = ???
-```
-]
-
----
-
-.diff-rm[
-```scala
-*def typeCheck(expr: Expr): Boolean = `???`
+*def typeCheck(expr: Expr): `Boolean` =
 ```
 ]
 
@@ -10059,7 +9102,7 @@ lhs : Type.Num       rhs : Type.Num
 ---
 
 ```scala
-def checkAdd(lhs: Expr, rhs: Expr) = ???
+def checkAdd(lhs: Expr, rhs: Expr) =
 &#x200B;
 &#x200B;
 &#x200B;
@@ -10076,7 +9119,7 @@ lhs : Type.Num       rhs : Type.Num
 ---
 
 ```scala
-def checkAdd(lhs: Expr, rhs: Expr) = ???
+def checkAdd(lhs: Expr, rhs: Expr) =
 &#x200B;
 &#x200B;
 &#x200B;
@@ -10093,7 +9136,7 @@ def checkAdd(lhs: Expr, rhs: Expr) = ???
 ---
 
 ```scala
-def expect() = ???
+def expect() =
 &#x200B;
 &#x200B;
 &#x200B;
@@ -10111,7 +9154,7 @@ def expect() = ???
 
 .diff-add[
 ```scala
-*def expect(`expr: Expr`) = ???
+*def expect(`expr: Expr`) =
 &#x200B;
 &#x200B;
 &#x200B;
@@ -10130,7 +9173,7 @@ def expect() = ???
 
 .diff-add[
 ```scala
-*def expect(expr: Expr`, expected: Type`) = ???
+*def expect(expr: Expr`, expected: Type`) =
 &#x200B;
 &#x200B;
 &#x200B;
@@ -10147,10 +9190,10 @@ lhs : `Type.Num`       rhs : Type.Num
 
 ---
 
-.diff-rm[
+.diff-add[
 ```scala
-*def expect(expr: Expr, expected: Type) = `???`
-&#x200B;
+def expect(expr: Expr, expected: Type) =
+* `typeCheck(expr).flatMap =>`
 &#x200B;
 &#x200B;
 &#x200B;
@@ -10169,7 +9212,7 @@ lhs : Type.Num       rhs : Type.Num
 .diff-add[
 ```scala
 def expect(expr: Expr, expected: Type) =
-* `typeCheck(expr).flatMap: observed =>`
+* typeCheck(expr).flatMap`: observed` =>
 &#x200B;
 &#x200B;
 &#x200B;
@@ -10189,7 +9232,26 @@ lhs : Type.Num       rhs : Type.Num
 ```scala
 def expect(expr: Expr, expected: Type) =
   typeCheck(expr).flatMap: observed =>
-*   `if observed == expected then Right(())`
+*   `if observed == expected then`
+&#x200B;
+&#x200B;
+&#x200B;
+```
+]
+
+```scala
+lhs : Type.Num       rhs : Type.Num
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Add lhs rhs : Type.Num
+```
+
+---
+
+.diff-add[
+```scala
+def expect(expr: Expr, expected: Type) =
+  typeCheck(expr).flatMap: observed =>
+*   if observed == expected then `Right(())`
 &#x200B;
 &#x200B;
 &#x200B;
@@ -10224,32 +9286,13 @@ lhs : Type.Num       rhs : Type.Num
 ---
 
 ```scala
-def checkAdd(lhs: Expr, rhs: Expr) = ???
+def checkAdd(lhs: Expr, rhs: Expr) =
 &#x200B;
 &#x200B;
 &#x200B;
 &#x200B;
 &#x200B;
 ```
-
-```scala
-lhs : Type.Num       rhs : Type.Num
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-      Add lhs rhs : Type.Num
-```
-
----
-
-.diff-rm[
-```scala
-*def checkAdd(lhs: Expr, rhs: Expr) = `???`
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
 
 ```scala
 lhs : Type.Num       rhs : Type.Num
@@ -10410,7 +9453,7 @@ def typeCheck(expr: Expr): Either[String, Type] =
     case Num(value)    => Right(Type.Num)
     case Bool(value)   => Right(Type.Bool)
     case Add(lhs, rhs) => checkAdd(lhs, rhs)
-*   `case Gt(lhs, rhs)  => ???`
+*   `case Gt(lhs, rhs)  =>`
 ```
 ]
 
@@ -10418,25 +9461,6 @@ def typeCheck(expr: Expr): Either[String, Type] =
 lhs : Type.Num      rhs : Type.Num
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
      `Gt lhs rhs` : Type.Bool
-```
-
----
-
-.diff-rm[
-```scala
-def typeCheck(expr: Expr): Either[String, Type] =
-  expr match
-    case Num(value)    => Right(Type.Num)
-    case Bool(value)   => Right(Type.Bool)
-    case Add(lhs, rhs) => checkAdd(lhs, rhs)
-*   case Gt(lhs, rhs)  => `???`
-```
-]
-
-```scala
-lhs : Type.Num      rhs : Type.Num
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-     Gt lhs rhs : Type.Bool
 ```
 
 ---
@@ -10461,32 +9485,13 @@ lhs : Type.Num      rhs : Type.Num
 ---
 
 ```scala
-def checkGt(lhs: Expr, rhs: Expr) = ???
+def checkGt(lhs: Expr, rhs: Expr) =
 &#x200B;
 &#x200B;
 &#x200B;
 &#x200B;
 &#x200B;
 ```
-
-```scala
-lhs : Type.Num      rhs : Type.Num
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-     Gt lhs rhs : Type.Bool
-```
-
----
-
-.diff-rm[
-```scala
-*def checkGt(lhs: Expr, rhs: Expr) = `???`
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
 
 ```scala
 lhs : Type.Num      rhs : Type.Num
@@ -10698,7 +9703,7 @@ def typeCheck(expr: Expr): Either[String, Type] =
     case Bool(value)          => Right(Type.Bool)
     case Add(lhs, rhs)        => checkAdd(lhs, rhs)
     case Gt(lhs, rhs)         => checkGt(lhs, rhs)
-*   `case Cond(pred, onT, onF) => ???`
+*   `case Cond(pred, onT, onF) =>`
 ```
 ]
 
@@ -10706,26 +9711,6 @@ def typeCheck(expr: Expr): Either[String, Type] =
 pred : Type.Bool      onT : X       onF : X
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
          `Cond pred onT onF` : X
-```
-
----
-
-.diff-rm[
-```scala
-def typeCheck(expr: Expr): Either[String, Type] =
-  expr match
-    case Num(value)           => Right(Type.Num)
-    case Bool(value)          => Right(Type.Bool)
-    case Add(lhs, rhs)        => checkAdd(lhs, rhs)
-    case Gt(lhs, rhs)         => checkGt(lhs, rhs)
-*   case Cond(pred, onT, onF) => `???`
-```
-]
-
-```scala
-pred : Type.Bool      onT : X       onF : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-         Cond pred onT onF : X
 ```
 
 ---
@@ -10751,7 +9736,7 @@ pred : Type.Bool      onT : X       onF : X
 ---
 
 ```scala
-def checkCond(pred: Expr, onT: Expr, onF: Expr) = ???
+def checkCond(pred: Expr, onT: Expr, onF: Expr) =
 &#x200B;
 &#x200B;
 &#x200B;
@@ -10759,26 +9744,6 @@ def checkCond(pred: Expr, onT: Expr, onF: Expr) = ???
 &#x200B;
 &#x200B;
 ```
-
-```scala
-pred : Type.Bool      onT : X       onF : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-         Cond pred onT onF : X
-```
-
----
-
-.diff-rm[
-```scala
-*def checkCond(pred: Expr, onT: Expr, onF: Expr) = `???`
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
 
 ```scala
 pred : Type.Bool      onT : X       onF : X
@@ -11077,27 +10042,7 @@ case class TypeEnv():
 
 .diff-add[
 ```scala
-*case class TypeEnv(`env: List[???]`):
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
-
----
-
-.diff-rm[
-```scala
-*case class TypeEnv(env: List[`???`]):
+*case class TypeEnv(`env: List[TypeEnv.Binding]`):
 &#x200B;
 &#x200B;
 &#x200B;
@@ -11117,7 +10062,7 @@ case class TypeEnv():
 
 .diff-add[
 ```scala
-*case class TypeEnv(env: List[`TypeEnv.Binding`]):
+case class TypeEnv(env: List[TypeEnv.Binding]):
 *&#x200B;
 *&#x200B;`object TypeEnv:`
 * `case class Binding()`
@@ -11178,27 +10123,7 @@ object TypeEnv:
 .diff-add[
 ```scala
 case class TypeEnv(env: List[TypeEnv.Binding]):
-* `def lookup(name: String) = ???`
-&#x200B;
-object TypeEnv:
-  case class Binding(name: String, tpe: Type)
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
-
----
-
-.diff-rm[
-```scala
-case class TypeEnv(env: List[TypeEnv.Binding]):
-* def lookup(name: String) = `???`
+* `def lookup(name: String) =`
 &#x200B;
 object TypeEnv:
   case class Binding(name: String, tpe: Type)
@@ -11283,27 +10208,7 @@ case class TypeEnv(env: List[TypeEnv.Binding]):
        .map(_.tpe)
        .toRight(s"Type binding $name not found")
 *&#x200B;
-* `def bind(name: String, tpe: Type) = ???`
-&#x200B;
-object TypeEnv:
-  case class Binding(name: String, tpe: Type)
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
-
----
-
-.diff-rm[
-```scala
-case class TypeEnv(env: List[TypeEnv.Binding]):
-  def lookup(name: String) =
-    env.find(_.name == name)
-       .map(_.tpe)
-       .toRight(s"Type binding $name not found")
-&#x200B;
-* def bind(name: String, tpe: Type) = `???`
+* `def bind(name: String, tpe: Type) =`
 &#x200B;
 object TypeEnv:
   case class Binding(name: String, tpe: Type)
@@ -11417,13 +10322,13 @@ def typeCheck(expr: Expr): Either[String, Type] =
 
 .diff-add[
 ```scala
-*def typeCheck(expr: Expr`, e: TypeEnv`): Either[String, Type] =
+*def typeCheck(expr: Expr`, Γ: TypeEnv`): Either[String, Type] =
   expr match
     case Num(value)             => Right(Type.Num)
     case Bool(value)            => Right(Type.Bool)
-*   case Add(lhs, rhs)          => checkAdd(lhs, rhs`, e`)
-*   case Gt(lhs, rhs)           => checkGt(lhs, rhs`, e`)
-*   case Cond(pred, onT, onF)   => checkCond(pred, onT, onF`, e`)
+*   case Add(lhs, rhs)          => checkAdd(lhs, rhs`, Γ`)
+*   case Gt(lhs, rhs)           => checkGt(lhs, rhs`, Γ`)
+*   case Cond(pred, onT, onF)   => checkCond(pred, onT, onF`, Γ`)
 &#x200B;
 &#x200B;
 ```
@@ -11439,14 +10344,14 @@ def typeCheck(expr: Expr): Either[String, Type] =
 
 .diff-add[
 ```scala
-def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
+def typeCheck(expr: Expr, Γ: TypeEnv): Either[String, Type] =
   expr match
     case Num(value)             => Right(Type.Num)
     case Bool(value)            => Right(Type.Bool)
-    case Add(lhs, rhs)          => checkAdd(lhs, rhs, e)
-    case Gt(lhs, rhs)           => checkGt(lhs, rhs, e)
-    case Cond(pred, onT, onF)   => checkCond(pred, onT, onF, e)
-*   `case Let(name, value, body) => ???`
+    case Add(lhs, rhs)          => checkAdd(lhs, rhs, Γ)
+    case Gt(lhs, rhs)           => checkGt(lhs, rhs, Γ)
+    case Cond(pred, onT, onF)   => checkCond(pred, onT, onF, Γ)
+*   `case Let(name, value, body) =>`
 &#x200B;
 ```
 ]
@@ -11459,19 +10364,39 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 
 ---
 
-.diff-rm[
+.diff-add[
 ```scala
-def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
+def typeCheck(expr: Expr, Γ: TypeEnv): Either[String, Type] =
   expr match
     case Num(value)             => Right(Type.Num)
     case Bool(value)            => Right(Type.Bool)
-    case Add(lhs, rhs)          => checkAdd(lhs, rhs, e)
-    case Gt(lhs, rhs)           => checkGt(lhs, rhs, e)
-    case Cond(pred, onT, onF)   => checkCond(pred, onT, onF, e)
-*   case Let(name, value, body) => `???`
+    case Add(lhs, rhs)          => checkAdd(lhs, rhs, Γ)
+    case Gt(lhs, rhs)           => checkGt(lhs, rhs, Γ)
+    case Cond(pred, onT, onF)   => checkCond(pred, onT, onF, Γ)
+*   case Let(name, value, body) => `checkLet(name, value, body, Γ)`
 &#x200B;
 ```
 ]
+
+```scala
+Γ |- value : X       Γ[name <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Γ |- Let name value body : Y
+```
+
+---
+
+```scala
+def checkLet(name: String, value: Expr, body: Expr, Γ: TypeEnv) =
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+```
 
 ```scala
 Γ |- value : X       Γ[name <- X] |- body : Y
@@ -11483,50 +10408,8 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 
 .diff-add[
 ```scala
-def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
-  expr match
-    case Num(value)             => Right(Type.Num)
-    case Bool(value)            => Right(Type.Bool)
-    case Add(lhs, rhs)          => checkAdd(lhs, rhs, e)
-    case Gt(lhs, rhs)           => checkGt(lhs, rhs, e)
-    case Cond(pred, onT, onF)   => checkCond(pred, onT, onF, e)
-*   case Let(name, value, body) => `checkLet(name, value, body, e)`
-&#x200B;
-```
-]
-
-```scala
-Γ |- value : X       Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-      Γ |- Let name value body : Y
-```
-
----
-
-```scala
-def checkLet(name: String, value: Expr, body: Expr, e: TypeEnv) =
-  ???
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-
-```scala
-Γ |- value : X       Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-      Γ |- Let name value body : Y
-```
-
----
-
-.diff-rm[
-```scala
-def checkLet(name: String, value: Expr, body: Expr, e: TypeEnv) =
-* `???`
+def checkLet(name: String, value: Expr, body: Expr, Γ: TypeEnv) =
+* `for x <- typeCheck(value, Γ)`
 &#x200B;
 &#x200B;
 &#x200B;
@@ -11547,30 +10430,8 @@ def checkLet(name: String, value: Expr, body: Expr, e: TypeEnv) =
 
 .diff-add[
 ```scala
-def checkLet(name: String, value: Expr, body: Expr, e: TypeEnv) =
-* `for x <- typeCheck(value, e)`
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
-
-```scala
-&#x200B;`Γ |- value : X`       Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-      Γ |- Let name value body : Y
-```
-
----
-
-.diff-add[
-```scala
-def checkLet(name: String, value: Expr, body: Expr, e: TypeEnv) =
-  for x <- typeCheck(value, e)
+def checkLet(name: String, value: Expr, body: Expr, Γ: TypeEnv) =
+  for x <- typeCheck(value, Γ)
 *     `y <- typeCheck(body, ???)`
 &#x200B;
 &#x200B;
@@ -11591,8 +10452,8 @@ def checkLet(name: String, value: Expr, body: Expr, e: TypeEnv) =
 
 .diff-rm[
 ```scala
-def checkLet(name: String, value: Expr, body: Expr, e: TypeEnv) =
-  for x <- typeCheck(value, e)
+def checkLet(name: String, value: Expr, body: Expr, Γ: TypeEnv) =
+  for x <- typeCheck(value, Γ)
 *     y <- typeCheck(body, `???`)
 &#x200B;
 &#x200B;
@@ -11613,9 +10474,9 @@ def checkLet(name: String, value: Expr, body: Expr, e: TypeEnv) =
 
 .diff-add[
 ```scala
-def checkLet(name: String, value: Expr, body: Expr, e: TypeEnv) =
-  for x <- typeCheck(value, e)
-*     y <- typeCheck(body, `e.bind(name, x)`)
+def checkLet(name: String, value: Expr, body: Expr, Γ: TypeEnv) =
+  for x <- typeCheck(value, Γ)
+*     y <- typeCheck(body, `Γ.bind(name, x)`)
 &#x200B;
 &#x200B;
 &#x200B;
@@ -11635,9 +10496,9 @@ def checkLet(name: String, value: Expr, body: Expr, e: TypeEnv) =
 
 .diff-add[
 ```scala
-def checkLet(name: String, value: Expr, body: Expr, e: TypeEnv) =
-  for x <- typeCheck(value, e)
-      y <- typeCheck(body, e.bind(name, x))
+def checkLet(name: String, value: Expr, body: Expr, Γ: TypeEnv) =
+  for x <- typeCheck(value, Γ)
+      y <- typeCheck(body, Γ.bind(name, x))
 * `yield y`
 &#x200B;
 &#x200B;
@@ -11656,14 +10517,14 @@ def checkLet(name: String, value: Expr, body: Expr, e: TypeEnv) =
 ---
 
 ```scala
-def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
+def typeCheck(expr: Expr, Γ: TypeEnv): Either[String, Type] =
   expr match
     case Num(value)             => Right(Type.Num)
     case Bool(value)            => Right(Type.Bool)
-    case Add(lhs, rhs)          => checkAdd(lhs, rhs, e)
-    case Gt(lhs, rhs)           => checkGt(lhs, rhs, e)
-    case Cond(pred, onT, onF)   => checkCond(pred, onT, onF, e)
-    case Let(name, value, body) => checkLet(name, value, body, e)
+    case Add(lhs, rhs)          => checkAdd(lhs, rhs, Γ)
+    case Gt(lhs, rhs)           => checkGt(lhs, rhs, Γ)
+    case Cond(pred, onT, onF)   => checkCond(pred, onT, onF, Γ)
+    case Let(name, value, body) => checkLet(name, value, body, Γ)
 &#x200B;
 ```
 
@@ -11677,15 +10538,15 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 
 .diff-add[
 ```scala
-def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
+def typeCheck(expr: Expr, Γ: TypeEnv): Either[String, Type] =
   expr match
     case Num(value)             => Right(Type.Num)
     case Bool(value)            => Right(Type.Bool)
-    case Add(lhs, rhs)          => checkAdd(lhs, rhs, e)
-    case Gt(lhs, rhs)           => checkGt(lhs, rhs, e)
-    case Cond(pred, onT, onF)   => checkCond(pred, onT, onF, e)
-    case Let(name, value, body) => checkLet(name, value, body, e)
-*   `case Ref(name)              => ???`
+    case Add(lhs, rhs)          => checkAdd(lhs, rhs, Γ)
+    case Gt(lhs, rhs)           => checkGt(lhs, rhs, Γ)
+    case Cond(pred, onT, onF)   => checkCond(pred, onT, onF, Γ)
+    case Let(name, value, body) => checkLet(name, value, body, Γ)
+*   `case Ref(name)              =>`
 ```
 ]
 
@@ -11697,39 +10558,17 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 
 ---
 
-.diff-rm[
-```scala
-def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
-  expr match
-    case Num(value)             => Right(Type.Num)
-    case Bool(value)            => Right(Type.Bool)
-    case Add(lhs, rhs)          => checkAdd(lhs, rhs, e)
-    case Gt(lhs, rhs)           => checkGt(lhs, rhs, e)
-    case Cond(pred, onT, onF)   => checkCond(pred, onT, onF, e)
-    case Let(name, value, body) => checkLet(name, value, body, e)
-*   case Ref(name)              => `???`
-```
-]
-
-```scala
-&#x200B;
-&#x200B;
-Γ |- Ref name : `Γ(name)`
-```
-
----
-
 .diff-add[
 ```scala
-def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
+def typeCheck(expr: Expr, Γ: TypeEnv): Either[String, Type] =
   expr match
     case Num(value)             => Right(Type.Num)
     case Bool(value)            => Right(Type.Bool)
-    case Add(lhs, rhs)          => checkAdd(lhs, rhs, e)
-    case Gt(lhs, rhs)           => checkGt(lhs, rhs, e)
-    case Cond(pred, onT, onF)   => checkCond(pred, onT, onF, e)
-    case Let(name, value, body) => checkLet(name, value, body, e)
-*   case Ref(name)              => `e.lookup(name)`
+    case Add(lhs, rhs)          => checkAdd(lhs, rhs, Γ)
+    case Gt(lhs, rhs)           => checkGt(lhs, rhs, Γ)
+    case Cond(pred, onT, onF)   => checkCond(pred, onT, onF, Γ)
+    case Let(name, value, body) => checkLet(name, value, body, Γ)
+*   case Ref(name)              => `Γ.lookup(name)`
 ```
 ]
 
@@ -12149,138 +10988,16 @@ enum Type:
 
 ---
 
-.diff-add[
 ```scala
-enum Type:
-  case Num
-  case Bool
-  case Fun(from: Type, to: Type)
-*&#x200B;
-*&#x200B;`extension (from: Type) def ->(to: Type) = Type.Fun(from, to)`
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
-
-```scala
-&#x200B;
-&#x200B;
-&#x200B;
-```
-
----
-
-.diff-add[
-```scala
-enum Type:
-  case Num
-  case Bool
-  case Fun(from: Type, to: Type)
-&#x200B;
-extension (from: Type) def ->(to: Type) = Type.Fun(from, to)
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
-
-.diff-add[
-```scala
-*&#x200B;`Type.Num -> Type.Bool`
-&#x200B;
-&#x200B;
-```
-]
-
----
-
-.diff-add[
-```scala
-enum Type:
-  case Num
-  case Bool
-  case Fun(from: Type, to: Type)
-*&#x200B;
-*&#x200B;`object ->:`
-* `def unapply(tpe: Type): Option[(Type, Type)] = tpe match`
-*   `case Type.Fun(from, to) => Some((from, to))`
-*   `case other              => None`
-&#x200B;
-extension (from: Type) def ->(to: Type) = Type.Fun(from, to)
-```
-]
-
-.diff-add[
-```scala
-Type.Num -> Type.Bool
-&#x200B;
-&#x200B;
-```
-]
-
----
-
-```scala
-enum Type:
-  case Num
-  case Bool
-  case Fun(from: Type, to: Type)
-&#x200B;
-object ->:
-  def unapply(tpe: Type): Option[(Type, Type)] = tpe match
-    case Type.Fun(from, to) => Some((from, to))
-    case other              => None
-&#x200B;
-extension (from: Type) def ->(to: Type) = Type.Fun(from, to)
-```
-
-.diff-add[
-```scala
-*Type.Num -> Type.Bool `match`
-* `case x -> y => s"Function: $x -> $y"`
-* `case _      => "Not a function!"`
-```
-]
-
----
-
-```scala
-enum Type:
-  case Num
-  case Bool
-  case Fun(from: Type, to: Type)
-&#x200B;
-object ->:
-  def unapply(tpe: Type): Option[(Type, Type)] = tpe match
-    case Type.Fun(from, to) => Some((from, to))
-    case other              => None
-&#x200B;
-extension (from: Type) def ->(to: Type) = Type.Fun(from, to)
-```
-
-```scala
-Type.Num -> Type.Bool match
-  `case x -> y` => s"Function: $x -> $y"
-  case _      => "Not a function!"
-```
-
----
-
-```scala
-def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
+def typeCheck(expr: Expr, Γ: TypeEnv): Either[String, Type] =
   expr match
     case Num(value)             => Right(Type.Num)
     case Bool(value)            => Right(Type.Bool)
-    case Add(lhs, rhs)          => checkAdd(lhs, rhs, e)
-    case Gt(lhs, rhs)           => checkGt(lhs, rhs, e)
-    case Cond(pred, onT, onF)   => checkCond(pred, onT, onF, e)
-    case Let(name, value, body) => checkLet(name, value, body, e)
-    case Ref(name)              => e.lookup(name)
+    case Add(lhs, rhs)          => checkAdd(lhs, rhs, Γ)
+    case Gt(lhs, rhs)           => checkGt(lhs, rhs, Γ)
+    case Cond(pred, onT, onF)   => checkCond(pred, onT, onF, Γ)
+    case Let(name, value, body) => checkLet(name, value, body, Γ)
+    case Ref(name)              => Γ.lookup(name)
 &#x200B;
 &#x200B;
 ```
@@ -12295,16 +11012,16 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 
 .diff-add[
 ```scala
-def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
+def typeCheck(expr: Expr, Γ: TypeEnv): Either[String, Type] =
   expr match
     case Num(value)             => Right(Type.Num)
     case Bool(value)            => Right(Type.Bool)
-    case Add(lhs, rhs)          => checkAdd(lhs, rhs, e)
-    case Gt(lhs, rhs)           => checkGt(lhs, rhs, e)
-    case Cond(pred, onT, onF)   => checkCond(pred, onT, onF, e)
-    case Let(name, value, body) => checkLet(name, value, body, e)
-    case Ref(name)              => e.lookup(name)
-*   `case Fun(param, x, body)    => ???`
+    case Add(lhs, rhs)          => checkAdd(lhs, rhs, Γ)
+    case Gt(lhs, rhs)           => checkGt(lhs, rhs, Γ)
+    case Cond(pred, onT, onF)   => checkCond(pred, onT, onF, Γ)
+    case Let(name, value, body) => checkLet(name, value, body, Γ)
+    case Ref(name)              => Γ.lookup(name)
+*   `case Fun(param, x, body)    =>`
 &#x200B;
 ```
 ]
@@ -12317,21 +11034,43 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 
 ---
 
-.diff-rm[
+.diff-add[
 ```scala
-def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
+def typeCheck(expr: Expr, Γ: TypeEnv): Either[String, Type] =
   expr match
     case Num(value)             => Right(Type.Num)
     case Bool(value)            => Right(Type.Bool)
-    case Add(lhs, rhs)          => checkAdd(lhs, rhs, e)
-    case Gt(lhs, rhs)           => checkGt(lhs, rhs, e)
-    case Cond(pred, onT, onF)   => checkCond(pred, onT, onF, e)
-    case Let(name, value, body) => checkLet(name, value, body, e)
-    case Ref(name)              => e.lookup(name)
-*   case Fun(param, x, body)    => `???`
+    case Add(lhs, rhs)          => checkAdd(lhs, rhs, Γ)
+    case Gt(lhs, rhs)           => checkGt(lhs, rhs, Γ)
+    case Cond(pred, onT, onF)   => checkCond(pred, onT, onF, Γ)
+    case Let(name, value, body) => checkLet(name, value, body, Γ)
+    case Ref(name)              => Γ.lookup(name)
+*   case Fun(param, x, body)    => `checkFun(param, x, body Γ)`
 &#x200B;
 ```
 ]
+
+```scala
+    Γ[param <- X] |- body : Y
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Γ |- Fun (param : X) body : X -> Y
+```
+
+---
+
+```scala
+def checkFun(param: String, x: Type, body: Expr, Γ: TypeEnv) =
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+```
 
 ```scala
     Γ[param <- X] |- body : Y
@@ -12343,77 +11082,7 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 
 .diff-add[
 ```scala
-def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
-  expr match
-    case Num(value)             => Right(Type.Num)
-    case Bool(value)            => Right(Type.Bool)
-    case Add(lhs, rhs)          => checkAdd(lhs, rhs, e)
-    case Gt(lhs, rhs)           => checkGt(lhs, rhs, e)
-    case Cond(pred, onT, onF)   => checkCond(pred, onT, onF, e)
-    case Let(name, value, body) => checkLet(name, value, body, e)
-    case Ref(name)              => e.lookup(name)
-*   case Fun(param, x, body)    => `checkFun(param, x, body e)`
-&#x200B;
-```
-]
-
-```scala
-    Γ[param <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Fun (param : X) body : X -> Y
-```
-
----
-
-```scala
-def checkFun(param: String, x: Type, body: Expr, e: TypeEnv) = ???
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-
-```scala
-    Γ[param <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Fun (param : X) body : X -> Y
-```
-
----
-
-.diff-rm[
-```scala
-*def checkFun(param: String, x: Type, body: Expr, e: TypeEnv) = `???`
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
-
-```scala
-    Γ[param <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Γ |- Fun (param : X) body : X -> Y
-```
-
----
-
-.diff-add[
-```scala
-def checkFun(param: String, x: Type, body: Expr, e: TypeEnv) =
+def checkFun(param: String, x: Type, body: Expr, Γ: TypeEnv) =
 * `for y <- typeCheck(body, ???)`
 &#x200B;
 &#x200B;
@@ -12437,7 +11106,7 @@ def checkFun(param: String, x: Type, body: Expr, e: TypeEnv) =
 
 .diff-rm[
 ```scala
-def checkFun(param: String, x: Type, body: Expr, e: TypeEnv) =
+def checkFun(param: String, x: Type, body: Expr, Γ: TypeEnv) =
 * for y <- typeCheck(body, `???`)
 &#x200B;
 &#x200B;
@@ -12461,8 +11130,8 @@ def checkFun(param: String, x: Type, body: Expr, e: TypeEnv) =
 
 .diff-add[
 ```scala
-def checkFun(param: String, x: Type, body: Expr, e: TypeEnv) =
-* for y <- typeCheck(body, `e.bind(param, x)`)
+def checkFun(param: String, x: Type, body: Expr, Γ: TypeEnv) =
+* for y <- typeCheck(body, `Γ.bind(param, x)`)
 &#x200B;
 &#x200B;
 &#x200B;
@@ -12485,8 +11154,8 @@ def checkFun(param: String, x: Type, body: Expr, e: TypeEnv) =
 
 .diff-add[
 ```scala
-def checkFun(param: String, x: Type, body: Expr, e: TypeEnv) =
-  for y <- typeCheck(body, e.bind(param, x))
+def checkFun(param: String, x: Type, body: Expr, Γ: TypeEnv) =
+  for y <- typeCheck(body, Γ.bind(param, x))
 * `yield x -> y`
 &#x200B;
 &#x200B;
@@ -12508,16 +11177,16 @@ def checkFun(param: String, x: Type, body: Expr, e: TypeEnv) =
 ---
 
 ```scala
-def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
+def typeCheck(expr: Expr, Γ: TypeEnv): Either[String, Type] =
   expr match
     case Num(value)              => Right(Type.Num)
     case Bool(value)             => Right(Type.Bool)
-    case Add(lhs, rhs)           => checkAdd(lhs, rhs, e)
-    case Gt(lhs, rhs)            => checkGt(lhs, rhs, e)
-    case Cond(pred, onT, onF)    => checkCond(pred, onT, onF, e)
-    case Let(name, value, body)  => checkLet(name, value, body, e)
-    case Ref(name)               => e.lookup(name)
-    case Fun(param, pType, body) => checkFun(param, pType, body, e)
+    case Add(lhs, rhs)           => checkAdd(lhs, rhs, Γ)
+    case Gt(lhs, rhs)            => checkGt(lhs, rhs, Γ)
+    case Cond(pred, onT, onF)    => checkCond(pred, onT, onF, Γ)
+    case Let(name, value, body)  => checkLet(name, value, body, Γ)
+    case Ref(name)               => Γ.lookup(name)
+    case Fun(param, pType, body) => checkFun(param, pType, body, Γ)
 &#x200B;
 ```
 
@@ -12531,17 +11200,17 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 
 .diff-add[
 ```scala
-def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
+def typeCheck(expr: Expr, Γ: TypeEnv): Either[String, Type] =
   expr match
     case Num(value)              => Right(Type.Num)
     case Bool(value)             => Right(Type.Bool)
-    case Add(lhs, rhs)           => checkAdd(lhs, rhs, e)
-    case Gt(lhs, rhs)            => checkGt(lhs, rhs, e)
-    case Cond(pred, onT, onF)    => checkCond(pred, onT, onF, e)
-    case Let(name, value, body)  => checkLet(name, value, body, e)
-    case Ref(name)               => e.lookup(name)
-    case Fun(param, pType, body) => checkFun(param, pType, body, e)
-*   `case Apply(fun, arg)         => ???`
+    case Add(lhs, rhs)           => checkAdd(lhs, rhs, Γ)
+    case Gt(lhs, rhs)            => checkGt(lhs, rhs, Γ)
+    case Cond(pred, onT, onF)    => checkCond(pred, onT, onF, Γ)
+    case Let(name, value, body)  => checkLet(name, value, body, Γ)
+    case Ref(name)               => Γ.lookup(name)
+    case Fun(param, pType, body) => checkFun(param, pType, body, Γ)
+*   `case Apply(fun, arg)         =>`
 ```
 ]
 
@@ -12553,21 +11222,43 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 
 ---
 
-.diff-rm[
+.diff-add[
 ```scala
-def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
+def typeCheck(expr: Expr, Γ: TypeEnv): Either[String, Type] =
   expr match
     case Num(value)              => Right(Type.Num)
     case Bool(value)             => Right(Type.Bool)
-    case Add(lhs, rhs)           => checkAdd(lhs, rhs, e)
-    case Gt(lhs, rhs)            => checkGt(lhs, rhs, e)
-    case Cond(pred, onT, onF)    => checkCond(pred, onT, onF, e)
-    case Let(name, value, body)  => checkLet(name, value, body, e)
-    case Ref(name)               => e.lookup(name)
-    case Fun(param, pType, body) => checkFun(param, pType, body, e)
-*   case Apply(fun, arg)         => `???`
+    case Add(lhs, rhs)           => checkAdd(lhs, rhs, Γ)
+    case Gt(lhs, rhs)            => checkGt(lhs, rhs, Γ)
+    case Cond(pred, onT, onF)    => checkCond(pred, onT, onF, Γ)
+    case Let(name, value, body)  => checkLet(name, value, body, Γ)
+    case Ref(name)               => Γ.lookup(name)
+    case Fun(param, pType, body) => checkFun(param, pType, body, Γ)
+*   case Apply(fun, arg)         => `checkApply(fun, arg, Γ)`
 ```
 ]
+
+```scala
+Γ |- fun : X -> Y     Γ |- arg : X
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+    Γ |- Apply fun arg : Y
+```
+
+---
+
+```scala
+def checkApply(fun: Expr, arg: Expr, Γ: TypeEnv) =
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+```
 
 ```scala
 Γ |- fun : X -> Y     Γ |- arg : X
@@ -12579,54 +11270,8 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 
 .diff-add[
 ```scala
-def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
-  expr match
-    case Num(value)              => Right(Type.Num)
-    case Bool(value)             => Right(Type.Bool)
-    case Add(lhs, rhs)           => checkAdd(lhs, rhs, e)
-    case Gt(lhs, rhs)            => checkGt(lhs, rhs, e)
-    case Cond(pred, onT, onF)    => checkCond(pred, onT, onF, e)
-    case Let(name, value, body)  => checkLet(name, value, body, e)
-    case Ref(name)               => e.lookup(name)
-    case Fun(param, pType, body) => checkFun(param, pType, body, e)
-*   case Apply(fun, arg)         => `checkApply(fun, arg, e)`
-```
-]
-
-```scala
-Γ |- fun : X -> Y     Γ |- arg : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-    Γ |- Apply fun arg : Y
-```
-
----
-
-```scala
-def checkApply(fun: Expr, arg: Expr, e: TypeEnv) = ???
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-
-```scala
-Γ |- fun : X -> Y     Γ |- arg : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-    Γ |- Apply fun arg : Y
-```
-
----
-
-.diff-rm[
-```scala
-*def checkApply(fun: Expr, arg: Expr, e: TypeEnv) = `???`
-&#x200B;
+def checkApply(fun: Expr, arg: Expr, Γ: TypeEnv) =
+* `typeCheck(fun, Γ).flatMap:`
 &#x200B;
 &#x200B;
 &#x200B;
@@ -12649,33 +11294,9 @@ def checkApply(fun: Expr, arg: Expr, e: TypeEnv) = ???
 
 .diff-add[
 ```scala
-def checkApply(fun: Expr, arg: Expr, e: TypeEnv) =
-* `typeCheck(fun, e).flatMap:`
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
-
-```scala
-&#x200B;`Γ |- fun` : X -> Y     Γ |- arg : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-    Γ |- Apply fun arg : Y
-```
-
----
-
-.diff-add[
-```scala
-def checkApply(fun: Expr, arg: Expr, e: TypeEnv) =
-  typeCheck(fun, e).flatMap:
-*   `case x -> y =>` ???
+def checkApply(fun: Expr, arg: Expr, Γ: TypeEnv) =
+  typeCheck(fun, Γ).flatMap:
+*   `case x -> y =>`
 &#x200B;
 &#x200B;
 &#x200B;
@@ -12695,11 +11316,11 @@ def checkApply(fun: Expr, arg: Expr, e: TypeEnv) =
 
 ---
 
-.diff-rm[
+.diff-add[
 ```scala
-def checkApply(fun: Expr, arg: Expr, e: TypeEnv) =
-  typeCheck(fun, e).flatMap:
-*   case x -> y => `???`
+def checkApply(fun: Expr, arg: Expr, Γ: TypeEnv) =
+  typeCheck(fun, Γ).flatMap:
+*   case x -> y => `expect(arg, x, Γ)`
 &#x200B;
 &#x200B;
 &#x200B;
@@ -12721,33 +11342,9 @@ def checkApply(fun: Expr, arg: Expr, e: TypeEnv) =
 
 .diff-add[
 ```scala
-def checkApply(fun: Expr, arg: Expr, e: TypeEnv) =
-  typeCheck(fun, e).flatMap:
-*   case x -> y => `expect(arg, x, e)`
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-&#x200B;
-```
-]
-
-```scala
-Γ |- fun : X -> Y     `Γ |- arg : X`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-    Γ |- Apply fun arg : Y
-```
-
----
-
-.diff-add[
-```scala
-def checkApply(fun: Expr, arg: Expr, e: TypeEnv) =
-  typeCheck(fun, e).flatMap:
-    case x -> y => expect(arg, x, e)
+def checkApply(fun: Expr, arg: Expr, Γ: TypeEnv) =
+  typeCheck(fun, Γ).flatMap:
+    case x -> y => expect(arg, x, Γ)
 *                    `.map(_ => y)`
 &#x200B;
 &#x200B;
@@ -12769,11 +11366,35 @@ def checkApply(fun: Expr, arg: Expr, e: TypeEnv) =
 
 .diff-add[
 ```scala
-def checkApply(fun: Expr, arg: Expr, e: TypeEnv) =
-  typeCheck(fun, e).flatMap:
-    case x -> y => expect(arg, x, e)
+def checkApply(fun: Expr, arg: Expr, Γ: TypeEnv) =
+  typeCheck(fun, Γ).flatMap:
+    case x -> y => expect(arg, x, Γ)
                      .map(_ => y)
-*   `case other  => Left(s"Expected function, found $other")`
+*   `case other  =>`
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+&#x200B;
+```
+]
+
+```scala
+Γ |- fun : X -> Y     Γ |- arg : X
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+    Γ |- Apply fun arg : Y
+```
+
+---
+
+.diff-add[
+```scala
+def checkApply(fun: Expr, arg: Expr, Γ: TypeEnv) =
+  typeCheck(fun, Γ).flatMap:
+    case x -> y => expect(arg, x, Γ)
+                     .map(_ => y)
+*   case other  => `Left(s"Expected function, found $other")`
 &#x200B;
 &#x200B;
 &#x200B;
@@ -13046,17 +11667,17 @@ enum Expr:
 ---
 
 ```scala
-def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
+def typeCheck(expr: Expr, Γ: TypeEnv): Either[String, Type] =
   expr match
     case Num(value)              => Right(Type.Num)
     case Bool(value)             => Right(Type.Bool)
-    case Add(lhs, rhs)           => checkAdd(lhs, rhs, e)
-    case Gt(lhs, rhs)            => checkGt(lhs, rhs, e)
-    case Cond(pred, onT, onF)    => checkCond(pred, onT, onF, e)
-    case Let(name, value, body)  => checkLet(name, value, body, e)
-    case Ref(name)               => e.lookup(name)
-    case Apply(fun, arg)         => checkApply(fun, arg, e)
-    case Fun(param, pType, body) => checkFun(param, pType, body, e)
+    case Add(lhs, rhs)           => checkAdd(lhs, rhs, Γ)
+    case Gt(lhs, rhs)            => checkGt(lhs, rhs, Γ)
+    case Cond(pred, onT, onF)    => checkCond(pred, onT, onF, Γ)
+    case Let(name, value, body)  => checkLet(name, value, body, Γ)
+    case Ref(name)               => Γ.lookup(name)
+    case Apply(fun, arg)         => checkApply(fun, arg, Γ)
+    case Fun(param, pType, body) => checkFun(param, pType, body, Γ)
 &#x200B;
 &#x200B;
 ```
@@ -13071,18 +11692,18 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 
 .diff-add[
 ```scala
-def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
+def typeCheck(expr: Expr, Γ: TypeEnv): Either[String, Type] =
   expr match
     case Num(value)              => Right(Type.Num)
     case Bool(value)             => Right(Type.Bool)
-    case Add(lhs, rhs)           => checkAdd(lhs, rhs, e)
-    case Gt(lhs, rhs)            => checkGt(lhs, rhs, e)
-    case Cond(pred, onT, onF)    => checkCond(pred, onT, onF, e)
-    case Let(name, value, body)  => checkLet(name, value, body, e)
-    case Ref(name)               => e.lookup(name)
-    case Apply(fun, arg)         => checkApply(fun, arg, e)
-    case Fun(param, pType, body) => checkFun(param, pType, body, e)
-*   `case LetRec(name, value, x, body) => ???`
+    case Add(lhs, rhs)           => checkAdd(lhs, rhs, Γ)
+    case Gt(lhs, rhs)            => checkGt(lhs, rhs, Γ)
+    case Cond(pred, onT, onF)    => checkCond(pred, onT, onF, Γ)
+    case Let(name, value, body)  => checkLet(name, value, body, Γ)
+    case Ref(name)               => Γ.lookup(name)
+    case Apply(fun, arg)         => checkApply(fun, arg, Γ)
+    case Fun(param, pType, body) => checkFun(param, pType, body, Γ)
+*   `case LetRec(name, value, x, body) =>`
 &#x200B;
 ```
 ]
@@ -13095,47 +11716,21 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 
 ---
 
-.diff-rm[
-```scala
-def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
-  expr match
-    case Num(value)              => Right(Type.Num)
-    case Bool(value)             => Right(Type.Bool)
-    case Add(lhs, rhs)           => checkAdd(lhs, rhs, e)
-    case Gt(lhs, rhs)            => checkGt(lhs, rhs, e)
-    case Cond(pred, onT, onF)    => checkCond(pred, onT, onF, e)
-    case Let(name, value, body)  => checkLet(name, value, body, e)
-    case Ref(name)               => e.lookup(name)
-    case Apply(fun, arg)         => checkApply(fun, arg, e)
-    case Fun(param, pType, body) => checkFun(param, pType, body, e)
-*   case LetRec(name, value, x, body) => `???`
-&#x200B;
-```
-]
-
-```scala
-Γ[name <- X] |- value : X      Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-      Γ |- LetRec name (value : X) body : Y
-```
-
----
-
 .diff-add[
 ```scala
-def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
+def typeCheck(expr: Expr, Γ: TypeEnv): Either[String, Type] =
   expr match
     case Num(value)              => Right(Type.Num)
     case Bool(value)             => Right(Type.Bool)
-    case Add(lhs, rhs)           => checkAdd(lhs, rhs, e)
-    case Gt(lhs, rhs)            => checkGt(lhs, rhs, e)
-    case Cond(pred, onT, onF)    => checkCond(pred, onT, onF, e)
-    case Let(name, value, body)  => checkLet(name, value, body, e)
-    case Ref(name)               => e.lookup(name)
-    case Apply(fun, arg)         => checkApply(fun, arg, e)
-    case Fun(param, pType, body) => checkFun(param, pType, body, e)
+    case Add(lhs, rhs)           => checkAdd(lhs, rhs, Γ)
+    case Gt(lhs, rhs)            => checkGt(lhs, rhs, Γ)
+    case Cond(pred, onT, onF)    => checkCond(pred, onT, onF, Γ)
+    case Let(name, value, body)  => checkLet(name, value, body, Γ)
+    case Ref(name)               => Γ.lookup(name)
+    case Apply(fun, arg)         => checkApply(fun, arg, Γ)
+    case Fun(param, pType, body) => checkFun(param, pType, body, Γ)
     case LetRec(name, value, x, body) =>
-*     `checkLetRec(name, value, x, body, e)`
+*     `checkLetRec(name, value, x, body, Γ)`
 ```
 ]
 
@@ -13149,7 +11744,7 @@ def typeCheck(expr: Expr, e: TypeEnv): Either[String, Type] =
 
 ```scala
 def checkLetRec(name: String, value: Expr, x: Type,
-                body: Expr, e: TypeEnv) =
+                body: Expr, Γ: TypeEnv) =
 &#x200B;
 &#x200B;
 &#x200B;
@@ -13174,8 +11769,8 @@ def checkLetRec(name: String, value: Expr, x: Type,
 .diff-add[
 ```scala
 def checkLetRec(name: String, value: Expr, x: Type,
-                body: Expr, e: TypeEnv) =
-* `val eʹ = e.bind(name, x)`
+                body: Expr, Γ: TypeEnv) =
+* `val eʹ = Γ.bind(name, x)`
 &#x200B;
 &#x200B;
 &#x200B;
@@ -13200,8 +11795,8 @@ def checkLetRec(name: String, value: Expr, x: Type,
 .diff-add[
 ```scala
 def checkLetRec(name: String, value: Expr, x: Type,
-                body: Expr, e: TypeEnv) =
-  val eʹ = e.bind(name, x)
+                body: Expr, Γ: TypeEnv) =
+  val eʹ = Γ.bind(name, x)
 &#x200B;
 * `for _ <- expect(value, x, eʹ)`
 &#x200B;
@@ -13226,8 +11821,8 @@ def checkLetRec(name: String, value: Expr, x: Type,
 .diff-add[
 ```scala
 def checkLetRec(name: String, value: Expr, x: Type,
-                body: Expr, e: TypeEnv) =
-  val eʹ = e.bind(name, x)
+                body: Expr, Γ: TypeEnv) =
+  val eʹ = Γ.bind(name, x)
 &#x200B;
   for _ <- expect(value, x, eʹ)
 *     `y <- typeCheck(body, eʹ)`
@@ -13252,8 +11847,8 @@ def checkLetRec(name: String, value: Expr, x: Type,
 .diff-add[
 ```scala
 def checkLetRec(name: String, value: Expr, x: Type,
-                body: Expr, e: TypeEnv) =
-  val eʹ = e.bind(name, x)
+                body: Expr, Γ: TypeEnv) =
+  val eʹ = Γ.bind(name, x)
 &#x200B;
   for _ <- expect(value, x, eʹ)
       y <- typeCheck(body, eʹ)
@@ -13327,28 +11922,7 @@ let rec (sum: Num -> Num -> Num) = (lower: Num) -> (upper: Num) ->
 
 ```scala
 val expr = LetRec(
-  [...]
-)
-&#x200B;
-```
-
-```scala
-typeCheck(expr, TypeEnv.empty)
-&#x200B;
-```
-
----
-
-```ocaml
-let rec (`sum`: Num -> Num -> Num) = (lower: Num) -> (upper: Num) ->
-    if lower > upper then 0
-    else lower + (sum (lower + 1) upper)
-  in sum 1 10
-```
-
-```scala
-val expr = LetRec(
-  [...]
+  // ...
 )
 &#x200B;
 ```
@@ -13369,28 +11943,7 @@ let rec (sum: Num -> Num -> Num) = (lower: Num) -> (upper: Num) ->
 
 ```scala
 val expr = LetRec(
-  `[...]`
-)
-&#x200B;
-```
-
-```scala
-typeCheck(expr, TypeEnv.empty)
-&#x200B;
-```
-
----
-
-```ocaml
-let rec (sum: Num -> Num -> Num) = (lower: Num) -> (upper: Num) ->
-    if lower > upper then 0
-    else lower + (sum (lower + 1) upper)
-  in sum 1 10
-```
-
-```scala
-val expr = LetRec(
-  [...]
+  // ...
 )
 &#x200B;
 ```
