@@ -267,7 +267,7 @@ Add lhs rhs ⇓ lhs + rhs
 .diff-add[
 ```scala
 lhs ⇓ v₁      rhs ⇓ v₂
-*&#x200B;`⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯`
+*&#x200B;`───────────────────────`
 Add lhs rhs ⇓ lhs + rhs
 ```
 ]
@@ -281,7 +281,7 @@ Add lhs rhs ⇓ lhs + rhs
 .diff-rm[
 ```scala
 lhs ⇓ v₁      rhs ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────
 *Add lhs rhs ⇓ `lhs + rhs`
 ```
 ]
@@ -295,7 +295,7 @@ lhs ⇓ v₁      rhs ⇓ v₂
 .diff-add[
 ```scala
 lhs ⇓ v₁      rhs ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────
 *Add lhs rhs ⇓ `v₁ + v₂`
 ```
 ]
@@ -410,7 +410,7 @@ def interpret(expr: Expr): Int = expr match
 
 ```scala
 lhs ⇓ v₁      rhs ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────
 &#x200B;`Add lhs rhs` ⇓ v₁ + v₂
 ```
 
@@ -427,9 +427,9 @@ def interpret(expr: Expr): Int = expr match
 ]
 
 ```scala
-&#x200B;`lhs ⇓ v₁`      `rhs ⇓ v₂`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-Add lhs rhs ⇓ `v₁ + v₂`
+lhs ⇓ v₁      rhs ⇓ v₂
+───────────────────────
+&#x200B;`Add lhs rhs` ⇓ v₁ + v₂
 ```
 
 ---
@@ -444,7 +444,7 @@ def add(lhs: Num, rhs: Num) =
 
 ```scala
 lhs ⇓ v₁      rhs ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────
 Add lhs rhs ⇓ v₁ + v₂
 ```
 
@@ -462,7 +462,7 @@ def add(lhs: Num, rhs: Num) =
 
 ```scala
 &#x200B;`lhs ⇓ v₁`      rhs ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────
 Add lhs rhs ⇓ v₁ + v₂
 ```
 
@@ -480,7 +480,7 @@ def add(lhs: Num, rhs: Num) =
 
 ```scala
 lhs ⇓ v₁      `rhs ⇓ v₂`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────
 Add lhs rhs ⇓ v₁ + v₂
 ```
 
@@ -498,7 +498,7 @@ def add(lhs: Num, rhs: Num) =
 
 ```scala
 lhs ⇓ v₁      rhs ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────
 Add lhs rhs ⇓ `v₁ + v₂`
 ```
 
@@ -689,7 +689,7 @@ def add(lhs: Num, rhs: Num) =
 
 ```scala
 lhs ⇓ v₁      rhs ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────
 Add lhs rhs ⇓ v₁ + v₂
 ```
 
@@ -707,7 +707,7 @@ Add lhs rhs ⇓ v₁ + v₂
 
 ```scala
 lhs ⇓ v₁      rhs ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────
 Add lhs rhs ⇓ v₁ + v₂
 ```
 
@@ -725,7 +725,7 @@ Add lhs rhs ⇓ v₁ + v₂
 
 ```scala
 lhs ⇓ v₁      rhs ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────
 Add lhs rhs ⇓ v₁ + v₂
 ```
 
@@ -741,7 +741,7 @@ def add(lhs: Expr, rhs: Expr) =
 
 ```scala
 &#x200B;`lhs ⇓ v₁`      rhs ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────
 Add lhs rhs ⇓ v₁ + v₂
 ```
 ---
@@ -756,7 +756,7 @@ def add(lhs: Expr, rhs: Expr) =
 
 ```scala
 lhs ⇓ v₁      `rhs ⇓ v₂`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────
 Add lhs rhs ⇓ v₁ + v₂
 ```
 
@@ -881,7 +881,7 @@ if true then 1 + 2
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   `Cond` ⇓ ???
 &#x200B;
 &#x200B;
@@ -899,7 +899,7 @@ if true then 1 + 2
 .diff-add[
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
 * Cond `pred` ⇓ ???
 &#x200B;
 &#x200B;
@@ -918,7 +918,7 @@ if `true` then 1 + 2
 .diff-add[
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
 * Cond pred `onT` ⇓ ???
 &#x200B;
 &#x200B;
@@ -937,7 +937,7 @@ if true then `1 + 2`
 .diff-add[
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
 * Cond pred onT `onF` ⇓ ???
 &#x200B;
 &#x200B;
@@ -956,7 +956,7 @@ if true then 1 + 2
 .diff-add[
 ```scala
 *&#x200B;`pred ⇓ ???`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ ???
 &#x200B;
 &#x200B;
@@ -975,7 +975,7 @@ if `true` then 1 + 2
 .diff-rm[
 ```scala
 *pred ⇓ `???`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ ???
 &#x200B;
 &#x200B;
@@ -994,11 +994,11 @@ if `true` then 1 + 2
 .diff-add[
 ```scala
 *pred ⇓ `true`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ ???
 &#x200B;
 *&#x200B;`pred ⇓ false`
-*&#x200B;`⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯`
+*&#x200B;`───────────────────────────`
 * `Cond pred onT onF ⇓ ???`
 ```
 ]
@@ -1012,11 +1012,11 @@ if true then 1 + 2
 
 ```scala
 pred ⇓ `true`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ ???
 &#x200B;
 pred ⇓ `false`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ ???
 ```
 
@@ -1029,11 +1029,11 @@ if true then 1 + 2
 
 ```scala
 pred ⇓ `true`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ ???
 &#x200B;
 pred ⇓ false
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ ???
 ```
 
@@ -1047,11 +1047,11 @@ if true then 1 + 2
 .diff-add[
 ```scala
 *pred ⇓ true        `onT ⇓ v`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ ???
 &#x200B;
 pred ⇓ false
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ ???
 ```
 ]
@@ -1066,11 +1066,11 @@ if true then `1 + 2`
 .diff-rm[
 ```scala
 pred ⇓ true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
 * Cond pred onT onF ⇓ `???`
 &#x200B;
 pred ⇓ false
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ ???
 ```
 ]
@@ -1085,11 +1085,11 @@ if true then `1 + 2`
 .diff-add[
 ```scala
 pred ⇓ true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
 * Cond pred onT onF ⇓ `v`
 &#x200B;
 pred ⇓ false
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ ???
 ```
 ]
@@ -1103,11 +1103,11 @@ if true then `1 + 2`
 
 ```scala
 pred ⇓ true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ v
 &#x200B;
 pred ⇓ `false`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ ???
 ```
 
@@ -1122,11 +1122,11 @@ if true then 1 + 2
 .diff-add[
 ```scala
 pred ⇓ true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ v
 &#x200B;
 *pred ⇓ false       `onF ⇓ v`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ ???
 ```
 ]
@@ -1141,11 +1141,11 @@ if true then 1 + 2
 .diff-rm[
 ```scala
 pred ⇓ true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ v
 &#x200B;
 pred ⇓ false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
 * Cond pred onT onF ⇓ `???`
 ```
 ]
@@ -1160,11 +1160,11 @@ if true then 1 + 2
 .diff-add[
 ```scala
 pred ⇓ true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ v
 &#x200B;
 pred ⇓ false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
 * Cond pred onT onF ⇓ `v`
 ```
 ]
@@ -1186,11 +1186,11 @@ enum Expr:
 
 ```scala
 pred ⇓ true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ v
 &#x200B;
 pred ⇓ false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ v
 ```
 
@@ -1209,11 +1209,11 @@ enum Expr:
 
 ```scala
 pred ⇓ true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   `Cond` pred onT onF ⇓ v
 &#x200B;
 pred ⇓ false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   `Cond` pred onT onF ⇓ v
 ```
 ---
@@ -1231,11 +1231,11 @@ enum Expr:
 
 ```scala
 pred ⇓ true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond `pred` onT onF ⇓ v
 &#x200B;
 pred ⇓ false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond `pred` onT onF ⇓ v
 ```
 
@@ -1254,11 +1254,11 @@ enum Expr:
 
 ```scala
 pred ⇓ true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred `onT` onF ⇓ v
 &#x200B;
 pred ⇓ false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred `onT` onF ⇓ v
 ```
 ---
@@ -1276,11 +1276,11 @@ enum Expr:
 
 ```scala
 pred ⇓ true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT `onF` ⇓ v
 &#x200B;
 pred ⇓ false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT `onF` ⇓ v
 ```
 
@@ -1297,11 +1297,11 @@ def interpret(expr: Expr): Int = expr match
 
 ```scala
 pred ⇓ true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ v
 &#x200B;
 pred ⇓ false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ v
 ```
 ---
@@ -1319,11 +1319,11 @@ def interpret(expr: Expr): Int = expr match
 
 ```scala
 pred ⇓ true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   `Cond pred onT onF` ⇓ v
 &#x200B;
 pred ⇓ false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   `Cond pred onT onF` ⇓ v
 ```
 
@@ -1340,11 +1340,11 @@ def cond(pred: Expr, onT: Expr, onF: Expr) =
 
 ```scala
 pred ⇓ true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ v
 &#x200B;
 pred ⇓ false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ v
 ```
 
@@ -1363,11 +1363,11 @@ def cond(pred: Expr, onT: Expr, onF: Expr) =
 
 ```scala
 &#x200B;`pred ⇓ true`        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ v
 &#x200B;
 pred ⇓ false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ v
 ```
 ---
@@ -1385,11 +1385,11 @@ def cond(pred: Expr, onT: Expr, onF: Expr) =
 
 ```scala
 pred ⇓ true        `onT ⇓ v`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ `v`
 &#x200B;
 pred ⇓ false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ v
 ```
 
@@ -1408,11 +1408,11 @@ def cond(pred: Expr, onT: Expr, onF: Expr) =
 
 ```scala
 pred ⇓ true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ v
 &#x200B;
 pred ⇓ false       `onF ⇓ v`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ `v`
 ```
 ---
@@ -1428,11 +1428,11 @@ def cond(pred: Expr, onT: Expr, onF: Expr) =
 
 ```scala
 pred ⇓ true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ v
 &#x200B;
 pred ⇓ false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ v
 ```
 
@@ -1451,11 +1451,11 @@ def cond(pred: Expr, onT: Expr, onF: Expr) =
 
 ```scala
 pred ⇓ true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ v
 &#x200B;
 pred ⇓ false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ v
 ```
 
@@ -1474,11 +1474,11 @@ def cond(pred: Expr, onT: Expr, onF: Expr) =
 
 ```scala
 pred ⇓ true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ v
 &#x200B;
 pred ⇓ false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ v
 ```
 ---
@@ -1494,11 +1494,11 @@ def cond(pred: Expr, onT: Expr, onF: Expr) =
 
 ```scala
 pred ⇓ true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ v
 &#x200B;
 pred ⇓ false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ v
 ```
 
@@ -1515,11 +1515,11 @@ def interpret(expr: Expr): `Int` = expr match
 
 ```scala
 pred ⇓ true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ v
 &#x200B;
 pred ⇓ false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   Cond pred onT onF ⇓ v
 ```
 
@@ -1670,7 +1670,7 @@ def add(lhs: Expr, rhs: Expr) =
 
 ```scala
 lhs ⇓ v₁      rhs ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────
 &#x200B;`Add lhs rhs` ⇓ v₁ + v₂
 &#x200B;
 &#x200B;
@@ -1692,7 +1692,7 @@ def add(lhs: Expr, rhs: Expr) =
 .diff-rm[
 ```scala
 *lhs ⇓ `v₁`      rhs ⇓ `v₂`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────
 Add lhs rhs ⇓ v₁ + v₂
 &#x200B;
 &#x200B;
@@ -1715,7 +1715,7 @@ def add(lhs: Expr, rhs: Expr) =
 .diff-add[
 ```scala
 *lhs ⇓ `Value.Num v₁`      rhs ⇓ `Value.Num v₂`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────────────
         Add lhs rhs ⇓ v₁ + v₂
 &#x200B;
 &#x200B;
@@ -1738,7 +1738,7 @@ def add(lhs: Expr, rhs: Expr) =
 .diff-rm[
 ```scala
 lhs ⇓ Value.Num v₁      rhs ⇓ Value.Num v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────────────
 *       Add lhs rhs ⇓ `v₁ + v₂`
 &#x200B;
 &#x200B;
@@ -1761,7 +1761,7 @@ def add(lhs: Expr, rhs: Expr) =
 .diff-add[
 ```scala
 lhs ⇓ Value.Num v₁      rhs ⇓ Value.Num v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────────────
 *   Add lhs rhs ⇓ `Value.Num (v₁ + v₂)`
 &#x200B;
 &#x200B;
@@ -1783,7 +1783,7 @@ def add(lhs: Expr, rhs: Expr) =
 
 ```scala
 lhs ⇓ `Value.Num v₁`      rhs ⇓ `Value.Num v₂`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────────────
     Add lhs rhs ⇓ Value.Num (v₁ + v₂)
 &#x200B;
 &#x200B;
@@ -1806,7 +1806,7 @@ def add(lhs: Expr, rhs: Expr) =
 
 ```scala
 lhs ⇓ Value.Num v₁      rhs ⇓ Value.Num v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────────────
     Add lhs rhs ⇓ Value.Num (v₁ + v₂)
 &#x200B;
 &#x200B;
@@ -1829,7 +1829,7 @@ def add(lhs: Expr, rhs: Expr) =
 
 ```scala
 &#x200B;`lhs ⇓ Value.Num v₁`      `rhs ⇓ Value.Num v₂`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────────────
     Add lhs rhs ⇓ Value.Num (v₁ + v₂)
 &#x200B;
 &#x200B;
@@ -1850,7 +1850,7 @@ def add(lhs: Expr, rhs: Expr) =
 
 ```scala
 &#x200B;`lhs ⇓ Value.Num v₁`      rhs ⇓ Value.Num v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────────────
     Add lhs rhs ⇓ Value.Num (v₁ + v₂)
 &#x200B;
 &#x200B;
@@ -1871,7 +1871,7 @@ def add(lhs: Expr, rhs: Expr) =
 
 ```scala
 lhs ⇓ Value.Num v₁      `rhs ⇓ Value.Num v₂`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────────────
     Add lhs rhs ⇓ Value.Num (v₁ + v₂)
 &#x200B;
 &#x200B;
@@ -1894,7 +1894,7 @@ def add(lhs: Expr, rhs: Expr) =
 
 ```scala
 lhs ⇓ Value.Num v₁      rhs ⇓ Value.Num v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────────────
     Add lhs rhs ⇓ `Value.Num (v₁ + v₂)`
 &#x200B;
 &#x200B;
@@ -1917,7 +1917,7 @@ def add(lhs: Expr, rhs: Expr) =
 
 ```scala
 lhs ⇓ Value.Num v₁      rhs ⇓ Value.Num v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────────────
     Add lhs rhs ⇓ Value.Num (v₁ + v₂)
 &#x200B;
 &#x200B;
@@ -1941,7 +1941,7 @@ def add(lhs: Expr, rhs: Expr) =
 
 ```scala
 lhs ⇓ Value.Num v₁      rhs ⇓ Value.Num v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────────────
     Add lhs rhs ⇓ Value.Num (v₁ + v₂)
 &#x200B;
 &#x200B;
@@ -1962,11 +1962,11 @@ def cond(pred: Expr, onT: Expr, onF: Expr) =
 
 ```scala
 pred ⇓ true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   `Cond pred onT onF` ⇓ v
 &#x200B;
 pred ⇓ false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────
   `Cond pred onT onF` ⇓ v
 ```
 
@@ -1984,11 +1984,11 @@ def cond(pred: Expr, onT: Expr, onF: Expr) =
 .diff-add[
 ```scala
 *pred ⇓ `Value.Bool` true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────
        Cond pred onT onF ⇓ v
 &#x200B;
 *pred ⇓ `Value.Bool` false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────
        Cond pred onT onF ⇓ v
 ```
 ]
@@ -2006,11 +2006,11 @@ def cond(pred: Expr, onT: Expr, onF: Expr) =
 
 ```scala
 pred ⇓ Value.Bool true        onT ⇓ `v`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────
        Cond pred onT onF ⇓ v
 &#x200B;
 pred ⇓ Value.Bool false       onF ⇓ `v`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────
        Cond pred onT onF ⇓ v
 ```
 
@@ -2027,11 +2027,11 @@ def cond(pred: Expr, onT: Expr, onF: Expr) =
 
 ```scala
 pred ⇓ Value.Bool true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────
        Cond pred onT onF ⇓ `v`
 &#x200B;
 pred ⇓ Value.Bool false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────
        Cond pred onT onF ⇓ `v`
 ```
 
@@ -2050,11 +2050,11 @@ def cond(pred: Expr, onT: Expr, onF: Expr) =
 
 ```scala
 pred ⇓ Value.Bool true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────
        Cond pred onT onF ⇓ v
 &#x200B;
 pred ⇓ Value.Bool false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────
        Cond pred onT onF ⇓ v
 ```
 
@@ -2073,11 +2073,11 @@ def cond(pred: Expr, onT: Expr, onF: Expr) =
 
 ```scala
 &#x200B;`pred` ⇓ Value.Bool true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────
        Cond pred onT onF ⇓ v
 &#x200B;
 &#x200B;`pred` ⇓ Value.Bool false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────
        Cond pred onT onF ⇓ v
 ```
 ---
@@ -2095,11 +2095,11 @@ def cond(pred: Expr, onT: Expr, onF: Expr) =
 
 ```scala
 pred ⇓ `Value.Bool true`        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────
        Cond pred onT onF ⇓ v
 &#x200B;
 pred ⇓ Value.Bool false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────
        Cond pred onT onF ⇓ v
 ```
 
@@ -2118,11 +2118,11 @@ def cond(pred: Expr, onT: Expr, onF: Expr) =
 
 ```scala
 pred ⇓ Value.Bool true        `onT ⇓ v`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────
        Cond pred onT onF ⇓ `v`
 &#x200B;
 pred ⇓ Value.Bool false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────
        Cond pred onT onF ⇓ v
 ```
 ---
@@ -2140,11 +2140,11 @@ def cond(pred: Expr, onT: Expr, onF: Expr) =
 
 ```scala
 pred ⇓ Value.Bool true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────
        Cond pred onT onF ⇓ v
 &#x200B;
 pred ⇓ `Value.Bool false`       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────
        Cond pred onT onF ⇓ v
 ```
 
@@ -2163,11 +2163,11 @@ def cond(pred: Expr, onT: Expr, onF: Expr) =
 
 ```scala
 pred ⇓ Value.Bool true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────
        Cond pred onT onF ⇓ v
 &#x200B;
 pred ⇓ Value.Bool false       `onF ⇓ v`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────
        Cond pred onT onF ⇓ `v`
 ```
 
@@ -2186,11 +2186,11 @@ def cond(pred: Expr, onT: Expr, onF: Expr) =
 
 ```scala
 pred ⇓ Value.Bool true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────
        Cond pred onT onF ⇓ v
 &#x200B;
 pred ⇓ Value.Bool false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────
        Cond pred onT onF ⇓ v
 ```
 
@@ -2209,11 +2209,11 @@ def cond(pred: Expr, onT: Expr, onF: Expr) =
 
 ```scala
 pred ⇓ Value.Bool true        onT ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────
        Cond pred onT onF ⇓ v
 &#x200B;
 pred ⇓ Value.Bool false       onF ⇓ v
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────
        Cond pred onT onF ⇓ v
 ```
 
@@ -3423,7 +3423,7 @@ let x = 1 in
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
             `Let` ⇓ ???
 ```
 
@@ -3437,7 +3437,7 @@ let x = 1 in
 .diff-add[
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
 *           Let `name` ⇓ ???
 ```
 ]
@@ -3452,7 +3452,7 @@ let `x` = 1 in
 .diff-add[
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
 *           Let name `value` ⇓ ???
 ```
 ]
@@ -3467,7 +3467,7 @@ let x = `1` in
 .diff-add[
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
 *           Let name value `body` ⇓ ???
 ```
 ]
@@ -3481,7 +3481,7 @@ let x = 1 in
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
             Let name `value` body ⇓ ???
 ```
 
@@ -3495,7 +3495,7 @@ let x = `1` in
 .diff-add[
 ```scala
 *&#x200B;`value ⇓ v₁`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
             Let name value body ⇓ ???
 ```
 ]
@@ -3509,7 +3509,7 @@ let x = `1` in
 
 ```scala
 value ⇓ v₁
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
             Let name value `body` ⇓ ???
 ```
 
@@ -3523,7 +3523,7 @@ let x = 1 in
 .diff-add[
 ```scala
 *&#x200B;`e |-` value ⇓ v₁
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
 *         `e |-` Let name value body ⇓ ???
 ```
 ]
@@ -3537,7 +3537,7 @@ let x = 1 in
 
 ```scala
 &#x200B;`e |- value ⇓ v₁`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
           e |- Let name value body ⇓ ???
 ```
 
@@ -3551,7 +3551,7 @@ let x = 1 in
 .diff-add[
 ```scala
 *e |- value ⇓ v₁                    `??? |- body ⇓ v₂`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
           e |- Let name value body ⇓ ???
 ```
 ]
@@ -3566,7 +3566,7 @@ let x = 1 in
 .diff-rm[
 ```scala
 e |- value ⇓ v₁                    `???` |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
           e |- Let name value body ⇓ ???
 ```
 ]
@@ -3581,7 +3581,7 @@ let x = 1 in
 .diff-add[
 ```scala
 *e |- value ⇓ v₁          `e[name <- v₁]` |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
           e |- Let name value body ⇓ ???
 ```
 ]
@@ -3596,7 +3596,7 @@ let `x = 1` in
 .diff-rm[
 ```scala
 e |- value ⇓ v₁          e[name <- v₁] |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
 *         e |- Let name value body ⇓ `???`
 ```
 ]
@@ -3611,7 +3611,7 @@ let x = 1 in
 .diff-add[
 ```scala
 e |- value ⇓ v₁          e[name <- v₁] |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
 *         e |- Let name value body ⇓ `v₂`
 ```
 ]
@@ -3625,7 +3625,7 @@ let x = 1 in
 
 ```scala
 &#x200B;`e |- value ⇓ v₁`          e[name <- v₁] |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
           e |- Let name value body ⇓ v₂
 ```
 
@@ -3638,7 +3638,7 @@ let x = 1 in
 
 ```scala
 e |- value ⇓ v₁          `e[name <- v₁]` |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
           e |- Let name value body ⇓ v₂
 ```
 
@@ -3721,7 +3721,7 @@ enum Expr:
 
 ```scala
 e |- value ⇓ v₁          e[name <- v₁] |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
          e |- `Let name value body` ⇓ v₂
 ```
 
@@ -3741,7 +3741,7 @@ enum Expr:
 
 ```scala
 e |- value ⇓ v₁          e[name <- v₁] |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
          e |- `Let` name value body ⇓ v₂
 ```
 
@@ -3761,7 +3761,7 @@ enum Expr:
 
 ```scala
 e |- value ⇓ v₁          e[name <- v₁] |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
          e |- Let `name` value body ⇓ v₂
 ```
 
@@ -3781,7 +3781,7 @@ enum Expr:
 
 ```scala
 e |- value ⇓ v₁          e[name <- v₁] |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
          e |- Let name `value` body ⇓ v₂
 ```
 
@@ -3801,7 +3801,7 @@ enum Expr:
 
 ```scala
 e |- value ⇓ v₁          e[name <- v₁] |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
          e |- Let name value `body` ⇓ v₂
 ```
 
@@ -3839,7 +3839,7 @@ enum Expr:
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+&#x200B;
 e |- `Ref` name ⇓ e(name)
 ```
 
@@ -4153,7 +4153,7 @@ object Env:
 
 ```scala
 e |- value ⇓ v₁          `e[name <- v₁]` |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
          e |- Let name value body ⇓ v₂
 ```
 
@@ -4179,7 +4179,7 @@ object Env:
 
 ```scala
 e |- value ⇓ v₁          `e[name <- v₁]` |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
          e |- Let name value body ⇓ v₂
 ```
 
@@ -4205,7 +4205,7 @@ object Env:
 
 ```scala
 e |- value ⇓ v₁          `e[name <- v₁]` |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
          e |- Let name value body ⇓ v₂
 ```
 
@@ -4231,7 +4231,7 @@ object Env:
 
 ```scala
 e |- value ⇓ v₁          `e[name <- v₁]` |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
          e |- Let name value body ⇓ v₂
 ```
 
@@ -4333,7 +4333,7 @@ def interpret(expr: Expr, e: Env): Value = expr match
 
 ```scala
 e |- value ⇓ v₁          e[name <- v₁] |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
          e |- Let name value body ⇓ v₂
 ```
 
@@ -4357,7 +4357,7 @@ def let(name: String, value: Expr, body: Expr, e: Env) =
 
 ```scala
 e |- value ⇓ v₁          e[name <- v₁] |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
          e |- Let name value body ⇓ v₂
 ```
 
@@ -4383,7 +4383,7 @@ def let(name: String, value: Expr, body: Expr, e: Env) =
 
 ```scala
 &#x200B;`e |- value ⇓ v₁`          e[name <- v₁] |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
          e |- Let name value body ⇓ v₂
 ```
 
@@ -4409,7 +4409,7 @@ def let(name: String, value: Expr, body: Expr, e: Env) =
 
 ```scala
 e |- value ⇓ v₁          e[name <- v₁] |- `body ⇓ v₂`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
          e |- Let name value body ⇓ v₂
 ```
 
@@ -4435,7 +4435,7 @@ def let(name: String, value: Expr, body: Expr, e: Env) =
 
 ```scala
 e |- value ⇓ v₁          `e[name <- v₁]` |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
          e |- Let name value body ⇓ v₂
 ```
 
@@ -4461,7 +4461,7 @@ def let(name: String, value: Expr, body: Expr, e: Env) =
 
 ```scala
 e |- value ⇓ v₁          `e[name <- v₁]` |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
          e |- Let name value body ⇓ v₂
 ```
 
@@ -4487,7 +4487,7 @@ def let(name: String, value: Expr, body: Expr, e: Env) =
 
 ```scala
 e |- value ⇓ v₁          e[name <- v₁] |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────
          e |- Let name value body ⇓ `v₂`
 ```
 
@@ -5571,7 +5571,7 @@ let f = x -> x + 2 in
 ```scala
 &#x200B;
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
              e |- Apply ⇓ ???
 ```
 
@@ -5586,7 +5586,7 @@ let f = x -> x + 2 in
 ```scala
 &#x200B;
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
              e |- Apply `fun` ⇓ ???
 ```
 ]
@@ -5602,7 +5602,7 @@ let f = x -> x + 2 in
 ```scala
 &#x200B;
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
              e |- Apply fun `arg` ⇓ ???
 ```
 ]
@@ -5618,7 +5618,7 @@ let f = x -> x + 2 in
 ```scala
 *&#x200B;`e |- fun ⇓ ???`
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
              e |- Apply fun arg ⇓ ???
 ```
 ]
@@ -5634,7 +5634,7 @@ let f = x -> x + 2 in
 ```scala
 *e |- fun ⇓ `???`
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
              e |- Apply fun arg ⇓ ???
 ```
 ]
@@ -5650,7 +5650,7 @@ let f = x -> x + 2 in
 ```scala
 *e |- fun ⇓ `Value.Fun param body eʹ`
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
              e |- Apply fun arg ⇓ ???
 ```
 ]
@@ -5666,7 +5666,7 @@ let f = x -> x + 2 in
 ```scala
 *e |- fun ⇓ Value.Fun param body eʹ      `e |- arg ⇓ v₁`
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
              e |- Apply fun arg ⇓ ???
 ```
 ]
@@ -5682,7 +5682,7 @@ let f = x -> x + 2 in
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
 *&#x200B;`??? |- body ⇓ v₂`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
              e |- Apply fun arg ⇓ ???
 ```
 ]
@@ -5698,7 +5698,7 @@ let f = x -> `x + 2` in
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
 *&#x200B;`???` |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
              e |- Apply fun arg ⇓ ???
 ```
 ]
@@ -5714,7 +5714,7 @@ let f = x -> x + 2 in
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
 *&#x200B;`eʹ` |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
              e |- Apply fun arg ⇓ ???
 ```
 ]
@@ -5729,7 +5729,7 @@ let f = x -> x + 2 in
 ```scala
 e |- fun ⇓ Value.Fun `param` body eʹ      e |- arg ⇓ v₁
 eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
              e |- Apply fun arg ⇓ ???
 ```
 
@@ -5743,7 +5743,7 @@ let f = `x` -> x + 2 in
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ `v₁`
 eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
              e |- Apply fun arg ⇓ ???
 ```
 
@@ -5758,7 +5758,7 @@ let f = x -> x + 2 in
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
 *&#x200B;`eʹ` |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
              e |- Apply fun arg ⇓ ???
 ```
 ]
@@ -5774,7 +5774,7 @@ let f = x -> x + 2 in
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
 *&#x200B;`eʹ[param <- v₁]` |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
              e |- Apply fun arg ⇓ ???
 ```
 ]
@@ -5790,7 +5790,7 @@ let f = x -> x + 2 in
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
 eʹ[param <- v₁] |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
 *            e |- Apply fun arg ⇓ `???`
 ```
 ]
@@ -5806,7 +5806,7 @@ let f = x -> x + 2 in
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
 eʹ[param <- v₁] |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
 *            e |- Apply fun arg ⇓ `v₂`
 ```
 ]
@@ -5923,7 +5923,7 @@ enum Expr:
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
 eʹ[param <- v₁] |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
              e |- `Apply fun arg` ⇓ v₂
 ```
 
@@ -5946,7 +5946,7 @@ enum Expr:
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
 eʹ[param <- v₁] |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
              e |- `Apply` fun arg ⇓ v₂
 ```
 
@@ -5969,7 +5969,7 @@ enum Expr:
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
 eʹ[param <- v₁] |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
              e |- Apply `fun` arg ⇓ v₂
 ```
 
@@ -5992,7 +5992,7 @@ enum Expr:
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
 eʹ[param <- v₁] |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
              e |- Apply fun `arg` ⇓ v₂
 ```
 
@@ -6078,7 +6078,7 @@ def interpret(expr: Expr, e: Env): Value = expr match
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
 eʹ[param <- v₁] |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
              e |- `Apply fun arg` ⇓ v₂
 ```
 
@@ -6101,7 +6101,7 @@ def interpret(expr: Expr, e: Env): Value = expr match
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
 eʹ[param <- v₁] |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
              e |- Apply fun arg ⇓ v₂
 ```
 
@@ -6122,7 +6122,7 @@ def apply(fun: Expr, arg: Expr, e: Env) =
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
 eʹ[param <- v₁] |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
              e |- Apply fun arg ⇓ v₂
 ```
 
@@ -6145,7 +6145,7 @@ def apply(fun: Expr, arg: Expr, e: Env) =
 ```scala
 &#x200B;`e |- fun ⇓ Value.Fun param body eʹ`      e |- arg ⇓ v₁
 eʹ[param <- v₁] |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
              e |- Apply fun arg ⇓ v₂
 ```
 
@@ -6168,7 +6168,7 @@ def apply(fun: Expr, arg: Expr, e: Env) =
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      `e |- arg ⇓ v₁`
 eʹ[param <- v₁] |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
              e |- Apply fun arg ⇓ v₂
 ```
 
@@ -6191,7 +6191,7 @@ def apply(fun: Expr, arg: Expr, e: Env) =
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
 eʹ[param <- v₁] |- `body ⇓ v₂`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
              e |- Apply fun arg ⇓ v₂
 ```
 
@@ -6214,7 +6214,7 @@ def apply(fun: Expr, arg: Expr, e: Env) =
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
 &#x200B;`eʹ[param <- v₁]` |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
              e |- Apply fun arg ⇓ v₂
 ```
 
@@ -6237,7 +6237,7 @@ def apply(fun: Expr, arg: Expr, e: Env) =
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
 &#x200B;`eʹ[param <- v₁]` |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
              e |- Apply fun arg ⇓ v₂
 ```
 
@@ -6260,7 +6260,7 @@ def apply(fun: Expr, arg: Expr, e: Env) =
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
 eʹ[param <- v₁] |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
              e |- Apply fun arg ⇓ `v₂`
 ```
 
@@ -6283,7 +6283,7 @@ def apply(fun: Expr, arg: Expr, e: Env) =
 ```scala
 e |- fun ⇓ Value.Fun param body eʹ      e |- arg ⇓ v₁
 eʹ[param <- v₁] |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────────────────────────
              e |- Apply fun arg ⇓ v₂
 ```
 
@@ -6988,7 +6988,7 @@ let sum = lower -> upper ->
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────────────
         e |- Gt ⇓ ???
 ```
 
@@ -7002,7 +7002,7 @@ if 1 `>` 2 then false
 .diff-add[
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────────────
 *       e |- Gt `lhs` ⇓ ???
 ```
 ]
@@ -7017,7 +7017,7 @@ if `1` > 2 then false
 .diff-add[
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────────────
 *       e |- Gt lhs `rhs` ⇓ ???
 ```
 ]
@@ -7032,7 +7032,7 @@ if 1 > `2` then false
 .diff-add[
 ```scala
 *&#x200B;`e |- lhs ⇓ Value.Num v₁`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────────────
         e |- Gt lhs rhs ⇓ ???
 ```
 ]
@@ -7047,7 +7047,7 @@ if `1` > 2 then false
 .diff-add[
 ```scala
 *e |- lhs ⇓ Value.Num v₁      `e |- rhs ⇓ Value.Num v₂`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────────────
         e |- Gt lhs rhs ⇓ ???
 ```
 ]
@@ -7062,7 +7062,7 @@ if 1 > `2` then false
 .diff-rm[
 ```scala
 e |- lhs ⇓ Value.Num v₁      e |- rhs ⇓ Value.Num v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────────────
 *       e |- Gt lhs rhs ⇓ `???`
 ```
 ]
@@ -7077,7 +7077,7 @@ if `1 > 2` then false
 .diff-add[
 ```scala
 e |- lhs ⇓ Value.Num v₁      e |- rhs ⇓ Value.Num v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────────────
 *       e |- Gt lhs rhs ⇓ `Value.Bool (v₁ > v₂)`
 ```
 ]
@@ -7104,7 +7104,7 @@ enum Expr:
 
 ```scala
 e |- lhs ⇓ Value.Num v₁      e |- rhs ⇓ Value.Num v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────────────
         e |- `Gt lhs rhs` ⇓ Value.Bool (v₁ > v₂)
 ```
 
@@ -7127,7 +7127,7 @@ enum Expr:
 
 ```scala
 e |- lhs ⇓ Value.Num v₁      e |- rhs ⇓ Value.Num v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────────────
         e |- `Gt` lhs rhs ⇓ Value.Bool (v₁ > v₂)
 ```
 
@@ -7150,7 +7150,7 @@ enum Expr:
 
 ```scala
 e |- lhs ⇓ Value.Num v₁      e |- rhs ⇓ Value.Num v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────────────
         e |- Gt `lhs` rhs ⇓ Value.Bool (v₁ > v₂)
 ```
 
@@ -7173,7 +7173,7 @@ enum Expr:
 
 ```scala
 e |- lhs ⇓ Value.Num v₁      e |- rhs ⇓ Value.Num v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────────────
         e |- Gt lhs `rhs` ⇓ Value.Bool (v₁ > v₂)
 ```
 
@@ -7194,7 +7194,7 @@ def interpret(expr: Expr, e: Env): Value = expr match
 
 ```scala
 e |- lhs ⇓ Value.Num v₁      e |- rhs ⇓ Value.Num v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────────────
         e |- Gt lhs rhs ⇓ Value.Bool (v₁ > v₂)
 ```
 
@@ -7218,7 +7218,7 @@ def interpret(expr: Expr, e: Env): Value = expr match
 
 ```scala
 e |- lhs ⇓ Value.Num v₁      e |- rhs ⇓ Value.Num v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────────────
         e |- `Gt lhs rhs` ⇓ Value.Bool (v₁ > v₂)
 ```
 
@@ -7239,7 +7239,7 @@ def gt(lhs: Expr, rhs: Expr, e: Env) =
 
 ```scala
 e |- lhs ⇓ Value.Num v₁      e |- rhs ⇓ Value.Num v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────────────
         e |- Gt lhs rhs ⇓ Value.Bool (v₁ > v₂)
 ```
 
@@ -7262,7 +7262,7 @@ def gt(lhs: Expr, rhs: Expr, e: Env) =
 
 ```scala
 &#x200B;`e |- lhs ⇓ Value.Num v₁`      `e |- rhs ⇓ Value.Num v₂`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────────────
         e |- Gt lhs rhs ⇓ Value.Bool (v₁ > v₂)
 ```
 
@@ -7283,7 +7283,7 @@ def gt(lhs: Expr, rhs: Expr, e: Env) =
 
 ```scala
 &#x200B;`e |- lhs ⇓ Value.Num v₁`      e |- rhs ⇓ Value.Num v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────────────
         e |- Gt lhs rhs ⇓ Value.Bool (v₁ > v₂)
 ```
 
@@ -7304,7 +7304,7 @@ def gt(lhs: Expr, rhs: Expr, e: Env) =
 
 ```scala
 e |- lhs ⇓ Value.Num v₁      `e |- rhs ⇓ Value.Num v₂`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────────────
         e |- Gt lhs rhs ⇓ Value.Bool (v₁ > v₂)
 ```
 
@@ -7327,7 +7327,7 @@ def gt(lhs: Expr, rhs: Expr, e: Env) =
 
 ```scala
 e |- lhs ⇓ Value.Num v₁      e |- rhs ⇓ Value.Num v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────────────
         e |- Gt lhs rhs ⇓ `Value.Bool (v₁ > v₂)`
 ```
 
@@ -7350,7 +7350,7 @@ def gt(lhs: Expr, rhs: Expr, e: Env) =
 
 ```scala
 e |- lhs ⇓ Value.Num v₁      e |- rhs ⇓ Value.Num v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────────────
         e |- Gt lhs rhs ⇓ Value.Bool (v₁ > v₂)
 ```
 
@@ -7373,7 +7373,7 @@ def gt(lhs: Expr, rhs: Expr, e: Env) =
 
 ```scala
 e |- lhs ⇓ Value.Num v₁      e |- rhs ⇓ Value.Num v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────────────
         e |- Gt lhs rhs ⇓ Value.Bool (v₁ > v₂)
 ```
 
@@ -7549,7 +7549,7 @@ let rec sum = lower -> upper ->
 ```scala
 &#x200B;
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
  e |- `LetRec` ⇓ ???
 ```
 
@@ -7566,7 +7566,7 @@ let rec sum = lower -> upper ->
 ```scala
 &#x200B;
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
 *&#x200B; e |- LetRec `name` ⇓ ???
 ```
 ]
@@ -7584,7 +7584,7 @@ let rec `sum` = lower -> upper ->
 ```scala
 &#x200B;
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
 *&#x200B; e |- LetRec name `value` ⇓ ???
 ```
 ]
@@ -7602,7 +7602,7 @@ let rec sum = `lower -> upper ->`
 ```scala
 &#x200B;
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
 *&#x200B; e |- LetRec name value `body` ⇓ ???
 ```
 ]
@@ -7620,7 +7620,7 @@ let rec sum = lower -> upper ->
 ```scala
 *&#x200B;`e |- value ⇓ v₁`
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
  e |- LetRec name value body ⇓ ???
 ```
 ]
@@ -7637,7 +7637,7 @@ let rec sum = `lower -> upper ->`
 ```scala
 &#x200B;`e` |- value ⇓ v₁
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
  e |- LetRec name value body ⇓ ???
 ```
 
@@ -7654,7 +7654,7 @@ let rec sum = `lower -> upper ->`
 ```scala
 *&#x200B;`eʹ = e[name <- ???];` e |- value ⇓ v₁
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
  e |- LetRec name value body ⇓ ???
 ```
 ]
@@ -7672,7 +7672,7 @@ let rec sum = `lower -> upper ->`
 ```scala
 *eʹ = e[name <- `???`]; e |- value ⇓ v₁
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
  e |- LetRec name value body ⇓ ???
 ```
 ]
@@ -7691,7 +7691,7 @@ let rec sum = `lower -> upper ->`
 ```scala
 *eʹ = e[name <- `∅`]; e |- value ⇓ v₁
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
  e |- LetRec name value body ⇓ ???
 ```
 ]
@@ -7709,7 +7709,7 @@ let rec sum = `lower -> upper ->`
 ```scala
 *eʹ = e[name <- ∅]; `e` |- value ⇓ v₁
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
  e |- LetRec name value body ⇓ ???
 ```
 ]
@@ -7727,7 +7727,7 @@ let rec sum = `lower -> upper ->`
 ```scala
 *eʹ = e[name <- ∅]; `eʹ` |- value ⇓ v₁
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
  e |- LetRec name value body ⇓ ???
 ```
 ]
@@ -7745,7 +7745,7 @@ let rec sum = `lower -> upper ->`
 ```scala
 eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
 * `eʹ |- body ⇓ v₂`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
  e |- LetRec name value body ⇓ ???
 ```
 ]
@@ -7762,7 +7762,7 @@ let rec sum = lower -> upper ->
 ```scala
 eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
   `eʹ` |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
  e |- LetRec name value body ⇓ ???
 ```
 
@@ -7779,7 +7779,7 @@ let rec sum = lower -> upper ->
 ```scala
 eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
 * `eʹ[name := v₁];` eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
  e |- LetRec name value body ⇓ ???
 ```
 ]
@@ -7797,7 +7797,7 @@ let rec sum = lower -> upper ->
 ```scala
 eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
   eʹ[name := v₁]; eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
 *&#x200B; e |- LetRec name value body ⇓ `???`
 ```
 ]
@@ -7815,7 +7815,7 @@ let rec sum = lower -> upper ->
 ```scala
 eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
   eʹ[name := v₁]; eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
 *&#x200B; e |- LetRec name value body ⇓ `v₂`
 ```
 ]
@@ -7846,7 +7846,7 @@ enum Expr:
 ```scala
 eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
   eʹ[name := v₁]; eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
  e |- `LetRec name value body` ⇓ v₂
 ```
 
@@ -7871,7 +7871,7 @@ enum Expr:
 ```scala
 eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
   eʹ[name := v₁]; eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
  e |- `LetRec` name value body ⇓ v₂
 ```
 
@@ -7896,7 +7896,7 @@ enum Expr:
 ```scala
 eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
   eʹ[name := v₁]; eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
  e |- LetRec `name` value body ⇓ v₂
 ```
 
@@ -7921,7 +7921,7 @@ enum Expr:
 ```scala
 eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
   eʹ[name := v₁]; eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
  e |- LetRec name `value` body ⇓ v₂
 ```
 
@@ -7946,7 +7946,7 @@ enum Expr:
 ```scala
 eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
   eʹ[name := v₁]; eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
  e |- LetRec name value `body` ⇓ v₂
 ```
 
@@ -7969,7 +7969,7 @@ enum Expr:
 ```scala
 eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
   `eʹ[name := v₁]`; eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
  e |- LetRec name value body ⇓ v₂
 ```
 
@@ -8135,7 +8135,7 @@ def interpret(expr: Expr, e: Env): Value = expr match
 ```scala
 eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
   eʹ[name := v₁]; eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
  e |- `LetRec name value body` ⇓ v₂
 ```
 
@@ -8160,7 +8160,7 @@ def interpret(expr: Expr, e: Env): Value = expr match
 ```scala
 eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
   eʹ[name := v₁]; eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
  e |- `LetRec name value body` ⇓ v₂
 ```
 
@@ -8183,7 +8183,7 @@ def letRec(name: String, value: Expr, body: Expr, e: Env) =
 ```scala
 eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
   eʹ[name := v₁]; eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
  e |- LetRec name value body ⇓ v₂
 ```
 
@@ -8208,7 +8208,7 @@ eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
 ```scala
 &#x200B;`eʹ = e[name <- ∅]`; eʹ |- value ⇓ v₁
   eʹ[name := v₁]; eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
  e |- LetRec name value body ⇓ v₂
 ```
 
@@ -8233,7 +8233,7 @@ eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
 ```scala
 eʹ = e[name <- ∅]; `eʹ |- value ⇓ v₁`
   eʹ[name := v₁]; eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
  e |- LetRec name value body ⇓ v₂
 ```
 
@@ -8258,7 +8258,7 @@ eʹ = e[name <- ∅]; `eʹ |- value ⇓ v₁`
 ```scala
 eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
   `eʹ[name := v₁]`; eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
  e |- LetRec name value body ⇓ v₂
 ```
 
@@ -8283,7 +8283,7 @@ eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
 ```scala
 eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
   eʹ[name := v₁]; `eʹ |- body ⇓ v₂`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
  e |- LetRec name value body ⇓ v₂
 ```
 
@@ -8308,7 +8308,7 @@ eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
 ```scala
 eʹ = e[name <- ∅]; eʹ |- value ⇓ v₁
   eʹ[name := v₁]; eʹ |- body ⇓ v₂
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────
  e |- LetRec name value body ⇓ `v₂`
 ```
 
@@ -9024,7 +9024,7 @@ def typeCheck(expr: Expr): Either[String, Type] =
 .diff-add[
 ```scala
 lhs : Type.Num       rhs : Type.Num
-*&#x200B;`⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯`
+*&#x200B;`───────────────────────────────────`
       Add lhs rhs : ???
 ```
 ]
@@ -9038,7 +9038,7 @@ lhs : Type.Num       rhs : Type.Num
 .diff-rm[
 ```scala
 lhs : Type.Num       rhs : Type.Num
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
 *     Add lhs rhs : `???`
 ```
 ]
@@ -9052,7 +9052,7 @@ lhs : Type.Num       rhs : Type.Num
 .diff-add[
 ```scala
 lhs : Type.Num       rhs : Type.Num
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
 *     Add lhs rhs : `Type.Num`
 ```
 ]
@@ -9076,7 +9076,7 @@ def typeCheck(expr: Expr): Either[String, Type] =
 
 ```scala
 lhs : Type.Num       rhs : Type.Num
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
       Add lhs rhs : Type.Num
 ```
 
@@ -9095,7 +9095,7 @@ def typeCheck(expr: Expr): Either[String, Type] =
 
 ```scala
 lhs : Type.Num       rhs : Type.Num
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
       Add lhs rhs : Type.Num
 ```
 
@@ -9112,7 +9112,7 @@ def checkAdd(lhs: Expr, rhs: Expr) =
 
 ```scala
 lhs : Type.Num       rhs : Type.Num
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
       Add lhs rhs : Type.Num
 ```
 
@@ -9129,7 +9129,7 @@ def checkAdd(lhs: Expr, rhs: Expr) =
 
 ```scala
 &#x200B;`lhs : Type.Num`       rhs : Type.Num
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
       Add lhs rhs : Type.Num
 ```
 
@@ -9146,7 +9146,7 @@ def expect() =
 
 ```scala
 &#x200B;`lhs : Type.Num`       rhs : Type.Num
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
       Add lhs rhs : Type.Num
 ```
 
@@ -9165,7 +9165,7 @@ def expect() =
 
 ```scala
 &#x200B;`lhs` : Type.Num       rhs : Type.Num
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
       Add lhs rhs : Type.Num
 ```
 
@@ -9184,7 +9184,7 @@ def expect() =
 
 ```scala
 lhs : `Type.Num`       rhs : Type.Num
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
       Add lhs rhs : Type.Num
 ```
 
@@ -9203,7 +9203,7 @@ def expect(expr: Expr, expected: Type) =
 
 ```scala
 lhs : Type.Num       rhs : Type.Num
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
       Add lhs rhs : Type.Num
 ```
 
@@ -9222,7 +9222,7 @@ def expect(expr: Expr, expected: Type) =
 
 ```scala
 lhs : Type.Num       rhs : Type.Num
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
       Add lhs rhs : Type.Num
 ```
 
@@ -9241,7 +9241,7 @@ def expect(expr: Expr, expected: Type) =
 
 ```scala
 lhs : Type.Num       rhs : Type.Num
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
       Add lhs rhs : Type.Num
 ```
 
@@ -9260,7 +9260,7 @@ def expect(expr: Expr, expected: Type) =
 
 ```scala
 lhs : Type.Num       rhs : Type.Num
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
       Add lhs rhs : Type.Num
 ```
 
@@ -9279,7 +9279,7 @@ def expect(expr: Expr, expected: Type) =
 
 ```scala
 lhs : Type.Num       rhs : Type.Num
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
       Add lhs rhs : Type.Num
 ```
 
@@ -9296,7 +9296,7 @@ def checkAdd(lhs: Expr, rhs: Expr) =
 
 ```scala
 lhs : Type.Num       rhs : Type.Num
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
       Add lhs rhs : Type.Num
 ```
 
@@ -9315,7 +9315,7 @@ def checkAdd(lhs: Expr, rhs: Expr) =
 
 ```scala
 &#x200B;`lhs : Type.Num`       rhs : Type.Num
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
       Add lhs rhs : Type.Num
 ```
 
@@ -9334,7 +9334,7 @@ def checkAdd(lhs: Expr, rhs: Expr) =
 
 ```scala
 lhs : Type.Num       `rhs : Type.Num`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
       Add lhs rhs : Type.Num
 ```
 
@@ -9353,7 +9353,7 @@ def checkAdd(lhs: Expr, rhs: Expr) =
 
 ```scala
 lhs : Type.Num       rhs : Type.Num
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
       Add lhs rhs : `Type.Num`
 ```
 
@@ -9362,7 +9362,7 @@ lhs : Type.Num       rhs : Type.Num
 .diff-add[
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────
      Gt lhs rhs : ???
 ```
 ]
@@ -9376,7 +9376,7 @@ lhs : Type.Num       rhs : Type.Num
 .diff-add[
 ```scala
 *&#x200B;`lhs : Type.Num`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────
      Gt lhs rhs : ???
 ```
 ]
@@ -9390,7 +9390,7 @@ lhs : Type.Num       rhs : Type.Num
 .diff-add[
 ```scala
 *lhs : Type.Num      `rhs : Type.Num`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────
      Gt lhs rhs : ???
 ```
 ]
@@ -9404,7 +9404,7 @@ lhs : Type.Num       rhs : Type.Num
 .diff-rm[
 ```scala
 lhs : Type.Num      rhs : Type.Num
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────
 *    Gt lhs rhs : `???`
 ```
 ]
@@ -9418,7 +9418,7 @@ lhs : Type.Num      rhs : Type.Num
 .diff-add[
 ```scala
 lhs : Type.Num      rhs : Type.Num
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────
 *    Gt lhs rhs : `Type.Bool`
 ```
 ]
@@ -9440,7 +9440,7 @@ def typeCheck(expr: Expr): Either[String, Type] =
 
 ```scala
 lhs : Type.Num      rhs : Type.Num
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────
      Gt lhs rhs : Type.Bool
 ```
 
@@ -9459,7 +9459,7 @@ def typeCheck(expr: Expr): Either[String, Type] =
 
 ```scala
 lhs : Type.Num      rhs : Type.Num
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────
      `Gt lhs rhs` : Type.Bool
 ```
 
@@ -9478,7 +9478,7 @@ def typeCheck(expr: Expr): Either[String, Type] =
 
 ```scala
 lhs : Type.Num      rhs : Type.Num
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────
      Gt lhs rhs : Type.Bool
 ```
 
@@ -9495,7 +9495,7 @@ def checkGt(lhs: Expr, rhs: Expr) =
 
 ```scala
 lhs : Type.Num      rhs : Type.Num
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────
      Gt lhs rhs : Type.Bool
 ```
 
@@ -9514,7 +9514,7 @@ lhs : Type.Num      rhs : Type.Num
 
 ```scala
 &#x200B;`lhs : Type.Num`      rhs : Type.Num
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────
      Gt lhs rhs : Type.Bool
 ```
 
@@ -9533,7 +9533,7 @@ def checkGt(lhs: Expr, rhs: Expr) =
 
 ```scala
 lhs : Type.Num      `rhs : Type.Num`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────
      Gt lhs rhs : Type.Bool
 ```
 
@@ -9552,7 +9552,7 @@ def checkGt(lhs: Expr, rhs: Expr) =
 
 ```scala
 lhs : Type.Num      rhs : Type.Num
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+──────────────────────────────────
      Gt lhs rhs : `Type.Bool`
 ```
 
@@ -9560,7 +9560,7 @@ lhs : Type.Num      rhs : Type.Num
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────────────
          Cond pred onT onF : ???
 ```
 
@@ -9575,7 +9575,7 @@ if true then 1
 .diff-add[
 ```scala
 *&#x200B;`pred : Type.Bool`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────────────
          Cond pred onT onF : ???
 ```
 ]
@@ -9590,7 +9590,7 @@ if `true` then 1
 .diff-add[
 ```scala
 *pred : Type.Bool      `onT : X`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────────────
          Cond pred onT onF : ???
 ```
 ]
@@ -9605,7 +9605,7 @@ if true then `1`
 .diff-add[
 ```scala
 *pred : Type.Bool      onT : X      `onF : ???`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────────────
          Cond pred onT onF : ???
 ```
 ]
@@ -9620,7 +9620,7 @@ if true then 1
 .diff-rm[
 ```scala
 *pred : Type.Bool      onT : X      onF : `???`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────────────
          Cond pred onT onF : ???
 ```
 ]
@@ -9635,7 +9635,7 @@ if true then 1
 .diff-add[
 ```scala
 *pred : Type.Bool      onT : X       onF : `X`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────────────
          Cond pred onT onF : ???
 ```
 ]
@@ -9650,7 +9650,7 @@ if true then 1
 .diff-rm[
 ```scala
 pred : Type.Bool      onT : X       onF : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────────────
 *        Cond pred onT onF : `???`
 ```
 ]
@@ -9665,7 +9665,7 @@ pred : Type.Bool      onT : X       onF : X
 .diff-add[
 ```scala
 pred : Type.Bool      onT : X       onF : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────────────
 *        Cond pred onT onF : `X`
 ```
 ]
@@ -9689,7 +9689,7 @@ def typeCheck(expr: Expr): Either[String, Type] =
 
 ```scala
 pred : Type.Bool      onT : X       onF : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────────────
          Cond pred onT onF : X
 ```
 
@@ -9709,7 +9709,7 @@ def typeCheck(expr: Expr): Either[String, Type] =
 
 ```scala
 pred : Type.Bool      onT : X       onF : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────────────
          `Cond pred onT onF` : X
 ```
 
@@ -9729,7 +9729,7 @@ def typeCheck(expr: Expr): Either[String, Type] =
 
 ```scala
 pred : Type.Bool      onT : X       onF : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────────────
          Cond pred onT onF : X
 ```
 
@@ -9747,7 +9747,7 @@ def checkCond(pred: Expr, onT: Expr, onF: Expr) =
 
 ```scala
 pred : Type.Bool      onT : X       onF : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────────────
          Cond pred onT onF : X
 ```
 
@@ -9767,7 +9767,7 @@ def checkCond(pred: Expr, onT: Expr, onF: Expr) =
 
 ```scala
 &#x200B;`pred : Type.Bool`      onT : X       onF : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────────────
          Cond pred onT onF : X
 ```
 
@@ -9787,7 +9787,7 @@ def checkCond(pred: Expr, onT: Expr, onF: Expr) =
 
 ```scala
 pred : Type.Bool      `onT : X`       onF : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────────────
          Cond pred onT onF : X
 ```
 
@@ -9807,7 +9807,7 @@ def checkCond(pred: Expr, onT: Expr, onF: Expr) =
 
 ```scala
 pred : Type.Bool      onT : X       `onF : X`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────────────
          Cond pred onT onF : X
 ```
 
@@ -9827,7 +9827,7 @@ def checkCond(pred: Expr, onT: Expr, onF: Expr) =
 
 ```scala
 pred : Type.Bool      onT : X       onF : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────────────
          Cond pred onT onF : `X`
 ```
 
@@ -9835,7 +9835,7 @@ pred : Type.Bool      onT : X       onF : X
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────
            Let name value body : ???
 ```
 
@@ -9850,7 +9850,7 @@ let x = 1 in
 .diff-add[
 ```scala
 *&#x200B;`value : X`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────
            Let name value body : ???
 ```
 ]
@@ -9865,7 +9865,7 @@ let x = `1` in
 .diff-add[
 ```scala
 *value : X                            `body : Y`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────
            Let name value body : ???
 ```
 ]
@@ -9880,7 +9880,7 @@ let x = 1 in
 .diff-add[
 ```scala
 *&#x200B;`Γ |-` value : X                  `Γ |-` body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────
 *     `Γ |-` Let name value body : ???
 ```
 ]
@@ -9894,7 +9894,7 @@ let x = 1 in
 
 ```scala
 &#x200B;`Γ |- value : X`                  Γ |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────
       Γ |- Let name value body : ???
 ```
 
@@ -9908,7 +9908,7 @@ let x = 1 in
 .diff-rm[
 ```scala
 *Γ |- value : X                  `Γ` |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────
       Γ |- Let name value body : ???
 ```
 ]
@@ -9923,7 +9923,7 @@ let `x = 1` in
 .diff-add[
 ```scala
 *Γ |- value : X       `Γ[name <- X]` |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────
       Γ |- Let name value body : ???
 ```
 ]
@@ -9938,7 +9938,7 @@ let `x = 1` in
 .diff-rm[
 ```scala
 Γ |- value : X       Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────
 *     Γ |- Let name value body : `???`
 ```
 ]
@@ -9953,7 +9953,7 @@ let x = 1 in
 .diff-add[
 ```scala
 Γ |- value : X       Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────
 *     Γ |- Let name value body : `Y`
 ```
 ]
@@ -10358,7 +10358,7 @@ def typeCheck(expr: Expr, Γ: TypeEnv): Either[String, Type] =
 
 ```scala
 Γ |- value : X       Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────
       Γ |- `Let name value body` : Y
 ```
 
@@ -10380,7 +10380,7 @@ def typeCheck(expr: Expr, Γ: TypeEnv): Either[String, Type] =
 
 ```scala
 Γ |- value : X       Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────
       Γ |- Let name value body : Y
 ```
 
@@ -10400,7 +10400,7 @@ def checkLet(name: String, value: Expr, body: Expr, Γ: TypeEnv) =
 
 ```scala
 Γ |- value : X       Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────
       Γ |- Let name value body : Y
 ```
 
@@ -10422,7 +10422,7 @@ def checkLet(name: String, value: Expr, body: Expr, Γ: TypeEnv) =
 
 ```scala
 &#x200B;`Γ |- value : X`       Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────
       Γ |- Let name value body : Y
 ```
 
@@ -10444,7 +10444,7 @@ def checkLet(name: String, value: Expr, body: Expr, Γ: TypeEnv) =
 
 ```scala
 Γ |- value : X       `Γ[name <- X] |- body : Y`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────
       Γ |- Let name value body : Y
 ```
 
@@ -10466,7 +10466,7 @@ def checkLet(name: String, value: Expr, body: Expr, Γ: TypeEnv) =
 
 ```scala
 Γ |- value : X       `Γ[name <- X]` |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────
       Γ |- Let name value body : Y
 ```
 
@@ -10488,7 +10488,7 @@ def checkLet(name: String, value: Expr, body: Expr, Γ: TypeEnv) =
 
 ```scala
 Γ |- value : X       `Γ[name <- X]` |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────
       Γ |- Let name value body : Y
 ```
 
@@ -10510,7 +10510,7 @@ def checkLet(name: String, value: Expr, body: Expr, Γ: TypeEnv) =
 
 ```scala
 Γ |- value : X       Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+─────────────────────────────────────────────
       Γ |- Let name value body : `Y`
 ```
 
@@ -10582,7 +10582,7 @@ def typeCheck(expr: Expr, Γ: TypeEnv): Either[String, Type] =
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
 Γ |- Fun param body : ???
 ```
 
@@ -10596,7 +10596,7 @@ let f = x -> x + 1 in
 .diff-add[
 ```scala
 *    `Γ |- body : ???`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
 Γ |- Fun param body : ???
 ```
 ]
@@ -10610,7 +10610,7 @@ let f = x -> `x + 1` in
 
 ```scala
      `Γ` |- body : ???
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
 Γ |- Fun param body : ???
 ```
 
@@ -10624,7 +10624,7 @@ let f = x -> x + 1 in
 .diff-add[
 ```scala
 *   `Γ[param <- X]` |- body : ???
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
 Γ |- Fun param body : ???
 ```
 ]
@@ -10639,7 +10639,7 @@ let f = x -> x + 1 in
 .diff-rm[
 ```scala
 *   Γ[param <- X] |- body : `???`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
 Γ |- Fun param body : ???
 ```
 ]
@@ -10654,7 +10654,7 @@ let f = x -> x + 1 in
 .diff-add[
 ```scala
 *   Γ[param <- X] |- body : `Y`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
 Γ |- Fun param body : ???
 ```
 ]
@@ -10669,7 +10669,7 @@ let f = x -> x + 1 in
 .diff-rm[
 ```scala
     Γ[param <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
 *Γ |- Fun param body : `???`
 ```
 ]
@@ -10684,7 +10684,7 @@ let f = x -> x + 1 in
 .diff-add[
 ```scala
     Γ[param <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
 *Γ |- Fun param body : `X -> Y`
 ```
 ]
@@ -10698,7 +10698,7 @@ let f = x -> x + 1 in
 
 ```scala
     Γ[param <- `X`] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
 Γ |- Fun param body : X -> Y
 ```
 
@@ -10712,7 +10712,7 @@ let f = x -> x + 1 in
 .diff-rm[
 ```scala
     Γ[param <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
 *Γ |- Fun `param` body : X -> Y
 ```
 ]
@@ -10729,7 +10729,7 @@ let f = x -> x + 1 in
 .diff-add[
 ```scala
     Γ[param <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
 *Γ |- Fun `(param : X)` body : X -> Y
 ```
 ]
@@ -10745,7 +10745,7 @@ let f = x -> x + 1 in
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
      Γ |- Apply fun arg : ???
 ```
 
@@ -10760,7 +10760,7 @@ let f = (x: Num) -> x + 1 in
 .diff-add[
 ```scala
 *&#x200B;`Γ |- fun : ???`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
      Γ |- Apply fun arg : ???
 ```
 ]
@@ -10775,7 +10775,7 @@ let f = (x: Num) -> x + 1 in
 .diff-rm[
 ```scala
 *&#x200B;Γ |- fun : `???`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
      Γ |- Apply fun arg : ???
 ```
 ]
@@ -10790,7 +10790,7 @@ let f = (x: Num) -> x + 1 in
 .diff-add[
 ```scala
 *&#x200B;Γ |- fun : `X -> Y`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
      Γ |- Apply fun arg : ???
 ```
 ]
@@ -10805,7 +10805,7 @@ let f = (x: Num) -> x + 1 in
 .diff-add[
 ```scala
 *Γ |- fun : X -> Y     `Γ |- arg : X`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
      Γ |- Apply fun arg : ???
 ```
 ]
@@ -10820,7 +10820,7 @@ let f = (x: Num) -> x + 1 in
 .diff-rm[
 ```scala
 Γ |- fun : X -> Y     Γ |- arg : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
 *    Γ |- Apply fun arg : `???`
 ```
 ]
@@ -10835,7 +10835,7 @@ let f = (x: Num) -> x + 1 in
 .diff-add[
 ```scala
 Γ |- fun : X -> Y     Γ |- arg : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
 *    Γ |- Apply fun arg : `Y`
 ```
 ]
@@ -10863,7 +10863,7 @@ enum Expr:
 
 ```scala
     Γ[param <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
 Γ |- Fun (param : `X`) body : X -> Y
 ```
 
@@ -10887,7 +10887,7 @@ enum Expr:
 
 ```scala
     Γ[param <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
 Γ |- Fun (param : `X`) body : X -> Y
 ```
 
@@ -10909,7 +10909,7 @@ enum Type:
 
 ```scala
     Γ[param <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
 Γ |- Fun (param : X) body : `X -> Y`
 ```
 
@@ -10933,7 +10933,7 @@ enum Type:
 
 ```scala
     Γ[param <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
 Γ |- Fun (param : X) body : `X -> Y`
 ```
 
@@ -10958,7 +10958,7 @@ enum Type:
 
 ```scala
     Γ[param <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
 Γ |- Fun (param : X) body : `X` -> Y
 ```
 
@@ -10982,7 +10982,7 @@ enum Type:
 
 ```scala
     Γ[param <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
 Γ |- Fun (param : X) body : X -> `Y`
 ```
 
@@ -11004,7 +11004,7 @@ def typeCheck(expr: Expr, Γ: TypeEnv): Either[String, Type] =
 
 ```scala
     Γ[param <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
 Γ |- `Fun (param : X) body` : X -> Y
 ```
 
@@ -11028,7 +11028,7 @@ def typeCheck(expr: Expr, Γ: TypeEnv): Either[String, Type] =
 
 ```scala
     Γ[param <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
 Γ |- `Fun (param : X) body` : X -> Y
 ```
 
@@ -11052,7 +11052,7 @@ def typeCheck(expr: Expr, Γ: TypeEnv): Either[String, Type] =
 
 ```scala
     Γ[param <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
 Γ |- Fun (param : X) body : X -> Y
 ```
 
@@ -11074,7 +11074,7 @@ def checkFun(param: String, x: Type, body: Expr, Γ: TypeEnv) =
 
 ```scala
     Γ[param <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
 Γ |- Fun (param : X) body : X -> Y
 ```
 
@@ -11098,7 +11098,7 @@ def checkFun(param: String, x: Type, body: Expr, Γ: TypeEnv) =
 
 ```scala
     Γ[param <- X] |- `body : Y`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
 Γ |- Fun (param : X) body : X -> Y
 ```
 
@@ -11122,7 +11122,7 @@ def checkFun(param: String, x: Type, body: Expr, Γ: TypeEnv) =
 
 ```scala
     `Γ[param <- X]` |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
 Γ |- Fun (param : X) body : X -> Y
 ```
 
@@ -11146,7 +11146,7 @@ def checkFun(param: String, x: Type, body: Expr, Γ: TypeEnv) =
 
 ```scala
     `Γ[param <- X]` |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
 Γ |- Fun (param : X) body : X -> Y
 ```
 
@@ -11170,7 +11170,7 @@ def checkFun(param: String, x: Type, body: Expr, Γ: TypeEnv) =
 
 ```scala
     Γ[param <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
 Γ |- Fun (param : X) body : `X -> Y`
 ```
 
@@ -11192,7 +11192,7 @@ def typeCheck(expr: Expr, Γ: TypeEnv): Either[String, Type] =
 
 ```scala
 Γ |- fun : X -> Y     Γ |- arg : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
     Γ |- `Apply fun arg` : Y
 ```
 
@@ -11216,7 +11216,7 @@ def typeCheck(expr: Expr, Γ: TypeEnv): Either[String, Type] =
 
 ```scala
 Γ |- fun : X -> Y     Γ |- arg : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
     Γ |- `Apply fun arg` : Y
 ```
 
@@ -11240,7 +11240,7 @@ def typeCheck(expr: Expr, Γ: TypeEnv): Either[String, Type] =
 
 ```scala
 Γ |- fun : X -> Y     Γ |- arg : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
     Γ |- Apply fun arg : Y
 ```
 
@@ -11262,7 +11262,7 @@ def checkApply(fun: Expr, arg: Expr, Γ: TypeEnv) =
 
 ```scala
 Γ |- fun : X -> Y     Γ |- arg : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
     Γ |- Apply fun arg : Y
 ```
 
@@ -11286,7 +11286,7 @@ def checkApply(fun: Expr, arg: Expr, Γ: TypeEnv) =
 
 ```scala
 &#x200B;`Γ |- fun` : X -> Y     Γ |- arg : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
     Γ |- Apply fun arg : Y
 ```
 
@@ -11310,7 +11310,7 @@ def checkApply(fun: Expr, arg: Expr, Γ: TypeEnv) =
 
 ```scala
 Γ |- fun : `X -> Y`     Γ |- arg : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
     Γ |- Apply fun arg : Y
 ```
 
@@ -11334,7 +11334,7 @@ def checkApply(fun: Expr, arg: Expr, Γ: TypeEnv) =
 
 ```scala
 Γ |- fun : X -> Y     `Γ |- arg : X`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
     Γ |- Apply fun arg : Y
 ```
 
@@ -11358,7 +11358,7 @@ def checkApply(fun: Expr, arg: Expr, Γ: TypeEnv) =
 
 ```scala
 Γ |- fun : X -> Y     Γ |- arg : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
     Γ |- Apply fun arg : `Y`
 ```
 
@@ -11382,7 +11382,7 @@ def checkApply(fun: Expr, arg: Expr, Γ: TypeEnv) =
 
 ```scala
 Γ |- fun : X -> Y     Γ |- arg : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
     Γ |- Apply fun arg : Y
 ```
 
@@ -11406,7 +11406,7 @@ def checkApply(fun: Expr, arg: Expr, Γ: TypeEnv) =
 
 ```scala
 Γ |- fun : X -> Y     Γ |- arg : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+───────────────────────────────────
     Γ |- Apply fun arg : Y
 ```
 
@@ -11414,7 +11414,7 @@ def checkApply(fun: Expr, arg: Expr, Γ: TypeEnv) =
 
 ```scala
 &#x200B;
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────────
       Γ |- LetRec name value body : ???
 ```
 
@@ -11430,7 +11430,7 @@ let rec sum = (lower: Num) -> (upper: Num) ->
 .diff-add[
 ```scala
 *&#x200B;`??? |- value : X`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────────
       Γ |- LetRec name value body : ???
 ```
 ]
@@ -11447,7 +11447,7 @@ let rec sum = `(lower: Num) -> (upper: Num) ->`
 .diff-rm[
 ```scala
 *&#x200B;`???` |- value : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────────
       Γ |- LetRec name value body : ???
 ```
 ]
@@ -11464,7 +11464,7 @@ let rec sum = `(lower: Num) -> (upper: Num) ->`
 .diff-add[
 ```scala
 *&#x200B;`Γ[name <- X]` |- value : X
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────────
       Γ |- LetRec name value body : ???
 ```
 ]
@@ -11481,7 +11481,7 @@ let rec sum = `(lower: Num) -> (upper: Num) ->`
 .diff-add[
 ```scala
 *Γ[name <- X] |- value : X               `??? |- body : Y`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────────
       Γ |- LetRec name value body : ???
 ```
 ]
@@ -11498,7 +11498,7 @@ let rec sum = (lower: Num) -> (upper: Num) ->
 .diff-rm[
 ```scala
 *Γ[name <- X] |- value : X               `???` |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────────
       Γ |- LetRec name value body : ???
 ```
 ]
@@ -11515,7 +11515,7 @@ let rec sum = (lower: Num) -> (upper: Num) ->
 .diff-add[
 ```scala
 *Γ[name <- X] |- value : X      `Γ[name <- X]` |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────────
       Γ |- LetRec name value body : ???
 ```
 ]
@@ -11532,7 +11532,7 @@ let rec sum = (lower: Num) -> (upper: Num) ->
 .diff-rm[
 ```scala
 Γ[name <- X] |- value : X      Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────────
 *     Γ |- LetRec name value body : `???`
 ```
 ]
@@ -11549,7 +11549,7 @@ let rec sum = (lower: Num) -> (upper: Num) ->
 .diff-add[
 ```scala
 Γ[name <- X] |- value : X      Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────────
 *     Γ |- LetRec name value body : `Y`
 ```
 ]
@@ -11565,7 +11565,7 @@ let rec sum = (lower: Num) -> (upper: Num) ->
 
 ```scala
 Γ[name <- `X`] |- value : X      Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────────
       Γ |- LetRec name value body : Y
 ```
 
@@ -11581,7 +11581,7 @@ let rec sum = (lower: Num) -> (upper: Num) ->
 .diff-rm[
 ```scala
 Γ[name <- X] |- value : X      Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────────
 *     Γ |- LetRec name `value` body : Y
 ```
 ]
@@ -11600,7 +11600,7 @@ let rec sum = (lower: Num) -> (upper: Num) ->
 .diff-add[
 ```scala
 Γ[name <- X] |- value : X      Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────────
 *     Γ |- LetRec name `(value : X)` body : Y
 ```
 ]
@@ -11634,7 +11634,7 @@ enum Expr:
 
 ```scala
 Γ[name <- X] |- value : X      Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────────
       Γ |- LetRec name (value : `X`) body : Y
 ```
 
@@ -11660,7 +11660,7 @@ enum Expr:
 
 ```scala
 Γ[name <- X] |- value : X      Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────────
       Γ |- LetRec name (value : `X`) body : Y
 ```
 
@@ -11684,7 +11684,7 @@ def typeCheck(expr: Expr, Γ: TypeEnv): Either[String, Type] =
 
 ```scala
 Γ[name <- X] |- value : X      Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────────
       Γ |- LetRec name (value : X) body : Y
 ```
 
@@ -11710,7 +11710,7 @@ def typeCheck(expr: Expr, Γ: TypeEnv): Either[String, Type] =
 
 ```scala
 Γ[name <- X] |- value : X      Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────────
       Γ |- `LetRec name (value : X) body` : Y
 ```
 
@@ -11736,7 +11736,7 @@ def typeCheck(expr: Expr, Γ: TypeEnv): Either[String, Type] =
 
 ```scala
 Γ[name <- X] |- value : X      Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────────
       Γ |- LetRec name (value : X) body : Y
 ```
 
@@ -11760,7 +11760,7 @@ def checkLetRec(name: String, value: Expr, x: Type,
 
 ```scala
 Γ[name <- X] |- value : X      Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────────
       Γ |- LetRec name (value : X) body : Y
 ```
 
@@ -11786,7 +11786,7 @@ def checkLetRec(name: String, value: Expr, x: Type,
 
 ```scala
 &#x200B;`Γ[name <- X]` |- value : X      Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────────
       Γ |- LetRec name (value : X) body : Y
 ```
 
@@ -11812,7 +11812,7 @@ def checkLetRec(name: String, value: Expr, x: Type,
 
 ```scala
 Γ[name <- X] |- `value : X`      Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────────
       Γ |- LetRec name (value : X) body : Y
 ```
 
@@ -11838,7 +11838,7 @@ def checkLetRec(name: String, value: Expr, x: Type,
 
 ```scala
 Γ[name <- X] |- value : X      `Γ[name <- X] |- body : Y`
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────────
       Γ |- LetRec name (value : X) body : Y
 ```
 
@@ -11864,7 +11864,7 @@ def checkLetRec(name: String, value: Expr, x: Type,
 
 ```scala
 Γ[name <- X] |- value : X      Γ[name <- X] |- body : Y
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+────────────────────────────────────────────────────────
       Γ |- LetRec name (value : X) body : `Y`
 ```
 
